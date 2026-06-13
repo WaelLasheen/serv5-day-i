@@ -1,8 +1,11 @@
 import 'package:day_i/core/database/objectbox_service.dart';
 import 'package:day_i/core/networking/api_service.dart';
 import 'package:day_i/core/networking/i_api_service.dart';
+import 'package:day_i/core/networking/token_manager/token_manager.dart';
+import 'package:day_i/core/networking/token_manager/token_manager_impl.dart';
 import 'package:day_i/core/router/app_router.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
@@ -12,6 +15,10 @@ final getIt = GetIt.instance;
 Future<void> setUpLocators() async {
   await _setupLocalization();
   await _setupObjectBox();
+
+  getIt.registerLazySingleton<ITokenManager>(
+    () => TokenManagerImpl(const FlutterSecureStorage()),
+  );
 
   getIt.registerLazySingleton<IApiService>(
     () => ApiServiceImpl()..initialize(),

@@ -1,5 +1,7 @@
+import 'package:day_i/core/di/di.dart';
 import 'package:day_i/core/networking/i_api_service.dart';
-import 'package:day_i/core/networking/interceptors/refresh_interceptor.dart';
+import 'package:day_i/core/networking/interceptors/token_interceptor.dart';
+import 'package:day_i/core/networking/token_manager/token_manager.dart';
 import 'package:day_i/core/utils/errors/server_failure.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -20,8 +22,8 @@ class ApiServiceImpl implements IApiService {
 
   @override
   void initialize() {
-    // add refresh interceptor to handle 401 errors and execute the request again
-    _dio.interceptors.add(RefreshInterceptor(dio: _dio));
+    final tokenManager = getIt<ITokenManager>();
+    _dio.interceptors.add(TokenInterceptor(dio: _dio, tokenManager: tokenManager));
 
     if (kDebugMode) {
       _dio.interceptors.add(
