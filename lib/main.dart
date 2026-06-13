@@ -3,6 +3,8 @@ import 'package:day_i/core/localization/logic/locale_cubit.dart';
 import 'package:day_i/core/localization/logic/locale_state.dart';
 import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/router/router_path.dart';
+import 'package:day_i/core/theme/app_themes.dart';
+import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,10 +42,19 @@ class MyApp extends StatelessWidget {
                 ],
                 supportedLocales: AppLocalizations.supportedLocales,
                 debugShowCheckedModeBanner: false,
+                // ----- will change when UI end -----
                 theme: ThemeData(
-                  extensions: [
-                    // add themes
-                  ],
+                  textTheme: TextTheme(
+                    displayLarge: FontStyles.h1,
+                    displayMedium: FontStyles.h2,
+                    displaySmall: FontStyles.h3,
+                    headlineMedium: FontStyles.bodyLarge,
+                    headlineSmall: FontStyles.bodyMedium,
+                    titleLarge: FontStyles.bodySmall,
+                    titleMedium: FontStyles.button,
+                    titleSmall: FontStyles.label,
+                  ),
+                  extensions: [AppThemes.lightTheme],
                 ),
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
                 initialRoute: RouterPath.splash,
