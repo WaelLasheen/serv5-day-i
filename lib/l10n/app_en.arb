@@ -1,0 +1,15 @@
+{
+    "@@locale": "en",
+    "appTitle": "Day I",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
+    "hello": "Hello World!",
+    "@hello": {
+        "description": "A simple greeting"
+    },
+    "welcomeMessage": "Welcome to Day I",
+    "changeLanguage": "Change Language",
+    "arabic": "Arabic",
+    "english": "English"
+}

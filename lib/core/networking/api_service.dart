@@ -1,0 +1,98 @@
+import 'package:day_i/core/networking/i_api_service.dart';
+import 'package:day_i/core/networking/interceptors/refresh_interceptor.dart';
+import 'package:day_i/core/utils/errors/server_failure.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'api_constants.dart';
+
+
+class ApiServiceImpl implements IApiService {
+  final Dio _dio = Dio();
+
+  ApiServiceImpl() {
+    _dio.options = BaseOptions(
+      baseUrl: ApiConstants.baseURL,
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout: const Duration(seconds: 60 * 5),
+    );
+  }
+
+  @override
+  void initialize() {
+    // add refresh interceptor to handle 401 errors and execute the request again
+    _dio.interceptors.add(RefreshInterceptor(dio: _dio));
+
+    if (kDebugMode) {
+      _dio.interceptors.add(
+        PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseHeader: false,
+          responseBody: true,
+          error: true,
+          compact: true,
+          maxWidth: 90, // keeps lines readable in consoles
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Response> post(String path, {dynamic data, Options? options}) async {
+    try {
+      return await _dio.post(path, data: data, options: options);
+    } on DioException catch (e) {
+      throw ServerFailure.fromDioError(e);
+    } catch (e) {
+      throw ServerFailure(e.toString());
+    }
+  }
+
+  @override
+  Future<Response> get(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      return await _dio.get(path, queryParameters: queryParameters);
+    } on DioException catch (e) {
+      throw ServerFailure.fromDioError(e);
+    } catch (e) {
+      throw ServerFailure(e.toString());
+    }
+  }
+
+  @override
+  Future<Response> put(String path, {dynamic data, Options? options}) async {
+    try {
+      return await _dio.put(path, data: data, options: options);
+    } on DioException catch (e) {
+      throw ServerFailure.fromDioError(e);
+    } catch (e) {
+      throw ServerFailure(e.toString());
+    }
+  }
+
+  @override
+  Future<Response> patch(String path, {dynamic data, Options? options}) async {
+    try {
+      return await _dio.patch(path, data: data, options: options);
+    } on DioException catch (e) {
+      throw ServerFailure.fromDioError(e);
+    } catch (e) {
+      throw ServerFailure(e.toString());
+    }
+  }
+
+  @override
+  Future<Response> delete(String path, {dynamic data, Options? options}) async {
+    try {
+      return await _dio.delete(path, data: data, options: options);
+    } on DioException catch (e) {
+      throw ServerFailure.fromDioError(e);
+    } catch (e) {
+      throw ServerFailure(e.toString());
+    }
+  }
+}
