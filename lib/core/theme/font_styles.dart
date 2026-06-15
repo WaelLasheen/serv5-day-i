@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FontStyles {
+abstract class FontStyles {
   static TextStyle get h1 => TextStyle(
     fontSize: 32.sp,
     fontWeight: FontWeight.bold,

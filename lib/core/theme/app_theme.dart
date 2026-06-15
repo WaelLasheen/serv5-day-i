@@ -9,6 +9,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color textPrimary;
   final Color textSecondary;
 
+  final OutlineInputBorder outlineInputBorder;
+
   AppTheme({
     required this.primaryColor,
     required this.secondaryColor,
@@ -17,6 +19,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.errorColor,
     required this.textPrimary,
     required this.textSecondary,
+    required this.outlineInputBorder,
   });
 
   @override
@@ -28,6 +31,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? errorColor,
     Color? textPrimary,
     Color? textSecondary,
+    OutlineInputBorder? outlineInputBorder,
   }) {
     return AppTheme(
       primaryColor: primaryColor ?? this.primaryColor,
@@ -37,14 +41,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
       errorColor: errorColor ?? this.errorColor,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
+      outlineInputBorder: outlineInputBorder ?? this.outlineInputBorder,
     );
   }
 
   @override
-  AppTheme lerp(
-    covariant ThemeExtension<AppTheme>? other,
-    double t,
-  ) {
+  AppTheme lerp(covariant ThemeExtension<AppTheme>? other, double t) {
     if (other is! AppTheme) {
       return this;
     }
@@ -57,6 +59,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
       errorColor: Color.lerp(errorColor, other.errorColor, t)!,
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
+      outlineInputBorder: outlineInputBorder,
     );
   }
 }
