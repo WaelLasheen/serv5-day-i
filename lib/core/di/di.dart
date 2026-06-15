@@ -14,7 +14,7 @@ import 'package:path_provider/path_provider.dart';
 final getIt = GetIt.instance;
 
 Future<void> setUpLocators() async {
-  await _setupLocalization();
+  await _setupHydratedBlocStorage();
   await _setupDatabaseService();
 
   getIt.registerLazySingleton<ITokenManager>(
@@ -28,7 +28,7 @@ Future<void> setUpLocators() async {
   getIt.registerSingleton<AppRouter>(AppRouter());
 }
 
-Future<void> _setupLocalization() async {
+Future<void> _setupHydratedBlocStorage() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
         ? HydratedStorageDirectory.web
