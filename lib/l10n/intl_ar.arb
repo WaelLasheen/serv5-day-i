@@ -1,0 +1,19 @@
+{
+    "@@locale": "ar",
+    "appTitle": "يومي",
+    "hello": "مرحباً بالعالم!",
+    "welcomeMessage": "مرحباً بك في يومي",
+    "changeLanguage": "تغيير اللغة",
+    "arabic": "العربية",
+    "english": "الإنجليزية",
+    "pathNotFound": "المسار غير موجود",
+    "connectionTimeout": "انتهى وقت الاتصال",
+    "sendTimeout": "انتهى وقت الإرسال",
+    "receiveTimeout": "انتهى وقت الاستقبال",
+    "badCertificate": "شهادة غير صالحة",
+    "requestCanceled": "تم إلغاء الطلب",
+    "noInternetConnection": "لا يوجد اتصال بالإنترنت",
+    "unexpectedError": "خطأ غير متوقع، يرجى المحاولة مرة أخرى!",
+    "internalServerError": "خطأ في الخادم الداخلي، يرجى المحاولة لاحقاً",
+    "oopsError": "عذراً! حدث خطأ، يرجى المحاولة مرة أخرى"
+}

@@ -1,3 +1,4 @@
+import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class PathNotFound extends StatelessWidget {
@@ -5,6 +6,8 @@ class PathNotFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("Path Not Found")));
+    return Scaffold(
+      body: Center(child: Text(S.current.pathNotFound)),
+    );
   }
 }

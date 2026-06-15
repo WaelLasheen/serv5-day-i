@@ -1,0 +1,19 @@
+{
+    "@@locale": "en",
+    "appTitle": "Day I",
+    "hello": "Hello World!",
+    "welcomeMessage": "Welcome to Day I",
+    "changeLanguage": "Change Language",
+    "arabic": "Arabic",
+    "english": "English",
+    "pathNotFound": "Path Not Found",
+    "connectionTimeout": "Connection timeout",
+    "sendTimeout": "Send timeout",
+    "receiveTimeout": "Receive timeout",
+    "badCertificate": "Bad Certificate",
+    "requestCanceled": "Request was canceled",
+    "noInternetConnection": "No Internet Connection",
+    "unexpectedError": "Unexpected Error, Please try again!",
+    "internalServerError": "Internal Server error, Please try later",
+    "oopsError": "Oops! There was an Error, Please try again"
+}

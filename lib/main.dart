@@ -5,7 +5,7 @@ import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_themes.dart';
 import 'package:day_i/core/theme/font_styles.dart';
-import 'package:day_i/l10n/app_localizations.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -35,12 +35,12 @@ class MyApp extends StatelessWidget {
                 title: 'Day I',
                 locale: state.locale,
                 localizationsDelegates: [
-                  AppLocalizations.delegate,
+                  S.delegate,
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
                 ],
-                supportedLocales: AppLocalizations.supportedLocales,
+                supportedLocales: S.delegate.supportedLocales,
                 debugShowCheckedModeBanner: false,
                 // ----- will change when UI end -----
                 theme: ThemeData(

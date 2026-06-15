@@ -1,48 +1,52 @@
 import 'package:day_i/core/utils/errors/failure.dart';
 import 'package:day_i/core/utils/extensions/number_range.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'package:dio/dio.dart';
-
 class ServerFailure extends Failure {
   const ServerFailure(super.message);
 
   factory ServerFailure.fromDioError(DioException dioException) {
+    final s = S.current;
+
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure('Connection timeout');
+        return ServerFailure(s.connectionTimeout);
 
       case DioExceptionType.sendTimeout:
-        return ServerFailure('Send timeout');
+        return ServerFailure(s.sendTimeout);
 
       case DioExceptionType.receiveTimeout:
-        return ServerFailure('Receive timeout');
+        return ServerFailure(s.receiveTimeout);
 
       case DioExceptionType.badCertificate:
-        return ServerFailure('Bad Certificate');
+        return ServerFailure(s.badCertificate);
 
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(dioException.response);
 
       case DioExceptionType.cancel:
-        return ServerFailure('Request was canceled');
+        return ServerFailure(s.requestCanceled);
 
       case DioExceptionType.connectionError:
-        return ServerFailure('No Internet Connection');
+        return ServerFailure(s.noInternetConnection);
 
       case DioExceptionType.unknown:
-        return ServerFailure('Unexpected Error, Please try again!');
+        return ServerFailure(s.unexpectedError);
     }
   }
 
   factory ServerFailure.fromResponse(Response? response) {
+    final s = S.current;
+
     final int? statusCode = response?.statusCode;
     final data = response?.data;
 
     if (statusCode != null && statusCode.isBetween(400, 499)) {
       return ServerFailure(data['message']);
     } else if (statusCode != null && statusCode.isBetween(500, 599)) {
-      return ServerFailure('Internal Server error, Please try later');
+      return ServerFailure(s.internalServerError);
     } else {
-      return ServerFailure('Oops! There was an Error, Please try again');
+      return ServerFailure(s.oopsError);
     }
   }
 }
