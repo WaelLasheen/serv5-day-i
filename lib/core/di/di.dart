@@ -1,4 +1,5 @@
-import 'package:day_i/core/database/objectbox_service.dart';
+import 'package:day_i/core/database/database_service.dart';
+import 'package:day_i/core/database/shared_preferences_service.dart';
 import 'package:day_i/core/networking/api_service.dart';
 import 'package:day_i/core/networking/i_api_service.dart';
 import 'package:day_i/core/networking/token_manager/token_manager.dart';
@@ -14,7 +15,7 @@ final getIt = GetIt.instance;
 
 Future<void> setUpLocators() async {
   await _setupLocalization();
-  await _setupObjectBox();
+  await _setupDatabaseService();
 
   getIt.registerLazySingleton<ITokenManager>(
     () => TokenManagerImpl(const FlutterSecureStorage()),
@@ -37,7 +38,8 @@ Future<void> _setupLocalization() async {
   );
 }
 
-Future<void> _setupObjectBox() async {
-  final objectBoxService = await ObjectBoxServiceImpl.create();
-  getIt.registerLazySingleton<IObjectBoxService>(() => objectBoxService);
+Future<void> _setupDatabaseService() async {
+  final databaseService = SharedPreferencesService();
+  await databaseService.init();
+  getIt.registerSingleton<DatabaseService>(databaseService);
 }
