@@ -39,7 +39,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: ^5.9.3
-  flutter_secure_storage: ^9.2.4
+  flutter_secure_storage: 
+  flutter_svg: ^2.2.3
+  font_awesome_flutter: ^10.9.1
   get_it: ^9.2.1
   hydrated_bloc: ^10.0.0
   intl: ^0.20.2

@@ -22,17 +22,30 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
     "appTitle": MessageLookupByLibrary.simpleMessage("Day I"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout",
     ),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "hello": MessageLookupByLibrary.simpleMessage("Hello World!"),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "Internal Server error, Please try later",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Login to manage book fairs and cultural events",
     ),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
@@ -40,12 +53,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "oopsError": MessageLookupByLibrary.simpleMessage(
       "Oops! There was an Error, Please try again",
     ),
+    "or": MessageLookupByLibrary.simpleMessage("OR"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
+    "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage(
       "Request was canceled",
     ),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
+    "signup": MessageLookupByLibrary.simpleMessage("Create New Account"),
+    "signupSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Create your account to manage your marketing campaigns smartly within minutes",
+    ),
+    "termsAndConditions": MessageLookupByLibrary.simpleMessage(
+      "I agree to the terms and conditions and privacy policy",
+    ),
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "Unexpected Error, Please try again!",
     ),

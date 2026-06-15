@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => LocaleCubit(),
       child: ScreenUtilInit(
-        designSize: const Size(390, 884),
+        designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
                 // ----- will change when UI end -----
                 theme: AppThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
-                initialRoute: RouterPath.splash,
+                initialRoute: RouterPath.login,
               );
             },
           );

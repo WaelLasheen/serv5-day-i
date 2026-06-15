@@ -5,6 +5,7 @@ import 'package:day_i/core/networking/i_api_service.dart';
 import 'package:day_i/core/networking/token_manager/token_manager.dart';
 import 'package:day_i/core/networking/token_manager/token_manager_impl.dart';
 import 'package:day_i/core/router/app_router.dart';
+import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
@@ -26,6 +27,8 @@ Future<void> setUpLocators() async {
   );
 
   getIt.registerSingleton<AppRouter>(AppRouter());
+
+  getIt.registerLazySingleton<ImagePath>(() => ImagePath());
 }
 
 Future<void> _setupHydratedBlocStorage() async {

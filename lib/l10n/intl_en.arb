@@ -15,5 +15,18 @@
     "noInternetConnection": "No Internet Connection",
     "unexpectedError": "Unexpected Error, Please try again!",
     "internalServerError": "Internal Server error, Please try later",
-    "oopsError": "Oops! There was an Error, Please try again"
+    "oopsError": "Oops! There was an Error, Please try again",
+    "login": "Login",
+    "loginSubtitle": "Login to manage book fairs and cultural events",
+    "signup": "Create New Account",
+    "signupSubtitle": "Create your account to manage your marketing campaigns smartly within minutes",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "termsAndConditions": "I agree to the terms and conditions and privacy policy",
+    "or": "OR",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "registerNow": "Register Now"
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class AppThemes {
   static final AppTheme lightThemeColors = AppTheme(
-    primaryColor: const Color(0xFF6200EE),
+    primaryColor: const Color(0xFF4F46E5),
     secondaryColor: const Color(0xFF03DAC6),
     backgroundColor: const Color(0xFFF5F5F5),
     surfaceColor: Colors.white,
