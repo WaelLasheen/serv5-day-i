@@ -1,7 +1,7 @@
 import 'package:day_i/core/localization/app_language.dart';
 import 'package:day_i/core/localization/logic/locale_cubit.dart';
 import 'package:day_i/core/localization/logic/locale_state.dart';
-import 'package:day_i/core/utils/extensions/localization_extension.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              context.getLocalization.welcomeMessage,
+              S.current.welcomeMessage,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 40),
@@ -31,8 +31,8 @@ class SplashScreen extends StatelessWidget {
                   },
                   child: Text(
                     state.language == AppLanguage.en
-                        ? context.getLocalization.arabic
-                        : context.getLocalization.english,
+                        ? S.current.arabic
+                        : S.current.english,
                   ),
                 );
               },
