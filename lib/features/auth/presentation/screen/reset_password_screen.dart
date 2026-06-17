@@ -6,7 +6,6 @@ import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/widgets/app_button.dart';
 import 'package:day_i/core/widgets/app_password_form_field.dart';
-import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
