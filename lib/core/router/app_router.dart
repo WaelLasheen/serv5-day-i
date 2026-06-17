@@ -1,9 +1,9 @@
 import 'package:day_i/core/router/path_not_found.dart';
 import 'package:day_i/core/router/router_path.dart';
-import 'package:day_i/features/auth/ui/forgot_password_screen.dart';
-import 'package:day_i/features/auth/ui/login_screen.dart';
+import 'package:day_i/features/auth/presentation/screen/forgot_password_screen.dart';
+import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
+import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/auth/ui/otp_screen.dart';
-import 'package:day_i/features/auth/ui/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
