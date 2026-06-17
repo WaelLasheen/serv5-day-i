@@ -40,12 +40,15 @@ class FormTakeAction extends StatelessWidget {
         AppButton(text: primaryButtonText, onPressed: onPrimaryPressed),
         OrSeparator(),
         // google login button
-        AppButton(
-          text: S.current.login,
-          isPrimary: false,
-          icon: SvgPicture.asset(imagePath.google, height: 180.h),
-          border: BorderSide(color: theme.boarderPrimary, width: 1.w),
-          onPressed: () {},
+        Directionality(
+          textDirection: TextDirection.ltr,
+          child: AppButton(
+            text: S.current.login,
+            isPrimary: false,
+            icon: SvgPicture.asset(imagePath.google, height: 20.h, width: 20.w),
+            border: BorderSide(color: theme.boarderPrimary, width: 1.w),
+            onPressed: () {},
+          ),
         ),
         TextWithAction(
           normalText: footerNormalText ?? S.current.dontHaveAccount,

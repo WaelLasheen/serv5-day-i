@@ -14,12 +14,16 @@ class TermsAndConditions extends StatelessWidget {
 
     return Row(
       children: [
-        ValueListenableBuilder(
+        ValueListenableBuilder<bool>(
           valueListenable: isTermsAcceptedNotifier,
-          builder: (context, value, child) {
+          builder: (context, isAccepted, child) {
             return Checkbox(
-              value: isTermsAcceptedNotifier.value,
-              onChanged: (value) => isTermsAcceptedNotifier.value = !value!,
+              value: isAccepted,
+              onChanged: (newValue) {
+                if (newValue != null) {
+                  isTermsAcceptedNotifier.value = newValue;
+                }
+              },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4.r),
               ),
