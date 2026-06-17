@@ -37,11 +37,27 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account?",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
+    "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "forgotPasswordSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter your email address to reset your password.",
+    ),
+    "forgotPasswordTitle": MessageLookupByLibrary.simpleMessage(
+      "Forgot Password?",
+    ),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "fullNameReq": MessageLookupByLibrary.simpleMessage(
+      "Full Name is required",
+    ),
     "hello": MessageLookupByLibrary.simpleMessage("Hello World!"),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "Internal Server error, Please try later",
+    ),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email",
+    ),
+    "invalidPassword": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 8 characters",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -54,13 +70,26 @@ class MessageLookup extends MessageLookupByLibrary {
       "Oops! There was an Error, Please try again",
     ),
     "or": MessageLookupByLibrary.simpleMessage("OR"),
+    "otpEntryInstruction": MessageLookupByLibrary.simpleMessage(
+      "We sent a 6-digit code to the email",
+    ),
+    "otpInvalidError": MessageLookupByLibrary.simpleMessage(
+      "Invalid verification code. Please try again.",
+    ),
+    "otpSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter the verification code we sent to your email.",
+    ),
+    "otpTitle": MessageLookupByLibrary.simpleMessage("Enter Verification Code"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordReq": MessageLookupByLibrary.simpleMessage("Password is required"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage(
       "Request was canceled",
     ),
+    "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
     "signup": MessageLookupByLibrary.simpleMessage("Create New Account"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -72,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "Unexpected Error, Please try again!",
     ),
+    "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Day I"),
   };
 }

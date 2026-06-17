@@ -6,6 +6,7 @@ class AppButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool isPrimary;
   final Widget? icon;
+  final BorderSide? border;
 
   const AppButton({
     super.key,
@@ -13,6 +14,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     this.isPrimary = true,
     this.icon,
+    this.border,
   });
 
   @override
@@ -24,6 +26,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           icon: icon ?? const SizedBox.shrink(),
           label: Text(text),
+          style: ElevatedButton.styleFrom(side: border),
         ),
       );
     } else {
@@ -33,6 +36,7 @@ class AppButton extends StatelessWidget {
           onPressed: onPressed,
           icon: icon ?? const SizedBox.shrink(),
           label: Text(text),
+          style: OutlinedButton.styleFrom(side: border),
         ),
       );
     }

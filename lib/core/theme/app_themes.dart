@@ -1,25 +1,27 @@
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppThemes {
-  static final AppTheme lightThemeColors = AppTheme(
-    primaryColor: const Color(0xFF4F46E5),
+  final AppTheme lightThemeColors = AppTheme(
+    primaryColor: const Color(0xFF4F46E5), // done
     secondaryColor: const Color(0xFF03DAC6),
     backgroundColor: const Color(0xFFF5F5F5),
     surfaceColor: Colors.white,
-    errorColor: const Color(0xFFB00020),
-    textPrimary: const Color(0xFF000000),
-    textSecondary: const Color(0xFF757575),
+    errorColor: const Color(0xFFAB1C1E), // done
+    textPrimary: const Color(0xFF121212), // done
+    textSecondary: const Color(0xFF9E9E9E),
+    grey600: const Color(0xFFCACACA),
+    grey700: const Color(0xFF9E9E9E),
+    boarderPrimary: const Color(0xFFE9E9E9),
     outlineInputBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide(
-        color: lightThemeColors.textSecondary.withAlpha(100),
-      ),
+      borderRadius: BorderRadius.circular(12.r),
+      borderSide: BorderSide(color: const Color(0xFF757575).withAlpha(100)),
     ),
   );
 
-  static ThemeData get lightTheme {
+  ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true, // Ensures modern component behaviors
       brightness: Brightness.light,
@@ -45,7 +47,7 @@ class AppThemes {
         iconTheme: IconThemeData(color: lightThemeColors.textPrimary, size: 24),
         actionsIconTheme: IconThemeData(
           color: lightThemeColors.textSecondary,
-          size: 24,
+          size: 24.sp,
         ),
         titleTextStyle: FontStyles.h3.copyWith(
           color: lightThemeColors.textPrimary,
@@ -64,7 +66,7 @@ class AppThemes {
           textStyle: FontStyles.button,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12), // Clean modern rounding
+            borderRadius: BorderRadius.circular(12.r), // Clean modern rounding
           ),
         ),
       ),
@@ -77,13 +79,13 @@ class AppThemes {
           textStyle: FontStyles.button,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
         ),
       ),
 
       // 5. Global Icon Theme (For standalone icons)
-      iconTheme: IconThemeData(color: lightThemeColors.textPrimary, size: 24),
+      iconTheme: IconThemeData(color: lightThemeColors.grey700, size: 24.sp),
 
       // 6. Form Fields & TextInputs (Crucial for a polished UX)
       inputDecorationTheme: InputDecorationTheme(
@@ -94,10 +96,10 @@ class AppThemes {
           vertical: 16,
         ),
         labelStyle: FontStyles.bodyMedium.copyWith(
-          color: lightThemeColors.textSecondary,
+          color: lightThemeColors.textPrimary,
         ),
         hintStyle: FontStyles.bodyMedium.copyWith(
-          color: lightThemeColors.textSecondary.withAlpha(150),
+          color: lightThemeColors.textSecondary,
         ),
         border: lightThemeColors.outlineInputBorder,
         enabledBorder: lightThemeColors.outlineInputBorder,
@@ -117,7 +119,7 @@ class AppThemes {
         color: lightThemeColors.surfaceColor,
         elevation: 2,
         margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
       ),
 
       // Keep your extensions injected at the bottom

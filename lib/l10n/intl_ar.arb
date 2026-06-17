@@ -28,5 +28,19 @@
     "or": "أو",
     "dontHaveAccount": "ليس لديك حساب؟",
     "alreadyHaveAccount": "لديك حساب بالفعل؟",
-    "registerNow": "سجل الآن"
+    "registerNow": "سجل الآن",
+    "forgotPasswordTitle": "نسيت كلمة المرور؟",
+    "forgotPasswordSubtitle": "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة.",
+    "sendCode": "ارسال رمز للتحقق",
+    "otpTitle": "أدخل رمز التحقق",
+    "otpSubtitle": "أدخل رمز التحقق الذي أرسلناه إلى بريدك الإلكتروني.",
+    "otpEntryInstruction": "أرسلنا رمز مكون من 6أرقام الى البريد الإلكتروني",
+    "verifyCode": "تأكيد رمز التحقق",
+    "resendCode": "إعادة إرسال الرمز",
+    "otpInvalidError": "رمز التحقق غير صحيح .يرجى المحاولة مرة اخرى.",
+    "emailReq": "البريد الإلكتروني مطلوب",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+    "passwordReq": "كلمة المرور مطلوبة",
+    "invalidPassword": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "fullNameReq": "الاسم الكامل مطلوب"
 }

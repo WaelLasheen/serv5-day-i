@@ -27,9 +27,10 @@ class MyApp extends StatelessWidget {
         designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (context, child) {
+        builder: (_, child) {
+          final appThemes = AppThemes();
           return BlocBuilder<LocaleCubit, LocaleState>(
-            builder: (context, state) {
+            builder: (_, state) {
               return MaterialApp(
                 title: 'Day I',
                 locale: state.locale,
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
                 supportedLocales: S.delegate.supportedLocales,
                 debugShowCheckedModeBanner: false,
                 // ----- will change when UI end -----
-                theme: AppThemes.lightTheme,
+                theme: appThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
                 initialRoute: RouterPath.login,
               );

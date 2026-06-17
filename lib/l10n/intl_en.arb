@@ -28,5 +28,19 @@
     "or": "OR",
     "dontHaveAccount": "Don't have an account?",
     "alreadyHaveAccount": "Already have an account?",
-    "registerNow": "Register Now"
+    "registerNow": "Register Now",
+    "forgotPasswordTitle": "Forgot Password?",
+    "forgotPasswordSubtitle": "Enter your email address to reset your password.",
+    "sendCode": "Send Verification Code",
+    "otpTitle": "Enter Verification Code",
+    "otpSubtitle": "Enter the verification code we sent to your email.",
+    "otpEntryInstruction": "We sent a 6-digit code to the email",
+    "verifyCode": "Verify Code",
+    "resendCode": "Resend Code",
+    "otpInvalidError": "Invalid verification code. Please try again.",
+    "emailReq": "Email is required",
+    "invalidEmail": "Please enter a valid email",
+    "passwordReq": "Password is required",
+    "invalidPassword": "Password must be at least 8 characters",
+    "fullNameReq": "Full Name is required"
 }

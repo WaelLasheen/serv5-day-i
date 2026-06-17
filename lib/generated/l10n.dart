@@ -298,6 +298,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Forgot Password?`
+  String get forgotPasswordTitle {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email address to reset your password.`
+  String get forgotPasswordSubtitle {
+    return Intl.message(
+      'Enter your email address to reset your password.',
+      name: 'forgotPasswordSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Verification Code`
+  String get sendCode {
+    return Intl.message(
+      'Send Verification Code',
+      name: 'sendCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Verification Code`
+  String get otpTitle {
+    return Intl.message(
+      'Enter Verification Code',
+      name: 'otpTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the verification code we sent to your email.`
+  String get otpSubtitle {
+    return Intl.message(
+      'Enter the verification code we sent to your email.',
+      name: 'otpSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We sent a 6-digit code to the email`
+  String get otpEntryInstruction {
+    return Intl.message(
+      'We sent a 6-digit code to the email',
+      name: 'otpEntryInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify Code`
+  String get verifyCode {
+    return Intl.message('Verify Code', name: 'verifyCode', desc: '', args: []);
+  }
+
+  /// `Resend Code`
+  String get resendCode {
+    return Intl.message('Resend Code', name: 'resendCode', desc: '', args: []);
+  }
+
+  /// `Invalid verification code. Please try again.`
+  String get otpInvalidError {
+    return Intl.message(
+      'Invalid verification code. Please try again.',
+      name: 'otpInvalidError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email is required`
+  String get emailReq {
+    return Intl.message(
+      'Email is required',
+      name: 'emailReq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get invalidEmail {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is required`
+  String get passwordReq {
+    return Intl.message(
+      'Password is required',
+      name: 'passwordReq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters`
+  String get invalidPassword {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'invalidPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name is required`
+  String get fullNameReq {
+    return Intl.message(
+      'Full Name is required',
+      name: 'fullNameReq',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

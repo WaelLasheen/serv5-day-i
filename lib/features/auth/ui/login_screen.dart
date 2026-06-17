@@ -1,18 +1,13 @@
 import 'package:day_i/core/di/di.dart';
-import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_theme.dart';
-import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
-import 'package:day_i/core/utils/extensions/navigation_extension.dart';
-import 'package:day_i/core/widgets/app_button.dart';
-import 'package:day_i/core/widgets/app_password_form_field.dart';
-import 'package:day_i/core/widgets/app_text_form_field.dart';
+import 'package:day_i/features/auth/presentation/widget/auth_header.dart';
+import 'package:day_i/features/auth/presentation/widget/form_take_action.dart';
+import 'package:day_i/features/auth/presentation/widget/login_form.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,7 +18,20 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  bool _isTermsAccepted = false;
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  final ValueNotifier<bool> _isTermsAcceptedNotifier = ValueNotifier<bool>(
+    false,
+  );
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _isTermsAcceptedNotifier.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,44 +44,15 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             SizedBox(height: 50.h),
-            _buildHeader(context),
-            SizedBox(height: 20.h),
-            SvgPicture.asset(
-              imagePath.marketingConsulting,
-              height: 180.h,
+            AuthHeader(
+              title: S.current.login,
+              subtitle: S.current.loginSubtitle,
+              imagePath: imagePath.marketingConsulting,
             ),
             SizedBox(height: 30.h),
             _buildLoginFields(context, theme),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildHeader(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: () => context.navigateBack(),
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
-              ),
-            ],
-          ),
-          Text(
-            S.current.login,
-            style: FontStyles.h1.copyWith(color: Colors.white),
-          ),
-          SizedBox(height: 8.h),
-          Text(
-            S.current.loginSubtitle,
-            textAlign: TextAlign.center,
-            style: FontStyles.bodyMedium.copyWith(color: Colors.white.withAlpha(200)),
-          ),
-        ],
       ),
     );
   }
@@ -91,94 +70,21 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Form(
         key: _formKey,
         child: Column(
+          spacing: 32.h,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(S.current.email, style: FontStyles.bodyMedium),
-            SizedBox(height: 8.h),
-            AppTextFormField(
-              hintText: "rania@gmail.com",
-              prefixIcon: const Icon(Icons.email_outlined),
+            LoginForm(
+              emailController: _emailController,
+              passwordController: _passwordController,
+              isTermsAcceptedNotifier: _isTermsAcceptedNotifier,
             ),
-            SizedBox(height: 20.h),
-            Text(S.current.password, style: FontStyles.bodyMedium),
-            SizedBox(height: 8.h),
-            AppPasswordFormField(hintText: "********"),
-            SizedBox(height: 20.h),
-            _buildTermsAndConditions(theme),
-            SizedBox(height: 30.h),
-            AppButton(
-              text: S.current.login,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  // Perform login
-                }
-              },
+            FormTakeAction(
+              primaryButtonText: S.current.login,
+              onPrimaryPressed: () {},
             ),
-            SizedBox(height: 20.h),
-            _buildOrSeparator(theme),
-            SizedBox(height: 20.h),
-            AppButton(
-              text: S.current.login,
-              isPrimary: false,
-              icon: const FaIcon(FontAwesomeIcons.google, color: Colors.red, size: 20),
-              onPressed: () {},
-            ),
-            SizedBox(height: 30.h),
-            _buildSignUpPromt(context),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildTermsAndConditions(AppTheme theme) {
-    return Row(
-      children: [
-        Checkbox(
-          value: _isTermsAccepted,
-          onChanged: (value) => setState(() => _isTermsAccepted = value!),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.r)),
-          activeColor: theme.primaryColor,
-        ),
-        Expanded(
-          child: Text(
-            S.current.termsAndConditions,
-            style: FontStyles.label.copyWith(color: theme.primaryColor),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildOrSeparator(AppTheme theme) {
-    return Row(
-      children: [
-        Expanded(child: Divider(color: theme.textSecondary.withAlpha(50))),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
-          child: Text(S.current.or, style: FontStyles.label),
-        ),
-        Expanded(child: Divider(color: theme.textSecondary.withAlpha(50))),
-      ],
-    );
-  }
-
-  Widget _buildSignUpPromt(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(S.current.dontHaveAccount, style: FontStyles.bodySmall),
-        TextButton(
-          onPressed: () => context.navigateTo(RouterPath.signup),
-          child: Text(
-            S.current.registerNow,
-            style: FontStyles.bodySmall.copyWith(
-              color: context.appTheme.primaryColor,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
