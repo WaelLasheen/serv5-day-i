@@ -3,6 +3,7 @@ import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/features/auth/ui/forgot_password_screen.dart';
 import 'package:day_i/features/auth/ui/login_screen.dart';
 import 'package:day_i/features/auth/ui/otp_screen.dart';
+import 'package:day_i/features/auth/ui/reset_password_screen.dart';
 import 'package:day_i/features/auth/ui/signup_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => OtpScreen(email: email),
         );
+        
+      case RouterPath.resetPassword:
+        return MaterialPageRoute(builder: (context) => const ResetPasswordScreen());
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
     }

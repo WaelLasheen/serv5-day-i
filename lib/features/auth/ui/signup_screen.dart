@@ -102,7 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(height: 8.h),
             AppTextFormField(
               hintText: "rania@gmail.com",
-              prefixIcon: const Icon(Icons.email_outlined),
+              prefixIcon: const Icon(Icons.email_outlined),gi
             ),
             SizedBox(height: 20.h),
             Text(S.current.password, style: FontStyles.bodyMedium),

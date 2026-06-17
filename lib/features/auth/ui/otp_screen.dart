@@ -1,9 +1,11 @@
+import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/utils/services/validation_service.dart';
 import 'package:day_i/core/widgets/app_button.dart';
+import 'package:day_i/features/auth/ui/reset_password_screen.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,11 +32,12 @@ class _OtpScreenState extends State<OtpScreen> {
   }
 
   void _onVerify() {
-    final error = ValidationService.validateOtp(_otpController.text);
-    setState(() => _hasError = error != null);
-    if (error == null) {
-      // proceed with OTP verification
-    }
+    context.navigateTo(RouterPath.resetPassword);
+    // final error = ValidationService.validateOtp(_otpController.text);
+    // setState(() => _hasError = error != null);
+    // if (error == null) {
+    //   // proceed with OTP verification
+    // }
   }
 
   @override

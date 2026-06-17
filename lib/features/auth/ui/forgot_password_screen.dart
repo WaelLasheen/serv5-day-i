@@ -118,14 +118,12 @@ class _ForgotPasswordForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(S.current.email, style: FontStyles.bodyMedium),
-            SizedBox(height: 8.h),
             AppTextFormField(
               hintText: 'example@email.com',
               prefixIcon: const Icon(Icons.email_outlined),
               controller: emailController,
               validator: ValidationService.validateEmail,
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.emailAddress, label: S.current.email,
             ),
             SizedBox(height: 30.h),
             AppButton(
@@ -139,3 +137,4 @@ class _ForgotPasswordForm extends StatelessWidget {
     );
   }
 }
+
