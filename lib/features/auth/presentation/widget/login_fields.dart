@@ -5,12 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginFields extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey;
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final ValueNotifier<bool> isTermsAcceptedNotifier;
 
-  const LoginFields({super.key});
+  const LoginFields({
+    super.key,
+    required this.formKey,
+    required this.emailController,
+    required this.passwordController,
+    required this.isTermsAcceptedNotifier,
+  });
 
   @override
   Widget build(BuildContext context) {
