@@ -4,7 +4,6 @@ import 'package:day_i/features/auth/presentation/screen/forgot_password_screen.d
 import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
-
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 
 import 'package:flutter/material.dart';
