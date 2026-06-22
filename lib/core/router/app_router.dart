@@ -5,6 +5,7 @@ import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
+import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -23,12 +24,15 @@ class AppRouter {
         );
       case RouterPath.otp:
         final email = settings.arguments as String? ?? '';
-        return MaterialPageRoute(
-          builder: (context) => OtpScreen(email: email),
-        );
-        
+        return MaterialPageRoute(builder: (context) => OtpScreen(email: email));
+
       case RouterPath.resetPassword:
-        return MaterialPageRoute(builder: (context) => const ResetPasswordScreen());
+        return MaterialPageRoute(
+          builder: (context) => const ResetPasswordScreen(),
+        );
+
+      case RouterPath.navBar:
+        return MaterialPageRoute(builder: (context) => const NavBarScreen());
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
     }

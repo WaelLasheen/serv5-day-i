@@ -8,9 +8,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color errorColor;
   final Color textPrimary;
   final Color textSecondary;
+  final Color grey500;
   final Color grey600;
   final Color grey700;
+  final Color grey800;
   final Color boarderPrimary;
+  final Color blueLight;
 
   final OutlineInputBorder outlineInputBorder;
 
@@ -22,9 +25,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.errorColor,
     required this.textPrimary,
     required this.textSecondary,
+    required this.grey500,
     required this.grey600,
     required this.grey700,
+    required this.grey800,
     required this.boarderPrimary,
+    required this.blueLight,
     required this.outlineInputBorder,
   });
 
@@ -37,9 +43,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? errorColor,
     Color? textPrimary,
     Color? textSecondary,
+    Color? grey500,
     Color? grey600,
     Color? grey700,
+    Color? grey800,
     Color? boarderPrimary,
+    Color? blueLight,
     OutlineInputBorder? outlineInputBorder,
   }) {
     return AppTheme(
@@ -50,9 +59,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
       errorColor: errorColor ?? this.errorColor,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
+      grey500: grey500 ?? this.grey500,
       grey600: grey600 ?? this.grey600,
       grey700: grey700 ?? this.grey700,
+      grey800: grey800 ?? this.grey800,
       boarderPrimary: boarderPrimary ?? this.boarderPrimary,
+      blueLight: blueLight ?? this.blueLight,
       outlineInputBorder: outlineInputBorder ?? this.outlineInputBorder,
     );
   }
@@ -71,9 +83,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
       errorColor: Color.lerp(errorColor, other.errorColor, t)!,
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
+      grey500: Color.lerp(grey500, other.grey500, t)!,
       grey600: Color.lerp(grey600, other.grey600, t)!,
       grey700: Color.lerp(grey700, other.grey700, t)!,
+      grey800: Color.lerp(grey800, other.grey800, t)!,
       boarderPrimary: Color.lerp(boarderPrimary, other.boarderPrimary, t)!,
+      blueLight: Color.lerp(blueLight, other.blueLight, t)!,
       outlineInputBorder: outlineInputBorder,
     );
   }

@@ -12,9 +12,12 @@ class AppThemes {
     errorColor: const Color(0xFFAB1C1E), // done
     textPrimary: const Color(0xFF121212), // done
     textSecondary: const Color(0xFF9E9E9E),
+    grey500: const Color(0xFFDEDEDE),
     grey600: const Color(0xFFCACACA),
     grey700: const Color(0xFF9E9E9E),
+    grey800: const Color(0xFF7A7A7A),
     boarderPrimary: const Color(0xFFE9E9E9),
+    blueLight: const Color(0xFFEDEDFC),
     outlineInputBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12.r),
       borderSide: BorderSide(color: const Color(0xFF757575).withAlpha(100)),
