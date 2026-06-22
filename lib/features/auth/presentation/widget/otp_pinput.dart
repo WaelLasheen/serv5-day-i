@@ -44,6 +44,7 @@ class OtpPinput extends StatelessWidget {
     );
 
     return Column(
+      spacing: 8.h,
       children: [
         Pinput(
           controller: controller,

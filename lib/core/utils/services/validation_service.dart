@@ -24,9 +24,26 @@ class ValidationService {
     return null;
   }
 
+  static String? validateConfirmPassword(String? password, String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return S.current.confirmPasswordReq;
+    }
+    if (password == null || value.trim() != password.trim()) {
+      return S.current.confirmPasswordMismatch;
+    }
+    return null;
+  }
+
   static String? validateFullName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return S.current.fullNameReq;
+    }
+    return null;
+  }
+
+  static String? validatePhoneNumber(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return S.current.phoneReq;
     }
     return null;
   }

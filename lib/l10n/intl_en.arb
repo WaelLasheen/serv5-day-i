@@ -42,5 +42,8 @@
     "invalidEmail": "Please enter a valid email",
     "passwordReq": "Password is required",
     "invalidPassword": "Password must be at least 8 characters",
-    "fullNameReq": "Full Name is required"
+    "fullNameReq": "Full Name is required",
+    "phoneReq": "Phone number is required",
+    "confirmPasswordReq": "Confirm password is required",
+    "confirmPasswordMismatch": "Passwords do not match"
 }

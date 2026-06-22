@@ -1,4 +1,3 @@
-import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/utils/services/validation_service.dart';
 import 'package:day_i/core/widgets/app_text_form_field.dart';
@@ -46,10 +45,7 @@ class ForgotPasswordFields extends StatelessWidget {
             ),
             FormTakeAction(
               primaryButtonText: S.current.sendCode,
-              onPrimaryPressed: () => context.navigateTo(
-                RouterPath.otp,
-                arguments: emailController.text.trim(),
-              ),
+              onPrimaryPressed: onSubmit,
               footerNormalText: S.current.alreadyHaveAccount,
               footerActionText: S.current.login,
               onFooterActionPressed: () => context.navigateBack(),

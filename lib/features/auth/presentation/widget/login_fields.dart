@@ -42,7 +42,9 @@ class LoginFields extends StatelessWidget {
             ),
             FormTakeAction(
               primaryButtonText: S.current.login,
-              onPrimaryPressed: () {},
+              onPrimaryPressed: () {
+                if (formKey.currentState!.validate()) {}
+              },
             ),
           ],
         ),

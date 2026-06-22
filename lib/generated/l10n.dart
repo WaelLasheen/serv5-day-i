@@ -428,6 +428,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Phone number is required`
+  String get phoneReq {
+    return Intl.message(
+      'Phone number is required',
+      name: 'phoneReq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm password is required`
+  String get confirmPasswordReq {
+    return Intl.message(
+      'Confirm password is required',
+      name: 'confirmPasswordReq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get confirmPasswordMismatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'confirmPasswordMismatch',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

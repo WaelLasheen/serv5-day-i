@@ -32,6 +32,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
+    "confirmPasswordMismatch": MessageLookupByLibrary.simpleMessage(
+      "كلمتا المرور غير متطابقتين",
+    ),
+    "confirmPasswordReq": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور مطلوب",
+    ),
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "انتهى وقت الاتصال",
     ),
@@ -81,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordReq": MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("المسار غير موجود"),
+    "phoneReq": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "انتهى وقت الاستقبال",
     ),

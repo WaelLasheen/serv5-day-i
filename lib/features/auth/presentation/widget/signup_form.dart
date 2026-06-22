@@ -1,3 +1,4 @@
+import 'package:day_i/core/utils/services/validation_service.dart';
 import 'package:day_i/core/widgets/app_password_form_field.dart';
 import 'package:day_i/core/widgets/app_text_form_field.dart';
 import 'package:day_i/features/auth/presentation/widget/terms_and_conditions.dart';
@@ -34,6 +35,7 @@ class SignupForm extends StatelessWidget {
           label: S.current.fullName,
           hintText: "رانيا بكر",
           prefixIcon: const Icon(Icons.person_outline),
+          validator: ValidationService.validateFullName,
         ),
         AppTextFormField(
           controller: phoneController,
@@ -41,6 +43,7 @@ class SignupForm extends StatelessWidget {
           hintText: "+20 101010100",
           prefixIcon: const Icon(Icons.call_outlined),
           keyboardType: TextInputType.phone,
+          validator: ValidationService.validatePhoneNumber,
         ),
         AppTextFormField(
           controller: emailController,
@@ -48,16 +51,24 @@ class SignupForm extends StatelessWidget {
           hintText: "rania@gmail.com",
           prefixIcon: const Icon(Icons.email_outlined),
           keyboardType: TextInputType.emailAddress,
+          validator: ValidationService.validateEmail,
         ),
         AppPasswordFormField(
           controller: passwordController,
           label: S.current.password,
           hintText: "********",
+          validator: ValidationService.validatePassword,
         ),
         AppPasswordFormField(
           controller: confirmPasswordController,
           label: S.current.confirmPassword,
           hintText: "********",
+          validator: (value) {
+            return ValidationService.validateConfirmPassword(
+              passwordController.text,
+              value,
+            );
+          },
         ),
         TermsAndConditions(isTermsAcceptedNotifier: isTermsAcceptedNotifier),
       ],

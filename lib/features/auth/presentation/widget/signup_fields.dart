@@ -53,7 +53,9 @@ class SignupFields extends StatelessWidget {
             ),
             FormTakeAction(
               primaryButtonText: S.current.signup,
-              onPrimaryPressed: () {},
+              onPrimaryPressed: () {
+                if (formKey.currentState!.validate()) {}
+              },
               footerNormalText: S.current.alreadyHaveAccount,
               footerActionText: S.current.registerNow,
               onFooterActionPressed: () =>

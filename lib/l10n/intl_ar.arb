@@ -42,5 +42,8 @@
     "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
     "passwordReq": "كلمة المرور مطلوبة",
     "invalidPassword": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
-    "fullNameReq": "الاسم الكامل مطلوب"
+    "fullNameReq": "الاسم الكامل مطلوب",
+    "phoneReq": "رقم الهاتف مطلوب",
+    "confirmPasswordReq": "تأكيد كلمة المرور مطلوب",
+    "confirmPasswordMismatch": "كلمتا المرور غير متطابقتين"
 }

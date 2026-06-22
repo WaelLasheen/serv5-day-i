@@ -30,6 +30,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
+    "confirmPasswordMismatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
+    "confirmPasswordReq": MessageLookupByLibrary.simpleMessage(
+      "Confirm password is required",
+    ),
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout",
     ),
@@ -83,6 +89,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordReq": MessageLookupByLibrary.simpleMessage("Password is required"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
+    "phoneReq": MessageLookupByLibrary.simpleMessage(
+      "Phone number is required",
+    ),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage(
