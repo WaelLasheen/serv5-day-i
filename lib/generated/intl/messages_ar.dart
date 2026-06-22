@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "account": MessageLookupByLibrary.simpleMessage("الحساب"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل؟",
     ),
@@ -54,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullName": MessageLookupByLibrary.simpleMessage("الأسم كامل"),
     "fullNameReq": MessageLookupByLibrary.simpleMessage("الاسم الكامل مطلوب"),
     "hello": MessageLookupByLibrary.simpleMessage("مرحباً بالعالم!"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "خطأ في الخادم الداخلي، يرجى المحاولة لاحقاً",
     ),
@@ -74,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "عذراً! حدث خطأ، يرجى المحاولة مرة أخرى",
     ),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
+    "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
     "otpEntryInstruction": MessageLookupByLibrary.simpleMessage(
       "أرسلنا رمز مكون من 6أرقام الى البريد الإلكتروني",
     ),
@@ -94,8 +97,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage("تم إلغاء الطلب"),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("انتهى وقت الإرسال"),
+    "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "أنشئ حسابك لادارة حملاتك التسويقية بذكاء خلال دقائق",

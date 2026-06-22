@@ -45,5 +45,10 @@
     "fullNameReq": "Full Name is required",
     "phoneReq": "Phone number is required",
     "confirmPasswordReq": "Confirm password is required",
-    "confirmPasswordMismatch": "Passwords do not match"
+    "confirmPasswordMismatch": "Passwords do not match",
+    "searchHint": "Looking for a service...",
+    "home":"Home",
+    "services":"Services",
+    "orders":"Orders",
+    "account":"Account"
 }

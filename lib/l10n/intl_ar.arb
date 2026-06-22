@@ -45,5 +45,10 @@
     "fullNameReq": "الاسم الكامل مطلوب",
     "phoneReq": "رقم الهاتف مطلوب",
     "confirmPasswordReq": "تأكيد كلمة المرور مطلوب",
-    "confirmPasswordMismatch": "كلمتا المرور غير متطابقتين"
+    "confirmPasswordMismatch": "كلمتا المرور غير متطابقتين",
+    "searchHint" :"ابحث عن خدمة...",
+    "home":"الرئيسية",
+    "services":"الخدمات",
+    "orders":"الطلبات",
+    "account":"الحساب"
 }

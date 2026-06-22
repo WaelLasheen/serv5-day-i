@@ -1,3 +1,5 @@
+import 'package:day_i/core/router/router_path.dart';
+import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/features/auth/presentation/widget/form_take_action.dart';
 import 'package:day_i/features/auth/presentation/widget/login_form.dart';
 import 'package:day_i/generated/l10n.dart';
@@ -43,7 +45,10 @@ class LoginFields extends StatelessWidget {
             FormTakeAction(
               primaryButtonText: S.current.login,
               onPrimaryPressed: () {
-                if (formKey.currentState!.validate()) {}
+                if (formKey.currentState!.validate() &&
+                    isTermsAcceptedNotifier.value) {
+                  context.navigateAndReplace(RouterPath.navBar);
+                }
               },
             ),
           ],

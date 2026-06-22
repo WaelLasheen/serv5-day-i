@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "account": MessageLookupByLibrary.simpleMessage("Account"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -56,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Full Name is required",
     ),
     "hello": MessageLookupByLibrary.simpleMessage("Hello World!"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "Internal Server error, Please try later",
     ),
@@ -76,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Oops! There was an Error, Please try again",
     ),
     "or": MessageLookupByLibrary.simpleMessage("OR"),
+    "orders": MessageLookupByLibrary.simpleMessage("Orders"),
     "otpEntryInstruction": MessageLookupByLibrary.simpleMessage(
       "We sent a 6-digit code to the email",
     ),
@@ -98,8 +101,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Request was canceled",
     ),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "searchHint": MessageLookupByLibrary.simpleMessage(
+      "Looking for a service...",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
+    "services": MessageLookupByLibrary.simpleMessage("Services"),
     "signup": MessageLookupByLibrary.simpleMessage("Create New Account"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "Create your account to manage your marketing campaigns smartly within minutes",
