@@ -3,8 +3,7 @@ import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/utils/services/validation_service.dart';
-import 'package:day_i/core/widgets/app_password_form_field.dart';
-import 'package:day_i/core/widgets/app_text_form_field.dart';
+import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/features/auth/presentation/widget/terms_and_conditions.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +28,7 @@ class LoginForm extends StatelessWidget {
       spacing: 16.h,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppTextFormField(
+        CustomFormField(
           controller: emailController,
           label: S.current.email,
           hintText: "rania@gmail.com",
@@ -37,7 +36,8 @@ class LoginForm extends StatelessWidget {
           keyboardType: TextInputType.emailAddress,
           validator: ValidationService.validateEmail,
         ),
-        AppPasswordFormField(
+        CustomFormField(
+          isPassword: true,
           controller: passwordController,
           label: S.current.password,
           hintText: "********",

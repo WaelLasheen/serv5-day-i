@@ -1,4 +1,5 @@
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
+import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,46 +22,28 @@ class CustomSearchWidget extends StatelessWidget {
       borderSide: BorderSide(color: appTheme.grey500, width: 1.w),
     );
 
-    return TextField(
+    final searchStyle = TextStyle(
+      fontFamily: 'Rubik',
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+      color: appTheme.grey800,
+    );
+
+    return CustomFormField(
       controller: searchController,
       onChanged: onSearchChanged,
-      textAlign: TextAlign.start,
-      style: TextStyle(
-        fontFamily: 'Rubik',
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        color: appTheme.grey800,
+      hintText: S.current.searchHint,
+      style: searchStyle,
+      hintStyle: searchStyle,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      border: customBorder,
+      enabledBorder: customBorder,
+      focusedBorder: customBorder.copyWith(
+        borderSide: BorderSide(color: appTheme.grey800, width: 1.5.w),
       ),
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 12,
-        ),
-        border: customBorder,
-        enabledBorder: customBorder,
-        focusedBorder: customBorder.copyWith(
-          borderSide: BorderSide(color: appTheme.grey800, width: 1.5.w),
-        ),
-        hintText: S.current.searchHint,
-        hintStyle: TextStyle(
-          fontFamily: 'Rubik',
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          color: appTheme.grey800,
-        ),
-
-        prefixIcon: Padding(
-          padding: EdgeInsets.only(right: 12, left: 8),
-          child: Icon(
-            Icons.search,
-            color: appTheme.grey800, // Colors/grey/900
-            size: 24.r,
-          ),
-        ),
-        prefixIconConstraints: const BoxConstraints(
-          minWidth: 24,
-          minHeight: 24,
-        ),
+      prefixIcon: Padding(
+        padding: const EdgeInsets.only(right: 12, left: 8),
+        child: Icon(Icons.search, color: appTheme.grey800, size: 24.r),
       ),
     );
   }

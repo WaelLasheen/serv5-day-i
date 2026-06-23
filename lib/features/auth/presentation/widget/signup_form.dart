@@ -1,6 +1,5 @@
 import 'package:day_i/core/utils/services/validation_service.dart';
-import 'package:day_i/core/widgets/app_password_form_field.dart';
-import 'package:day_i/core/widgets/app_text_form_field.dart';
+import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/features/auth/presentation/widget/terms_and_conditions.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -30,14 +29,14 @@ class SignupForm extends StatelessWidget {
       spacing: 16.h,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppTextFormField(
+        CustomFormField(
           controller: nameController,
           label: S.current.fullName,
           hintText: "رانيا بكر",
           prefixIcon: const Icon(Icons.person_outline),
           validator: ValidationService.validateFullName,
         ),
-        AppTextFormField(
+        CustomFormField(
           controller: phoneController,
           label: S.current.password,
           hintText: "+20 101010100",
@@ -45,7 +44,7 @@ class SignupForm extends StatelessWidget {
           keyboardType: TextInputType.phone,
           validator: ValidationService.validatePhoneNumber,
         ),
-        AppTextFormField(
+        CustomFormField(
           controller: emailController,
           label: S.current.email,
           hintText: "rania@gmail.com",
@@ -53,13 +52,15 @@ class SignupForm extends StatelessWidget {
           keyboardType: TextInputType.emailAddress,
           validator: ValidationService.validateEmail,
         ),
-        AppPasswordFormField(
+        CustomFormField(
+          isPassword: true,
           controller: passwordController,
           label: S.current.password,
           hintText: "********",
           validator: ValidationService.validatePassword,
         ),
-        AppPasswordFormField(
+        CustomFormField(
+          isPassword: true,
           controller: confirmPasswordController,
           label: S.current.confirmPassword,
           hintText: "********",
