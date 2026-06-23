@@ -4,12 +4,8 @@ class CategoryModel {
   final String title;
   final IconData icon;
 
-  const CategoryModel({
-    required this.title,
-    required this.icon,
-  });
+  const CategoryModel({required this.title, required this.icon});
 
-  // قائمة البيانات الثابتة مأخوذة من الفيجما ومحولة لموديل
   static List<CategoryModel> getMockCategories() {
     return const [
       CategoryModel(title: 'كتابة المحتوي', icon: Icons.description),

@@ -15,7 +15,6 @@ class SuggestedServiceModel {
     required this.rating,
   });
 
-  // توليد البيانات الثابتة الخاصة بالفيجما داخل الموديل
   static List<SuggestedServiceModel> getMockServices() {
     return const [
       SuggestedServiceModel(

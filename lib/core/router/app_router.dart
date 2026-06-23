@@ -34,7 +34,7 @@ class AppRouter {
 
       case RouterPath.navBar:
         return MaterialPageRoute(builder: (context) => const NavBarScreen());
-      case RouterPath.pricing_plans:
+      case RouterPath.pricingPlans:
         return MaterialPageRoute(builder: (context) => const PricingPlansScreen());
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());

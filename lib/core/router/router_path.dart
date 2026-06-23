@@ -7,5 +7,5 @@ abstract class RouterPath {
   static const String resetPassword = "/reset-password";
   static const String navBar = "/nav-bar";
   static const String home = "/home";
-  static const String pricing_plans = "/pricing-plans";
+  static const String pricingPlans = "/pricing-plans";
 }

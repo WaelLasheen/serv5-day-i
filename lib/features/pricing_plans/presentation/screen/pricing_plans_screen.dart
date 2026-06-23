@@ -13,7 +13,6 @@ class PricingPlansScreen extends StatelessWidget {
     final theme = context.appTheme;
     final List<PricingPlanModel> plans = PricingPlanModel.getMockPlans();
 
-    // تعريف الـ Notifier لمراقبة الـ Index المختار (الافتراضي 0)
     final ValueNotifier<int> selectedPlanNotifier = ValueNotifier<int>(0);
 
     return Scaffold(
@@ -26,45 +25,72 @@ class PricingPlansScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 20.h), 
+                SizedBox(height: 20.h),
 
-                // 1. الهيدر المخصص
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(width: 24),
-                    Text("الأسعار", style: FontStyles.h3.copyWith(color: const Color(0xFF121212), fontWeight: FontWeight.w600, fontSize: 20.sp)),
+                    Text(
+                      "الأسعار",
+                      style: FontStyles.h3.copyWith(
+                        color: const Color(0xFF121212),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20.sp,
+                      ),
+                    ),
                     IconButton(
                       onPressed: () => Navigator.maybePop(context),
-                      icon: Icon(Icons.arrow_forward_ios_rounded, color: theme.primaryColor, size: 20.r),
+                      icon: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: theme.primaryColor,
+                        size: 20.r,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(height: 24.h),
 
-                // 2. النصوص التوضيحية
-                Text("اختر الباقة المناسبة لنمو تسويقك", textAlign: TextAlign.center, style: TextStyle(fontFamily: 'Rubik', color: const Color(0xFF121212), fontWeight: FontWeight.w600, fontSize: 18.sp)),
+                Text(
+                  "اختر الباقة المناسبة لنمو تسويقك",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Rubik',
+                    color: const Color(0xFF121212),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18.sp,
+                  ),
+                ),
                 SizedBox(height: 8.h),
-                Text("باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية.", textAlign: TextAlign.center, style: TextStyle(fontFamily: 'Rubik', color: const Color(0xFF7A7A7A), fontWeight: FontWeight.w400, fontSize: 14.sp)),
+                Text(
+                  "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Rubik',
+                    color: const Color(0xFF7A7A7A),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14.sp,
+                  ),
+                ),
                 SizedBox(height: 32.h),
 
-                // لف الأجزاء المتغيرة بـ ValueListenableBuilder لإعادة بنائها فقط عند تغير القيمة
                 ValueListenableBuilder<int>(
-                  valueListenable :selectedPlanNotifier,
+                  valueListenable: selectedPlanNotifier,
                   builder: (context, selectedIndex, child) {
-                    final activePlan = plans.firstWhere((element) => element.index == selectedIndex);
+                    final activePlan = plans.firstWhere(
+                      (element) => element.index == selectedIndex,
+                    );
 
                     return Column(
                       children: [
-                        // 3. شريط اختيار الباقات المنفصل
                         PricingToggleBar(
                           selectedIndex: selectedIndex,
                           primaryColor: theme.primaryColor,
-                          onPlanSelected: (index) => selectedPlanNotifier.value = index, // تحديث القيمة مباشرة بدون setState
+                          onPlanSelected: (index) =>
+                              selectedPlanNotifier.value = index,
                         ),
                         SizedBox(height: 20.h),
 
-                        // 4. جسم الباقة المختارة
                         Container(
                           width: 343.w,
                           height: 390.h,
@@ -72,14 +98,34 @@ class PricingPlansScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(24.r),
-                            border: Border.all(color: theme.primaryColor, width: 1.5),
+                            border: Border.all(
+                              color: theme.primaryColor,
+                              width: 1.5,
+                            ),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(activePlan.title, style: TextStyle(fontFamily: 'Rubik', fontSize: 18.sp, fontWeight: FontWeight.w600, color: theme.primaryColor)),
+                              Text(
+                                activePlan.title,
+                                style: TextStyle(
+                                  fontFamily: 'Rubik',
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: theme.primaryColor,
+                                ),
+                              ),
                               SizedBox(height: 12.h),
-                              Text(activePlan.description, textAlign: TextAlign.center, style: TextStyle(fontFamily: 'Rubik', fontSize: 15.sp, color: const Color(0xFF636262), fontWeight: FontWeight.w400)),
+                              Text(
+                                activePlan.description,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: 'Rubik',
+                                  fontSize: 15.sp,
+                                  color: const Color(0xFF636262),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ],
                           ),
                         ),

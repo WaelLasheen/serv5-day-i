@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
-// تأكد من تعديل هذا المسار ليطابق مكان الموديل الجديد
 
 class SuggestedServicesWidget extends StatelessWidget {
   const SuggestedServicesWidget({super.key});
@@ -12,7 +11,6 @@ class SuggestedServicesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
-    // جلب البيانات من الموديل مباشرة
     final List<SuggestedServiceModel> services =
         SuggestedServiceModel.getMockServices();
 
@@ -22,7 +20,6 @@ class SuggestedServicesWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // الهيدر
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -60,7 +57,6 @@ class SuggestedServicesWidget extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
 
-          // قائمة الكروت الأفقية المحمية من الـ Overflow
           SizedBox(
             height: 360.h,
             child: ListView.separated(
@@ -82,7 +78,6 @@ class SuggestedServicesWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      // الصورة
                       Container(
                         width: 268.w,
                         height: 135.h,
@@ -98,7 +93,6 @@ class SuggestedServicesWidget extends StatelessWidget {
                       ),
                       SizedBox(height: 10.h),
 
-                      // التقييم
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: List.generate(
@@ -112,7 +106,6 @@ class SuggestedServicesWidget extends StatelessWidget {
                       ),
                       SizedBox(height: 10.h),
 
-                      // الـ Tag
                       Container(
                         padding: EdgeInsets.symmetric(
                           horizontal: 12.w,
@@ -134,7 +127,6 @@ class SuggestedServicesWidget extends StatelessWidget {
                       ),
                       SizedBox(height: 8.h),
 
-                      // العنوان محمي بـ Flexible وقارئ من الموديل
                       Flexible(
                         child: Text(
                           service.title,
@@ -152,7 +144,6 @@ class SuggestedServicesWidget extends StatelessWidget {
 
                       SizedBox(height: 12.h),
 
-                      // تفاصيل السعر والمدة في الأسفل قارئة من الموديل
                       Text(
                         "السعر: ${service.price}",
                         textAlign: TextAlign.right,

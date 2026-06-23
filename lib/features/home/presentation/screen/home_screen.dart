@@ -45,12 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
               onSearchChanged: _handleSearchChanged,
             ),
             SizedBox(height: 16.h),
-
-            // 2. فئات الخدمات المستخلصة من الفيجما
             const ServiceCategoriesWidget(),
 
             SizedBox(height: 16.h),
-            // استدعاء قسم الخدمات المقترحة الجديد
             const SuggestedServicesWidget(),
 
             SizedBox(height: 120.h),

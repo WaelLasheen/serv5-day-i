@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
-// تأكد من تعديل هذا المسار لمكان ملف الموديل الجديد لديك
 
 class ServiceCategoriesWidget extends StatelessWidget {
   const ServiceCategoriesWidget({super.key});
@@ -11,8 +10,6 @@ class ServiceCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
-    
-    // استدعاء البيانات من الموديل مباشرة بدل الـ Map القديمة
     final List<CategoryModel> categories = CategoryModel.getMockCategories();
 
     return Padding(
@@ -21,7 +18,6 @@ class ServiceCategoriesWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // الهيدر
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -59,7 +55,6 @@ class ServiceCategoriesWidget extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
 
-          // الكروت متمركزة بالكامل في المنتصف
           SizedBox(
             height: 90.h,
             child: ListView.separated(
@@ -83,14 +78,14 @@ class ServiceCategoriesWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
-                        category.icon, // القراءة من الموديل كـ Property
+                        category.icon,
                         color: theme.primaryColor,
                         size: 24.r,
                       ),
                       SizedBox(height: 8.h),
                       Flexible(
                         child: Text(
-                          category.title, // القراءة من الموديل كـ Property
+                          category.title,
                           textAlign: TextAlign.center,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
