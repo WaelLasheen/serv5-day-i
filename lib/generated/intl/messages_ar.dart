@@ -29,7 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appTitle": MessageLookupByLibrary.simpleMessage("يومي"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("شهادة غير صالحة"),
-    "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+    "changeLanguage": MessageLookupByLibrary.simpleMessage("تغير اللغة"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),

@@ -1,5 +1,6 @@
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
+import 'package:day_i/features/auth/presentation/widget/language_switcher_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -26,13 +27,18 @@ class AuthHeader extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
         children: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: () => context.navigateBack(),
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
-              ),
-            ],
+          Directionality(
+            textDirection: TextDirection.ltr,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () => context.navigateBack(),
+                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                ),
+                LanguageSwitcher(),
+              ],
+            ),
           ),
           Text(
             title,

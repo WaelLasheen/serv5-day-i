@@ -50,5 +50,6 @@
     "home":"الرئيسية",
     "services":"الخدمات",
     "orders":"الطلبات",
-    "account":"الحساب"
+    "account":"الحساب",
+    "changeLanguage":"تغير اللغة"
 }

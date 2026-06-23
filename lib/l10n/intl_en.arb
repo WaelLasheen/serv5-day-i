@@ -50,5 +50,6 @@
     "home":"Home",
     "services":"Services",
     "orders":"Orders",
-    "account":"Account"
+    "account":"Account",
+    "changeLanguage":"Change Language"
 }
