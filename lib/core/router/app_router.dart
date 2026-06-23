@@ -6,6 +6,7 @@ import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
+import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,8 @@ class AppRouter {
 
       case RouterPath.navBar:
         return MaterialPageRoute(builder: (context) => const NavBarScreen());
+      case RouterPath.pricing_plans:
+        return MaterialPageRoute(builder: (context) => const PricingPlansScreen());
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
     }

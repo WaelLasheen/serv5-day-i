@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                 // ----- will change when UI end -----
                 theme: appThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
-                initialRoute: RouterPath.login,
+                initialRoute: RouterPath.login, //if you want to see pricing_plans put it instead of login
               );
             },
           );
@@ -54,3 +54,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
