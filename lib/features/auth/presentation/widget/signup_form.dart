@@ -35,6 +35,7 @@ class SignupForm extends StatelessWidget {
           hintText: "رانيا بكر",
           prefixIcon: const Icon(Icons.person_outline),
           validator: ValidationService.validateFullName,
+          textInputAction: TextInputAction.next,
         ),
         CustomFormField(
           controller: phoneController,
@@ -43,6 +44,7 @@ class SignupForm extends StatelessWidget {
           prefixIcon: const Icon(Icons.call_outlined),
           keyboardType: TextInputType.phone,
           validator: ValidationService.validatePhoneNumber,
+          textInputAction: TextInputAction.next,
         ),
         CustomFormField(
           controller: emailController,
@@ -51,6 +53,7 @@ class SignupForm extends StatelessWidget {
           prefixIcon: const Icon(Icons.email_outlined),
           keyboardType: TextInputType.emailAddress,
           validator: ValidationService.validateEmail,
+          textInputAction: TextInputAction.next,
         ),
         CustomFormField(
           isPassword: true,
@@ -58,6 +61,8 @@ class SignupForm extends StatelessWidget {
           label: S.current.password,
           hintText: "********",
           validator: ValidationService.validatePassword,
+          textInputAction: TextInputAction.next,
+          onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
         ),
         CustomFormField(
           isPassword: true,
@@ -70,6 +75,7 @@ class SignupForm extends StatelessWidget {
               value,
             );
           },
+          textInputAction: TextInputAction.done,
         ),
         TermsAndConditions(isTermsAcceptedNotifier: isTermsAcceptedNotifier),
       ],

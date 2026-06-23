@@ -42,6 +42,7 @@ class ForgotPasswordFields extends StatelessWidget {
               controller: emailController,
               validator: ValidationService.validateEmail,
               keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.done,
             ),
             FormTakeAction(
               primaryButtonText: S.current.sendCode,

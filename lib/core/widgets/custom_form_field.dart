@@ -21,6 +21,8 @@ class CustomFormField extends StatefulWidget {
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
   final EdgeInsetsGeometry? contentPadding;
+    final TextInputAction? textInputAction;
+  final void Function(String)? onFieldSubmitted;
 
   const CustomFormField({
     super.key,
@@ -40,6 +42,8 @@ class CustomFormField extends StatefulWidget {
     this.enabledBorder,
     this.focusedBorder,
     this.contentPadding,
+    this.textInputAction,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -106,6 +110,9 @@ class _CustomFormFieldState extends State<CustomFormField> {
                   )
                 : widget.suffixIcon,
           ),
+          onTapOutside: (event) => FocusScope.of(context).unfocus(),
+          textInputAction: widget.textInputAction,
+          onFieldSubmitted: widget.onFieldSubmitted,
         ),
       ],
     );

@@ -138,7 +138,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             SizedBox(height: 8.h),
             CustomFormField(
               isPassword: true,
-              hintText: "نص تلميحي", label: 'كلمة المرور'),
+              hintText: "نص تلميحي",
+              label: 'كلمة المرور',
+              textInputAction: TextInputAction.next,
+              onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
+            ),
             SizedBox(height: 16.h),
 
             // حقل تأكيد كلمة المرور
@@ -147,6 +151,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               isPassword: true,
               hintText: "نص تلميحي",
               label: 'تأكيد كلمة المرور',
+              textInputAction: TextInputAction.done,
             ),
             SizedBox(height: 32.h),
 

@@ -35,6 +35,7 @@ class LoginForm extends StatelessWidget {
           prefixIcon: const Icon(Icons.email_outlined),
           keyboardType: TextInputType.emailAddress,
           validator: ValidationService.validateEmail,
+          textInputAction: TextInputAction.next,
         ),
         CustomFormField(
           isPassword: true,
@@ -42,6 +43,7 @@ class LoginForm extends StatelessWidget {
           label: S.current.password,
           hintText: "********",
           validator: ValidationService.validatePassword,
+          textInputAction: TextInputAction.done,
         ),
         TextButton(
           onPressed: () => context.navigateTo(RouterPath.forgotPassword),
