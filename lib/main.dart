@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                 // ----- will change when UI end -----
                 theme: appThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
-                initialRoute: RouterPath.login,
+                initialRoute: RouterPath.navBar,
               );
             },
           );

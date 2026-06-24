@@ -62,9 +62,10 @@ class ApiServiceImpl implements IApiService {
   Future<Either<Failure, Response>> get(
     String path, {
     Map<String, dynamic>? queryParameters,
+    Options? options,
   }) async {
     try {
-      return Right(await _dio.get(path, queryParameters: queryParameters));
+      return Right(await _dio.get(path, queryParameters: queryParameters, options: options));
     } on DioException catch (e) {
       return Left(ServerFailure.fromDioError(e));
     } catch (e) {

@@ -8,6 +8,10 @@ import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/services/notification_service.dart';
 import 'package:day_i/core/utils/services/notification_service_impl.dart';
+import 'package:day_i/features/maps/data/datasources/maps_remote_data_source.dart';
+import 'package:day_i/features/maps/data/repos/maps_repository_impl.dart';
+import 'package:day_i/features/maps/domain/repos/maps_repository.dart';
+import 'package:day_i/features/maps/domain/usecases/search_places_usecase.dart';
 import 'package:day_i/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -34,6 +38,17 @@ Future<void> setUpLocators() async {
   getIt.registerSingleton<AppRouter>(AppRouter());
 
   getIt.registerLazySingleton<ImagePath>(() => ImagePath());
+
+  // Maps Feature
+  getIt.registerLazySingleton<MapsRemoteDataSource>(
+    () => MapsRemoteDataSourceImpl(getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<MapsRepository>(
+    () => MapsRepositoryImpl(remoteDataSource: getIt<MapsRemoteDataSource>()),
+  );
+  getIt.registerLazySingleton<SearchPlacesUseCase>(
+    () => SearchPlacesUseCase(getIt<MapsRepository>()),
+  );
 }
 
 Future<void> _setupHydratedBlocStorage() async {

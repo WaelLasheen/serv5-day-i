@@ -488,6 +488,16 @@ class S {
   String get account {
     return Intl.message('Account', name: 'account', desc: '', args: []);
   }
+
+  /// `Search for a location...`
+  String get searchLocation {
+    return Intl.message(
+      'Search for a location...',
+      name: 'searchLocation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

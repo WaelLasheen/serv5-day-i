@@ -12,6 +12,7 @@ abstract class IApiService {
   Future<Either<Failure, Response>> get(
     String path, {
     Map<String, dynamic>? queryParameters,
+    Options? options,
   });
   Future<Either<Failure, Response>> put(
     String path, {

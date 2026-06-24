@@ -104,6 +104,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Looking for a service...",
     ),
+    "searchLocation": MessageLookupByLibrary.simpleMessage(
+      "Search for a location...",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),

@@ -51,5 +51,6 @@
     "services":"الخدمات",
     "orders":"الطلبات",
     "account":"الحساب",
-    "changeLanguage":"تغير اللغة"
+    "changeLanguage":"تغير اللغة",
+    "searchLocation":"ابحث عن موقع..."
 }
