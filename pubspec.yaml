@@ -33,9 +33,12 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.9.2
   equatable: ^2.0.8
+  firebase_core: ^4.11.0
+  firebase_messaging: ^16.4.1
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_local_notifications: ^20.1.0
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: ^5.9.3
