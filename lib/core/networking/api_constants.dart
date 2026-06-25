@@ -3,4 +3,5 @@ class ApiConstants {
 
   static const String login = "/auth/login";
   static const String authRefresh = "/auth/refresh";
+  static const String updateToken = '/users/fcm-token';
 }

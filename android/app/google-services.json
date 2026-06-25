@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "784560418764",
+    "project_id": "day-i-671fd",
+    "storage_bucket": "day-i-671fd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784560418764:android:2e07cd5d2312357465b769",
+        "android_client_info": {
+          "package_name": "com.example.day_i"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKeQoS0hkra4kr7iRzENkTbx2CPaLmBTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

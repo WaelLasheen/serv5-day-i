@@ -1,0 +1,143 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 2992-B340
+D:\PROJECTS\SERV5-DAY-I\LIB
+³   main.dart
+³   
+ÃÄÄÄcore
+³   ÃÄÄÄdatabase
+³   ³       database_service.dart
+³   ³       shared_preferences_service.dart
+³   ³       
+³   ÃÄÄÄdi
+³   ³       di.dart
+³   ³       
+³   ÃÄÄÄlocalization
+³   ³   ³   app_language_enum.dart
+³   ³   ³   
+³   ³   ÀÄÄÄlogic
+³   ³           locale_cubit.dart
+³   ³           locale_state.dart
+³   ³           
+³   ÃÄÄÄnetworking
+³   ³   ³   api_constants.dart
+³   ³   ³   api_service.dart
+³   ³   ³   i_api_service.dart
+³   ³   ³   
+³   ³   ÃÄÄÄinterceptors
+³   ³   ³       token_interceptor.dart
+³   ³   ³       
+³   ³   ÀÄÄÄtoken_manager
+³   ³           token_manager.dart
+³   ³           token_manager_impl.dart
+³   ³           
+³   ÃÄÄÄrouter
+³   ³       app_router.dart
+³   ³       path_not_found.dart
+³   ³       router_path.dart
+³   ³       
+³   ÃÄÄÄtheme
+³   ³       app_theme.dart
+³   ³       app_themes.dart
+³   ³       font_styles.dart
+³   ³       
+³   ÃÄÄÄutils
+³   ³   ÃÄÄÄconsts
+³   ³   ³       image_path.dart
+³   ³   ³       
+³   ³   ÃÄÄÄerrors
+³   ³   ³       failure.dart
+³   ³   ³       local_failure.dart
+³   ³   ³       server_failure.dart
+³   ³   ³       
+³   ³   ÃÄÄÄextensions
+³   ³   ³       formate_names.dart
+³   ³   ³       get_app_theme.dart
+³   ³   ³       navigation_extension.dart
+³   ³   ³       number_range.dart
+³   ³   ³       opacity_extension.dart
+³   ³   ³       size_extension.dart
+³   ³   ³       
+³   ³   ÀÄÄÄservices
+³   ³           notification_service.dart
+³   ³           validation_service.dart
+³   ³           
+³   ÀÄÄÄwidgets
+³           app_button.dart
+³           app_password_form_field.dart
+³           app_text_form_field.dart
+³           
+ÃÄÄÄfeatures
+³   ÃÄÄÄauth
+³   ³   ÀÄÄÄpresentation
+³   ³       ÃÄÄÄscreen
+³   ³       ³       forgot_password_screen.dart
+³   ³       ³       login_screen.dart
+³   ³       ³       otp_screen.dart
+³   ³       ³       reset_password_screen.dart
+³   ³       ³       signup_screen.dart
+³   ³       ³       
+³   ³       ÀÄÄÄwidget
+³   ³               auth_header.dart
+³   ³               forgot_password_fields.dart
+³   ³               form_take_action.dart
+³   ³               login_fields.dart
+³   ³               login_form.dart
+³   ³               or_separator.dart
+³   ³               otp_fields.dart
+³   ³               otp_form_title.dart
+³   ³               otp_pinput.dart
+³   ³               signup_fields.dart
+³   ³               signup_form.dart
+³   ³               terms_and_conditions.dart
+³   ³               text_with_action.dart
+³   ³               
+³   ÃÄÄÄhome
+³   ³   ÀÄÄÄpresentation
+³   ³       ÃÄÄÄparam
+³   ³       ³       service_categories_model.dart
+³   ³       ³       suggested_services_model.dart
+³   ³       ³       
+³   ³       ÃÄÄÄscreen
+³   ³       ³       home_screen.dart
+³   ³       ³       
+³   ³       ÀÄÄÄwidget
+³   ³               custom_search_widget.dart
+³   ³               dashboard_header.dart
+³   ³               service_categories_widget.dart
+³   ³               suggested_services_widget.dart
+³   ³               
+³   ÃÄÄÄnav_bar
+³   ³   ÀÄÄÄpresentation
+³   ³       ÃÄÄÄparam
+³   ³       ³       nav_bar_item_model.dart
+³   ³       ³       
+³   ³       ÃÄÄÄscreen
+³   ³       ³       nav_bar_screen.dart
+³   ³       ³       
+³   ³       ÀÄÄÄwidget
+³   ³               floating_bot_button.dart
+³   ³               nav_bar_item.dart
+³   ³               
+³   ÀÄÄÄpricing_plans
+³       ÀÄÄÄpresentation
+³           ÃÄÄÄparam
+³           ³       pricing_plan_model.dart
+³           ³       
+³           ÃÄÄÄscreen
+³           ³       pricing_plans_screen.dart
+³           ³       
+³           ÀÄÄÄwidgets
+³                   pricing_toggle_bar.dart
+³                   
+ÃÄÄÄgenerated
+³   ³   l10n.dart
+³   ³   
+³   ÀÄÄÄintl
+³           messages_all.dart
+³           messages_ar.dart
+³           messages_en.dart
+³           
+ÀÄÄÄl10n
+        intl_ar.arb
+        intl_en.arb
+        
