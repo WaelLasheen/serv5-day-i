@@ -30,6 +30,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("شهادة غير صالحة"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+    "choosePackage": MessageLookupByLibrary.simpleMessage(
+      "اختر الباقة المناسبة لنمو تسويقك",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
@@ -46,6 +49,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailReq": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "flexiblePackages": MessageLookupByLibrary.simpleMessage(
+      "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
     "forgotPasswordSubtitle": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة.",
     ),
@@ -88,15 +97,25 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "otpTitle": MessageLookupByLibrary.simpleMessage("أدخل رمز التحقق"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
+      "تم تغيير كلمة المرور بنجاح",
+    ),
     "passwordReq": MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("المسار غير موجود"),
     "phoneReq": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
+    "prices": MessageLookupByLibrary.simpleMessage("الاسعار"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "انتهى وقت الاستقبال",
     ),
     "registerNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage("تم إلغاء الطلب"),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage(
+      "اعادة تعيين كلمة المرور",
+    ),
+    "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
+      "أدخل كلمة مرور قوية لحماية حسابك",
+    ),
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("انتهى وقت الإرسال"),

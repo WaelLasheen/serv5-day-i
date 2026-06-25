@@ -488,6 +488,71 @@ class S {
   String get account {
     return Intl.message('Account', name: 'account', desc: '', args: []);
   }
+
+  /// `Prices`
+  String get prices {
+    return Intl.message('Prices', name: 'prices', desc: '', args: []);
+  }
+
+  /// `Choose package for your marketing campaign`
+  String get choosePackage {
+    return Intl.message(
+      'Choose package for your marketing campaign',
+      name: 'choosePackage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot password`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot password',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a strong password to protect your account.`
+  String get resetPasswordInstruction {
+    return Intl.message(
+      'Enter a strong password to protect your account.',
+      name: 'resetPasswordInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password changed successfully`
+  String get passwordChangedSuccess {
+    return Intl.message(
+      'Password changed successfully',
+      name: 'passwordChangedSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flexible packages to suit your business size and marketing goals`
+  String get flexiblePackages {
+    return Intl.message(
+      'Flexible packages to suit your business size and marketing goals',
+      name: 'flexiblePackages',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

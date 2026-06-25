@@ -1,6 +1,6 @@
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
-import 'package:day_i/core/utils/services/validation_service.dart';
+import 'package:day_i/core/services/validation_service.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

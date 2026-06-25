@@ -1,5 +1,6 @@
 import 'package:day_i/features/pricing_plans/presentation/param/pricing_plan_model.dart';
 import 'package:day_i/features/pricing_plans/presentation/widgets/pricing_toggle_bar.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
@@ -32,7 +33,7 @@ class PricingPlansScreen extends StatelessWidget {
                   children: [
                     const SizedBox(width: 24),
                     Text(
-                      "الأسعار",
+                      S.of(context).prices,
                       style: FontStyles.h3.copyWith(
                         color: const Color(0xFF121212),
                         fontWeight: FontWeight.w600,
@@ -52,7 +53,7 @@ class PricingPlansScreen extends StatelessWidget {
                 SizedBox(height: 24.h),
 
                 Text(
-                  "اختر الباقة المناسبة لنمو تسويقك",
+                  S.current.choosePackage,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Rubik',
@@ -63,7 +64,7 @@ class PricingPlansScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية.",
+                  S.current.flexiblePackages,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Rubik',

@@ -1,4 +1,4 @@
-import 'package:day_i/core/utils/services/validation_service.dart';
+import 'package:day_i/core/services/validation_service.dart';
 import 'package:day_i/core/widgets/app_password_form_field.dart';
 import 'package:day_i/core/widgets/app_text_form_field.dart';
 import 'package:day_i/features/auth/presentation/widget/terms_and_conditions.dart';

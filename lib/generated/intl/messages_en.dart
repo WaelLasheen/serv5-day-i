@@ -30,6 +30,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
+    "choosePackage": MessageLookupByLibrary.simpleMessage(
+      "Choose package for your marketing campaign",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordMismatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
@@ -46,6 +49,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "flexiblePackages": MessageLookupByLibrary.simpleMessage(
+      "Flexible packages to suit your business size and marketing goals",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password"),
     "forgotPasswordSubtitle": MessageLookupByLibrary.simpleMessage(
       "Enter your email address to reset your password.",
     ),
@@ -90,17 +97,25 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "otpTitle": MessageLookupByLibrary.simpleMessage("Enter Verification Code"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
+      "Password changed successfully",
+    ),
     "passwordReq": MessageLookupByLibrary.simpleMessage("Password is required"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
     "phoneReq": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),
+    "prices": MessageLookupByLibrary.simpleMessage("Prices"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage(
       "Request was canceled",
     ),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
+      "Enter a strong password to protect your account.",
+    ),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Looking for a service...",
     ),

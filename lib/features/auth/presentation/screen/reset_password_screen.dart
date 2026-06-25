@@ -6,6 +6,7 @@ import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/widgets/app_button.dart';
 import 'package:day_i/core/widgets/app_password_form_field.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -73,7 +74,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             ],
           ),
           Text(
-            "إعادة تعيين كلمة المرور",
+            S.current.forgotPassword,
+            textAlign: TextAlign.center,
             style: FontStyles.h1.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.w600,
@@ -82,7 +84,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           ),
           SizedBox(height: 8.h),
           Text(
-            "أدخل كلمة مرور قوية لحماية حسابك",
+            S.current.resetPasswordInstruction,
             textAlign: TextAlign.center,
             style: FontStyles.bodyMedium.copyWith(
               color: const Color(0xFFE5E5E5),
@@ -113,7 +115,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             // العناوين داخل البطاقة البيضاء كما في الـ CSS
             Center(
               child: Text(
-                "إعادة تعيين كلمة المرور",
+                S.current.forgotPassword,
                 style: FontStyles.h1.copyWith(
                   color: const Color(0xFF121212),
                   fontWeight: FontWeight.w600,
@@ -124,7 +126,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             SizedBox(height: 8.h),
             Center(
               child: Text(
-                "أدخل كلمة مرور قوية لحماية حسابك",
+                S.current.resetPasswordInstruction,
                 style: FontStyles.bodyMedium.copyWith(
                   color: const Color(0xFF636262),
                   fontWeight: FontWeight.w400,
@@ -153,7 +155,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
             // زر الإجراء
             AppButton(
-              text: "زر إجراء",
+              text: S.current.resetPassword,
               onPressed: () {
                 if (_formKey.currentState!.validate() && _isTermsAccepted) {
                   // هنا يتم إضافة منطق إعادة التعيين
@@ -183,7 +185,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         SizedBox(width: 4.w),
         Expanded(
           child: Text(
-            "أوافق على الشروط والاحكام وسياسة الخصوصية",
+            S.current.termsAndConditions,
             style: FontStyles.label.copyWith(
               color: const Color(0xFF121212),
               fontWeight: FontWeight.w400,
@@ -219,7 +221,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   size: 60.r,
                 ),
                 Text(
-                  "تم تغيير كلمة المرور بنجاح",
+                  S.current.passwordChangedSuccess,
                   textAlign: TextAlign.center,
                   style: FontStyles.h3.copyWith(
                     color: context.appTheme.textPrimary,

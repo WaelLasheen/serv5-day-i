@@ -50,5 +50,13 @@
     "home":"الرئيسية",
     "services":"الخدمات",
     "orders":"الطلبات",
-    "account":"الحساب"
+    "account":"الحساب",
+    "prices":"الاسعار",
+    "choosePackage":"اختر الباقة المناسبة لنمو تسويقك",
+    "forgotPassword":"إعادة تعيين كلمة المرور",
+    "resetPasswordInstruction":"أدخل كلمة مرور قوية لحماية حسابك",
+    "passwordChangedSuccess":"تم تغيير كلمة المرور بنجاح",
+    "resetPassword":"اعادة تعيين كلمة المرور",
+    "flexiblePackages":"باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية"
+
 }
