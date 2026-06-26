@@ -3,6 +3,7 @@ import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/param/nav_bar_item_model.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/nav_bar_item.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/floating_bot_button.dart';
+import 'package:day_i/features/services/screen/services_screen.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +19,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
     const HomeScreen(),
-    const Text('data'),
+    const ServicesScreen(),
     const Text('data'),
     const Text('data'),
   ];

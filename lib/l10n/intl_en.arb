@@ -47,18 +47,17 @@
     "confirmPasswordReq": "Confirm password is required",
     "confirmPasswordMismatch": "Passwords do not match",
     "searchHint": "Looking for a service...",
-    "home":"Home",
-    "services":"Services",
-    "orders":"Orders",
-    "account":"Account",
-    "prices":"Prices",
-    "choosePackage":"Choose package for your marketing campaign",
-    "forgotPassword":"Forgot password",
-    "resetPasswordInstruction":"Enter a strong password to protect your account.",
-    "passwordChangedSuccess":"Password changed successfully",
-    "resetPassword":"Reset Password",
-    "flexiblePackages":"Flexible packages to suit your business size and marketing goals"
-
-
-
+    "home": "Home",
+    "services": "Services",
+    "orders": "Orders",
+    "account": "Account",
+    "prices": "Prices",
+    "choosePackage": "Choose package for your marketing campaign",
+    "forgotPassword": "Forgot password",
+    "resetPasswordInstruction": "Enter a strong password to protect your account.",
+    "passwordChangedSuccess": "Password changed successfully",
+    "resetPassword": "Reset Password",
+    "flexiblePackages": "Flexible packages to suit your business size and marketing goals",
+    "showDetails": "Show details",
+    "startNow": "Start Now"
 }

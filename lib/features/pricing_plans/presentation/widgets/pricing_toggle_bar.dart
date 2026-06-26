@@ -5,12 +5,14 @@ class PricingToggleBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onPlanSelected;
   final Color primaryColor;
+  final List<String> tabs;
 
   const PricingToggleBar({
     super.key,
     required this.selectedIndex,
     required this.onPlanSelected,
     required this.primaryColor,
+    required this.tabs,
   });
 
   @override
@@ -26,20 +28,41 @@ class PricingToggleBar extends StatelessWidget {
       ),
       child: Row(
         spacing: 8.w,
-        children: [
-          _buildTabItem(index: 0, label: "الأساسية"),
-          _buildTabItem(index: 1, label: "الإحترافية"),
-          _buildTabItem(index: 2, label: "المؤسسية"),
-        ],
+        children: tabs.asMap().entries.map((entry) {
+          final index = entry.key;
+          final label = entry.value;
+          return PricingTabItem(
+            label: label,
+            isSelected: selectedIndex == index,
+            primaryColor: primaryColor,
+            onTap: () => onPlanSelected(index),
+          );
+        }).toList(),
       ),
     );
   }
 
-  Widget _buildTabItem({required int index, required String label}) {
-    final bool isSelected = selectedIndex == index;
+}
+
+class PricingTabItem extends StatelessWidget {
+  final String label;
+  final bool isSelected;
+  final Color primaryColor;
+  final VoidCallback onTap;
+
+  const PricingTabItem({
+    super.key,
+    required this.label,
+    required this.isSelected,
+    required this.primaryColor,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () => onPlanSelected(index),
+        onTap: onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),
           alignment: Alignment.center,

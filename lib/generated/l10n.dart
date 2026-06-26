@@ -553,6 +553,21 @@ class S {
       args: [],
     );
   }
+
+  /// `Show details`
+  String get showDetails {
+    return Intl.message(
+      'Show details',
+      name: 'showDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Now`
+  String get startNow {
+    return Intl.message('Start Now', name: 'startNow', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

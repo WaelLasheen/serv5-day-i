@@ -1,3 +1,4 @@
+import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/features/home/presentation/param/service_categories_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,7 +31,9 @@ class ServiceCategoriesWidget extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, RouterPath.services);
+                },
                 child: Row(
                   children: [
                     Text(

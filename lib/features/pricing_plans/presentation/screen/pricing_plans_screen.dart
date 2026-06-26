@@ -1,5 +1,6 @@
 import 'package:day_i/features/pricing_plans/presentation/param/pricing_plan_model.dart';
 import 'package:day_i/features/pricing_plans/presentation/widgets/pricing_toggle_bar.dart';
+import 'package:day_i/features/pricing_plans/presentation/widgets/pricing_plan_card_widget.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,15 +32,6 @@ class PricingPlansScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(width: 24),
-                    Text(
-                      S.of(context).prices,
-                      style: FontStyles.h3.copyWith(
-                        color: const Color(0xFF121212),
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20.sp,
-                      ),
-                    ),
                     IconButton(
                       onPressed: () => Navigator.maybePop(context),
                       icon: Icon(
@@ -48,6 +40,15 @@ class PricingPlansScreen extends StatelessWidget {
                         size: 20.r,
                       ),
                     ),
+                    Text(
+                      S.of(context).prices,
+                      style: FontStyles.h3.copyWith(
+                        color: const Color(0xFF121212),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20.sp,
+                      ),
+                    ),
+                    const SizedBox(width: 48),
                   ],
                 ),
                 SizedBox(height: 24.h),
@@ -87,48 +88,15 @@ class PricingPlansScreen extends StatelessWidget {
                         PricingToggleBar(
                           selectedIndex: selectedIndex,
                           primaryColor: theme.primaryColor,
+                          tabs: plans.map((p) => p.title).toList(),
                           onPlanSelected: (index) =>
                               selectedPlanNotifier.value = index,
                         ),
                         SizedBox(height: 20.h),
 
-                        Container(
-                          width: 343.w,
-                          height: 390.h,
-                          padding: EdgeInsets.all(24.w),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(24.r),
-                            border: Border.all(
-                              color: theme.primaryColor,
-                              width: 1.5,
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                activePlan.title,
-                                style: TextStyle(
-                                  fontFamily: 'Rubik',
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: theme.primaryColor,
-                                ),
-                              ),
-                              SizedBox(height: 12.h),
-                              Text(
-                                activePlan.description,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: 'Rubik',
-                                  fontSize: 15.sp,
-                                  color: const Color(0xFF636262),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
+                        PricingPlanCardWidget(
+                          plan: activePlan,
+                          themeColors: theme,
                         ),
                       ],
                     );

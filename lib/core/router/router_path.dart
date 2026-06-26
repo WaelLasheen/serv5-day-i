@@ -8,4 +8,5 @@ abstract class RouterPath {
   static const String navBar = "/nav-bar";
   static const String home = "/home";
   static const String pricingPlans = "/pricing-plans";
+  static const String services = "/services";
 }
