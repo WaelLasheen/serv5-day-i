@@ -8,6 +8,12 @@ import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/services/notification_service.dart';
 import 'package:day_i/core/utils/services/notification_service_impl.dart';
+import 'package:day_i/features/auth/data/data_source/remote_data_source.dart';
+import 'package:day_i/features/auth/data/data_source/remote_data_source_impl.dart';
+import 'package:day_i/features/auth/data/repository/repository_impl.dart';
+import 'package:day_i/features/auth/domain/repository/repository.dart';
+import 'package:day_i/features/auth/domain/use_case/login_use_case.dart';
+import 'package:day_i/features/auth/domain/use_case/register_use_case.dart';
 import 'package:day_i/features/maps/data/datasources/maps_remote_data_source.dart';
 import 'package:day_i/features/maps/data/repos/maps_repository_impl.dart';
 import 'package:day_i/features/maps/domain/repos/maps_repository.dart';
@@ -35,8 +41,6 @@ Future<void> setUpLocators() async {
     () => ApiServiceImpl()..initialize(),
   );
 
-  getIt.registerSingleton<AppRouter>(AppRouter());
-
   getIt.registerLazySingleton<ImagePath>(() => ImagePath());
 
   // Maps Feature
@@ -49,6 +53,25 @@ Future<void> setUpLocators() async {
   getIt.registerLazySingleton<SearchPlacesUseCase>(
     () => SearchPlacesUseCase(getIt<MapsRepository>()),
   );
+
+  // Auth feature
+  getIt.registerLazySingleton<RemoteDataSource>(
+    () => RemoteDataSourceImpl(apiService: getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<Repository>(
+    () => RepositoryImpl(
+      remoteDataSource: getIt<RemoteDataSource>(),
+      tokenManager: getIt<ITokenManager>(),
+    ),
+  );
+  getIt.registerLazySingleton<LoginUseCase>(
+    () => LoginUseCase(repository: getIt<Repository>()),
+  );
+  getIt.registerLazySingleton<RegisterUseCase>(
+    () => RegisterUseCase(repository: getIt<Repository>()),
+  );
+
+  getIt.registerSingleton<AppRouter>(AppRouter());
 }
 
 Future<void> _setupHydratedBlocStorage() async {

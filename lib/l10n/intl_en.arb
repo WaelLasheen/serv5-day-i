@@ -52,5 +52,7 @@
     "orders":"Orders",
     "account":"Account",
     "changeLanguage":"Change Language",
-    "searchLocation":"Search for a location..."
+    "searchLocation":"Search for a location...",
+    "loginSuccessfully" :"Login Successfully",
+    "accountCreatedSuccessFully": "Account Created Successfully"
 }

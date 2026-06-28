@@ -1,4 +1,6 @@
 import 'package:day_i/core/di/di.dart';
+import 'package:day_i/core/networking/token_manager/token_manager.dart';
+import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/features/auth/presentation/widget/auth_header.dart';
@@ -22,6 +24,20 @@ class _LoginScreenState extends State<LoginScreen> {
   final ValueNotifier<bool> _isTermsAcceptedNotifier = ValueNotifier<bool>(
     false,
   );
+
+  @override
+  void initState() {
+    super.initState();
+    // will be remove after adding splash screen
+    handelNavByToken();
+  }
+
+  void handelNavByToken() async {
+    final token = await getIt<ITokenManager>().getAccessToken();
+    if (token != null && mounted) {
+      Navigator.pushReplacementNamed(context, RouterPath.navBar);
+    }
+  }
 
   @override
   void dispose() {
