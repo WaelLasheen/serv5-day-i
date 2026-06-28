@@ -1,6 +1,6 @@
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
-import 'package:day_i/core/widgets/app_password_form_field.dart';
+import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/font_styles.dart';
@@ -63,12 +63,17 @@ class ResetFieldsWidget extends StatelessWidget {
 
             // حقل كلمة المرور
             SizedBox(height: 8.h),
-            AppPasswordFormField(hintText: "نص تلميحي", label: 'كلمة المرور'),
+            CustomFormField(
+              isPassword: true,
+              hintText: "نص تلميحي",
+              label: 'كلمة المرور',
+            ),
             SizedBox(height: 16.h),
 
             // حقل تأكيد كلمة المرور
             SizedBox(height: 2.h),
-            AppPasswordFormField(
+            CustomFormField(
+              isPassword: true,
               hintText: "نص تلميحي",
               label: 'تأكيد كلمة المرور',
             ),
