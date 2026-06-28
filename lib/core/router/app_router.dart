@@ -1,5 +1,6 @@
 import 'package:day_i/core/router/path_not_found.dart';
 import 'package:day_i/core/router/router_path.dart';
+import 'package:day_i/features/auth/presentation/screen/create_account_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/forgot_password_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
@@ -35,9 +36,15 @@ class AppRouter {
       case RouterPath.navBar:
         return MaterialPageRoute(builder: (context) => const NavBarScreen());
       case RouterPath.pricingPlans:
-        return MaterialPageRoute(builder: (context) => const PricingPlansScreen());
+        return MaterialPageRoute(
+          builder: (context) => const PricingPlansScreen(),
+        );
       case RouterPath.services:
         return MaterialPageRoute(builder: (context) => const ServicesScreen());
+      case RouterPath.createAccountScreen:
+        return MaterialPageRoute(
+          builder: (context) => const CreateAccountScreen(),
+        );
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());

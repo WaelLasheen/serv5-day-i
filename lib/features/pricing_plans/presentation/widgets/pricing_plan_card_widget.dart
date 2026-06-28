@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
-import 'package:day_i/features/pricing_plans/presentation/param/pricing_plan_model.dart';
+import 'package:day_i/features/pricing_plans/data/models/pricing_plan_model.dart';
 
 class PricingPlanCardWidget extends StatelessWidget {
   final PricingPlanModel plan;

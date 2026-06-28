@@ -1,3 +1,5 @@
+import 'package:day_i/features/pricing_plans/data/repos/pricing_plans_repo.dart';
+import 'package:day_i/features/pricing_plans/presentation/manger/pricing_palns_cubit.dart';
 import 'package:day_i/core/database/database_service.dart';
 import 'package:day_i/core/database/shared_preferences_service.dart';
 import 'package:day_i/core/networking/api_service.dart';
@@ -33,6 +35,10 @@ Future<void> setUpLocators() async {
   getIt.registerSingleton<AppRouter>(AppRouter());
 
   getIt.registerLazySingleton<ImagePath>(() => ImagePath());
+
+  // Pricing Plans
+  getIt.registerLazySingleton<PricingPlansRepo>(() => PricingPlansRepo());
+  getIt.registerFactory<PricingPlansCubit>(() => PricingPlansCubit(getIt()));
 }
 
 Future<void> _setupHydratedBlocStorage() async {

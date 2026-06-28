@@ -59,5 +59,13 @@
     "resetPassword": "اعادة تعيين كلمة المرور",
     "flexiblePackages": "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية",
     "showDetails": "عرض التفاصيل",
-    "startNow": "أبدأ الآن"
+    "startNow": "أبدأ الآن",
+    "createCompany": "إنشاء شركتك",
+    "createCompanySubtitle": "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها .",
+    "companyName": "اسم الشركة",
+    "companyNameReq": "اسم الشركة مطلوب",
+    "phoneNumber": "رقم الهاتف",
+    "industry": "مجال العمل",
+    "selectedPlan": "الخطة المختارة",
+    "actionButton": "إنشاء حساب"
 }

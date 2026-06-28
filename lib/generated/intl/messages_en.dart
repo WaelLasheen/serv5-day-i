@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("Account"),
+    "actionButton": MessageLookupByLibrary.simpleMessage("Create Account"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -33,6 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "Choose package for your marketing campaign",
     ),
+    "companyName": MessageLookupByLibrary.simpleMessage("Company Name"),
+    "companyNameReq": MessageLookupByLibrary.simpleMessage(
+      "Company Name is required",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordMismatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
@@ -42,6 +47,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout",
+    ),
+    "createCompany": MessageLookupByLibrary.simpleMessage(
+      "Create Your Company",
+    ),
+    "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
+      "Start building your company\'s presence on the platform by entering its data.",
     ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
@@ -65,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "hello": MessageLookupByLibrary.simpleMessage("Hello World!"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "industry": MessageLookupByLibrary.simpleMessage("Industry"),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "Internal Server error, Please try later",
     ),
@@ -102,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "passwordReq": MessageLookupByLibrary.simpleMessage("Password is required"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "phoneReq": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),
@@ -119,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Looking for a service...",
     ),
+    "selectedPlan": MessageLookupByLibrary.simpleMessage("Selected Plan"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
@@ -127,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "Create your account to manage your marketing campaigns smartly within minutes",
     ),
+    "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "I agree to the terms and conditions and privacy policy",
     ),

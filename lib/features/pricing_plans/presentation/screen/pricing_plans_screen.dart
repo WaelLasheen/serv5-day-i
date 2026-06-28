@@ -1,4 +1,3 @@
-import 'package:day_i/features/pricing_plans/presentation/param/pricing_plan_model.dart';
 import 'package:day_i/features/pricing_plans/presentation/widgets/pricing_toggle_bar.dart';
 import 'package:day_i/features/pricing_plans/presentation/widgets/pricing_plan_card_widget.dart';
 import 'package:day_i/generated/l10n.dart';
@@ -7,15 +6,30 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 
+// Bloc Imports
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../manger/pricing_palns_cubit.dart';
+import '../manger/pricing_palns_state.dart';
+import 'package:day_i/core/di/di.dart'; // import DI
+
 class PricingPlansScreen extends StatelessWidget {
   const PricingPlansScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.appTheme;
-    final List<PricingPlanModel> plans = PricingPlanModel.getMockPlans();
+    return BlocProvider(
+      create: (context) => getIt<PricingPlansCubit>()..fetchPricingPlans(),
+      child: const _PricingPlansView(),
+    );
+  }
+}
 
-    final ValueNotifier<int> selectedPlanNotifier = ValueNotifier<int>(0);
+class _PricingPlansView extends StatelessWidget {
+  const _PricingPlansView();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = context.appTheme;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -76,30 +90,74 @@ class PricingPlansScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 32.h),
 
-                ValueListenableBuilder<int>(
-                  valueListenable: selectedPlanNotifier,
-                  builder: (context, selectedIndex, child) {
-                    final activePlan = plans.firstWhere(
-                      (element) => element.index == selectedIndex,
-                    );
-
-                    return Column(
-                      children: [
-                        PricingToggleBar(
-                          selectedIndex: selectedIndex,
-                          primaryColor: theme.primaryColor,
-                          tabs: plans.map((p) => p.title).toList(),
-                          onPlanSelected: (index) =>
-                              selectedPlanNotifier.value = index,
+                // BlocBuilder to listen to Cubit states
+                BlocBuilder<PricingPlansCubit, PricingPlansState>(
+                  builder: (context, state) {
+                    if (state is PricingPlansLoading ||
+                        state is PricingPlansInitial) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 50.h),
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            color: theme.primaryColor,
+                          ),
                         ),
-                        SizedBox(height: 20.h),
-
-                        PricingPlanCardWidget(
-                          plan: activePlan,
-                          themeColors: theme,
+                      );
+                    } else if (state is PricingPlansFailure) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 50.h),
+                        child: Center(
+                          child: Text(
+                            state.errMessage,
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 16.sp,
+                            ),
+                          ),
                         ),
-                      ],
-                    );
+                      );
+                    } else if (state is PricingPlansSuccess) {
+                      final plans = state.pricingPlans;
+                      final selectedIndex = state.selectedIndex;
+
+                      if (plans.isEmpty) {
+                        return Padding(
+                          padding: EdgeInsets.only(top: 50.h),
+                          child: Center(
+                            child: Text(
+                              "لا توجد باقات متاحة",
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
+                          ),
+                        );
+                      }
+
+                      // Find the active plan based on index
+                      final activePlan = plans.firstWhere(
+                        (element) => element.index == selectedIndex,
+                        orElse: () => plans.first,
+                      );
+
+                      return Column(
+                        children: [
+                          PricingToggleBar(
+                            selectedIndex: selectedIndex,
+                            primaryColor: theme.primaryColor,
+                            tabs: plans.map((p) => p.title).toList(),
+                            onPlanSelected: (index) => context
+                                .read<PricingPlansCubit>()
+                                .selectPlan(index),
+                          ),
+                          SizedBox(height: 20.h),
+                          PricingPlanCardWidget(
+                            plan: activePlan,
+                            themeColors: theme,
+                          ),
+                        ],
+                      );
+                    }
+
+                    return const SizedBox.shrink();
                   },
                 ),
 

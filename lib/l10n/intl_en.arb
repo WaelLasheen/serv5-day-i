@@ -59,5 +59,13 @@
     "resetPassword": "Reset Password",
     "flexiblePackages": "Flexible packages to suit your business size and marketing goals",
     "showDetails": "Show details",
-    "startNow": "Start Now"
+    "startNow": "Start Now",
+    "createCompany": "Create Your Company",
+    "createCompanySubtitle": "Start building your company's presence on the platform by entering its data.",
+    "companyName": "Company Name",
+    "companyNameReq": "Company Name is required",
+    "phoneNumber": "Phone Number",
+    "industry": "Industry",
+    "selectedPlan": "Selected Plan",
+    "actionButton": "Create Account"
 }

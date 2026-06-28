@@ -568,6 +568,81 @@ class S {
   String get startNow {
     return Intl.message('Start Now', name: 'startNow', desc: '', args: []);
   }
+
+  /// `Create Your Company`
+  String get createCompany {
+    return Intl.message(
+      'Create Your Company',
+      name: 'createCompany',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start building your company's presence on the platform by entering its data.`
+  String get createCompanySubtitle {
+    return Intl.message(
+      'Start building your company\'s presence on the platform by entering its data.',
+      name: 'createCompanySubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Company Name`
+  String get companyName {
+    return Intl.message(
+      'Company Name',
+      name: 'companyName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Company Name is required`
+  String get companyNameReq {
+    return Intl.message(
+      'Company Name is required',
+      name: 'companyNameReq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Industry`
+  String get industry {
+    return Intl.message('Industry', name: 'industry', desc: '', args: []);
+  }
+
+  /// `Selected Plan`
+  String get selectedPlan {
+    return Intl.message(
+      'Selected Plan',
+      name: 'selectedPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Account`
+  String get actionButton {
+    return Intl.message(
+      'Create Account',
+      name: 'actionButton',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

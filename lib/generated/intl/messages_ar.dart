@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("الحساب"),
+    "actionButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل؟",
     ),
@@ -33,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "اختر الباقة المناسبة لنمو تسويقك",
     ),
+    "companyName": MessageLookupByLibrary.simpleMessage("اسم الشركة"),
+    "companyNameReq": MessageLookupByLibrary.simpleMessage("اسم الشركة مطلوب"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
@@ -44,6 +47,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "انتهى وقت الاتصال",
+    ),
+    "createCompany": MessageLookupByLibrary.simpleMessage("إنشاء شركتك"),
+    "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
+      "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها .",
     ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
@@ -65,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullNameReq": MessageLookupByLibrary.simpleMessage("الاسم الكامل مطلوب"),
     "hello": MessageLookupByLibrary.simpleMessage("مرحباً بالعالم!"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "industry": MessageLookupByLibrary.simpleMessage("مجال العمل"),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "خطأ في الخادم الداخلي، يرجى المحاولة لاحقاً",
     ),
@@ -102,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "passwordReq": MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("المسار غير موجود"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "phoneReq": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
     "prices": MessageLookupByLibrary.simpleMessage("الاسعار"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
@@ -117,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل كلمة مرور قوية لحماية حسابك",
     ),
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
+    "selectedPlan": MessageLookupByLibrary.simpleMessage("الخطة المختارة"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("انتهى وقت الإرسال"),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
@@ -125,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "أنشئ حسابك لادارة حملاتك التسويقية بذكاء خلال دقائق",
     ),
+    "startNow": MessageLookupByLibrary.simpleMessage("أبدأ الآن"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "أوافق على الشروط والاحكام وسياسة الخصوصية",
     ),
