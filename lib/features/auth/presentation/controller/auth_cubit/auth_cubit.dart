@@ -83,4 +83,13 @@ class AuthCubit extends Cubit<AuthState> {
     _confirmPasswordController.dispose();
     _isTermsAcceptedNotifier.dispose();
   }
+
+  void clearControllers() {
+    _nameController.clear();
+    _phoneController.clear();
+    _emailController.clear();
+    _passwordController.clear();
+    _confirmPasswordController.clear();
+    _isTermsAcceptedNotifier.value = false;
+  }
 }

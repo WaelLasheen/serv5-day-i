@@ -29,9 +29,11 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   bloc: ^9.2.1
+  cookie_jar: ^4.0.9
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dio: ^5.9.2
+  dio_cookie_manager: ^3.4.0
   equatable: ^2.0.8
   firebase_core: ^4.11.0
   firebase_messaging: ^16.4.1

@@ -2,8 +2,6 @@ import 'package:day_i/core/database/database_service.dart';
 import 'package:day_i/core/database/shared_preferences_service.dart';
 import 'package:day_i/core/networking/api_service.dart';
 import 'package:day_i/core/networking/i_api_service.dart';
-import 'package:day_i/core/networking/token_manager/token_manager.dart';
-import 'package:day_i/core/networking/token_manager/token_manager_impl.dart';
 import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/notification/notification_service.dart';
@@ -21,7 +19,6 @@ import 'package:day_i/features/maps/domain/usecases/search_places_usecase.dart';
 import 'package:day_i/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
@@ -32,10 +29,6 @@ Future<void> setUpLocators() async {
   await _setupHydratedBlocStorage();
   await _setupDatabaseService();
   await _setupNotificationService();
-
-  getIt.registerLazySingleton<ITokenManager>(
-    () => TokenManagerImpl(const FlutterSecureStorage()),
-  );
 
   getIt.registerLazySingleton<IApiService>(
     () => ApiServiceImpl()..initialize(),
@@ -59,10 +52,7 @@ Future<void> setUpLocators() async {
     () => RemoteDataSourceImpl(apiService: getIt<IApiService>()),
   );
   getIt.registerLazySingleton<Repository>(
-    () => RepositoryImpl(
-      remoteDataSource: getIt<RemoteDataSource>(),
-      tokenManager: getIt<ITokenManager>(),
-    ),
+    () => RepositoryImpl(remoteDataSource: getIt<RemoteDataSource>()),
   );
   getIt.registerLazySingleton<LoginUseCase>(
     () => LoginUseCase(repository: getIt<Repository>()),
