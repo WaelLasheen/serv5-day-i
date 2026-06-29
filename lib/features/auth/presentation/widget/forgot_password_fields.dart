@@ -8,13 +8,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgotPasswordFields extends StatelessWidget {
   final GlobalKey<FormState> formKey;
-  final TextEditingController emailController;
+  final TextEditingController phoneController;
   final VoidCallback onSubmit;
 
   const ForgotPasswordFields({
     super.key,
     required this.formKey,
-    required this.emailController,
+    required this.phoneController,
     required this.onSubmit,
   });
 
@@ -36,12 +36,12 @@ class ForgotPasswordFields extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomFormField(
-              label: S.current.email,
-              hintText: 'example@email.com',
-              prefixIcon: const Icon(Icons.email_outlined),
-              controller: emailController,
-              validator: ValidationService.validateEmail,
-              keyboardType: TextInputType.emailAddress,
+              label: S.current.phone,
+              hintText: '01234567890',
+              prefixIcon: const Icon(Icons.call_outlined),
+              controller: phoneController,
+              validator: ValidationService.validatePhoneNumber,
+              keyboardType: TextInputType.phone,
               textInputAction: TextInputAction.done,
             ),
             FormTakeAction(

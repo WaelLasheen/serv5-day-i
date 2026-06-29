@@ -3,8 +3,11 @@ import 'package:day_i/core/networking/token_manager/token_manager.dart';
 import 'package:day_i/core/utils/errors/failure.dart';
 import 'package:day_i/features/auth/data/data_source/remote_data_source.dart';
 import 'package:day_i/features/auth/domain/entity/auth_entity.dart';
+import 'package:day_i/features/auth/domain/params/change_password_params.dart';
 import 'package:day_i/features/auth/domain/params/login_params.dart';
 import 'package:day_i/features/auth/domain/params/register_params.dart';
+import 'package:day_i/features/auth/domain/params/send_otp_params.dart';
+import 'package:day_i/features/auth/domain/params/verify_params.dart';
 import 'package:day_i/features/auth/domain/repository/repository.dart';
 
 class RepositoryImpl implements Repository {
@@ -43,5 +46,25 @@ class RepositoryImpl implements Repository {
         return Right(authModel.toEntity());
       },
     );
+  }
+
+  @override
+  Future<Either<Failure, void>> sendOtp(SendOtpParams params) async {
+    final result = await _remoteDataSource.sendOtp(params);
+    return result.fold((failure) => Left(failure), (authModel) => Right(null));
+  }
+
+  @override
+  Future<Either<Failure, void>> verify(VerifyParams params) async {
+    final result = await _remoteDataSource.verify(params);
+    return result.fold((failure) => Left(failure), (authModel) => Right(null));
+  }
+
+  @override
+  Future<Either<Failure, void>> changePassword(
+    ChangePasswordParams params,
+  ) async {
+    final result = await _remoteDataSource.changePassword(params);
+    return result.fold((failure) => Left(failure), (authModel) => Right(null));
   }
 }

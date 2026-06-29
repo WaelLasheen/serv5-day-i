@@ -518,6 +518,11 @@ class S {
       args: [],
     );
   }
+
+  /// `Phone Number`
+  String get phone {
+    return Intl.message('Phone Number', name: 'phone', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

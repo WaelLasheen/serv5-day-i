@@ -18,11 +18,11 @@ class ForgotPasswordScreen extends StatefulWidget {
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
 
   @override
   void dispose() {
-    _emailController.dispose();
+    _phoneController.dispose();
     super.dispose();
   }
 
@@ -44,12 +44,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
             ForgotPasswordFields(
               formKey: _formKey,
-              emailController: _emailController,
+              phoneController: _phoneController,
               onSubmit: () {
                 if (_formKey.currentState!.validate()) {
                   context.navigateTo(
                     RouterPath.otp,
-                    arguments: _emailController.text.trim(),
+                    arguments: _phoneController.text.trim(),
                   );
                 }
               },

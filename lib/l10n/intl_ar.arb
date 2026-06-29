@@ -54,5 +54,6 @@
     "changeLanguage":"تغير اللغة",
     "searchLocation":"ابحث عن موقع...",
     "loginSuccessfully" :"تم تسجيل الدخول بنجاح",
-    "accountCreatedSuccessFully": "تم انشاء الحساب بنجاح"
+    "accountCreatedSuccessFully": "تم انشاء الحساب بنجاح",
+    "phone":"رقم الهاتف"
 }

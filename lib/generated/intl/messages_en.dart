@@ -98,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordReq": MessageLookupByLibrary.simpleMessage("Password is required"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
+    "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "phoneReq": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),

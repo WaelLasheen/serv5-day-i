@@ -39,7 +39,7 @@ class SignupForm extends StatelessWidget {
         ),
         CustomFormField(
           controller: phoneController,
-          label: S.current.password,
+          label: S.current.phone,
           hintText: "+20 101010100",
           prefixIcon: const Icon(Icons.call_outlined),
           keyboardType: TextInputType.phone,

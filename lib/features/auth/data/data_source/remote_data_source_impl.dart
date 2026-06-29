@@ -4,8 +4,11 @@ import 'package:day_i/core/networking/i_api_service.dart';
 import 'package:day_i/core/utils/errors/failure.dart';
 import 'package:day_i/features/auth/data/data_source/remote_data_source.dart';
 import 'package:day_i/features/auth/data/model/auth_model.dart';
+import 'package:day_i/features/auth/domain/params/change_password_params.dart';
 import 'package:day_i/features/auth/domain/params/login_params.dart';
 import 'package:day_i/features/auth/domain/params/register_params.dart';
+import 'package:day_i/features/auth/domain/params/send_otp_params.dart';
+import 'package:day_i/features/auth/domain/params/verify_params.dart';
 
 class RemoteDataSourceImpl implements RemoteDataSource {
   final IApiService _apiService;
@@ -21,12 +24,8 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     );
 
     return result.fold(
-      (failure) {
-        return Left(failure);
-      },
-      (response) {
-        return Right(AuthModel.fromJson(response.data));
-      },
+      (failure) => Left(failure),
+      (response) => Right(AuthModel.fromJson(response.data)),
     );
   }
 
@@ -36,14 +35,42 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       ApiConstants.register,
       data: params.toJson(),
     );
-    
+
     return result.fold(
-      (failure) {
-        return Left(failure);
-      },
-      (response) {
-        return Right(AuthModel.fromJson(response.data));
-      },
+      (failure) => Left(failure),
+      (response) => Right(AuthModel.fromJson(response.data)),
     );
+  }
+
+  @override
+  Future<Either<Failure, void>> sendOtp(SendOtpParams params) async {
+    final result = await _apiService.post(
+      ApiConstants.sendOtp,
+      data: params.toJson(),
+    );
+
+    return result.fold((failure) => Left(failure), (response) => Right(null));
+  }
+
+  @override
+  Future<Either<Failure, void>> verify(VerifyParams params) async {
+    final result = await _apiService.post(
+      ApiConstants.verify,
+      data: params.toJson(),
+    );
+
+    return result.fold((failure) => Left(failure), (response) => Right(null));
+  }
+
+  @override
+  Future<Either<Failure, void>> changePassword(
+    ChangePasswordParams params,
+  ) async {
+    final result = await _apiService.post(
+      ApiConstants.changePassword,
+      data: params.toJson(),
+    );
+
+    return result.fold((failure) => Left(failure), (response) => Right(null));
   }
 }

@@ -96,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordReq": MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("المسار غير موجود"),
+    "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "phoneReq": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "انتهى وقت الاستقبال",

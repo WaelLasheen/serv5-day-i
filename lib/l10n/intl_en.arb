@@ -54,5 +54,6 @@
     "changeLanguage":"Change Language",
     "searchLocation":"Search for a location...",
     "loginSuccessfully" :"Login Successfully",
-    "accountCreatedSuccessFully": "Account Created Successfully"
+    "accountCreatedSuccessFully": "Account Created Successfully",
+    "phone":"Phone Number"
 }
