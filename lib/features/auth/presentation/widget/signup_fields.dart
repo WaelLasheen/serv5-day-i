@@ -61,6 +61,7 @@ class SignupFields extends StatelessWidget {
                   context.showSuccessSnackBar(
                     message: S.current.accountCreatedSuccessFully,
                   );
+                  context.read<AuthCubit>().disposeControllers();
                   context.navigateAndReplace(RouterPath.navBar);
                 } else if (state is AuthError) {
                   context.showErrorSnackBar(message: state.message);
