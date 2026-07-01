@@ -1,9 +1,13 @@
 import 'package:day_i/core/di/di.dart';
 import 'package:day_i/core/router/path_not_found.dart';
 import 'package:day_i/core/router/router_path.dart';
+import 'package:day_i/features/auth/domain/use_case/change_password_use_case.dart';
 import 'package:day_i/features/auth/domain/use_case/login_use_case.dart';
 import 'package:day_i/features/auth/domain/use_case/register_use_case.dart';
+import 'package:day_i/features/auth/domain/use_case/send_otp_use_case.dart';
+import 'package:day_i/features/auth/domain/use_case/verify_use_case.dart';
 import 'package:day_i/features/auth/presentation/controller/auth_cubit/auth_cubit.dart';
+import 'package:day_i/features/auth/presentation/controller/change_password_cubit/change_password_cubit.dart';
 import 'package:day_i/features/auth/presentation/screen/forgot_password_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
@@ -18,10 +22,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   late AuthCubit _authCubit;
+  late ChangePasswordCubit _changePasswordCubit;
   AppRouter() {
     _authCubit = AuthCubit(
       loginUseCase: getIt<LoginUseCase>(),
       registerUseCase: getIt<RegisterUseCase>(),
+    );
+    _changePasswordCubit = ChangePasswordCubit(
+      sendOtpUseCase: getIt<SendOtpUseCase>(),
+      verifyUseCase: getIt<VerifyUseCase>(),
+      changePasswordUseCase: getIt<ChangePasswordUseCase>(),
     );
   }
 
@@ -41,15 +51,26 @@ class AppRouter {
         );
       case RouterPath.forgotPassword:
         return MaterialPageRoute(
-          builder: (context) => const ForgotPasswordScreen(),
+          builder: (context) => BlocProvider.value(
+            value: _changePasswordCubit,
+            child: const ForgotPasswordScreen(),
+          ),
         );
       case RouterPath.otp:
-        final email = settings.arguments as String? ?? '';
-        return MaterialPageRoute(builder: (context) => OtpScreen(email: email));
+        final phone = settings.arguments as String? ?? '';
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+            value: _changePasswordCubit,
+            child: OtpScreen(phone: phone),
+          ),
+        );
 
       case RouterPath.resetPassword:
         return MaterialPageRoute(
-          builder: (context) => const ResetPasswordScreen(),
+          builder: (context) => BlocProvider.value(
+            value: _changePasswordCubit,
+            child: const ResetPasswordScreen(),
+          ),
         );
 
       case RouterPath.navBar:

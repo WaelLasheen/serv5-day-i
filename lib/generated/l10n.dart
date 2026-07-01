@@ -523,6 +523,26 @@ class S {
   String get phone {
     return Intl.message('Phone Number', name: 'phone', desc: '', args: []);
   }
+
+  /// `Reset password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter strong Password to protect your account`
+  String get enterStrongPasswordToProtectYourAccount {
+    return Intl.message(
+      'Enter strong Password to protect your account',
+      name: 'enterStrongPasswordToProtectYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

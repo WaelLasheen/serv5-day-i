@@ -1,3 +1,4 @@
+import 'package:day_i/core/utils/extensions/number_range.dart';
 import 'package:day_i/generated/l10n.dart';
 
 class ValidationService {
@@ -43,6 +44,9 @@ class ValidationService {
 
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.trim().isEmpty) {
+      return S.current.phoneReq;
+    }
+    if(!value.trim().length.isBetween(11, 12)){
       return S.current.phoneReq;
     }
     return null;

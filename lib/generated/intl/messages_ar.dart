@@ -49,6 +49,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailReq": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "enterStrongPasswordToProtectYourAccount":
+        MessageLookupByLibrary.simpleMessage(
+          "أدخل كلمة مرور قوية لحماية حسابك",
+        ),
     "forgotPasswordSubtitle": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة.",
     ),
@@ -104,6 +108,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage("تم إلغاء الطلب"),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
     "searchLocation": MessageLookupByLibrary.simpleMessage("ابحث عن موقع..."),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),

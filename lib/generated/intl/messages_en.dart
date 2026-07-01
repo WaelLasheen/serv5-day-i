@@ -49,6 +49,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "enterStrongPasswordToProtectYourAccount":
+        MessageLookupByLibrary.simpleMessage(
+          "Enter strong Password to protect your account",
+        ),
     "forgotPasswordSubtitle": MessageLookupByLibrary.simpleMessage(
       "Enter your email address to reset your password.",
     ),
@@ -108,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Request was canceled",
     ),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Looking for a service...",
     ),

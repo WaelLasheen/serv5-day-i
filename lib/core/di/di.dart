@@ -10,8 +10,11 @@ import 'package:day_i/features/auth/data/data_source/remote_data_source.dart';
 import 'package:day_i/features/auth/data/data_source/remote_data_source_impl.dart';
 import 'package:day_i/features/auth/data/repository/repository_impl.dart';
 import 'package:day_i/features/auth/domain/repository/repository.dart';
+import 'package:day_i/features/auth/domain/use_case/change_password_use_case.dart';
 import 'package:day_i/features/auth/domain/use_case/login_use_case.dart';
 import 'package:day_i/features/auth/domain/use_case/register_use_case.dart';
+import 'package:day_i/features/auth/domain/use_case/send_otp_use_case.dart';
+import 'package:day_i/features/auth/domain/use_case/verify_use_case.dart';
 import 'package:day_i/features/maps/data/datasources/maps_remote_data_source.dart';
 import 'package:day_i/features/maps/data/repos/maps_repository_impl.dart';
 import 'package:day_i/features/maps/domain/repos/maps_repository.dart';
@@ -59,6 +62,17 @@ Future<void> setUpLocators() async {
   );
   getIt.registerLazySingleton<RegisterUseCase>(
     () => RegisterUseCase(repository: getIt<Repository>()),
+  );
+
+  // change password
+  getIt.registerLazySingleton<SendOtpUseCase>(
+    () => SendOtpUseCase(repository: getIt<Repository>()),
+  );
+  getIt.registerLazySingleton<VerifyUseCase>(
+    () => VerifyUseCase(repository: getIt<Repository>()),
+  );
+  getIt.registerLazySingleton<ChangePasswordUseCase>(
+    () => ChangePasswordUseCase(repository: getIt<Repository>()),
   );
 
   getIt.registerSingleton<AppRouter>(AppRouter());

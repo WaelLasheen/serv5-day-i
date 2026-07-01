@@ -55,5 +55,7 @@
     "searchLocation":"ابحث عن موقع...",
     "loginSuccessfully" :"تم تسجيل الدخول بنجاح",
     "accountCreatedSuccessFully": "تم انشاء الحساب بنجاح",
-    "phone":"رقم الهاتف"
+    "phone":"رقم الهاتف",
+    "resetPassword":"إعادة تعيين كلمة المرور",
+    "enterStrongPasswordToProtectYourAccount":"أدخل كلمة مرور قوية لحماية حسابك"
 }

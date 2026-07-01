@@ -55,5 +55,7 @@
     "searchLocation":"Search for a location...",
     "loginSuccessfully" :"Login Successfully",
     "accountCreatedSuccessFully": "Account Created Successfully",
-    "phone":"Phone Number"
+    "phone":"Phone Number",
+    "resetPassword":"Reset password",
+    "enterStrongPasswordToProtectYourAccount":"Enter strong Password to protect your account"
 }

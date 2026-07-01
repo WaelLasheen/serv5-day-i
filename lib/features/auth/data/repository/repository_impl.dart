@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:day_i/core/utils/errors/failure.dart';
 import 'package:day_i/features/auth/data/data_source/remote_data_source.dart';
 import 'package:day_i/features/auth/domain/entity/auth_entity.dart';
+import 'package:day_i/features/auth/domain/entity/verify_entity.dart';
 import 'package:day_i/features/auth/domain/params/change_password_params.dart';
 import 'package:day_i/features/auth/domain/params/login_params.dart';
 import 'package:day_i/features/auth/domain/params/register_params.dart';
@@ -35,13 +36,16 @@ class RepositoryImpl implements Repository {
   @override
   Future<Either<Failure, void>> sendOtp(SendOtpParams params) async {
     final result = await _remoteDataSource.sendOtp(params);
-    return result.fold((failure) => Left(failure), (authModel) => Right(null));
+    return result.fold((failure) => Left(failure), (_) => Right(null));
   }
 
   @override
-  Future<Either<Failure, void>> verify(VerifyParams params) async {
+  Future<Either<Failure, VerifyEntity>> verify(VerifyParams params) async {
     final result = await _remoteDataSource.verify(params);
-    return result.fold((failure) => Left(failure), (authModel) => Right(null));
+    return result.fold(
+      (failure) => Left(failure),
+      (verifyModel) => Right(verifyModel.toEntity()),
+    );
   }
 
   @override
@@ -49,6 +53,6 @@ class RepositoryImpl implements Repository {
     ChangePasswordParams params,
   ) async {
     final result = await _remoteDataSource.changePassword(params);
-    return result.fold((failure) => Left(failure), (authModel) => Right(null));
+    return result.fold((failure) => Left(failure), (_) => Right(null));
   }
 }
