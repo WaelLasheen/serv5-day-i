@@ -1,6 +1,6 @@
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/widgets/app_button.dart';
-import 'package:day_i/core/widgets/app_text_form_field.dart';
+import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +13,7 @@ class ContactForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppTextFormField(
+        CustomFormField(
           label: S.current.email,
           hintText: 'info@marketingagency.com',
           suffixIcon: const Icon(
@@ -26,7 +26,7 @@ class ContactForm extends StatelessWidget {
           ),
         ),
         SizedBox(height: 16.h),
-        AppTextFormField(
+        CustomFormField(
           label: S.current.subject,
           hintText: S.current.chooseSubject,
           suffixIcon: const Icon(

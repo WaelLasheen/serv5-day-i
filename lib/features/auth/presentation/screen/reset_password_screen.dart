@@ -1,10 +1,13 @@
 import 'package:day_i/core/di/di.dart';
+import 'package:day_i/core/theme/app_theme.dart';
+import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/extensions/dialog_extensions.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/widgets/app_button.dart';
-import 'package:day_i/core/widgets/app_password_form_field.dart';
+import 'package:day_i/core/widgets/custom_form_field.dart';
+import 'package:day_i/features/auth/presentation/widget/reset_password_header.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -140,14 +143,15 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
             // حقل كلمة المرور
             SizedBox(height: 8.h),
-            AppPasswordFormField(hintText: "نص تلميحي", label: 'كلمة المرور'),
+            CustomFormField(hintText: "نص تلميحي", label: 'كلمة المرور', isPassword: true),
             SizedBox(height: 16.h),
 
             // حقل تأكيد كلمة المرور
             SizedBox(height: 2.h),
-            AppPasswordFormField(
+            CustomFormField(
               hintText: "نص تلميحي",
               label: 'تأكيد كلمة المرور',
+              isPassword: true,
             ),
             SizedBox(height: 32.h),
 

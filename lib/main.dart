@@ -4,7 +4,7 @@ import 'package:day_i/core/localization/logic/locale_state.dart';
 import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_themes.dart';
-import 'package:day_i/core/services/notification_service.dart'; // مسار الـ Service بتاعك
+
 import 'package:day_i/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,6 @@ void main() async {
 
   await setUpLocators();
 
-  await getIt<NotificationService>().initNotifications();
 
   runApp(const MyApp());
 }

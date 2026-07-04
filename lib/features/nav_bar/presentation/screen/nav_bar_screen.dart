@@ -1,6 +1,5 @@
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
-import 'package:day_i/features/maps/presentation/screen/map_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/param/nav_bar_item_model.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/nav_bar_item.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/floating_bot_button.dart';

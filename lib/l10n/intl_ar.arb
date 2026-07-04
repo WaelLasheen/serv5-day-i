@@ -46,6 +46,7 @@
     "phoneReq": "رقم الهاتف مطلوب",
     "confirmPasswordReq": "تأكيد كلمة المرور مطلوب",
     "confirmPasswordMismatch": "كلمتا المرور غير متطابقتين",
+    "searchLocation":"ابحث عن موقع...",
     "searchHint": "ابحث عن خدمة...",
     "home": "الرئيسية",
     "services": "الخدمات",
@@ -77,5 +78,8 @@
     "writeMessageHere": "اكتب رسالتك هنا",
     "sendMessage": "إرسال الرسالة",
     "markivaContactInfo": "معلومات الاتصال بماركيفا",
-    "address": "العنوان"
+    "address": "العنوان",
+    "loginSuccessfully": "تم تسجيل الدخول بنجاح",
+    "accountCreatedSuccessFully": "تم إنشاء الحساب بنجاح",
+    "phone":"الهاتف"
 }

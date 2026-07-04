@@ -77,5 +77,9 @@
     "writeMessageHere": "Write your message here",
     "sendMessage": "Send Message",
     "markivaContactInfo": "Markiva Contact Information",
-    "address": "Address"
+    "address": "Address",
+    "loginSuccessfully": "Login Successfully",
+    "accountCreatedSuccessFully": "Account Created Successfully",
+    "searchLocation": "Search Location...",
+    "phone":"Phone"
 }

@@ -1,5 +1,5 @@
 import 'package:day_i/core/widgets/app_button.dart';
-import 'package:day_i/core/widgets/app_text_form_field.dart';
+import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,7 +38,7 @@ class CreateAccountFields extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppTextFormField(
+            CustomFormField(
               label: S.current.companyName,
               hintText: "أدخل الاسم الرسمي لشركتك كما سيظهر للعملاء",
               controller: companyNameController,
@@ -54,7 +54,7 @@ class CreateAccountFields extends StatelessWidget {
               },
             ),
             SizedBox(height: 16.h),
-            AppTextFormField(
+            CustomFormField(
               label: S.current.email,
               hintText: "rania@gmail.com",
               controller: emailController,
@@ -74,7 +74,7 @@ class CreateAccountFields extends StatelessWidget {
               },
             ),
             SizedBox(height: 16.h),
-            AppTextFormField(
+            CustomFormField(
               label: S.current.phoneNumber,
               hintText: "+20 101010100",
               controller: phoneController,
@@ -91,7 +91,7 @@ class CreateAccountFields extends StatelessWidget {
               },
             ),
             SizedBox(height: 16.h),
-            AppTextFormField(
+            CustomFormField(
               label: S.current.industry,
               hintText: "اختر المجال الذي تعمل فيه شركتك",
               controller: industryController,
@@ -107,7 +107,7 @@ class CreateAccountFields extends StatelessWidget {
               },
             ),
             SizedBox(height: 16.h),
-            AppTextFormField(
+            CustomFormField(
               label: S.current.selectedPlan,
               hintText: "الخطة التي اشتركت بها لتفعيل خدمات المنصة",
               controller: selectedPlanController,
