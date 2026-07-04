@@ -3,7 +3,7 @@ import 'package:day_i/core/utils/errors/failure.dart';
 import 'package:dio/dio.dart';
 
 abstract class IApiService {
-  void initialize();
+  Future<void> initialize();
   Future<Either<Failure, Response>> post(
     String path, {
     dynamic data,
@@ -29,4 +29,6 @@ abstract class IApiService {
     dynamic data,
     Options? options,
   });
+
+  Future<void> clearCookies();
 }

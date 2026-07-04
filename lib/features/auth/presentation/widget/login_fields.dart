@@ -52,6 +52,7 @@ class LoginFields extends StatelessWidget {
                   context.showSuccessSnackBar(
                     message: S.current.loginSuccessfully,
                   );
+                  context.read<AuthCubit>().clearControllers();
                   context.navigateAndReplace(RouterPath.navBar);
                 } else if (state is AuthError) {
                   context.showErrorSnackBar(message: state.message);

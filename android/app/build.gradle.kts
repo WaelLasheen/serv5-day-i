@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.example.day_i"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -26,7 +26,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.day_i"
-        minSdk = flutter.minSdkVersion // يفضل تحديدها بـ 21 صريحة عشان الـ desugaring يشتغل بامتياز
+        minSdk = 23 
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

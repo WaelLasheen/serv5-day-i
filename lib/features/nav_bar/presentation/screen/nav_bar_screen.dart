@@ -2,6 +2,7 @@ import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/param/nav_bar_item_model.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/nav_bar_item.dart';
+import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/floating_bot_button.dart';
 import 'package:day_i/features/services/screen/services_screen.dart';
 import 'package:day_i/generated/l10n.dart';
@@ -21,7 +22,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     const HomeScreen(),
     const ServicesScreen(),
     const Text('data'),
-    const Text('data'),
+    const ProfileScreen(),
   ];
 
   final List<NavBarItemModel> navBarItems = [

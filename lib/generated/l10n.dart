@@ -534,10 +534,10 @@ class S {
     );
   }
 
-  /// `Reset Password`
+  /// `Reset password`
   String get resetPassword {
     return Intl.message(
-      'Reset Password',
+      'Reset password',
       name: 'resetPassword',
       desc: '',
       args: [],
@@ -759,156 +759,11 @@ class S {
     return Intl.message('Phone', name: 'phone', desc: '', args: []);
   }
 
-  /// `Confirm password does not match the new password`
-  String get passwordDoesntMatch {
+  /// `Enter strong Password to protect your account`
+  String get enterStrongPasswordToProtectYourAccount {
     return Intl.message(
-      'Confirm password does not match the new password',
-      name: 'passwordDoesntMatch',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Strong Password`
-  String get passwordStrength {
-    return Intl.message(
-      'Strong Password',
-      name: 'passwordStrength',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Weak`
-  String get weekPassword {
-    return Intl.message('Weak', name: 'weekPassword', desc: '', args: []);
-  }
-
-  /// `Medium`
-  String get mediumPassword {
-    return Intl.message('Medium', name: 'mediumPassword', desc: '', args: []);
-  }
-
-  /// `Strong`
-  String get strongPassword {
-    return Intl.message('Strong', name: 'strongPassword', desc: '', args: []);
-  }
-
-  /// `Edit Contact Information`
-  String get editProfileContacts {
-    return Intl.message(
-      'Edit Contact Information',
-      name: 'editProfileContacts',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Password Security`
-  String get passwordSecurity {
-    return Intl.message(
-      'Password Security',
-      name: 'passwordSecurity',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Change Password`
-  String get editProfileChangePassword {
-    return Intl.message(
-      'Change Password',
-      name: 'editProfileChangePassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Change Password`
-  String get changePassword {
-    return Intl.message(
-      'Change Password',
-      name: 'changePassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter a new password for your account.`
-  String get changePasswordInstruction {
-    return Intl.message(
-      'Enter a new password for your account.',
-      name: 'changePasswordInstruction',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Password must be at least 8 characters.`
-  String get passwordLength {
-    return Intl.message(
-      'Password must be at least 8 characters.',
-      name: 'passwordLength',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please do not use personal information or common words.`
-  String get passwordNotPersonal {
-    return Intl.message(
-      'Please do not use personal information or common words.',
-      name: 'passwordNotPersonal',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `It is recommended to use uppercase and lowercase letters and numbers.`
-  String get passwordCaseAndNumbers {
-    return Intl.message(
-      'It is recommended to use uppercase and lowercase letters and numbers.',
-      name: 'passwordCaseAndNumbers',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Edit Profile`
-  String get editProfilePage {
-    return Intl.message(
-      'Edit Profile',
-      name: 'editProfilePage',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Current Password`
-  String get currentPassword {
-    return Intl.message(
-      'Current Password',
-      name: 'currentPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `New Password`
-  String get newPassword {
-    return Intl.message(
-      'New Password',
-      name: 'newPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Save Changes`
-  String get saveChanges {
-    return Intl.message(
-      'Save Changes',
-      name: 'saveChanges',
+      'Enter strong Password to protect your account',
+      name: 'enterStrongPasswordToProtectYourAccount',
       desc: '',
       args: [],
     );
