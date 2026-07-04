@@ -4,7 +4,9 @@ import 'package:day_i/core/localization/logic/locale_state.dart';
 import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_themes.dart';
+import 'package:day_i/core/services/notification_service.dart'; // مسار الـ Service بتاعك
 import 'package:day_i/generated/l10n.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,7 +14,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
   await setUpLocators();
+
+  await getIt<NotificationService>().initNotifications();
+
   runApp(const MyApp());
 }
 
@@ -30,6 +38,7 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           final appThemes = AppThemes();
           return BlocBuilder<LocaleCubit, LocaleState>(
+            key: const ValueKey('locale_builder'),
             builder: (_, state) {
               return MaterialApp(
                 title: 'Day I',
@@ -42,10 +51,9 @@ class MyApp extends StatelessWidget {
                 ],
                 supportedLocales: S.delegate.supportedLocales,
                 debugShowCheckedModeBanner: false,
-                // ----- will change when UI end -----
                 theme: appThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
-                initialRoute: RouterPath.login,
+                initialRoute: RouterPath.login, //createAccountScreen
               );
             },
           );

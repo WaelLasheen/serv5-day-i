@@ -1,3 +1,8 @@
+import 'package:day_i/core/services/notification_service_impl.dart';
+import 'package:day_i/features/auth/data/data_sources/auth_remote_data_source.dart';
+import 'package:day_i/features/auth/presentation/manger/auth_cubit.dart';
+import 'package:day_i/features/pricing_plans/data/repos/pricing_plans_repo.dart';
+import 'package:day_i/features/pricing_plans/presentation/manger/pricing_palns_cubit.dart';
 import 'package:day_i/core/database/database_service.dart';
 import 'package:day_i/core/database/shared_preferences_service.dart';
 import 'package:day_i/core/networking/api_service.dart';
@@ -6,8 +11,6 @@ import 'package:day_i/core/networking/token_manager/token_manager.dart';
 import 'package:day_i/core/networking/token_manager/token_manager_impl.dart';
 import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
-import 'package:day_i/core/utils/services/notification_service.dart';
-import 'package:day_i/core/utils/services/notification_service_impl.dart';
 import 'package:day_i/features/auth/data/data_source/remote_data_source.dart';
 import 'package:day_i/features/auth/data/data_source/remote_data_source_impl.dart';
 import 'package:day_i/features/auth/data/repository/repository_impl.dart';
@@ -20,6 +23,8 @@ import 'package:day_i/features/maps/domain/repos/maps_repository.dart';
 import 'package:day_i/features/maps/domain/usecases/search_places_usecase.dart';
 import 'package:day_i/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:day_i/core/services/notification_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
@@ -40,6 +45,7 @@ Future<void> setUpLocators() async {
   getIt.registerLazySingleton<IApiService>(
     () => ApiServiceImpl()..initialize(),
   );
+
 
   getIt.registerLazySingleton<ImagePath>(() => ImagePath());
 
@@ -72,6 +78,22 @@ Future<void> setUpLocators() async {
   );
 
   getIt.registerSingleton<AppRouter>(AppRouter());
+
+  // Pricing Plans
+  getIt.registerLazySingleton<PricingPlansRepo>(() => PricingPlansRepo());
+  getIt.registerFactory<PricingPlansCubit>(() => PricingPlansCubit(getIt()));
+
+  // Auth
+  getIt.registerLazySingleton<Dio>(
+    () => Dio(),
+  ); // Since AuthRemoteDataSourceImpl needs Dio directly
+  getIt.registerLazySingleton<AuthRemoteDataSource>(
+    () => AuthRemoteDataSourceImpl(dio: getIt<Dio>()),
+  );
+  getIt.registerFactory<AuthCubit>(
+    () => AuthCubit(authRemoteDataSource: getIt()),
+  );
+
 }
 
 Future<void> _setupHydratedBlocStorage() async {

@@ -3,7 +3,7 @@ import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
-import 'package:day_i/core/utils/services/validation_service.dart';
+import 'package:day_i/core/services/validation_service.dart';
 import 'package:day_i/features/auth/presentation/widget/auth_header.dart';
 import 'package:day_i/features/auth/presentation/widget/otp_fields.dart';
 import 'package:day_i/generated/l10n.dart';

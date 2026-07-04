@@ -3,7 +3,7 @@ import 'token_manager.dart';
 
 class TokenManagerImpl implements ITokenManager {
   final FlutterSecureStorage _storage;
-  
+
   static const _accessTokenKey = 'access_token';
   static const _refreshTokenKey = 'refresh_token';
 

@@ -1,5 +1,6 @@
 import 'package:day_i/core/utils/extensions/size_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
@@ -7,6 +8,14 @@ class AppButton extends StatelessWidget {
   final bool isPrimary;
   final Widget? icon;
   final BorderSide? border;
+  final double? width;
+  final double? height;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final double? fontSize;
+  final double? borderRadius;
+  final bool isIconTrailing;
+  final bool isLoading;
 
   const AppButton({
     super.key,
@@ -15,30 +24,99 @@ class AppButton extends StatelessWidget {
     this.isPrimary = true,
     this.icon,
     this.border,
+    this.width,
+    this.height,
+    this.backgroundColor,
+    this.textColor,
+    this.fontSize,
+    this.borderRadius,
+    this.isIconTrailing = false,
+    this.isLoading = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (isPrimary) {
-      return SizedBox(
-        width: context.width,
-        child: ElevatedButton.icon(
-          onPressed: onPressed,
-          icon: icon ?? const SizedBox.shrink(),
-          label: Text(text),
-          style: ElevatedButton.styleFrom(side: border),
-        ),
-      );
-    } else {
-      return SizedBox(
-        width: context.width,
-        child: OutlinedButton.icon(
-          onPressed: onPressed,
-          icon: icon ?? const SizedBox.shrink(),
-          label: Text(text),
-          style: OutlinedButton.styleFrom(side: border),
-        ),
+    Widget buttonContent() {
+      if (isLoading) {
+        return SizedBox(
+          height: 24.h,
+          width: 24.h,
+          child: CircularProgressIndicator(
+            color: isPrimary
+                ? (textColor ?? Colors.white)
+                : Theme.of(context).primaryColor,
+            strokeWidth: 2.w,
+          ),
+        );
+      }
+
+      if (icon == null) {
+        return Text(text);
+      }
+
+      final content = [
+        if (!isIconTrailing) icon!,
+        if (!isIconTrailing) SizedBox(width: 8.w),
+        Text(text),
+        if (isIconTrailing) SizedBox(width: 8.w),
+        if (isIconTrailing) icon!,
+      ];
+
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: content,
       );
     }
+
+    final buttonStyle = isPrimary
+        ? ElevatedButton.styleFrom(
+            side: border,
+            backgroundColor: backgroundColor,
+            shape: borderRadius != null
+                ? RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!.r),
+                  )
+                : null,
+            textStyle: TextStyle(
+              fontFamily: 'Rubik',
+              fontSize: fontSize?.sp,
+              fontWeight: FontWeight.w500,
+            ),
+            foregroundColor: textColor ?? Colors.white,
+            elevation: backgroundColor != null ? 0 : null,
+            padding: EdgeInsets.zero,
+          )
+        : OutlinedButton.styleFrom(
+            side: border,
+            foregroundColor: textColor,
+            shape: borderRadius != null
+                ? RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!.r),
+                  )
+                : null,
+            textStyle: TextStyle(
+              fontFamily: 'Rubik',
+              fontSize: fontSize?.sp,
+              fontWeight: FontWeight.w500,
+            ),
+            padding: EdgeInsets.zero,
+          );
+
+    return SizedBox(
+      width: width ?? context.width,
+      height: height?.h,
+      child: isPrimary
+          ? ElevatedButton(
+              onPressed: isLoading ? () {} : onPressed,
+              style: buttonStyle,
+              child: buttonContent(),
+            )
+          : OutlinedButton(
+              onPressed: isLoading ? () {} : onPressed,
+              style: buttonStyle,
+              child: buttonContent(),
+            ),
+    );
   }
 }

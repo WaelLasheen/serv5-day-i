@@ -1,5 +1,5 @@
+import 'package:day_i/core/services/validation_service.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
-import 'package:day_i/core/utils/services/validation_service.dart';
 import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/features/auth/presentation/widget/form_take_action.dart';
 import 'package:day_i/generated/l10n.dart';

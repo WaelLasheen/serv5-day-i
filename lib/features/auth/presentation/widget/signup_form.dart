@@ -1,4 +1,4 @@
-import 'package:day_i/core/utils/services/validation_service.dart';
+import 'package:day_i/core/services/validation_service.dart';
 import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/features/auth/presentation/widget/terms_and_conditions.dart';
 import 'package:day_i/generated/l10n.dart';

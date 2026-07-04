@@ -2,6 +2,7 @@ import 'package:day_i/core/utils/errors/failure.dart';
 import 'package:day_i/core/utils/extensions/number_range.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:dio/dio.dart';
+
 class ServerFailure extends Failure {
   const ServerFailure(super.message);
 

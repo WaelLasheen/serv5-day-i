@@ -9,10 +9,7 @@ import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
-import 'package:day_i/features/maps/domain/usecases/search_places_usecase.dart';
-import 'package:day_i/features/maps/presentation/map_cubit/maps_cubit.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,16 +50,7 @@ class AppRouter {
         );
 
       case RouterPath.navBar:
-        return MaterialPageRoute(
-          builder: (context) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (_) => MapsCubit(getIt<SearchPlacesUseCase>()),
-              ),
-            ],
-            child: const NavBarScreen(),
-          ),
-        );
+        return MaterialPageRoute(builder: (context) => const NavBarScreen());
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
     }

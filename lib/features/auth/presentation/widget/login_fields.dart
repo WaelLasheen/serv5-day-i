@@ -55,6 +55,7 @@ class LoginFields extends StatelessWidget {
                   context.navigateAndReplace(RouterPath.navBar);
                 } else if (state is AuthError) {
                   context.showErrorSnackBar(message: state.message);
+
                 }
               },
               builder: (context, state) {
@@ -67,6 +68,7 @@ class LoginFields extends StatelessWidget {
                         LoginParams(
                           email: emailController.text.trim(),
                           password: passwordController.text.trim(),
+
                         ),
                       );
                     }

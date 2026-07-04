@@ -7,10 +7,7 @@ class TokenInterceptor extends QueuedInterceptor {
   final ITokenManager tokenManager;
   bool _isRefreshing = false;
 
-  TokenInterceptor({
-    required this.dio,
-    required this.tokenManager,
-  });
+  TokenInterceptor({required this.dio, required this.tokenManager});
 
   @override
   void onRequest(
@@ -54,7 +51,7 @@ class TokenInterceptor extends QueuedInterceptor {
   }
 
   // ----- will need to edit when backend finish endpoints -----
-  
+
   bool _isRefreshRequest(RequestOptions options) {
     return options.path.contains(ApiConstants.authRefresh) ||
         options.path.contains(ApiConstants.login);
@@ -68,13 +65,15 @@ class TokenInterceptor extends QueuedInterceptor {
       final response = await dio.post(
         ApiConstants.authRefresh,
         data: {'refresh_token': refreshToken},
-        options: Options(headers: {'skip_interceptor': true}), // Avoid interceptor on refresh request if needed
+        options: Options(
+          headers: {'skip_interceptor': true},
+        ), // Avoid interceptor on refresh request if needed
       );
 
       if (response.statusCode == 200) {
         final newAccessToken = response.data['access_token'];
         final newRefreshToken = response.data['refresh_token'];
-        
+
         if (newAccessToken != null) {
           await tokenManager.saveAccessToken(newAccessToken);
         }

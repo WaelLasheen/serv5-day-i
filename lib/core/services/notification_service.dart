@@ -6,5 +6,3 @@ abstract class NotificationService {
   Stream<RemoteMessage> get onMessageStream;
   Stream<RemoteMessage> get onNotificationOpenedStream;
 }
-
-

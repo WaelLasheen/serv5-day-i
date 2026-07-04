@@ -6,8 +6,6 @@ class PathNotFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text(S.current.pathNotFound)),
-    );
+    return Scaffold(body: Center(child: Text(S.current.pathNotFound)));
   }
 }

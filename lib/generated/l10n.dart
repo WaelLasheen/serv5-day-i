@@ -489,14 +489,239 @@ class S {
     return Intl.message('Account', name: 'account', desc: '', args: []);
   }
 
-  /// `Search for a location...`
-  String get searchLocation {
+  /// `Prices`
+  String get prices {
+    return Intl.message('Prices', name: 'prices', desc: '', args: []);
+  }
+
+  /// `Choose package for your marketing campaign`
+  String get choosePackage {
     return Intl.message(
-      'Search for a location...',
-      name: 'searchLocation',
+      'Choose package for your marketing campaign',
+      name: 'choosePackage',
       desc: '',
       args: [],
     );
+  }
+
+  /// `Forgot password`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot password',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a strong password to protect your account.`
+  String get resetPasswordInstruction {
+    return Intl.message(
+      'Enter a strong password to protect your account.',
+      name: 'resetPasswordInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password changed successfully`
+  String get passwordChangedSuccess {
+    return Intl.message(
+      'Password changed successfully',
+      name: 'passwordChangedSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flexible packages to suit your business size and marketing goals`
+  String get flexiblePackages {
+    return Intl.message(
+      'Flexible packages to suit your business size and marketing goals',
+      name: 'flexiblePackages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show details`
+  String get showDetails {
+    return Intl.message(
+      'Show details',
+      name: 'showDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Now`
+  String get startNow {
+    return Intl.message('Start Now', name: 'startNow', desc: '', args: []);
+  }
+
+  /// `Create Your Company`
+  String get createCompany {
+    return Intl.message(
+      'Create Your Company',
+      name: 'createCompany',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start building your company's presence on the platform by entering its data.`
+  String get createCompanySubtitle {
+    return Intl.message(
+      'Start building your company\'s presence on the platform by entering its data.',
+      name: 'createCompanySubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Company Name`
+  String get companyName {
+    return Intl.message(
+      'Company Name',
+      name: 'companyName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Company Name is required`
+  String get companyNameReq {
+    return Intl.message(
+      'Company Name is required',
+      name: 'companyNameReq',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Industry`
+  String get industry {
+    return Intl.message('Industry', name: 'industry', desc: '', args: []);
+  }
+
+  /// `Selected Plan`
+  String get selectedPlan {
+    return Intl.message(
+      'Selected Plan',
+      name: 'selectedPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Account`
+  String get actionButton {
+    return Intl.message(
+      'Create Account',
+      name: 'actionButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Information`
+  String get contactInfo {
+    return Intl.message(
+      'Contact Information',
+      name: 'contactInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get contactUs {
+    return Intl.message('Contact Us', name: 'contactUs', desc: '', args: []);
+  }
+
+  /// `FAQs`
+  String get faqs {
+    return Intl.message('FAQs', name: 'faqs', desc: '', args: []);
+  }
+
+  /// `Subject`
+  String get subject {
+    return Intl.message('Subject', name: 'subject', desc: '', args: []);
+  }
+
+  /// `Choose contact subject`
+  String get chooseSubject {
+    return Intl.message(
+      'Choose contact subject',
+      name: 'chooseSubject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User Message`
+  String get userMessage {
+    return Intl.message(
+      'User Message',
+      name: 'userMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write your message here`
+  String get writeMessageHere {
+    return Intl.message(
+      'Write your message here',
+      name: 'writeMessageHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Message`
+  String get sendMessage {
+    return Intl.message(
+      'Send Message',
+      name: 'sendMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Markiva Contact Information`
+  String get markivaContactInfo {
+    return Intl.message(
+      'Markiva Contact Information',
+      name: 'markivaContactInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message('Address', name: 'address', desc: '', args: []);
   }
 
   /// `Login Successfully`
@@ -519,9 +744,19 @@ class S {
     );
   }
 
-  /// `Phone Number`
+  /// `Search Location...`
+  String get searchLocation {
+    return Intl.message(
+      'Search Location...',
+      name: 'searchLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
   String get phone {
-    return Intl.message('Phone Number', name: 'phone', desc: '', args: []);
+    return Intl.message('Phone', name: 'phone', desc: '', args: []);
   }
 }
 

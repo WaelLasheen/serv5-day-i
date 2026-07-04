@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "accountCreatedSuccessFully": MessageLookupByLibrary.simpleMessage(
       "Account Created Successfully",
     ),
+    "actionButton": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "address": MessageLookupByLibrary.simpleMessage("Address"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -33,6 +35,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
+    "choosePackage": MessageLookupByLibrary.simpleMessage(
+      "Choose package for your marketing campaign",
+    ),
+    "chooseSubject": MessageLookupByLibrary.simpleMessage(
+      "Choose contact subject",
+    ),
+    "companyName": MessageLookupByLibrary.simpleMessage("Company Name"),
+    "companyNameReq": MessageLookupByLibrary.simpleMessage(
+      "Company Name is required",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordMismatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
@@ -43,12 +55,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout",
     ),
+    "contactInfo": MessageLookupByLibrary.simpleMessage("Contact Information"),
+    "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+    "createCompany": MessageLookupByLibrary.simpleMessage(
+      "Create Your Company",
+    ),
+    "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
+      "Start building your company\'s presence on the platform by entering its data.",
+    ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
+    "flexiblePackages": MessageLookupByLibrary.simpleMessage(
+      "Flexible packages to suit your business size and marketing goals",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password"),
     "forgotPasswordSubtitle": MessageLookupByLibrary.simpleMessage(
       "Enter your email address to reset your password.",
     ),
@@ -61,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "hello": MessageLookupByLibrary.simpleMessage("Hello World!"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "industry": MessageLookupByLibrary.simpleMessage("Industry"),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "Internal Server error, Please try later",
     ),
@@ -76,6 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Login Successfully",
+    ),
+    "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
+      "Markiva Contact Information",
     ),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
@@ -96,38 +125,56 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "otpTitle": MessageLookupByLibrary.simpleMessage("Enter Verification Code"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
+      "Password changed successfully",
+    ),
     "passwordReq": MessageLookupByLibrary.simpleMessage("Password is required"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
-    "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "phoneReq": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),
+    "prices": MessageLookupByLibrary.simpleMessage("Prices"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage(
       "Request was canceled",
     ),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
+      "Enter a strong password to protect your account.",
+    ),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Looking for a service...",
     ),
     "searchLocation": MessageLookupByLibrary.simpleMessage(
-      "Search for a location...",
+      "Search Location...",
     ),
+    "selectedPlan": MessageLookupByLibrary.simpleMessage("Selected Plan"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
+    "sendMessage": MessageLookupByLibrary.simpleMessage("Send Message"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
+    "showDetails": MessageLookupByLibrary.simpleMessage("Show details"),
     "signup": MessageLookupByLibrary.simpleMessage("Create New Account"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "Create your account to manage your marketing campaigns smartly within minutes",
     ),
+    "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
+    "subject": MessageLookupByLibrary.simpleMessage("Subject"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "I agree to the terms and conditions and privacy policy",
     ),
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "Unexpected Error, Please try again!",
     ),
+    "userMessage": MessageLookupByLibrary.simpleMessage("User Message"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Day I"),
+    "writeMessageHere": MessageLookupByLibrary.simpleMessage(
+      "Write your message here",
+    ),
   };
 }
