@@ -2,9 +2,7 @@ import 'package:day_i/core/di/di.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
-import 'package:day_i/core/utils/extensions/dialog_extensions.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
-import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/widgets/app_button.dart';
 import 'package:day_i/core/widgets/custom_form_field.dart';
 import 'package:day_i/features/auth/presentation/widget/reset_password_header.dart';
@@ -23,6 +21,16 @@ class ResetPasswordScreen extends StatefulWidget {
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _isTermsAccepted = false;
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,55 +57,6 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             _buildResetFields(context, theme),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildHeader(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                onPressed: () => context.navigateBack(),
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.white,
-                    size: 18.sp,
-                  ),
-                  SizedBox(width: 8.w),
-                  Icon(Icons.language, color: Colors.white, size: 24.sp),
-                ],
-              ),
-            ],
-          ),
-          Text(
-            S.current.forgotPassword,
-            textAlign: TextAlign.center,
-            style: FontStyles.h1.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: 20.sp,
-            ),
-          ),
-          SizedBox(height: 8.h),
-          Text(
-            S.current.resetPasswordInstruction,
-            textAlign: TextAlign.center,
-            style: FontStyles.bodyMedium.copyWith(
-              color: const Color(0xFFE5E5E5),
-              fontWeight: FontWeight.w400,
-              fontSize: 13.sp,
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -143,7 +102,21 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
             // حقل كلمة المرور
             SizedBox(height: 8.h),
-            CustomFormField(hintText: "نص تلميحي", label: 'كلمة المرور', isPassword: true),
+            CustomFormField(
+              hintText: "نص تلميحي",
+              label: 'كلمة المرور',
+              isPassword: true,
+              controller: _passwordController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يرجى إدخال كلمة المرور';
+                }
+                if (value.length < 6) {
+                  return 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+                }
+                return null;
+              },
+            ),
             SizedBox(height: 16.h),
 
             // حقل تأكيد كلمة المرور
@@ -152,6 +125,16 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               hintText: "نص تلميحي",
               label: 'تأكيد كلمة المرور',
               isPassword: true,
+              controller: _confirmPasswordController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'يرجى تأكيد كلمة المرور';
+                }
+                if (value != _passwordController.text) {
+                  return 'كلمة المرور غير متطابقة';
+                }
+                return null;
+              },
             ),
             SizedBox(height: 32.h),
 

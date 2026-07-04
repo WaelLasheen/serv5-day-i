@@ -35,6 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
+    "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
+    "changePasswordInstruction": MessageLookupByLibrary.simpleMessage(
+      "Enter a new password for your account.",
+    ),
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "Choose package for your marketing campaign",
     ),
@@ -63,9 +67,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
       "Start building your company\'s presence on the platform by entering its data.",
     ),
+    "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "editProfileChangePassword": MessageLookupByLibrary.simpleMessage(
+      "Change Password",
+    ),
+    "editProfileContacts": MessageLookupByLibrary.simpleMessage(
+      "Edit Contact Information",
+    ),
+    "editProfilePage": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
@@ -106,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "Markiva Contact Information",
     ),
+    "mediumPassword": MessageLookupByLibrary.simpleMessage("Medium"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
     ),
@@ -125,10 +139,26 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "otpTitle": MessageLookupByLibrary.simpleMessage("Enter Verification Code"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordCaseAndNumbers": MessageLookupByLibrary.simpleMessage(
+      "It is recommended to use uppercase and lowercase letters and numbers.",
+    ),
     "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
       "Password changed successfully",
     ),
+    "passwordDoesntMatch": MessageLookupByLibrary.simpleMessage(
+      "Confirm password does not match the new password",
+    ),
+    "passwordLength": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 8 characters.",
+    ),
+    "passwordNotPersonal": MessageLookupByLibrary.simpleMessage(
+      "Please do not use personal information or common words.",
+    ),
     "passwordReq": MessageLookupByLibrary.simpleMessage("Password is required"),
+    "passwordSecurity": MessageLookupByLibrary.simpleMessage(
+      "Password Security",
+    ),
+    "passwordStrength": MessageLookupByLibrary.simpleMessage("Strong Password"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
     "phone": MessageLookupByLibrary.simpleMessage("Phone"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
@@ -146,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "Enter a strong password to protect your account.",
     ),
+    "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Looking for a service...",
     ),
@@ -163,6 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Create your account to manage your marketing campaigns smartly within minutes",
     ),
     "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
+    "strongPassword": MessageLookupByLibrary.simpleMessage("Strong"),
     "subject": MessageLookupByLibrary.simpleMessage("Subject"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "I agree to the terms and conditions and privacy policy",
@@ -172,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userMessage": MessageLookupByLibrary.simpleMessage("User Message"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
+    "weekPassword": MessageLookupByLibrary.simpleMessage("Weak"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Day I"),
     "writeMessageHere": MessageLookupByLibrary.simpleMessage(
       "Write your message here",

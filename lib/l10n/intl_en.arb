@@ -81,5 +81,22 @@
     "loginSuccessfully": "Login Successfully",
     "accountCreatedSuccessFully": "Account Created Successfully",
     "searchLocation": "Search Location...",
-    "phone":"Phone"
+    "phone": "Phone",
+    "passwordDoesntMatch": "Confirm password does not match the new password",
+    "passwordStrength": "Strong Password",
+    "weekPassword": "Weak",
+    "mediumPassword": "Medium",
+    "strongPassword": "Strong",
+    "editProfileContacts": "Edit Contact Information",
+    "passwordSecurity": "Password Security",
+    "editProfileChangePassword": "Change Password",
+    "changePassword": "Change Password",
+    "changePasswordInstruction": "Enter a new password for your account.",
+    "passwordLength": "Password must be at least 8 characters.",
+    "passwordNotPersonal": "Please do not use personal information or common words.",
+    "passwordCaseAndNumbers": "It is recommended to use uppercase and lowercase letters and numbers.",
+    "editProfilePage": "Edit Profile",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "saveChanges": "Save Changes"
 }

@@ -73,7 +73,7 @@ class PricingPlanCardWidget extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
           ...plan.features
-              .map((feature) => _buildFeatureItem(feature))
+              .map((feature) => _buildFeatureItem(feature.toString()))
               .toList(),
           SizedBox(height: 16.h),
           AppButton(

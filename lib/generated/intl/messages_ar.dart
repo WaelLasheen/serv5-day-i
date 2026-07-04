@@ -35,6 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("شهادة غير صالحة"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+    "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+    "changePasswordInstruction": MessageLookupByLibrary.simpleMessage(
+      "أدخل كلمة مرور جديدة لحسابك.",
+    ),
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "اختر الباقة المناسبة لنمو تسويقك",
     ),
@@ -61,7 +65,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
       "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها .",
     ),
+    "currentPassword": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور الحالية",
+    ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "editProfileChangePassword": MessageLookupByLibrary.simpleMessage(
+      "تغيير كلمة المرور",
+    ),
+    "editProfileContacts": MessageLookupByLibrary.simpleMessage(
+      "تعديل معلومات الاتصال",
+    ),
+    "editProfilePage": MessageLookupByLibrary.simpleMessage(
+      "تعديل الملف الشخصي",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailReq": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
@@ -102,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "معلومات الاتصال بماركيفا",
     ),
+    "mediumPassword": MessageLookupByLibrary.simpleMessage("متوسط"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالإنترنت",
     ),
@@ -121,10 +139,26 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "otpTitle": MessageLookupByLibrary.simpleMessage("أدخل رمز التحقق"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwordCaseAndNumbers": MessageLookupByLibrary.simpleMessage(
+      "يُفضل استخدام حروف كبيرة وصغيرة و أرقام .",
+    ),
     "passwordChangedSuccess": MessageLookupByLibrary.simpleMessage(
       "تم تغيير كلمة المرور بنجاح",
     ),
+    "passwordDoesntMatch": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور لا يطابق كلمة المرور الجديدة",
+    ),
+    "passwordLength": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل.",
+    ),
+    "passwordNotPersonal": MessageLookupByLibrary.simpleMessage(
+      "يُرجى عدم استخدام معلومات شخصية أو كلمات شائعة.",
+    ),
     "passwordReq": MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
+    "passwordSecurity": MessageLookupByLibrary.simpleMessage(
+      "تأمين كلمة المرور",
+    ),
+    "passwordStrength": MessageLookupByLibrary.simpleMessage("كلمة مرور قوية"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("المسار غير موجود"),
     "phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
@@ -142,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة مرور قوية لحماية حسابك",
     ),
+    "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
     "searchLocation": MessageLookupByLibrary.simpleMessage("ابحث عن موقع..."),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("الخطة المختارة"),
@@ -155,6 +190,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أنشئ حسابك لادارة حملاتك التسويقية بذكاء خلال دقائق",
     ),
     "startNow": MessageLookupByLibrary.simpleMessage("أبدأ الآن"),
+    "strongPassword": MessageLookupByLibrary.simpleMessage("قوي"),
     "subject": MessageLookupByLibrary.simpleMessage("الموضوع"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "أوافق على الشروط والاحكام وسياسة الخصوصية",
@@ -164,6 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userMessage": MessageLookupByLibrary.simpleMessage("رسالة المستخدم"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("تأكيد رمز التحقق"),
+    "weekPassword": MessageLookupByLibrary.simpleMessage("ضعيف"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("مرحباً بك في يومي"),
     "writeMessageHere": MessageLookupByLibrary.simpleMessage("اكتب رسالتك هنا"),
   };

@@ -10,6 +10,9 @@ import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
+import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_contacts_screen.dart';
+import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_change_password_screen.dart';
+import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -49,8 +52,21 @@ class AppRouter {
           builder: (context) => const ResetPasswordScreen(),
         );
 
+      case RouterPath.pricingPlans:
+        return MaterialPageRoute(
+          builder: (context) => const PricingPlansScreen(),
+        );
+
       case RouterPath.navBar:
         return MaterialPageRoute(builder: (context) => const NavBarScreen());
+      case RouterPath.editProfileContacts:
+        return MaterialPageRoute(
+          builder: (context) => const EditProfileContactsScreen(),
+        );
+      case RouterPath.editProfileChangePassword:
+        return MaterialPageRoute(
+          builder: (context) => const EditProfileChangePasswordScreen(),
+        );
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
     }
