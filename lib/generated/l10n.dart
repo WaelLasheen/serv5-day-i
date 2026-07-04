@@ -534,10 +534,10 @@ class S {
     );
   }
 
-  /// `Reset Password`
+  /// `Reset password`
   String get resetPassword {
     return Intl.message(
-      'Reset Password',
+      'Reset password',
       name: 'resetPassword',
       desc: '',
       args: [],
@@ -757,6 +757,16 @@ class S {
   /// `Phone`
   String get phone {
     return Intl.message('Phone', name: 'phone', desc: '', args: []);
+  }
+
+  /// `Enter strong Password to protect your account`
+  String get enterStrongPasswordToProtectYourAccount {
+    return Intl.message(
+      'Enter strong Password to protect your account',
+      name: 'enterStrongPasswordToProtectYourAccount',
+      desc: '',
+      args: [],
+    );
   }
 }
 

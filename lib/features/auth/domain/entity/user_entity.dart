@@ -3,7 +3,6 @@ class UserEntity {
   final String name;
   final String email;
   final String phone;
-  final String password;
   final DateTime createdAt;
   final DateTime updatedAt;
   final int? tenantId;
@@ -17,7 +16,6 @@ class UserEntity {
     required this.name,
     required this.email,
     required this.phone,
-    required this.password,
     required this.createdAt,
     required this.updatedAt,
     this.tenantId,

@@ -81,5 +81,8 @@
     "address": "العنوان",
     "loginSuccessfully": "تم تسجيل الدخول بنجاح",
     "accountCreatedSuccessFully": "تم إنشاء الحساب بنجاح",
-    "phone":"الهاتف"
+    "phone":"الهاتف",
+    "resetPassword":"إعادة تعيين كلمة المرور",
+    "enterStrongPasswordToProtectYourAccount":"أدخل كلمة مرور قوية لحماية حسابك"
+
 }

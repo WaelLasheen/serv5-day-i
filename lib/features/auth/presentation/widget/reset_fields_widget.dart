@@ -1,6 +1,9 @@
+import 'package:day_i/core/services/validation_service.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
 import 'package:day_i/core/widgets/custom_form_field.dart';
+import 'package:day_i/features/auth/presentation/widget/terms_and_conditions.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/font_styles.dart';
@@ -8,17 +11,19 @@ import 'package:day_i/core/theme/font_styles.dart';
 class ResetFieldsWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final AppTheme theme;
-  final bool isTermsAccepted;
-  final ValueChanged<bool?> onTermsChanged;
   final VoidCallback onSuccess;
+  final ValueNotifier<bool> isTermsAcceptedNotifier;
+  final TextEditingController passwordController;
+  final TextEditingController confirmPasswordController;
 
   const ResetFieldsWidget({
     super.key,
     required this.formKey,
     required this.theme,
-    required this.isTermsAccepted,
-    required this.onTermsChanged,
     required this.onSuccess,
+    required this.isTermsAcceptedNotifier,
+    required this.passwordController,
+    required this.confirmPasswordController,
   });
 
   @override
@@ -37,10 +42,9 @@ class ResetFieldsWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // العناوين داخل البطاقة البيضاء كما في الـ CSS
             Center(
               child: Text(
-                "إعادة تعيين كلمة المرور",
+                S.current.resetPassword,
                 style: FontStyles.h1.copyWith(
                   color: const Color(0xFF121212),
                   fontWeight: FontWeight.w600,
@@ -51,7 +55,7 @@ class ResetFieldsWidget extends StatelessWidget {
             SizedBox(height: 8.h),
             Center(
               child: Text(
-                "أدخل كلمة مرور قوية لحماية حسابك",
+                S.current.enterStrongPasswordToProtectYourAccount,
                 style: FontStyles.bodyMedium.copyWith(
                   color: const Color(0xFF636262),
                   fontWeight: FontWeight.w400,
@@ -61,60 +65,37 @@ class ResetFieldsWidget extends StatelessWidget {
             ),
             SizedBox(height: 32.h),
 
-            // حقل كلمة المرور
             SizedBox(height: 8.h),
             CustomFormField(
               isPassword: true,
-              hintText: "نص تلميحي",
-              label: 'كلمة المرور',
+              hintText: "********",
+              label: S.current.password,
+              controller: passwordController,
+              validator: ValidationService.validatePassword,
+              keyboardType: TextInputType.phone,
+              textInputAction: TextInputAction.next,
+              onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
             ),
             SizedBox(height: 16.h),
 
-            // حقل تأكيد كلمة المرور
-            SizedBox(height: 2.h),
             CustomFormField(
               isPassword: true,
-              hintText: "نص تلميحي",
-              label: 'تأكيد كلمة المرور',
+              hintText: "********",
+              label: S.current.confirmPassword,
+              controller: confirmPasswordController,
+              validator: (value) => ValidationService.validateConfirmPassword(
+                passwordController.text,
+                value,
+              ),
+              textInputAction: TextInputAction.done,
+            ),
+            SizedBox(height: 32.h),
+            TermsAndConditions(
+              isTermsAcceptedNotifier: isTermsAcceptedNotifier,
             ),
             SizedBox(height: 32.h),
 
-            // الشروط والأحكام
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Checkbox(
-                  value: isTermsAccepted,
-                  onChanged: onTermsChanged,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4.r),
-                  ),
-                  activeColor: theme.primaryColor,
-                ),
-                SizedBox(width: 4.w),
-                Expanded(
-                  child: Text(
-                    "أوافق على الشروط والاحكام وسياسة الخصوصية",
-                    style: FontStyles.label.copyWith(
-                      color: const Color(0xFF121212),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14.sp,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 32.h),
-
-            // زر الإجراء
-            AppButton(
-              text: "زر إجراء",
-              onPressed: () {
-                if (formKey.currentState!.validate() && isTermsAccepted) {
-                  onSuccess();
-                }
-              },
-            ),
+            AppButton(text: S.current.resetPassword, onPressed: onSuccess),
           ],
         ),
       ),

@@ -33,9 +33,6 @@ class ServerFailure extends Failure {
 
       case DioExceptionType.unknown:
         return ServerFailure(s.unexpectedError);
-
-      case DioExceptionType.transformTimeout:
-        return ServerFailure(s.unexpectedError);
     }
   }
 
