@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("Account"),
     "actionButton": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "address": MessageLookupByLibrary.simpleMessage("Address"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -33,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "Choose package for your marketing campaign",
+    ),
+    "chooseSubject": MessageLookupByLibrary.simpleMessage(
+      "Choose contact subject",
     ),
     "companyName": MessageLookupByLibrary.simpleMessage("Company Name"),
     "companyNameReq": MessageLookupByLibrary.simpleMessage(
@@ -48,6 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout",
     ),
+    "contactInfo": MessageLookupByLibrary.simpleMessage("Contact Information"),
+    "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
     "createCompany": MessageLookupByLibrary.simpleMessage(
       "Create Your Company",
     ),
@@ -60,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "Flexible packages to suit your business size and marketing goals",
     ),
@@ -89,6 +96,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "Login to manage book fairs and cultural events",
+    ),
+    "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
+      "Markiva Contact Information",
     ),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
@@ -134,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("Selected Plan"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
+    "sendMessage": MessageLookupByLibrary.simpleMessage("Send Message"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "showDetails": MessageLookupByLibrary.simpleMessage("Show details"),
@@ -142,13 +153,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Create your account to manage your marketing campaigns smartly within minutes",
     ),
     "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
+    "subject": MessageLookupByLibrary.simpleMessage("Subject"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "I agree to the terms and conditions and privacy policy",
     ),
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "Unexpected Error, Please try again!",
     ),
+    "userMessage": MessageLookupByLibrary.simpleMessage("User Message"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Day I"),
+    "writeMessageHere": MessageLookupByLibrary.simpleMessage(
+      "Write your message here",
+    ),
   };
 }

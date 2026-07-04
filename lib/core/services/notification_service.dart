@@ -23,10 +23,10 @@ class NotificationService {
 
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       log('User granted notification permission.');
-      
+
       // جلب الـ Token وجدولة إرساله للباك إند
       await _getAndSaveFCMToken();
-      
+
       // تشغيل مستمعي الإشعارات (Foreground & Background)
       _setupNotificationListeners();
     } else {
@@ -85,13 +85,14 @@ class NotificationService {
     // الاستماع للإشعارات القادمة والتطبيق في الـ Foreground
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       log('جاء إشعار والتطبيق مفتوح: ${message.notification?.title}');
-      
+
       // إظهار الإشعار يدوياً للمستخدم عبر الـ Local Notifications وهو فاتح الأبليكيشن
       if (message.notification != null) {
         LocalNotificationService.showSimpleNotification(
           title: message.notification!.title ?? '',
           body: message.notification!.body ?? '',
-          payload: message.data.toString(), // باصي الـ Data لو الباك إند باعت داتا مخفية للـ Click
+          payload: message.data
+              .toString(), // باصي الـ Data لو الباك إند باعت داتا مخفية للـ Click
         );
       }
     });

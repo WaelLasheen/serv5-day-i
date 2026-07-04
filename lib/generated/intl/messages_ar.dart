@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("الحساب"),
     "actionButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل؟",
     ),
@@ -33,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "اختر الباقة المناسبة لنمو تسويقك",
+    ),
+    "chooseSubject": MessageLookupByLibrary.simpleMessage(
+      "اختيار موضوع التواصل",
     ),
     "companyName": MessageLookupByLibrary.simpleMessage("اسم الشركة"),
     "companyNameReq": MessageLookupByLibrary.simpleMessage("اسم الشركة مطلوب"),
@@ -48,6 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "انتهى وقت الاتصال",
     ),
+    "contactInfo": MessageLookupByLibrary.simpleMessage("معلومات التواصل"),
+    "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
     "createCompany": MessageLookupByLibrary.simpleMessage("إنشاء شركتك"),
     "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
       "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها .",
@@ -56,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailReq": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية",
     ),
@@ -85,6 +92,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "سجل الدخول لإدارة معارض الكتب والفعاليات الثقافية",
+    ),
+    "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
+      "معلومات الاتصال بماركيفا",
     ),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالإنترنت",
@@ -128,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("الخطة المختارة"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),
+    "sendMessage": MessageLookupByLibrary.simpleMessage("إرسال الرسالة"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("انتهى وقت الإرسال"),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "showDetails": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
@@ -136,13 +147,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "أنشئ حسابك لادارة حملاتك التسويقية بذكاء خلال دقائق",
     ),
     "startNow": MessageLookupByLibrary.simpleMessage("أبدأ الآن"),
+    "subject": MessageLookupByLibrary.simpleMessage("الموضوع"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "أوافق على الشروط والاحكام وسياسة الخصوصية",
     ),
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "خطأ غير متوقع، يرجى المحاولة مرة أخرى!",
     ),
+    "userMessage": MessageLookupByLibrary.simpleMessage("رسالة المستخدم"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("تأكيد رمز التحقق"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("مرحباً بك في يومي"),
+    "writeMessageHere": MessageLookupByLibrary.simpleMessage("اكتب رسالتك هنا"),
   };
 }

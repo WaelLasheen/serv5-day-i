@@ -10,11 +10,9 @@ extension NavigationExtension on BuildContext {
   }
 
   void navigateAndClearStack(String route, {Object? arguments}) {
-    Navigator.of(this).pushNamedAndRemoveUntil(
-      route,
-      (route) => false,
-      arguments: arguments,
-    );
+    Navigator.of(
+      this,
+    ).pushNamedAndRemoveUntil(route, (route) => false, arguments: arguments);
   }
 
   void navigateBack() {

@@ -1,9 +1,12 @@
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
+import 'package:day_i/features/auth/presentation/manger/auth_cubit.dart';
+import 'package:day_i/features/auth/presentation/manger/auth_state.dart';
 import 'package:day_i/features/auth/presentation/widget/form_take_action.dart';
 import 'package:day_i/features/auth/presentation/widget/login_form.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginFields extends StatelessWidget {
@@ -42,13 +45,40 @@ class LoginFields extends StatelessWidget {
               passwordController: passwordController,
               isTermsAcceptedNotifier: isTermsAcceptedNotifier,
             ),
-            FormTakeAction(
-              primaryButtonText: S.current.login,
-              onPrimaryPressed: () {
-                if (formKey.currentState!.validate() &&
-                    isTermsAcceptedNotifier.value) {
+            BlocConsumer<AuthCubit, AuthState>(
+              listener: (context, state) {
+                if (state is AuthSuccess) {
                   context.navigateAndReplace(RouterPath.navBar);
+                } else if (state is AuthFailure) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
                 }
+              },
+              builder: (context, state) {
+                return FormTakeAction(
+                  primaryButtonText: S.current.login,
+                  isLoading: state is AuthLoading,
+                  onPrimaryPressed: () {
+                    if (formKey.currentState!.validate() &&
+                        isTermsAcceptedNotifier.value) {
+                      context.read<AuthCubit>().login(
+                        emailController.text,
+                        passwordController.text,
+                      );
+                    } else if (!isTermsAcceptedNotifier.value) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("يجب الموافقة على الشروط والأحكام"),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
+                );
               },
             ),
           ],

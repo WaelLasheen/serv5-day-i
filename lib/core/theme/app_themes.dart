@@ -122,7 +122,9 @@ class AppThemes {
         color: lightThemeColors.surfaceColor,
         elevation: 2,
         margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
       ),
 
       // Keep your extensions injected at the bottom

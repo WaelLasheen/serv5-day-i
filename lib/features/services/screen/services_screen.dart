@@ -45,11 +45,13 @@ class ServicesScreen extends StatelessWidget {
             ...[
               {
                 'title': 'إدارة السوشيال ميديا',
-                'description': 'خدمات لإدارة وتطوير حساباتك على منصات التواصل الاجتماعي باحترافية.',
+                'description':
+                    'خدمات لإدارة وتطوير حساباتك على منصات التواصل الاجتماعي باحترافية.',
               },
               {
                 'title': 'التصميم الجرافيكي',
-                'description': 'تصاميم إبداعية تعكس هوية علامتك التجارية وتجذب الانتباه.',
+                'description':
+                    'تصاميم إبداعية تعكس هوية علامتك التجارية وتجذب الانتباه.',
               },
               {
                 'title': 'برمجة المواقع والتطبيقات',
@@ -57,17 +59,20 @@ class ServicesScreen extends StatelessWidget {
               },
               {
                 'title': 'التسويق الرقمي',
-                'description': 'خطط تسويقية متكاملة لزيادة مبيعاتك وانتشار علامتك.',
+                'description':
+                    'خطط تسويقية متكاملة لزيادة مبيعاتك وانتشار علامتك.',
               },
-            ].map((cat) => Padding(
-              padding: EdgeInsets.only(bottom: 32.h),
-              child: ServiceCategoryWidget(
-                themeColors: themeColors,
-                services: services,
-                title: cat['title']!,
-                description: cat['description']!,
+            ].map(
+              (cat) => Padding(
+                padding: EdgeInsets.only(bottom: 32.h),
+                child: ServiceCategoryWidget(
+                  themeColors: themeColors,
+                  services: services,
+                  title: cat['title']!,
+                  description: cat['description']!,
+                ),
               ),
-            )),
+            ),
             PaginationWidget(themeColors: themeColors),
           ],
         ),

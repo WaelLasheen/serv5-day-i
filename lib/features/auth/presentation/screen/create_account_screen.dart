@@ -46,7 +46,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             AuthHeader(
               title: S.current.createCompany,
               subtitle: S.current.createCompanySubtitle,
-              imagePath: imagePath.marketingConsulting, // This is from the CSS comment "Marketing consulting-rafiki 1"
+              imagePath: imagePath
+                  .marketingConsulting, // This is from the CSS comment "Marketing consulting-rafiki 1"
             ),
             SizedBox(height: 30.h),
             CreateAccountFields(

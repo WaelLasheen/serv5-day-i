@@ -9,6 +9,7 @@ import 'package:day_i/features/auth/presentation/screen/reset_password_screen.da
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
 import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
 import 'package:day_i/features/services/screen/services_screen.dart';
+import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -45,6 +46,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const CreateAccountScreen(),
         );
+      case RouterPath.contacts:
+        return MaterialPageRoute(builder: (context) => const ContactsScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());

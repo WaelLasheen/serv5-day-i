@@ -41,7 +41,6 @@ class PricingToggleBar extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class PricingTabItem extends StatelessWidget {

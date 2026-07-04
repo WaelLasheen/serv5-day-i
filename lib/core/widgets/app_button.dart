@@ -15,6 +15,7 @@ class AppButton extends StatelessWidget {
   final double? fontSize;
   final double? borderRadius;
   final bool isIconTrailing;
+  final bool isLoading;
 
   const AppButton({
     super.key,
@@ -30,15 +31,29 @@ class AppButton extends StatelessWidget {
     this.fontSize,
     this.borderRadius,
     this.isIconTrailing = false,
+    this.isLoading = false,
   });
 
   @override
   Widget build(BuildContext context) {
     Widget buttonContent() {
+      if (isLoading) {
+        return SizedBox(
+          height: 24.h,
+          width: 24.h,
+          child: CircularProgressIndicator(
+            color: isPrimary
+                ? (textColor ?? Colors.white)
+                : Theme.of(context).primaryColor,
+            strokeWidth: 2.w,
+          ),
+        );
+      }
+
       if (icon == null) {
         return Text(text);
       }
-      
+
       final content = [
         if (!isIconTrailing) icon!,
         if (!isIconTrailing) SizedBox(width: 8.w),
@@ -54,47 +69,51 @@ class AppButton extends StatelessWidget {
       );
     }
 
-    final buttonStyle = isPrimary 
-      ? ElevatedButton.styleFrom(
-          side: border,
-          backgroundColor: backgroundColor,
-          shape: borderRadius != null 
-            ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius!.r))
-            : null,
-          textStyle: TextStyle(
-            fontFamily: 'Rubik',
-            fontSize: fontSize?.sp,
-            fontWeight: FontWeight.w500,
-          ),
-          foregroundColor: textColor ?? Colors.white,
-          elevation: backgroundColor != null ? 0 : null,
-          padding: EdgeInsets.zero,
-        )
-      : OutlinedButton.styleFrom(
-          side: border,
-          foregroundColor: textColor,
-          shape: borderRadius != null 
-            ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius!.r))
-            : null,
-          textStyle: TextStyle(
-            fontFamily: 'Rubik',
-            fontSize: fontSize?.sp,
-            fontWeight: FontWeight.w500,
-          ),
-          padding: EdgeInsets.zero,
-        );
+    final buttonStyle = isPrimary
+        ? ElevatedButton.styleFrom(
+            side: border,
+            backgroundColor: backgroundColor,
+            shape: borderRadius != null
+                ? RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!.r),
+                  )
+                : null,
+            textStyle: TextStyle(
+              fontFamily: 'Rubik',
+              fontSize: fontSize?.sp,
+              fontWeight: FontWeight.w500,
+            ),
+            foregroundColor: textColor ?? Colors.white,
+            elevation: backgroundColor != null ? 0 : null,
+            padding: EdgeInsets.zero,
+          )
+        : OutlinedButton.styleFrom(
+            side: border,
+            foregroundColor: textColor,
+            shape: borderRadius != null
+                ? RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!.r),
+                  )
+                : null,
+            textStyle: TextStyle(
+              fontFamily: 'Rubik',
+              fontSize: fontSize?.sp,
+              fontWeight: FontWeight.w500,
+            ),
+            padding: EdgeInsets.zero,
+          );
 
     return SizedBox(
       width: width ?? context.width,
       height: height?.h,
-      child: isPrimary 
+      child: isPrimary
           ? ElevatedButton(
-              onPressed: onPressed,
+              onPressed: isLoading ? () {} : onPressed,
               style: buttonStyle,
               child: buttonContent(),
             )
           : OutlinedButton(
-              onPressed: onPressed,
+              onPressed: isLoading ? () {} : onPressed,
               style: buttonStyle,
               child: buttonContent(),
             ),

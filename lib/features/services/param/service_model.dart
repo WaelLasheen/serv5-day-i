@@ -17,13 +17,15 @@ class ServiceModel {
     return [
       ServiceModel(
         title: 'إدارة حسابات شهرية',
-        description: 'إدارة كاملة لحساباتك تشمل النشر، المتابعة، والرد على التعليقات.',
+        description:
+            'إدارة كاملة لحساباتك تشمل النشر، المتابعة، والرد على التعليقات.',
         price: '3000 \$ / شهر',
         icon: Icons.calendar_month,
       ),
       ServiceModel(
         title: 'حملات إعلانية ممولة',
-        description: 'إنشاء وإدارة حملات إعلانية ممولة للوصول لجمهورك المستهدف.',
+        description:
+            'إنشاء وإدارة حملات إعلانية ممولة للوصول لجمهورك المستهدف.',
         price: '1500 \$ / شهر',
         icon: Icons.campaign,
       ),

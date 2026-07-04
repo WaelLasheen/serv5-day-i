@@ -17,6 +17,7 @@ class FormTakeAction extends StatelessWidget {
   final String? footerNormalText;
   final String? footerActionText;
   final VoidCallback? onFooterActionPressed;
+  final bool isLoading;
 
   const FormTakeAction({
     super.key,
@@ -25,19 +26,23 @@ class FormTakeAction extends StatelessWidget {
     this.footerNormalText,
     this.footerActionText,
     this.onFooterActionPressed,
+    this.isLoading = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
-
     final imagePath = getIt<ImagePath>();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       spacing: 24.h,
       children: [
-        AppButton(text: primaryButtonText, onPressed: onPrimaryPressed),
+        AppButton(
+          text: primaryButtonText,
+          onPressed: onPrimaryPressed,
+          isLoading: isLoading,
+        ),
         OrSeparator(),
         // google login button
         Directionality(

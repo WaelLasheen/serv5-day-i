@@ -67,5 +67,15 @@
     "phoneNumber": "Phone Number",
     "industry": "Industry",
     "selectedPlan": "Selected Plan",
-    "actionButton": "Create Account"
+    "actionButton": "Create Account",
+    "contactInfo": "Contact Information",
+    "contactUs": "Contact Us",
+    "faqs": "FAQs",
+    "subject": "Subject",
+    "chooseSubject": "Choose contact subject",
+    "userMessage": "User Message",
+    "writeMessageHere": "Write your message here",
+    "sendMessage": "Send Message",
+    "markivaContactInfo": "Markiva Contact Information",
+    "address": "Address"
 }

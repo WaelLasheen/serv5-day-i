@@ -32,13 +32,17 @@ class ServiceCategoryWidget extends StatelessWidget {
               Text(
                 title,
                 style: FontStyles.h3.copyWith(
-                    color: themeColors.textPrimary, fontSize: 16.sp),
+                  color: themeColors.textPrimary,
+                  fontSize: 16.sp,
+                ),
               ),
               SizedBox(height: 8.h),
               Text(
                 description,
                 style: FontStyles.bodyMedium.copyWith(
-                    color: themeColors.textSecondary, fontSize: 14.sp),
+                  color: themeColors.textSecondary,
+                  fontSize: 14.sp,
+                ),
               ),
             ],
           ),
@@ -54,7 +58,9 @@ class ServiceCategoryWidget extends StatelessWidget {
             itemCount: services.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.only(left: 16.w), // spacing between cards in RTL
+                padding: EdgeInsets.only(
+                  left: 16.w,
+                ), // spacing between cards in RTL
                 child: PricingCardWidget(
                   service: services[index],
                   themeColors: themeColors,

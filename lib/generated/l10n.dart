@@ -643,6 +643,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Contact Information`
+  String get contactInfo {
+    return Intl.message(
+      'Contact Information',
+      name: 'contactInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get contactUs {
+    return Intl.message('Contact Us', name: 'contactUs', desc: '', args: []);
+  }
+
+  /// `FAQs`
+  String get faqs {
+    return Intl.message('FAQs', name: 'faqs', desc: '', args: []);
+  }
+
+  /// `Subject`
+  String get subject {
+    return Intl.message('Subject', name: 'subject', desc: '', args: []);
+  }
+
+  /// `Choose contact subject`
+  String get chooseSubject {
+    return Intl.message(
+      'Choose contact subject',
+      name: 'chooseSubject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User Message`
+  String get userMessage {
+    return Intl.message(
+      'User Message',
+      name: 'userMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write your message here`
+  String get writeMessageHere {
+    return Intl.message(
+      'Write your message here',
+      name: 'writeMessageHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Message`
+  String get sendMessage {
+    return Intl.message(
+      'Send Message',
+      name: 'sendMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Markiva Contact Information`
+  String get markivaContactInfo {
+    return Intl.message(
+      'Markiva Contact Information',
+      name: 'markivaContactInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message('Address', name: 'address', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

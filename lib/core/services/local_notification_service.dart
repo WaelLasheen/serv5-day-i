@@ -11,16 +11,17 @@ class LocalNotificationService {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
 
-    const InitializationSettings initializationSettings = InitializationSettings(
-      android: initializationSettingsAndroid,
-    );
+    const InitializationSettings initializationSettings =
+        InitializationSettings(android: initializationSettingsAndroid);
 
     // التعديل هنا: تمرير الـ initializationSettings مباشرة بدون كلمة settings:
     await _localNotificationsPlugin.initialize(
-      settings:  initializationSettings,
+      settings: initializationSettings,
       onDidReceiveNotificationResponse: (NotificationResponse response) {
         if (kDebugMode) {
-          print('User clicked on local notification. Payload: ${response.payload}');
+          print(
+            'User clicked on local notification. Payload: ${response.payload}',
+          );
         }
       },
     );
@@ -34,12 +35,12 @@ class LocalNotificationService {
   }) async {
     const AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
-      'high_importance_channel', 
-      'High Importance Notifications', 
-      importance: Importance.max,
-      priority: Priority.high,
-      playSound: true,
-    );
+          'high_importance_channel',
+          'High Importance Notifications',
+          importance: Importance.max,
+          priority: Priority.high,
+          playSound: true,
+        );
 
     const NotificationDetails notificationDetails = NotificationDetails(
       android: androidNotificationDetails,
@@ -49,10 +50,10 @@ class LocalNotificationService {
     final int notificationId = Random().nextInt(100000);
 
     await _localNotificationsPlugin.show(
-      id: notificationId, 
-      title:title,
-      body:body,
-      notificationDetails:notificationDetails,
+      id: notificationId,
+      title: title,
+      body: body,
+      notificationDetails: notificationDetails,
       payload: payload,
     );
   }

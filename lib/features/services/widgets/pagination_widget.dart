@@ -12,7 +12,10 @@ class PaginationWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _buildPageItem(icon: Icons.keyboard_double_arrow_right, themeColors: themeColors),
+        _buildPageItem(
+          icon: Icons.keyboard_double_arrow_right,
+          themeColors: themeColors,
+        ),
         SizedBox(width: 4.w),
         _buildPageItem(icon: Icons.chevron_right, themeColors: themeColors),
         SizedBox(width: 4.w),
@@ -24,9 +27,17 @@ class PaginationWidget extends StatelessWidget {
         SizedBox(width: 4.w),
         _buildPageItem(text: '4', themeColors: themeColors),
         SizedBox(width: 4.w),
-        _buildPageItem(icon: Icons.chevron_left, themeColors: themeColors, iconColor: themeColors.grey700),
+        _buildPageItem(
+          icon: Icons.chevron_left,
+          themeColors: themeColors,
+          iconColor: themeColors.grey700,
+        ),
         SizedBox(width: 4.w),
-        _buildPageItem(icon: Icons.keyboard_double_arrow_left, themeColors: themeColors, iconColor: themeColors.grey700),
+        _buildPageItem(
+          icon: Icons.keyboard_double_arrow_left,
+          themeColors: themeColors,
+          iconColor: themeColors.grey700,
+        ),
       ],
     );
   }
@@ -43,7 +54,11 @@ class PaginationWidget extends StatelessWidget {
       height: 32.w,
       decoration: BoxDecoration(
         color: isActive ? themeColors.primaryColor : Colors.white,
-        border: Border.all(color: isActive ? themeColors.primaryColor : themeColors.boarderPrimary),
+        border: Border.all(
+          color: isActive
+              ? themeColors.primaryColor
+              : themeColors.boarderPrimary,
+        ),
         borderRadius: BorderRadius.circular(8.r),
       ),
       alignment: Alignment.center,

@@ -1,3 +1,5 @@
+import 'package:day_i/features/auth/data/data_sources/auth_remote_data_source.dart';
+import 'package:day_i/features/auth/presentation/manger/auth_cubit.dart';
 import 'package:day_i/features/pricing_plans/data/repos/pricing_plans_repo.dart';
 import 'package:day_i/features/pricing_plans/presentation/manger/pricing_palns_cubit.dart';
 import 'package:day_i/core/database/database_service.dart';
@@ -9,6 +11,7 @@ import 'package:day_i/core/networking/token_manager/token_manager_impl.dart';
 import 'package:day_i/core/router/app_router.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/services/notification_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
@@ -29,8 +32,8 @@ Future<void> setUpLocators() async {
     () => ApiServiceImpl()..initialize(),
   );
   getIt.registerLazySingleton<NotificationService>(
-  () => NotificationService(getIt<IApiService>()),
-);
+    () => NotificationService(getIt<IApiService>()),
+  );
 
   getIt.registerSingleton<AppRouter>(AppRouter());
 
@@ -39,6 +42,17 @@ Future<void> setUpLocators() async {
   // Pricing Plans
   getIt.registerLazySingleton<PricingPlansRepo>(() => PricingPlansRepo());
   getIt.registerFactory<PricingPlansCubit>(() => PricingPlansCubit(getIt()));
+
+  // Auth
+  getIt.registerLazySingleton<Dio>(
+    () => Dio(),
+  ); // Since AuthRemoteDataSourceImpl needs Dio directly
+  getIt.registerLazySingleton<AuthRemoteDataSource>(
+    () => AuthRemoteDataSourceImpl(dio: getIt<Dio>()),
+  );
+  getIt.registerFactory<AuthCubit>(
+    () => AuthCubit(authRemoteDataSource: getIt()),
+  );
 }
 
 Future<void> _setupHydratedBlocStorage() async {

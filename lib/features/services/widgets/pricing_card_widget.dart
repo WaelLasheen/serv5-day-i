@@ -32,7 +32,11 @@ class PricingCardWidget extends StatelessWidget {
         children: [
           Align(
             alignment: AlignmentDirectional.centerStart,
-            child: Icon(service.icon, color: themeColors.primaryColor, size: 28.sp),
+            child: Icon(
+              service.icon,
+              color: themeColors.primaryColor,
+              size: 28.sp,
+            ),
           ),
           SizedBox(height: 16.h),
           Text(
