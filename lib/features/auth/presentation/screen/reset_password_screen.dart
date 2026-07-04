@@ -1,5 +1,6 @@
 import 'package:day_i/core/di/di.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
+import 'package:day_i/core/utils/extensions/dialog_extensions.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/snack_bar_extension.dart';
 import 'package:day_i/features/auth/domain/params/change_password_params.dart';
@@ -32,7 +33,7 @@ class ResetPasswordScreen extends StatelessWidget {
             SizedBox(height: 50.h),
             AuthHeader(
               title: S.current.resetPassword,
-              subtitle: S.current.enterStrongPasswordToProtectYourAccount,
+              subtitle: S.current.resetPasswordInstruction,
               imagePath: getIt<ImagePath>().marketingConsulting,
             ),
 

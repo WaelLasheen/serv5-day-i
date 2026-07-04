@@ -33,7 +33,6 @@ class UserModel {
       name: json['name'] as String? ?? '',
       email: json['email'] as String? ?? '',
       phone: json['phone'] as String? ?? '',
-      password: json['password'] as String? ?? '',
       createdAt: DateTime.parse(json['created_at']),
       updatedAt: DateTime.parse(json['updated_at']),
       tenantId: json['tenant_id'] as int?,

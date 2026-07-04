@@ -81,10 +81,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailReq": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
-    "enterStrongPasswordToProtectYourAccount":
-        MessageLookupByLibrary.simpleMessage(
-          "أدخل كلمة مرور قوية لحماية حسابك",
-        ),
     "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية",
@@ -175,7 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "requestCanceled": MessageLookupByLibrary.simpleMessage("تم إلغاء الطلب"),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
-      "إعادة تعيين كلمة المرور",
+      "اعادة تعيين كلمة المرور",
     ),
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة مرور قوية لحماية حسابك",
