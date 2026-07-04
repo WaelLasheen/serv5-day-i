@@ -5,6 +5,7 @@ import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/utils/extensions/snack_bar_extension.dart';
 import 'package:day_i/core/utils/services/validation_service.dart';
+import 'package:day_i/features/auth/domain/params/verify_params.dart';
 import 'package:day_i/features/auth/presentation/controller/change_password_cubit/change_password_cubit.dart';
 import 'package:day_i/features/auth/presentation/widget/auth_header.dart';
 import 'package:day_i/features/auth/presentation/widget/otp_fields.dart';
@@ -33,9 +34,14 @@ class _OtpScreenState extends State<OtpScreen> {
     super.dispose();
   }
 
-  void _onVerify() {
+  Future<void> _onVerify() async {
     final error = ValidationService.validateOtp(_otpController.text);
     _hasErrorNotifier.value = error != null;
+    if (error == null) {
+      await context.read<ChangePasswordCubit>().verify(
+        VerifyParams(phone: widget.phone, otp: _otpController.text),
+      );
+    }
   }
 
   @override
@@ -56,6 +62,7 @@ class _OtpScreenState extends State<OtpScreen> {
             BlocConsumer<ChangePasswordCubit, ChangePasswordState>(
               listener: (context, state) {
                 if (state is ChangePasswordFailure) {
+                  _hasErrorNotifier.value = true;
                   context.showErrorSnackBar(message: state.message);
                 }
                 if (state is VerifySuccess) {
@@ -64,7 +71,7 @@ class _OtpScreenState extends State<OtpScreen> {
               },
               builder: (context, state) {
                 return OtpFields(
-                  email: widget.phone,
+                  phone: widget.phone,
                   otpController: _otpController,
                   formKey: _formKey,
                   onVerify: _onVerify,

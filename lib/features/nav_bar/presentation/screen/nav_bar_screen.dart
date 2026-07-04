@@ -3,6 +3,7 @@ import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/maps/presentation/screen/map_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/param/nav_bar_item_model.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/nav_bar_item.dart';
+import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     HomeScreen(),
     MyMapScreen(),
     Text('data'),
-    Text('data'),
+    ProfileScreen(),
   ];
 
   final List<NavBarItemModel> navBarItems = [
@@ -30,11 +31,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
       label: S.current.services,
       index: 1,
     ),
-    NavBarItemModel(
-      icon: Icons.access_time,
-      label: S.current.orders,
-      index: 2,
-    ),
+    NavBarItemModel(icon: Icons.access_time, label: S.current.orders, index: 2),
     NavBarItemModel(
       icon: Icons.person_outline,
       label: S.current.account,

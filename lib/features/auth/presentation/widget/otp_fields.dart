@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OtpFields extends StatelessWidget {
-  final String email;
+  final String phone;
   final TextEditingController otpController;
   final GlobalKey<FormState> formKey;
   final VoidCallback onVerify;
@@ -16,7 +16,7 @@ class OtpFields extends StatelessWidget {
 
   const OtpFields({
     super.key,
-    required this.email,
+    required this.phone,
     required this.otpController,
     required this.formKey,
     required this.onVerify,
@@ -41,7 +41,7 @@ class OtpFields extends StatelessWidget {
           spacing: 32.h,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            OtpFormTitle(email: email),
+            OtpFormTitle(email: phone),
 
             ValueListenableBuilder(
               valueListenable: hasErrorNotifier,
@@ -52,7 +52,9 @@ class OtpFields extends StatelessWidget {
 
             AppButton(text: S.current.verifyCode, onPressed: onVerify),
             TextButton(
-              onPressed: () {},
+              onPressed: ()  {
+                
+              },
               child: Text(
                 S.current.resendCode,
                 style: FontStyles.bodySmall.copyWith(
