@@ -83,5 +83,8 @@
     "searchLocation": "Search Location...",
     "phone":"Phone",
     "resetPassword":"Reset password",
-    "enterStrongPasswordToProtectYourAccount":"Enter strong Password to protect your account"
+    "enterStrongPasswordToProtectYourAccount":"Enter strong Password to protect your account",
+    "logout":"Logout",
+    "logoutConfirm": "Are you sure of logout?",
+    "cancel":"Cancel"
 }

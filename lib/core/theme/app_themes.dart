@@ -9,9 +9,11 @@ class AppThemes {
     secondaryColor: const Color(0xFF03DAC6),
     backgroundColor: const Color(0xFFF5F5F5),
     surfaceColor: Colors.white,
+    redNormalColor: const Color(0xFFEA0606), // done
     errorColor: const Color(0xFFAB1C1E), // done
     textPrimary: const Color(0xFF121212), // done
-    textSecondary: const Color(0xFF9E9E9E),
+    textSecondary: const Color(0xFF636262),
+    grey200: const Color(0xFFE8E8E8),
     grey500: const Color(0xFFDEDEDE),
     grey600: const Color(0xFFCACACA),
     grey700: const Color(0xFF9E9E9E),

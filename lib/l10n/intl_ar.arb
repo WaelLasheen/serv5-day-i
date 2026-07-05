@@ -83,6 +83,9 @@
     "accountCreatedSuccessFully": "تم إنشاء الحساب بنجاح",
     "phone":"الهاتف",
     "resetPassword":"إعادة تعيين كلمة المرور",
-    "enterStrongPasswordToProtectYourAccount":"أدخل كلمة مرور قوية لحماية حسابك"
+    "enterStrongPasswordToProtectYourAccount":"أدخل كلمة مرور قوية لحماية حسابك",
+    "logout": "تسجيل الخروج",
+    "logoutConfirm":"هل أنت متأكد من تسجيل الخروج؟",
+    "cancel":"إلغاء"
 
 }

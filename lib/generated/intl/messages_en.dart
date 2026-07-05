@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appTitle": MessageLookupByLibrary.simpleMessage("Day I"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "Choose package for your marketing campaign",
@@ -106,6 +107,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Login Successfully",
+    ),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "logoutConfirm": MessageLookupByLibrary.simpleMessage(
+      "Are you sure of logout?",
     ),
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "Markiva Contact Information",

@@ -6,8 +6,10 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color backgroundColor;
   final Color surfaceColor;
   final Color errorColor;
+  final Color redNormalColor;
   final Color textPrimary;
   final Color textSecondary;
+  final Color grey200;
   final Color grey500;
   final Color grey600;
   final Color grey700;
@@ -22,9 +24,11 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.secondaryColor,
     required this.backgroundColor,
     required this.surfaceColor,
+    required this.redNormalColor,
     required this.errorColor,
     required this.textPrimary,
     required this.textSecondary,
+    required this.grey200,
     required this.grey500,
     required this.grey600,
     required this.grey700,
@@ -40,9 +44,11 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? secondaryColor,
     Color? backgroundColor,
     Color? surfaceColor,
+    Color? redNormalColor,
     Color? errorColor,
     Color? textPrimary,
     Color? textSecondary,
+    Color? grey200,
     Color? grey500,
     Color? grey600,
     Color? grey700,
@@ -56,9 +62,11 @@ class AppTheme extends ThemeExtension<AppTheme> {
       secondaryColor: secondaryColor ?? this.secondaryColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       surfaceColor: surfaceColor ?? this.surfaceColor,
+      redNormalColor: redNormalColor ?? this.redNormalColor,
       errorColor: errorColor ?? this.errorColor,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
+      grey200: grey200 ?? this.grey200,
       grey500: grey500 ?? this.grey500,
       grey600: grey600 ?? this.grey600,
       grey700: grey700 ?? this.grey700,
@@ -81,8 +89,10 @@ class AppTheme extends ThemeExtension<AppTheme> {
       backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t)!,
       surfaceColor: Color.lerp(surfaceColor, other.surfaceColor, t)!,
       errorColor: Color.lerp(errorColor, other.errorColor, t)!,
+      redNormalColor: Color.lerp(redNormalColor, other.redNormalColor, t)!,
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
+      grey200: Color.lerp(grey200, other.grey200, t)!,
       grey500: Color.lerp(grey500, other.grey500, t)!,
       grey600: Color.lerp(grey600, other.grey600, t)!,
       grey700: Color.lerp(grey700, other.grey700, t)!,
