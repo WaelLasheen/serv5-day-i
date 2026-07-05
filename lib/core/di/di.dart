@@ -1,6 +1,8 @@
 import 'package:day_i/core/services/notification_service_impl.dart';
 import 'package:day_i/features/pricing_plans/data/repos/pricing_plans_repo.dart';
 import 'package:day_i/features/pricing_plans/presentation/manger/pricing_palns_cubit.dart';
+import 'package:day_i/features/privacy/presentation/manager/privacy_cubit.dart';
+import 'package:day_i/features/contacts/data/repos/contacts_repo.dart';
 import 'package:day_i/core/database/database_service.dart';
 import 'package:day_i/core/database/shared_preferences_service.dart';
 import 'package:day_i/core/networking/api_service.dart';
@@ -82,6 +84,14 @@ Future<void> setUpLocators() async {
   // Pricing Plans
   getIt.registerLazySingleton<PricingPlansRepo>(() => PricingPlansRepo(getIt<IApiService>()));
   getIt.registerFactory<PricingPlansCubit>(() => PricingPlansCubit(getIt()));
+
+  // Privacy
+  getIt.registerFactory<PrivacyCubit>(() => PrivacyCubit());
+
+  // Contacts
+  getIt.registerLazySingleton<ContactsRepo>(
+    () => ContactsRepo(apiService: getIt<IApiService>()),
+  );
 }
 
 Future<void> _setupHydratedBlocStorage() async {

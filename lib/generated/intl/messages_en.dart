@@ -23,16 +23,27 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("Account"),
+    "accountControl": MessageLookupByLibrary.simpleMessage("Account Control"),
     "accountCreatedSuccessFully": MessageLookupByLibrary.simpleMessage(
       "Account Created Successfully",
     ),
     "actionButton": MessageLookupByLibrary.simpleMessage("Create Account"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
+    "alertNewLogin": MessageLookupByLibrary.simpleMessage("Alert on new login"),
+    "alertStatusChange": MessageLookupByLibrary.simpleMessage(
+      "Alert on order status change",
+    ),
+    "allowDataImproveService": MessageLookupByLibrary.simpleMessage(
+      "Allow using data to improve service",
+    ),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
     "appTitle": MessageLookupByLibrary.simpleMessage("Day I"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "assignedTeam": MessageLookupByLibrary.simpleMessage(
+      "Assigned service team",
+    ),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -68,9 +79,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Start building your company\'s presence on the platform by entering its data.",
     ),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
+    "dataUsage": MessageLookupByLibrary.simpleMessage("Data Usage"),
+    "deactivateAccount": MessageLookupByLibrary.simpleMessage(
+      "Deactivate Account",
+    ),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+    "deleteAccountWarning": MessageLookupByLibrary.simpleMessage(
+      "Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records",
+    ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "downloadData": MessageLookupByLibrary.simpleMessage("Download Data"),
     "editProfileChangePassword": MessageLookupByLibrary.simpleMessage(
       "Change Password",
     ),
@@ -120,11 +140,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Login Successfully",
     ),
+    "managerOnly": MessageLookupByLibrary.simpleMessage("Manager only"),
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "Markiva Contact Information",
     ),
     "mediumPassword": MessageLookupByLibrary.simpleMessage("Medium"),
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+    "noFaqsAvailable": MessageLookupByLibrary.simpleMessage(
+      "No FAQs currently available.",
+    ),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
     ),
@@ -171,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Phone number is required",
     ),
     "prices": MessageLookupByLibrary.simpleMessage("Prices"),
+    "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage(
@@ -188,11 +213,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchLocation": MessageLookupByLibrary.simpleMessage(
       "Search Location...",
     ),
+    "securityAlerts": MessageLookupByLibrary.simpleMessage("Security Alerts"),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("Selected Plan"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("Send Message"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
+    "shareDataTeamOnly": MessageLookupByLibrary.simpleMessage(
+      "Share order data with assigned service team only",
+    ),
     "showDetails": MessageLookupByLibrary.simpleMessage("Show details"),
     "signup": MessageLookupByLibrary.simpleMessage("Create New Account"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -204,11 +233,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "I agree to the terms and conditions and privacy policy",
     ),
+    "unauthorizedNotVisible": MessageLookupByLibrary.simpleMessage(
+      "Your parameters will not be visible to unauthorized employees.",
+    ),
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "Unexpected Error, Please try again!",
     ),
     "userMessage": MessageLookupByLibrary.simpleMessage("User Message"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
+    "visibilityControl": MessageLookupByLibrary.simpleMessage(
+      "Visibility Control",
+    ),
     "weekPassword": MessageLookupByLibrary.simpleMessage("Weak"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Day I"),
     "writeMessageHere": MessageLookupByLibrary.simpleMessage(

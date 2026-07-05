@@ -37,12 +37,20 @@ class ServicesScreen extends StatelessWidget {
           child: Container(color: themeColors.boarderPrimary, height: 1),
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        padding: EdgeInsets.only(top: 24.h, bottom: 100.h),
-        child: Column(
-          children: [
-            ...[
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(seconds: 1));
+        },
+        child: ListView.builder(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: EdgeInsets.only(top: 24.h, bottom: 100.h),
+          itemCount: 5, // 4 categories + 1 pagination widget
+          itemBuilder: (context, index) {
+            if (index == 4) {
+              return PaginationWidget(themeColors: themeColors);
+            }
+
+            final categories = [
               {
                 'title': 'إدارة السوشيال ميديا',
                 'description':
@@ -55,26 +63,27 @@ class ServicesScreen extends StatelessWidget {
               },
               {
                 'title': 'برمجة المواقع والتطبيقات',
-                'description': 'تطوير مواقع وتطبيقات ذكية تناسب احتياجات عملك.',
+                'description':
+                    'تطوير مواقع وتطبيقات ذكية تناسب احتياجات عملك.',
               },
               {
                 'title': 'التسويق الرقمي',
                 'description':
                     'خطط تسويقية متكاملة لزيادة مبيعاتك وانتشار علامتك.',
               },
-            ].map(
-              (cat) => Padding(
-                padding: EdgeInsets.only(bottom: 32.h),
-                child: ServiceCategoryWidget(
-                  themeColors: themeColors,
-                  services: services,
-                  title: cat['title']!,
-                  description: cat['description']!,
-                ),
+            ];
+
+            final cat = categories[index];
+            return Padding(
+              padding: EdgeInsets.only(bottom: 32.h),
+              child: ServiceCategoryWidget(
+                themeColors: themeColors,
+                services: services,
+                title: cat['title']!,
+                description: cat['description']!,
               ),
-            ),
-            PaginationWidget(themeColors: themeColors),
-          ],
+            );
+          },
         ),
       ),
     );

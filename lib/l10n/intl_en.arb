@@ -100,5 +100,22 @@
     "newPassword": "New Password",
     "saveChanges": "Save Changes",
     "emailVerified": "Email Verified",
-    "enterStrongPasswordToProtectYourAccount": "Enter a strong password to protect your account"
+    "enterStrongPasswordToProtectYourAccount": "Enter a strong password to protect your account",
+    "privacy": "Privacy",
+    "dataUsage": "Data Usage",
+    "shareDataTeamOnly": "Share order data with assigned service team only",
+    "allowDataImproveService": "Allow using data to improve service",
+    "visibilityControl": "Visibility Control",
+    "managerOnly": "Manager only",
+    "assignedTeam": "Assigned service team",
+    "unauthorizedNotVisible": "Your parameters will not be visible to unauthorized employees.",
+    "securityAlerts": "Security Alerts",
+    "alertNewLogin": "Alert on new login",
+    "alertStatusChange": "Alert on order status change",
+    "accountControl": "Account Control",
+    "downloadData": "Download Data",
+    "deactivateAccount": "Deactivate Account",
+    "deleteAccount": "Delete Account",
+    "deleteAccountWarning": "Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records",
+    "noFaqsAvailable": "No FAQs currently available."
 }

@@ -100,5 +100,22 @@
     "newPassword": "كلمة المرور الجديدة",
     "saveChanges": "حفظ التغييرات",
     "emailVerified": "البريد الالكتروني تم التحقق منه",
-    "enterStrongPasswordToProtectYourAccount": "أدخل كلمة مرور قوية لحماية حسابك"
+    "enterStrongPasswordToProtectYourAccount": "أدخل كلمة مرور قوية لحماية حسابك",
+    "privacy": "الخصوصية",
+    "dataUsage": "استخدام البيانات",
+    "shareDataTeamOnly": "مشاركة بيانات الطلب مع فريق الخدمة المعين فقط",
+    "allowDataImproveService": "السماح باستخدام البيانات لتحسين الخدمة",
+    "visibilityControl": "التحكم في الظهور",
+    "managerOnly": "المدير فقط",
+    "assignedTeam": "فريق الخدمة المعين",
+    "unauthorizedNotVisible": "لن تكون معلماتك مرئية للموظفين الغير مصرح لهم.",
+    "securityAlerts": "تنبيهات الأمان",
+    "alertNewLogin": "تنبيه عند تسجيل دخول جديد",
+    "alertStatusChange": "تنبيه عند تغيير حالة الطلب",
+    "accountControl": "التحكم في الحساب",
+    "downloadData": "تنزيل البيانات",
+    "deactivateAccount": "تعطيل الحساب",
+    "deleteAccount": "حذف الحساب",
+    "deleteAccountWarning": "تتم مراجعة طلبات حذف الحساب من قبل المسؤول ومعالجتها في غضون 14 يومل . هذا الإجراء نهائي سيؤدي إلي حذف جميع سجلات الخدمة",
+    "noFaqsAvailable": "لا توجد أسئلة شائعة حالياً."
 }

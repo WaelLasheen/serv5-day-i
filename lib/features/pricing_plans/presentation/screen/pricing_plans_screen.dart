@@ -23,7 +23,8 @@ class PricingPlansScreen extends StatelessWidget {
     final lang = Intl.getCurrentLocale() == 'ar' ? 'ar' : 'en';
 
     return BlocProvider(
-      create: (context) => getIt<PricingPlansCubit>()..fetchPricingPlans(lang: lang),
+      create: (context) =>
+          getIt<PricingPlansCubit>()..fetchPricingPlans(lang: lang),
       child: const _PricingPlansView(),
     );
   }
@@ -39,9 +40,15 @@ class _PricingPlansView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Padding(
+        child: RefreshIndicator(
+          onRefresh: () async {
+            final lang = Intl.getCurrentLocale() == 'ar' ? 'ar' : 'en';
+            await context.read<PricingPlansCubit>().fetchPricingPlans(
+              lang: lang,
+            );
+          },
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,7 +61,7 @@ class _PricingPlansView extends StatelessWidget {
                     IconButton(
                       onPressed: () => Navigator.maybePop(context),
                       icon: Icon(
-                        Icons.arrow_forward_ios_rounded,
+                        Icons.arrow_back_ios_rounded,
                         color: theme.primaryColor,
                         size: 20.r,
                       ),

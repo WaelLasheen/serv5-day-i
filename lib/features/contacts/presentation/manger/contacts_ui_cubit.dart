@@ -1,43 +1,60 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:day_i/features/contacts/data/models/faq_model.dart';
+import 'package:day_i/features/contacts/data/repos/contacts_repo.dart';
 import 'contacts_ui_state.dart';
 
 class ContactsUiCubit extends Cubit<ContactsUiState> {
-  ContactsUiCubit() : super(const ContactsUiState()) {
-    _loadFaqs();
+  final ContactsRepo contactsRepo;
+
+  ContactsUiCubit(this.contactsRepo) : super(const ContactsUiState()) {
+    loadFaqs();
   }
 
-  void _loadFaqs() {
-    // In a real scenario, this data would come from an API via a Repository
-    final mockFaqs = [
-      const FaqModel(
-        question: 'هل إنشاء الشركة على المنصة مجاني؟',
-        answer:
-            'يمكنك استعراض الخدمات والأسعار، ويتم الدفع فقط عند حجز أي خدمة.',
-      ),
-      const FaqModel(
-        question: 'هل الأسعار ثابتة أم قابلة للتخصيص؟',
-        answer:
-            'الأسعار ثابتة للخدمات الأساسية ويمكن تخصيصها حسب متطلبات شركتك.',
-      ),
-      const FaqModel(
-        question: 'كيف أختار الخدمة المناسبة لشركتي؟',
-        answer:
-            'يمكنك التواصل مع فريق الدعم لدينا لمساعدتك في اختيار الخدمة الأنسب لاحتياجاتك.',
-      ),
-      const FaqModel(
-        question: 'ماذا يحدث بعد حجز الخدمة؟',
-        answer:
-            'سيتم التواصل معك من قبل فريقنا المختص للبدء في تنفيذ الخدمة ومتابعة الخطوات.',
-      ),
-      const FaqModel(
-        question: 'هل يمكن تعديل بيانات الشركة فيمابعد ؟',
-        answer:
-            'نعم، يمكنك تعديل بيانات شركتك في أي وقت من خلال لوحة التحكم الخاصة بك.',
-      ),
-    ];
+  Future<void> loadFaqs() async {
+    emit(state.copyWith(
+      isLoading: true,
+      currentPage: 1,
+      hasReachedMax: false,
+      isFetchingMore: false,
+    ));
+    final result = await contactsRepo.getFaqs(page: 1);
+    result.fold(
+      (failure) {
+        emit(state.copyWith(faqs: [], isLoading: false));
+      },
+      (faqs) {
+        emit(state.copyWith(
+          faqs: faqs,
+          isLoading: false,
+          hasReachedMax: faqs.isEmpty || faqs.length < 10,
+        ));
+      },
+    );
+  }
 
-    emit(state.copyWith(faqs: mockFaqs));
+  Future<void> loadMoreFaqs() async {
+    if (state.hasReachedMax || state.isFetchingMore || state.isLoading) return;
+
+    emit(state.copyWith(isFetchingMore: true));
+    final nextPage = state.currentPage + 1;
+    final result = await contactsRepo.getFaqs(page: nextPage);
+    
+    result.fold(
+      (failure) {
+        emit(state.copyWith(isFetchingMore: false));
+      },
+      (newFaqs) {
+        if (newFaqs.isEmpty) {
+          emit(state.copyWith(hasReachedMax: true, isFetchingMore: false));
+        } else {
+          emit(state.copyWith(
+            faqs: List.of(state.faqs)..addAll(newFaqs),
+            currentPage: nextPage,
+            isFetchingMore: false,
+            hasReachedMax: newFaqs.length < 10,
+          ));
+        }
+      },
+    );
   }
 
   void changeTab(int index) {

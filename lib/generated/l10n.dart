@@ -933,6 +933,166 @@ class S {
       args: [],
     );
   }
+
+  /// `Privacy`
+  String get privacy {
+    return Intl.message('Privacy', name: 'privacy', desc: '', args: []);
+  }
+
+  /// `Data Usage`
+  String get dataUsage {
+    return Intl.message('Data Usage', name: 'dataUsage', desc: '', args: []);
+  }
+
+  /// `Share order data with assigned service team only`
+  String get shareDataTeamOnly {
+    return Intl.message(
+      'Share order data with assigned service team only',
+      name: 'shareDataTeamOnly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow using data to improve service`
+  String get allowDataImproveService {
+    return Intl.message(
+      'Allow using data to improve service',
+      name: 'allowDataImproveService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Visibility Control`
+  String get visibilityControl {
+    return Intl.message(
+      'Visibility Control',
+      name: 'visibilityControl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manager only`
+  String get managerOnly {
+    return Intl.message(
+      'Manager only',
+      name: 'managerOnly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Assigned service team`
+  String get assignedTeam {
+    return Intl.message(
+      'Assigned service team',
+      name: 'assignedTeam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your parameters will not be visible to unauthorized employees.`
+  String get unauthorizedNotVisible {
+    return Intl.message(
+      'Your parameters will not be visible to unauthorized employees.',
+      name: 'unauthorizedNotVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security Alerts`
+  String get securityAlerts {
+    return Intl.message(
+      'Security Alerts',
+      name: 'securityAlerts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert on new login`
+  String get alertNewLogin {
+    return Intl.message(
+      'Alert on new login',
+      name: 'alertNewLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert on order status change`
+  String get alertStatusChange {
+    return Intl.message(
+      'Alert on order status change',
+      name: 'alertStatusChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Control`
+  String get accountControl {
+    return Intl.message(
+      'Account Control',
+      name: 'accountControl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download Data`
+  String get downloadData {
+    return Intl.message(
+      'Download Data',
+      name: 'downloadData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deactivate Account`
+  String get deactivateAccount {
+    return Intl.message(
+      'Deactivate Account',
+      name: 'deactivateAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get deleteAccount {
+    return Intl.message(
+      'Delete Account',
+      name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records`
+  String get deleteAccountWarning {
+    return Intl.message(
+      'Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records',
+      name: 'deleteAccountWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No FAQs currently available.`
+  String get noFaqsAvailable {
+    return Intl.message(
+      'No FAQs currently available.',
+      name: 'noFaqsAvailable',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
