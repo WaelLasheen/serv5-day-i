@@ -80,7 +80,7 @@ Future<void> setUpLocators() async {
   getIt.registerSingleton<AppRouter>(AppRouter());
 
   // Pricing Plans
-  getIt.registerLazySingleton<PricingPlansRepo>(() => PricingPlansRepo());
+  getIt.registerLazySingleton<PricingPlansRepo>(() => PricingPlansRepo(getIt<IApiService>()));
   getIt.registerFactory<PricingPlansCubit>(() => PricingPlansCubit(getIt()));
 }
 

@@ -98,5 +98,7 @@
     "editProfilePage": "تعديل الملف الشخصي",
     "currentPassword": "كلمة المرور الحالية",
     "newPassword": "كلمة المرور الجديدة",
-    "saveChanges": "حفظ التغييرات"
+    "saveChanges": "حفظ التغييرات",
+    "emailVerified": "البريد الالكتروني تم التحقق منه",
+    "enterStrongPasswordToProtectYourAccount": "أدخل كلمة مرور قوية لحماية حسابك"
 }

@@ -4,13 +4,23 @@ import 'package:day_i/features/pricing_plans/data/repos/pricing_plans_repo.dart'
 
 class PricingPlansCubit extends Cubit<PricingPlansState> {
   final PricingPlansRepo pricingPlansRepo;
+  
   PricingPlansCubit(this.pricingPlansRepo) : super(PricingPlansInitial());
-  Future<void> fetchPricingPlans() async {
+
+  Future<void> fetchPricingPlans({String lang = 'ar'}) async {
     emit(PricingPlansLoading());
-    final result = await pricingPlansRepo.fetchPricingPlans();
-    result.fold(
-      (faliureMessage) => emit(PricingPlansFailure(faliureMessage)),
-      (plans) => emit(PricingPlansSuccess(plans)),
+    
+    final plansResult = await pricingPlansRepo.fetchPricingPlans(lang);
+    final comparisonResult = await pricingPlansRepo.fetchPlanComparisons(lang);
+
+    plansResult.fold(
+      (failure) => emit(PricingPlansFailure(failure.message)),
+      (plans) {
+        comparisonResult.fold(
+          (failure) => emit(PricingPlansFailure(failure.message)),
+          (comparisonModel) => emit(PricingPlansSuccess(plans, comparisonModel)),
+        );
+      },
     );
   }
 
@@ -18,7 +28,11 @@ class PricingPlansCubit extends Cubit<PricingPlansState> {
     if (state is PricingPlansSuccess) {
       final currentState = state as PricingPlansSuccess;
       emit(
-        PricingPlansSuccess(currentState.pricingPlans, selectedIndex: index),
+        PricingPlansSuccess(
+          currentState.pricingPlans, 
+          currentState.comparisonModel,
+          selectedIndex: index,
+        ),
       );
     }
   }

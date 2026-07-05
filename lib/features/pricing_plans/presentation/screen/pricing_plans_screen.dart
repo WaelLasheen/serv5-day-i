@@ -1,5 +1,6 @@
 import 'package:day_i/features/pricing_plans/presentation/widgets/pricing_toggle_bar.dart';
 import 'package:day_i/features/pricing_plans/presentation/widgets/pricing_plan_card_widget.dart';
+import 'package:day_i/features/pricing_plans/presentation/widgets/plan_comparison_table_widget.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,14 +12,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manger/pricing_palns_cubit.dart';
 import '../manger/pricing_palns_state.dart';
 import 'package:day_i/core/di/di.dart'; // import DI
+import 'package:intl/intl.dart';
 
 class PricingPlansScreen extends StatelessWidget {
   const PricingPlansScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Determine language from Intl
+    final lang = Intl.getCurrentLocale() == 'ar' ? 'ar' : 'en';
+
     return BlocProvider(
-      create: (context) => getIt<PricingPlansCubit>()..fetchPricingPlans(),
+      create: (context) => getIt<PricingPlansCubit>()..fetchPricingPlans(lang: lang),
       child: const _PricingPlansView(),
     );
   }
@@ -118,6 +123,7 @@ class _PricingPlansView extends StatelessWidget {
                       );
                     } else if (state is PricingPlansSuccess) {
                       final plans = state.pricingPlans;
+                      final comparisonModel = state.comparisonModel;
                       final selectedIndex = state.selectedIndex;
 
                       if (plans.isEmpty) {
@@ -139,19 +145,26 @@ class _PricingPlansView extends StatelessWidget {
                       );
 
                       return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           PricingToggleBar(
                             selectedIndex: selectedIndex,
                             primaryColor: theme.primaryColor,
-                            tabs: plans.map((p) => p.title).toList(),
+                            tabs: plans.map((p) => p.name).toList(),
                             onPlanSelected: (index) => context
                                 .read<PricingPlansCubit>()
                                 .selectPlan(index),
                           ),
                           SizedBox(height: 20.h),
-                          PricingPlanCardWidget(
-                            plan: activePlan,
-                            themeColors: theme,
+                          Center(
+                            child: PricingPlanCardWidget(
+                              plan: activePlan,
+                              themeColors: theme,
+                            ),
+                          ),
+                          SizedBox(height: 40.h),
+                          PlanComparisonTableWidget(
+                            comparisonModel: comparisonModel,
                           ),
                         ],
                       );

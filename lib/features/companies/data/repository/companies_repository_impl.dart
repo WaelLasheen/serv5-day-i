@@ -11,29 +11,28 @@ class CompaniesRepositoryImpl implements CompaniesRepository {
   CompaniesRepositoryImpl({required RemoteDataSource remoteDataSource})
     : _remoteDataSource = remoteDataSource;
   @override
-  Future<Either<Failure, CompanyEntity>> createCompany(CompanyParams params) {
-    // TODO: implement createCompany
-    throw UnimplementedError();
+  Future<Either<Failure, CompanyEntity>> createCompany(CompanyParams params) async {
+    final result = await _remoteDataSource.createCompany(params);
+    return result.map((r) => r.toEntity());
   }
 
   @override
-  Future<Either<Failure, void>> deleteCompany(int id) {
-    // TODO: implement deleteCompany
-    throw UnimplementedError();
+  Future<Either<Failure, void>> deleteCompany(int id) async {
+    return await _remoteDataSource.deleteCompany(id);
   }
 
   @override
-  Future<Either<Failure, List<CompanyEntity>>> getCompanies() {
-    // TODO: implement getCompanies
-    throw UnimplementedError();
+  Future<Either<Failure, List<CompanyEntity>>> getCompanies() async {
+    final result = await _remoteDataSource.getCompanies();
+    return result.map((r) => r.map((e) => e.toEntity()).toList());
   }
 
   @override
   Future<Either<Failure, CompanyEntity>> updateCompany(
     CompanyParams params,
     int id,
-  ) {
-    // TODO: implement updateCompany
-    throw UnimplementedError();
+  ) async {
+    final result = await _remoteDataSource.updateCompany(params, id);
+    return result.map((r) => r.toEntity());
   }
 }

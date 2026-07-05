@@ -42,7 +42,7 @@ class AuthHeader extends StatelessWidget {
           ),
           Text(
             title,
-            style: titleStyle ?? FontStyles.h1.copyWith(color: Colors.white),
+            style: titleStyle ?? AppTextStyles.text2xlSemiBold.copyWith(color: Colors.white),
           ),
           SizedBox(height: 8.h),
           Text(
@@ -50,7 +50,7 @@ class AuthHeader extends StatelessWidget {
             textAlign: TextAlign.center,
             style:
                 subtitleStyle ??
-                FontStyles.bodyMedium.copyWith(
+                AppTextStyles.textSmRegular.copyWith(
                   color: Colors.white.withAlpha(200),
                 ),
           ),

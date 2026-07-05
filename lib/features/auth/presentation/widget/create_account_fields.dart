@@ -127,7 +127,7 @@ class CreateAccountFields extends StatelessWidget {
               text: S.current.actionButton,
               onPressed: () {
                 if (formKey.currentState!.validate()) {
-                  // TODO: Implement create account logic
+                  // Implement create account logic
                 }
               },
             ),

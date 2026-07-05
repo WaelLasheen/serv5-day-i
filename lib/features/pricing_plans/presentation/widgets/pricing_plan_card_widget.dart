@@ -28,22 +28,45 @@ class PricingPlanCardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            plan.title,
-            style: FontStyles.h3.copyWith(
-              color: const Color(0xFF121212),
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                plan.name,
+                style: FontStyles.h3.copyWith(
+                  color: const Color(0xFF121212),
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              if (plan.isPopular || plan.badge != null)
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF56E14).withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  child: Text(
+                    plan.badge ?? 'Popular',
+                    style: TextStyle(
+                      color: const Color(0xFFF56E14),
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+            ],
           ),
-          SizedBox(height: 8.h),
-          Text(
-            plan.description,
-            style: FontStyles.bodyMedium.copyWith(
-              color: const Color(0xFF7A7A7A),
-              fontSize: 14.sp,
+          if (plan.description != null && plan.description!.isNotEmpty) ...[
+            SizedBox(height: 8.h),
+            Text(
+              plan.description!,
+              style: FontStyles.bodyMedium.copyWith(
+                color: const Color(0xFF7A7A7A),
+                fontSize: 14.sp,
+              ),
             ),
-          ),
+          ],
           SizedBox(height: 16.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -51,7 +74,7 @@ class PricingPlanCardWidget extends StatelessWidget {
             textBaseline: TextBaseline.alphabetic,
             children: [
               Text(
-                plan.price,
+                plan.price ?? 'Custom',
                 style: TextStyle(
                   fontFamily: 'Rubik',
                   fontSize: 20.sp,
@@ -59,26 +82,41 @@ class PricingPlanCardWidget extends StatelessWidget {
                   color: const Color(0xFF121212),
                 ),
               ),
-              SizedBox(width: 8.w),
-              Text(
-                plan.period,
-                style: TextStyle(
-                  fontFamily: 'Rubik',
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFF121212).withOpacity(0.8),
+              if (plan.price != null) ...[
+                SizedBox(width: 4.w),
+                Text(
+                  plan.currency,
+                  style: TextStyle(
+                    fontFamily: 'Rubik',
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                    color: const Color(0xFF121212),
+                  ),
                 ),
-              ),
+              ],
+              if (plan.price != null && plan.billingInterval.isNotEmpty) ...[
+                SizedBox(width: 8.w),
+                Text(
+                  '/${plan.billingInterval}',
+                  style: TextStyle(
+                    fontFamily: 'Rubik',
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xFF121212).withValues(alpha: 0.8),
+                  ),
+                ),
+              ],
             ],
           ),
           SizedBox(height: 16.h),
           ...plan.features
-              .map((feature) => _buildFeatureItem(feature.toString()))
-              .toList(),
+              .map((feature) => _buildFeatureItem(feature.toString())),
           SizedBox(height: 16.h),
           AppButton(
-            text: 'أبدأ الآن',
-            onPressed: () {},
+            text: plan.button?.text ?? 'أبدأ الآن',
+            onPressed: () {
+              // Action logic based on plan.button?.action
+            },
             icon: Icon(Icons.arrow_forward_ios_rounded, size: 16.r),
             isIconTrailing: true,
             height: 48,

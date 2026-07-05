@@ -80,7 +80,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "editProfilePage": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
+    "emailVerified": MessageLookupByLibrary.simpleMessage("Email Verified"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "enterStrongPasswordToProtectYourAccount":
+        MessageLookupByLibrary.simpleMessage(
+          "Enter a strong password to protect your account",
+        ),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "Flexible packages to suit your business size and marketing goals",

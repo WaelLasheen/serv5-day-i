@@ -98,5 +98,7 @@
     "editProfilePage": "Edit Profile",
     "currentPassword": "Current Password",
     "newPassword": "New Password",
-    "saveChanges": "Save Changes"
+    "saveChanges": "Save Changes",
+    "emailVerified": "Email Verified",
+    "enterStrongPasswordToProtectYourAccount": "Enter a strong password to protect your account"
 }

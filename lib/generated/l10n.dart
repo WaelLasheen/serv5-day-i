@@ -913,6 +913,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Email Verified`
+  String get emailVerified {
+    return Intl.message(
+      'Email Verified',
+      name: 'emailVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a strong password to protect your account`
+  String get enterStrongPasswordToProtectYourAccount {
+    return Intl.message(
+      'Enter a strong password to protect your account',
+      name: 'enterStrongPasswordToProtectYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

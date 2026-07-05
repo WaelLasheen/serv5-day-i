@@ -16,8 +16,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     final String url = ApiConstants.login;
 
     try {
-      print("email $email");
-      print("password $password");
 
       final Response response = await dio.post(
         url,

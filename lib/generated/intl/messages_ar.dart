@@ -80,7 +80,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailReq": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
+    "emailVerified": MessageLookupByLibrary.simpleMessage(
+      "البريد الالكتروني تم التحقق منه",
+    ),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "enterStrongPasswordToProtectYourAccount":
+        MessageLookupByLibrary.simpleMessage(
+          "أدخل كلمة مرور قوية لحماية حسابك",
+        ),
     "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية",
