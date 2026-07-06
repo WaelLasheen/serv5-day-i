@@ -41,4 +41,15 @@ extension DialogExtensions on BuildContext {
       },
     );
   }
+
+  void showBottomSheet(Widget widget) {
+    showModalBottomSheet(
+      context: this,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) {
+        return widget;
+      },
+    );
+  }
 }

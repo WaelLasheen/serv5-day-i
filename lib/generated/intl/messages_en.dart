@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Assigned service team",
     ),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
     "changePasswordInstruction": MessageLookupByLibrary.simpleMessage(
@@ -140,6 +141,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Login Successfully",
     ),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "logoutConfirm": MessageLookupByLibrary.simpleMessage(
+      "Are you sure of logout?",
+    ),
     "managerOnly": MessageLookupByLibrary.simpleMessage("Manager only"),
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "Markiva Contact Information",
@@ -152,7 +157,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
     ),
-    "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "oopsError": MessageLookupByLibrary.simpleMessage(
       "Oops! There was an Error, Please try again",
     ),

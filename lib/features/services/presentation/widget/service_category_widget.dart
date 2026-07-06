@@ -1,26 +1,18 @@
+import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
-import 'package:day_i/features/services/param/service_model.dart';
-import 'package:day_i/features/services/widgets/pricing_card_widget.dart';
+import 'package:day_i/features/services/domain/entity/main_service_entity.dart';
+import 'package:day_i/features/services/presentation/widget/pricing_card_widget.dart';
 
 class ServiceCategoryWidget extends StatelessWidget {
-  final AppTheme themeColors;
-  final List<ServiceModel> services;
-  final String title;
-  final String description;
-
-  const ServiceCategoryWidget({
-    super.key,
-    required this.themeColors,
-    required this.services,
-    required this.title,
-    required this.description,
-  });
+  final MainServiceEntity mainServiceEntity;
+  const ServiceCategoryWidget({super.key, required this.mainServiceEntity});
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = context.appTheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,17 +22,17 @@ class ServiceCategoryWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                mainServiceEntity.title,
                 style: FontStyles.h3.copyWith(
-                  color: themeColors.textPrimary,
+                  color: appTheme.textPrimary,
                   fontSize: 16.sp,
                 ),
               ),
               SizedBox(height: 8.h),
               Text(
-                description,
+                mainServiceEntity.description,
                 style: FontStyles.bodyMedium.copyWith(
-                  color: themeColors.textSecondary,
+                  color: appTheme.textSecondary,
                   fontSize: 14.sp,
                 ),
               ),
@@ -55,15 +47,14 @@ class ServiceCategoryWidget extends StatelessWidget {
             shrinkWrap: false,
             physics: const BouncingScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            itemCount: services.length,
+            itemCount: mainServiceEntity.services.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(
                   left: 16.w,
                 ), // spacing between cards in RTL
                 child: PricingCardWidget(
-                  service: services[index],
-                  themeColors: themeColors,
+                  serviceEntity: mainServiceEntity.services[index],
                 ),
               );
             },

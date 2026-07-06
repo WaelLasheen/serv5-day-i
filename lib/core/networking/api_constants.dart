@@ -11,6 +11,9 @@ class ApiConstants {
 
   // Company
   static const String companies = "/companies";
+
+  // Services 
+  static const String services = "/services-page";
   
   // Plans
   static const String plans = "/plans";

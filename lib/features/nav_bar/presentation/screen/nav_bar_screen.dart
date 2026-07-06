@@ -4,7 +4,11 @@ import 'package:day_i/features/nav_bar/presentation/param/nav_bar_item_model.dar
 import 'package:day_i/features/nav_bar/presentation/widget/nav_bar_item.dart';
 import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/floating_bot_button.dart';
-import 'package:day_i/features/services/screen/services_screen.dart';
+import 'package:day_i/features/services/presentation/screen/services_screen.dart';
+import 'package:day_i/features/services/presentation/service_cubit/service_cubit.dart';
+import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
+import 'package:day_i/core/di/di.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,12 +22,28 @@ class NavBarScreen extends StatefulWidget {
 
 class _NavBarScreenState extends State<NavBarScreen> {
   int _currentIndex = 0;
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const ServicesScreen(),
-    const Text('data'),
-    const ProfileScreen(),
-  ];
+  List<Widget>? _screens;
+  Locale? _currentLocale;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final locale = Localizations.localeOf(context);
+    if (_currentLocale != locale) {
+      _currentLocale = locale;
+      _screens = [
+        const HomeScreen(),
+        BlocProvider(
+          create: (context) => ServiceCubit(
+            getServicesUseCase: getIt<GetServicesUseCase>(),
+          )..getServices(locale.languageCode),
+          child: const ServicesScreen(),
+        ),
+        const Text('data'),
+        const ProfileScreen(),
+      ];
+    }
+  }
 
   final List<NavBarItemModel> navBarItems = [
     NavBarItemModel(icon: Icons.home_outlined, label: S.current.home, index: 0),
@@ -46,7 +66,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
 
     return Scaffold(
       extendBody: true,
-      body: _screens[_currentIndex],
+      body: _screens != null ? _screens![_currentIndex] : const SizedBox.shrink(),
 
       bottomNavigationBar: SafeArea(
         child: Padding(

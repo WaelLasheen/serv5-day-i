@@ -754,6 +754,36 @@ class S {
     );
   }
 
+  /// `Logout`
+  String get logout {
+    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  }
+
+  /// `Are you sure of logout?`
+  String get logoutConfirm {
+    return Intl.message(
+      'Are you sure of logout?',
+      name: 'logoutConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `No services available`
+  String get noServicesAvailable {
+    return Intl.message(
+      'No services available',
+      name: 'noServicesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Phone`
   String get phone {
     return Intl.message('Phone', name: 'phone', desc: '', args: []);

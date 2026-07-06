@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "assignedTeam": MessageLookupByLibrary.simpleMessage("فريق الخدمة المعين"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("شهادة غير صالحة"),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
     "changePasswordInstruction": MessageLookupByLibrary.simpleMessage(
@@ -140,6 +141,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
     ),
+    "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "logoutConfirm": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من تسجيل الخروج؟",
+    ),
     "managerOnly": MessageLookupByLibrary.simpleMessage("المدير فقط"),
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "معلومات الاتصال بماركيفا",
@@ -152,7 +157,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالإنترنت",
     ),
-    "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "oopsError": MessageLookupByLibrary.simpleMessage(
       "عذراً! حدث خطأ، يرجى المحاولة مرة أخرى",
     ),

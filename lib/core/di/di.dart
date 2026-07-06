@@ -22,6 +22,11 @@ import 'package:day_i/features/maps/data/datasources/maps_remote_data_source.dar
 import 'package:day_i/features/maps/data/repos/maps_repository_impl.dart';
 import 'package:day_i/features/maps/domain/repos/maps_repository.dart';
 import 'package:day_i/features/maps/domain/usecases/search_places_usecase.dart';
+import 'package:day_i/features/services/data/data_source/remote_data_source.dart';
+import 'package:day_i/features/services/data/data_source/remote_data_source_impl.dart';
+import 'package:day_i/features/services/data/repository/repository_impl.dart';
+import 'package:day_i/features/services/domain/repository/repository.dart';
+import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:day_i/core/services/notification_service.dart';
@@ -80,6 +85,19 @@ Future<void> setUpLocators() async {
   );
 
   getIt.registerSingleton<AppRouter>(AppRouter());
+
+  // Services
+  getIt.registerLazySingleton<ServiceRemoteDataSource>(
+    () => ServiceRemoteDataSourceImpl(apiService: getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<ServiceRepository>(
+    () => ServiceRepositoryImpl(
+      remoteDataSource: getIt<ServiceRemoteDataSource>(),
+    ),
+  );
+  getIt.registerLazySingleton<GetServicesUseCase>(
+    () => GetServicesUseCase(repository: getIt<ServiceRepository>()),
+  );
 
   // Pricing Plans
   getIt.registerLazySingleton<PricingPlansRepo>(() => PricingPlansRepo(getIt<IApiService>()));
