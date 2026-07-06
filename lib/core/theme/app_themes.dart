@@ -6,11 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppThemes {
   final AppTheme lightThemeColors = AppTheme(
     primaryColor: const Color(0xFF4F46E5), // done
-    secondaryColor: const Color(0xFF03DAC6),
+    secondaryColor: const Color(0xFFF56E14),
     backgroundColor: const Color(0xFFF5F5F5),
     surfaceColor: Colors.white,
     redNormalColor: const Color(0xFFEA0606), // done
-    errorColor: const Color(0xFFAB1C1E), // done
+    errorColor: const Color(0xFFB00505), // done
     textPrimary: const Color(0xFF121212), // done
     textSecondary: const Color(0xFF636262),
     grey200: const Color(0xFFE8E8E8),
@@ -33,6 +33,7 @@ class AppThemes {
       scaffoldBackgroundColor: lightThemeColors.backgroundColor,
 
       // 1. Core Typography Mapping
+      fontFamily: FontStyles.fontFamily,
       textTheme: TextTheme(
         displayLarge: FontStyles.h1,
         displayMedium: FontStyles.h2,
@@ -42,6 +43,7 @@ class AppThemes {
         titleLarge: FontStyles.bodySmall,
         titleMedium: FontStyles.button,
         titleSmall: FontStyles.label,
+        labelSmall: FontStyles.caption,
       ),
 
       // 2. Global AppBar Theme

@@ -1,4 +1,3 @@
-import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ class TermsAndConditions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
+    final textTheme = context.textTheme;
 
     return Row(
       children: [
@@ -34,7 +34,7 @@ class TermsAndConditions extends StatelessWidget {
         Expanded(
           child: Text(
             S.current.termsAndConditions,
-            style: AppTextStyles.textSmMedium.copyWith(color: theme.primaryColor),
+            style: textTheme.titleLarge?.copyWith(color: theme.primaryColor),
           ),
         ),
       ],

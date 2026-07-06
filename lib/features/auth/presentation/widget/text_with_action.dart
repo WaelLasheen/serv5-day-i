@@ -1,4 +1,3 @@
-import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -17,15 +16,17 @@ class TextWithAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
+    final textTheme = context.textTheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(normalText, style: AppTextStyles.textSmRegular),
+        Text(normalText, style: textTheme.headlineSmall),
         TextButton(
           onPressed: onActionPressed,
           child: Text(
             actionText,
-            style: AppTextStyles.textSmMedium.copyWith(
+            style: textTheme.titleLarge?.copyWith(
               color: theme.primaryColor,
               fontWeight: FontWeight.bold,
             ),
