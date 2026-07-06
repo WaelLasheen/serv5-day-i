@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: appThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
-                initialRoute: RouterPath.pricingPlans,
+                initialRoute: RouterPath.privacy,
               );
             },
           );
