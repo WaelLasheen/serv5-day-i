@@ -4,7 +4,7 @@ import 'package:day_i/features/nav_bar/presentation/param/nav_bar_item_model.dar
 import 'package:day_i/features/nav_bar/presentation/widget/nav_bar_item.dart';
 import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/floating_bot_button.dart';
-import 'package:day_i/features/services/screen/services_screen.dart';
+import 'package:day_i/features/services/presentation/screen/services_screen.dart';
 import 'package:day_i/features/services/presentation/service_cubit/service_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/core/di/di.dart';

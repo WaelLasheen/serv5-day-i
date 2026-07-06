@@ -14,7 +14,7 @@ import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
-import 'package:day_i/features/services/screen/services_screen.dart';
+import 'package:day_i/features/services/presentation/screen/services_screen.dart';
 import 'package:day_i/features/services/presentation/service_cubit/service_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:flutter/material.dart';

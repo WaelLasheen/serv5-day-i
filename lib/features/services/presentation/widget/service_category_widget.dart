@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/features/services/domain/entity/main_service_entity.dart';
-import 'package:day_i/features/services/widgets/pricing_card_widget.dart';
+import 'package:day_i/features/services/presentation/widget/pricing_card_widget.dart';
 
 class ServiceCategoryWidget extends StatelessWidget {
   final MainServiceEntity mainServiceEntity;
