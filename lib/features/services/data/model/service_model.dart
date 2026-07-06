@@ -22,7 +22,7 @@ class ServiceModel {
     name: json['name'] ?? "no name",
     shortDescription: json['short_description'] ?? "no short description",
     icon: json['icon'] ?? "no icon",
-    price: json['price']?.toDouble() ?? 0.0,
+    price: json['price'] != null ? double.parse(json['price']) : 0.0,
     slug: json['slug'] ?? "no slug",
   );
 

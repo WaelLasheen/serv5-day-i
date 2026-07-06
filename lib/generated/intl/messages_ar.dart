@@ -20,6 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(amount) => "الميزانية : ${amount}";
+
+  static String m1(name) => "الموظف: ${name}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("الحساب"),
@@ -35,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alertStatusChange": MessageLookupByLibrary.simpleMessage(
       "تنبيه عند تغيير حالة الطلب",
     ),
+    "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "allowDataImproveService": MessageLookupByLibrary.simpleMessage(
       "السماح باستخدام البيانات لتحسين الخدمة",
     ),
@@ -42,9 +47,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "لديك حساب بالفعل؟",
     ),
     "appTitle": MessageLookupByLibrary.simpleMessage("يومي"),
+    "approved": MessageLookupByLibrary.simpleMessage("تمت الموافقة"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "assignedTeam": MessageLookupByLibrary.simpleMessage("فريق الخدمة المعين"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("شهادة غير صالحة"),
+    "budget": MessageLookupByLibrary.simpleMessage("الميزانية"),
+    "budgetLabel": m0,
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
@@ -102,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerified": MessageLookupByLibrary.simpleMessage(
       "البريد الالكتروني تم التحقق منه",
     ),
+    "employeeLabel": m1,
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "enterStrongPasswordToProtectYourAccount":
         MessageLookupByLibrary.simpleMessage(
@@ -134,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidPassword": MessageLookupByLibrary.simpleMessage(
       "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
     ),
+    "late": MessageLookupByLibrary.simpleMessage("متأخر"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "سجل الدخول لإدارة معارض الكتب والفعاليات الثقافية",
@@ -157,6 +167,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالإنترنت",
     ),
+    "noOrders": MessageLookupByLibrary.simpleMessage("لا توجد طلبات"),
     "noServicesAvailable": MessageLookupByLibrary.simpleMessage(
       "لا توجد خدمات متاحة",
     ),
@@ -197,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "passwordStrength": MessageLookupByLibrary.simpleMessage("كلمة مرور قوية"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("المسار غير موجود"),
+    "pending": MessageLookupByLibrary.simpleMessage("قيد الإنتظار"),
     "phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "phoneReq": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
@@ -217,11 +229,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
     "searchLocation": MessageLookupByLibrary.simpleMessage("ابحث عن موقع..."),
+    "searchOrderHint": MessageLookupByLibrary.simpleMessage(
+      "ابحث باسم الخدمة أو رقم طلب...",
+    ),
     "securityAlerts": MessageLookupByLibrary.simpleMessage("تنبيهات الأمان"),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("الخطة المختارة"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("إرسال الرسالة"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("انتهى وقت الإرسال"),
+    "serviceRegister": MessageLookupByLibrary.simpleMessage("سجل الخدمات"),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "shareDataTeamOnly": MessageLookupByLibrary.simpleMessage(
       "مشاركة بيانات الطلب مع فريق الخدمة المعين فقط",
@@ -245,6 +261,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userMessage": MessageLookupByLibrary.simpleMessage("رسالة المستخدم"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("تأكيد رمز التحقق"),
+    "viewDetails": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
     "visibilityControl": MessageLookupByLibrary.simpleMessage(
       "التحكم في الظهور",
     ),

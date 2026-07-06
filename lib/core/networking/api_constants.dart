@@ -22,6 +22,9 @@ class ApiConstants {
   // FAQs
   static const String faqs = "/faqs";
   
+  // Orders
+  static const String orders = "/orders";
+  static const String orderStats = "/orders/stats";
 
   static const String nominatimSearchURL = "https://nominatim.openstreetmap.org/search";
 

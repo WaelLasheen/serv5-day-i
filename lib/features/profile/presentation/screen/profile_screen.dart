@@ -31,7 +31,6 @@ class ProfileScreen extends StatelessWidget {
                   PlanSection(),
                   CommunicationInfoSection(),
                   BusinessMetadataSection(),
-                  BillingSection(),
                   PrivacySecuritySection(),
                   AppPreferSection(),
                   BillingSection(),

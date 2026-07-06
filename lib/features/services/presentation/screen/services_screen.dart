@@ -6,7 +6,7 @@ import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/features/services/presentation/widget/pagination_widget.dart';
 import 'package:day_i/features/services/presentation/widget/service_category_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:day_i/features/services/presentation/service_cubit/service_cubit.dart';
+import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
 import 'package:day_i/core/utils/extensions/snack_bar_extension.dart';
 import 'package:day_i/features/services/presentation/widget/service_category_shimmer_widget.dart';
 import 'package:day_i/core/widgets/app_button.dart';

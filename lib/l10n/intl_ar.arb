@@ -121,5 +121,16 @@
     "deactivateAccount": "تعطيل الحساب",
     "deleteAccount": "حذف الحساب",
     "deleteAccountWarning": "تتم مراجعة طلبات حذف الحساب من قبل المسؤول ومعالجتها في غضون 14 يومل . هذا الإجراء نهائي سيؤدي إلي حذف جميع سجلات الخدمة",
-    "noFaqsAvailable": "لا توجد أسئلة شائعة حالياً."
+    "noFaqsAvailable": "لا توجد أسئلة شائعة حالياً.",
+    "serviceRegister": "سجل الخدمات",
+    "searchOrderHint": "ابحث باسم الخدمة أو رقم طلب...",
+    "all": "الكل",
+    "pending": "قيد الإنتظار",
+    "approved": "تمت الموافقة",
+    "late": "متأخر",
+    "budgetLabel": "الميزانية : {amount}",
+    "viewDetails": "عرض التفاصيل",
+    "noOrders": "لا توجد طلبات",
+    "employeeLabel": "الموظف: {name}",
+    "budget": "الميزانية"
 }

@@ -1123,6 +1123,91 @@ class S {
       args: [],
     );
   }
+
+  /// `Service Register`
+  String get serviceRegister {
+    return Intl.message(
+      'Service Register',
+      name: 'serviceRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search by service name or request number...`
+  String get searchOrderHint {
+    return Intl.message(
+      'Search by service name or request number...',
+      name: 'searchOrderHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message('All', name: 'all', desc: '', args: []);
+  }
+
+  /// `Pending`
+  String get pending {
+    return Intl.message('Pending', name: 'pending', desc: '', args: []);
+  }
+
+  /// `Approved`
+  String get approved {
+    return Intl.message('Approved', name: 'approved', desc: '', args: []);
+  }
+
+  /// `Late`
+  String get late {
+    return Intl.message('Late', name: 'late', desc: '', args: []);
+  }
+
+  /// `Budget: {amount}`
+  String budgetLabel(Object amount) {
+    return Intl.message(
+      'Budget: $amount',
+      name: 'budgetLabel',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `View Details`
+  String get viewDetails {
+    return Intl.message(
+      'View Details',
+      name: 'viewDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No orders found`
+  String get noOrders {
+    return Intl.message(
+      'No orders found',
+      name: 'noOrders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Employee: {name}`
+  String employeeLabel(Object name) {
+    return Intl.message(
+      'Employee: $name',
+      name: 'employeeLabel',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Budget`
+  String get budget {
+    return Intl.message('Budget', name: 'budget', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
