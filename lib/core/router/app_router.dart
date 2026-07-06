@@ -20,6 +20,8 @@ import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_pr
 import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
 import 'package:day_i/features/privacy/presentation/screen/privacy_screen.dart';
 import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
+import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
+import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -81,6 +83,9 @@ class AppRouter {
           builder: (context) => const PricingPlansScreen(),
         );
 
+      case RouterPath.home:
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
+
       case RouterPath.navBar:
         return MaterialPageRoute(builder: (context) => const NavBarScreen());
       case RouterPath.editProfileContacts:
@@ -92,14 +97,13 @@ class AppRouter {
           builder: (context) => const EditProfileChangePasswordScreen(),
         );
       case RouterPath.privacy:
-        return MaterialPageRoute(
-          builder: (_) => PrivacyScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => PrivacyScreen());
 
       case RouterPath.contacts:
-        return MaterialPageRoute(
-          builder: (_) => const ContactsScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const ContactsScreen());
+
+      case RouterPath.notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
