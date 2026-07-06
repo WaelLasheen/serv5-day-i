@@ -157,6 +157,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
     ),
+    "noNotificationsCurrently": MessageLookupByLibrary.simpleMessage(
+      "No notifications currently",
+    ),
+    "noServicesAvailable": MessageLookupByLibrary.simpleMessage(
+      "No services available",
+    ),
+    "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "oopsError": MessageLookupByLibrary.simpleMessage(
       "Oops! There was an Error, Please try again",
     ),

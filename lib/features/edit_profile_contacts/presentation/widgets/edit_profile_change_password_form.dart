@@ -130,15 +130,35 @@ class _EditProfileChangePasswordFormState
           ],
         ),
         SizedBox(height: 32.h),
-        AppButton(
-          text: S.current.changePassword,
-          onPressed: () {
-            // Action to change password
-          },
-          backgroundColor: theme.primaryColor,
-          textColor: Colors.white,
-          borderRadius: 8,
-          height: 48,
+        Row(
+          children: [
+            Expanded(
+              child: AppButton(
+                text: S.current.changePassword,
+                onPressed: () {
+                  // Action to change password
+                },
+                backgroundColor: theme.primaryColor,
+                textColor: Colors.white,
+                borderRadius: 8,
+                height: 48,
+              ),
+            ),
+            SizedBox(width: 16.w),
+            Expanded(
+              child: AppButton(
+                text: 'إلغاء',
+                isPrimary: false,
+                textColor: theme.primaryColor,
+                border: BorderSide(color: theme.primaryColor),
+                borderRadius: 8,
+                height: 48,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
         ),
       ],
     );

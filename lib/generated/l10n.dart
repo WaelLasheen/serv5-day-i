@@ -1133,6 +1133,16 @@ class S {
       args: [],
     );
   }
+
+  /// `No notifications currently`
+  String get noNotificationsCurrently {
+    return Intl.message(
+      'No notifications currently',
+      name: 'noNotificationsCurrently',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

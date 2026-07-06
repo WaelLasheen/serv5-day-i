@@ -122,5 +122,6 @@
     "deleteAccount": "Delete Account",
     "deleteAccountWarning": "Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records",
     "noFaqsAvailable": "No FAQs currently available.",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "noNotificationsCurrently": "No notifications currently"
 }

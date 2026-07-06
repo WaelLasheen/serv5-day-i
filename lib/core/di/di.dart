@@ -35,6 +35,12 @@ import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'package:day_i/features/notification/data/data_sources/notification_remote_data_source.dart';
+import 'package:day_i/features/notification/data/repositories/notification_repository_impl.dart';
+import 'package:day_i/features/notification/domain/repositories/notification_repository.dart';
+import 'package:day_i/features/notification/domain/use_cases/get_notifications_use_case.dart';
+import 'package:day_i/features/notification/presentation/controller/notification_cubit/notification_cubit.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> setUpLocators() async {
@@ -109,6 +115,22 @@ Future<void> setUpLocators() async {
   // Contacts
   getIt.registerLazySingleton<ContactsRepo>(
     () => ContactsRepo(apiService: getIt<IApiService>()),
+  );
+
+  // Notifications
+  getIt.registerLazySingleton<NotificationRemoteDataSource>(
+    () => NotificationRemoteDataSourceImpl(apiService: getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<NotificationRepository>(
+    () => NotificationRepositoryImpl(
+      remoteDataSource: getIt<NotificationRemoteDataSource>(),
+    ),
+  );
+  getIt.registerLazySingleton<GetNotificationsUseCase>(
+    () => GetNotificationsUseCase(repository: getIt<NotificationRepository>()),
+  );
+  getIt.registerFactory<NotificationCubit>(
+    () => NotificationCubit(getNotificationsUseCase: getIt<GetNotificationsUseCase>()),
   );
 }
 

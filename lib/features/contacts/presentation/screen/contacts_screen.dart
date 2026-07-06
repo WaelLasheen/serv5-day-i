@@ -74,7 +74,7 @@ class _ContactsViewState extends State<_ContactsView> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: appTheme.textPrimary),
+          icon: Icon(Icons.arrow_back_rounded, color: appTheme.primaryColor),
           onPressed: () {
             Navigator.pop(context);
           },

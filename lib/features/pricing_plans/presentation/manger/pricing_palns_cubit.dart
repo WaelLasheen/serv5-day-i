@@ -14,11 +14,17 @@ class PricingPlansCubit extends Cubit<PricingPlansState> {
     final comparisonResult = await pricingPlansRepo.fetchPlanComparisons(lang);
 
     plansResult.fold(
-      (failure) => emit(PricingPlansFailure(failure.message)),
+      (failure) {
+        if (!isClosed) emit(PricingPlansFailure(failure.message));
+      },
       (plans) {
         comparisonResult.fold(
-          (failure) => emit(PricingPlansFailure(failure.message)),
-          (comparisonModel) => emit(PricingPlansSuccess(plans, comparisonModel)),
+          (failure) {
+            if (!isClosed) emit(PricingPlansFailure(failure.message));
+          },
+          (comparisonModel) {
+            if (!isClosed) emit(PricingPlansSuccess(plans, comparisonModel));
+          },
         );
       },
     );

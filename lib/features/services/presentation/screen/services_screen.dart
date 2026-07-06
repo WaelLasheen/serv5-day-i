@@ -32,7 +32,7 @@ class ServicesScreen extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new, color: themeColors.textPrimary),
+          icon: Icon(Icons.arrow_back_rounded, color: themeColors.primaryColor),
           onPressed: () => Navigator.of(context).pop(),
         ),
         bottom: PreferredSize(
