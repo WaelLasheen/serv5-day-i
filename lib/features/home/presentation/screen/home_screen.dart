@@ -36,21 +36,27 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            DashboardHeader(
-              searchController: searchController,
-              onSearchChanged: _handleSearchChanged,
-            ),
-            SizedBox(height: 16.h),
-            const ServiceCategoriesWidget(),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(seconds: 1));
+        },
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              DashboardHeader(
+                searchController: searchController,
+                onSearchChanged: _handleSearchChanged,
+              ),
+              SizedBox(height: 16.h),
+              const ServiceCategoriesWidget(),
 
-            SizedBox(height: 16.h),
-            const SuggestedServicesWidget(),
+              SizedBox(height: 16.h),
+              const SuggestedServicesWidget(),
 
-            SizedBox(height: 120.h),
-          ],
+              SizedBox(height: 120.h),
+            ],
+          ),
         ),
       ),
     );

@@ -19,7 +19,6 @@ void main() async {
 
   await setUpLocators();
 
-
   runApp(const MyApp());
 }
 
@@ -52,7 +51,7 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: appThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
-                initialRoute: RouterPath.login, //createAccountScreen
+                initialRoute: RouterPath.pricingPlans,
               );
             },
           );

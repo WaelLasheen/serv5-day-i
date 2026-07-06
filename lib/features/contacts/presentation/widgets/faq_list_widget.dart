@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/features/contacts/presentation/manger/contacts_ui_cubit.dart';
 import 'package:day_i/features/contacts/presentation/manger/contacts_ui_state.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'faq_item_widget.dart';
 
 class FaqListWidget extends StatelessWidget {
@@ -12,29 +13,53 @@ class FaqListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ContactsUiCubit, ContactsUiState>(
       builder: (context, state) {
-        if (state.faqs.isEmpty) {
-          return const Center(child: CircularProgressIndicator());
+        if (state.isLoading) {
+          return const SliverToBoxAdapter(
+            child: Center(child: CircularProgressIndicator()),
+          );
         }
 
-        return ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: state.faqs.length,
-          separatorBuilder: (context, index) => SizedBox(height: 12.h),
-          itemBuilder: (context, index) {
-            final faq = state.faqs[index];
-            final isExpanded = state.expandedFaqIndex == index;
+        if (state.faqs.isEmpty) {
+          return SliverToBoxAdapter(
+            child: Center(
+              child: Text(
+                S.current.noFaqsAvailable,
+                style: TextStyle(
+                  fontFamily: 'Rubik',
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          );
+        }
 
-            return FaqItemWidget(
-              index: index,
-              question: faq.question,
-              answer: faq.answer,
-              isExpanded: isExpanded,
-              onTap: () {
-                context.read<ContactsUiCubit>().toggleFaq(index);
-              },
-            );
-          },
+        return SliverPadding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          sliver: SliverList.separated(
+            itemCount: state.faqs.length + (state.isFetchingMore ? 1 : 0),
+            separatorBuilder: (context, index) => SizedBox(height: 12.h),
+            itemBuilder: (context, index) {
+              if (index >= state.faqs.length) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16.h),
+                  child: const Center(child: CircularProgressIndicator()),
+                );
+              }
+              final faq = state.faqs[index];
+              final isExpanded = state.expandedFaqIndex == index;
+
+              return FaqItemWidget(
+                index: index,
+                question: faq.question,
+                answer: faq.answer,
+                isExpanded: isExpanded,
+                onTap: () {
+                  context.read<ContactsUiCubit>().toggleFaq(index);
+                },
+              );
+            },
+          ),
         );
       },
     );

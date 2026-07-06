@@ -33,7 +33,7 @@ class ResetPasswordScreen extends StatelessWidget {
             SizedBox(height: 50.h),
             AuthHeader(
               title: S.current.resetPassword,
-              subtitle: S.current.enterStrongPasswordToProtectYourAccount,
+              subtitle: S.current.resetPasswordInstruction,
               imagePath: getIt<ImagePath>().marketingConsulting,
             ),
 

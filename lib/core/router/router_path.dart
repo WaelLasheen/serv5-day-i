@@ -11,4 +11,7 @@ abstract class RouterPath {
   static const String services = "/services";
   static const String createAccountScreen = "/create-account";
   static const String contacts = "/contacts";
+  static const String editProfileContacts = "/edit-profile-contacts";
+  static const String editProfileChangePassword = "/edit-profile-change-password";
+  static const String privacy = "/privacy";
 }

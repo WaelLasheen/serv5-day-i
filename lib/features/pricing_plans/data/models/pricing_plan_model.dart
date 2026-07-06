@@ -1,62 +1,86 @@
 class PricingPlanModel {
-  final int index;
-  final String title;
-  final String description;
-  final String price;
-  final String period;
+  final int index; // Added to help with UI toggle selection
+  final int id;
+  final String name;
+  final String slug;
+  final String? description;
+  final String? shortDescription;
+  final String? price;
+  final String currency;
+  final String billingInterval;
+  final int? leadLimit;
+  final int? whatsappLimit;
+  final int? userLimit;
   final List<String> features;
+  final String? badge;
+  final PlanButtonModel? button;
+  final String? icon;
+  final String? highlight;
+  final bool isPopular;
+  final bool isActive;
+  final int sortOrder;
 
   const PricingPlanModel({
     required this.index,
-    required this.title,
-    required this.description,
-    required this.price,
-    required this.period,
+    required this.id,
+    required this.name,
+    required this.slug,
+    this.description,
+    this.shortDescription,
+    this.price,
+    required this.currency,
+    required this.billingInterval,
+    this.leadLimit,
+    this.whatsappLimit,
+    this.userLimit,
     required this.features,
+    this.badge,
+    this.button,
+    this.icon,
+    this.highlight,
+    required this.isPopular,
+    required this.isActive,
+    required this.sortOrder,
   });
 
-  // توليد داتا تجريبية (Mock Data) للباكات
-  static List<PricingPlanModel> getMockPlans() {
-    return const [
-      PricingPlanModel(
-        index: 0,
-        title: "الأساسية",
-        description: "للبدء وإدارة الأعمال الصغيرة",
-        price: "\$499",
-        period: "شهريا",
-        features: [
-          "إدارة حتى 50 حملة",
-          "إدارة مستخدم واحد أو فريق صغير",
-          "قوالب جاهزة للتسويق",
-          "تقارير أساسية للأداء",
-        ],
-      ),
-      PricingPlanModel(
-        index: 1,
-        title: "الإحترافية",
-        description: "لتنمية الأعمال وإدارة حملات متقدمة",
-        price: "\$899",
-        period: "شهريا",
-        features: [
-          "إدارة حتى 200 حملة",
-          "إدارة فريق يصل إلى 5 مستخدمين",
-          "قوالب تسويق مخصصة",
-          "تقارير متقدمة وتحليلات",
-        ],
-      ),
-      PricingPlanModel(
-        index: 2,
-        title: "المؤسسية",
-        description: "حلول شاملة للشركات الكبيرة",
-        price: "\$1499",
-        period: "شهريا",
-        features: [
-          "إدارة حملات غير محدودة",
-          "إدارة فريق غير محدود",
-          "دعم فني على مدار الساعة",
-          "تقارير مخصصة وتحليلات متقدمة",
-        ],
-      ),
-    ];
+  factory PricingPlanModel.fromJson(Map<String, dynamic> json, {int index = 0}) {
+    return PricingPlanModel(
+      index: index,
+      id: json['id'] as int? ?? 0,
+      name: json['name'] as String? ?? '',
+      slug: json['slug'] as String? ?? '',
+      description: json['description'] as String?,
+      shortDescription: json['short_description'] as String?,
+      price: json['price']?.toString(),
+      currency: json['currency'] as String? ?? 'USD',
+      billingInterval: json['billing_interval'] as String? ?? 'month',
+      leadLimit: json['lead_limit'] as int?,
+      whatsappLimit: json['whatsapp_limit'] as int?,
+      userLimit: json['user_limit'] as int?,
+      features: (json['features'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? [],
+      badge: json['badge'] as String?,
+      button: json['button'] != null ? PlanButtonModel.fromJson(json['button']) : null,
+      icon: json['icon'] as String?,
+      highlight: json['highlight'] as String?,
+      isPopular: json['is_popular'] as bool? ?? false,
+      isActive: json['is_active'] as bool? ?? true,
+      sortOrder: json['sort_order'] as int? ?? 0,
+    );
+  }
+}
+
+class PlanButtonModel {
+  final String? text;
+  final String? action;
+  final String? type;
+
+  const PlanButtonModel({this.text, this.action, this.type});
+
+  factory PlanButtonModel.fromJson(Map<String, dynamic> json) {
+    return PlanButtonModel(
+      text: json['text'] as String?,
+      action: json['action'] as String?,
+      type: json['type'] as String?,
+    );
   }
 }

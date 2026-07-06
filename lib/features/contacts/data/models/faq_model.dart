@@ -1,6 +1,23 @@
 class FaqModel {
+  final int? id;
   final String question;
   final String answer;
 
-  const FaqModel({required this.question, required this.answer});
+  const FaqModel({this.id, required this.question, required this.answer});
+
+  factory FaqModel.fromJson(Map<String, dynamic> json) {
+    return FaqModel(
+      id: json['id'],
+      question: json['question'] ?? '',
+      answer: json['answer'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      if (id != null) 'id': id,
+      'question': question,
+      'answer': answer,
+    };
+  }
 }

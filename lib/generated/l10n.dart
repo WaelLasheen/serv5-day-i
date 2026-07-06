@@ -534,10 +534,10 @@ class S {
     );
   }
 
-  /// `Reset password`
+  /// `Reset Password`
   String get resetPassword {
     return Intl.message(
-      'Reset password',
+      'Reset Password',
       name: 'resetPassword',
       desc: '',
       args: [],
@@ -754,21 +754,6 @@ class S {
     );
   }
 
-  /// `Phone`
-  String get phone {
-    return Intl.message('Phone', name: 'phone', desc: '', args: []);
-  }
-
-  /// `Enter strong Password to protect your account`
-  String get enterStrongPasswordToProtectYourAccount {
-    return Intl.message(
-      'Enter strong Password to protect your account',
-      name: 'enterStrongPasswordToProtectYourAccount',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Logout`
   String get logout {
     return Intl.message('Logout', name: 'logout', desc: '', args: []);
@@ -794,6 +779,346 @@ class S {
     return Intl.message(
       'No services available',
       name: 'noServicesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message('Phone', name: 'phone', desc: '', args: []);
+  }
+
+  /// `Confirm password does not match the new password`
+  String get passwordDoesntMatch {
+    return Intl.message(
+      'Confirm password does not match the new password',
+      name: 'passwordDoesntMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Strong Password`
+  String get passwordStrength {
+    return Intl.message(
+      'Strong Password',
+      name: 'passwordStrength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weak`
+  String get weekPassword {
+    return Intl.message('Weak', name: 'weekPassword', desc: '', args: []);
+  }
+
+  /// `Medium`
+  String get mediumPassword {
+    return Intl.message('Medium', name: 'mediumPassword', desc: '', args: []);
+  }
+
+  /// `Strong`
+  String get strongPassword {
+    return Intl.message('Strong', name: 'strongPassword', desc: '', args: []);
+  }
+
+  /// `Edit Contact Information`
+  String get editProfileContacts {
+    return Intl.message(
+      'Edit Contact Information',
+      name: 'editProfileContacts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Security`
+  String get passwordSecurity {
+    return Intl.message(
+      'Password Security',
+      name: 'passwordSecurity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get editProfileChangePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'editProfileChangePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a new password for your account.`
+  String get changePasswordInstruction {
+    return Intl.message(
+      'Enter a new password for your account.',
+      name: 'changePasswordInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters.`
+  String get passwordLength {
+    return Intl.message(
+      'Password must be at least 8 characters.',
+      name: 'passwordLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please do not use personal information or common words.`
+  String get passwordNotPersonal {
+    return Intl.message(
+      'Please do not use personal information or common words.',
+      name: 'passwordNotPersonal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It is recommended to use uppercase and lowercase letters and numbers.`
+  String get passwordCaseAndNumbers {
+    return Intl.message(
+      'It is recommended to use uppercase and lowercase letters and numbers.',
+      name: 'passwordCaseAndNumbers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get editProfilePage {
+    return Intl.message(
+      'Edit Profile',
+      name: 'editProfilePage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Password`
+  String get currentPassword {
+    return Intl.message(
+      'Current Password',
+      name: 'currentPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Changes`
+  String get saveChanges {
+    return Intl.message(
+      'Save Changes',
+      name: 'saveChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Verified`
+  String get emailVerified {
+    return Intl.message(
+      'Email Verified',
+      name: 'emailVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a strong password to protect your account`
+  String get enterStrongPasswordToProtectYourAccount {
+    return Intl.message(
+      'Enter a strong password to protect your account',
+      name: 'enterStrongPasswordToProtectYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy`
+  String get privacy {
+    return Intl.message('Privacy', name: 'privacy', desc: '', args: []);
+  }
+
+  /// `Data Usage`
+  String get dataUsage {
+    return Intl.message('Data Usage', name: 'dataUsage', desc: '', args: []);
+  }
+
+  /// `Share order data with assigned service team only`
+  String get shareDataTeamOnly {
+    return Intl.message(
+      'Share order data with assigned service team only',
+      name: 'shareDataTeamOnly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow using data to improve service`
+  String get allowDataImproveService {
+    return Intl.message(
+      'Allow using data to improve service',
+      name: 'allowDataImproveService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Visibility Control`
+  String get visibilityControl {
+    return Intl.message(
+      'Visibility Control',
+      name: 'visibilityControl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manager only`
+  String get managerOnly {
+    return Intl.message(
+      'Manager only',
+      name: 'managerOnly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Assigned service team`
+  String get assignedTeam {
+    return Intl.message(
+      'Assigned service team',
+      name: 'assignedTeam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your parameters will not be visible to unauthorized employees.`
+  String get unauthorizedNotVisible {
+    return Intl.message(
+      'Your parameters will not be visible to unauthorized employees.',
+      name: 'unauthorizedNotVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security Alerts`
+  String get securityAlerts {
+    return Intl.message(
+      'Security Alerts',
+      name: 'securityAlerts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert on new login`
+  String get alertNewLogin {
+    return Intl.message(
+      'Alert on new login',
+      name: 'alertNewLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert on order status change`
+  String get alertStatusChange {
+    return Intl.message(
+      'Alert on order status change',
+      name: 'alertStatusChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Control`
+  String get accountControl {
+    return Intl.message(
+      'Account Control',
+      name: 'accountControl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download Data`
+  String get downloadData {
+    return Intl.message(
+      'Download Data',
+      name: 'downloadData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deactivate Account`
+  String get deactivateAccount {
+    return Intl.message(
+      'Deactivate Account',
+      name: 'deactivateAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get deleteAccount {
+    return Intl.message(
+      'Delete Account',
+      name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records`
+  String get deleteAccountWarning {
+    return Intl.message(
+      'Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records',
+      name: 'deleteAccountWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No FAQs currently available.`
+  String get noFaqsAvailable {
+    return Intl.message(
+      'No FAQs currently available.',
+      name: 'noFaqsAvailable',
       desc: '',
       args: [],
     );

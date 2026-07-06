@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import '../../data/models/pricing_plan_model.dart';
+import '../../data/models/plan_comparison_model.dart';
 
 abstract class PricingPlansState extends Equatable {
   const PricingPlansState();
@@ -14,12 +15,17 @@ class PricingPlansLoading extends PricingPlansState {}
 
 class PricingPlansSuccess extends PricingPlansState {
   final List<PricingPlanModel> pricingPlans;
+  final PlanComparisonModel comparisonModel;
   final int selectedIndex;
 
-  const PricingPlansSuccess(this.pricingPlans, {this.selectedIndex = 0});
+  const PricingPlansSuccess(
+    this.pricingPlans, 
+    this.comparisonModel, 
+    {this.selectedIndex = 0}
+  );
 
   @override
-  List<Object?> get props => [pricingPlans, selectedIndex];
+  List<Object?> get props => [pricingPlans, comparisonModel, selectedIndex];
 }
 
 class PricingPlansFailure extends PricingPlansState {

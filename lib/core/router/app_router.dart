@@ -11,12 +11,18 @@ import 'package:day_i/features/auth/presentation/controller/change_password_cubi
 import 'package:day_i/features/auth/presentation/screen/forgot_password_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
+
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
 import 'package:day_i/features/services/presentation/screen/services_screen.dart';
 import 'package:day_i/features/services/presentation/service_cubit/service_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
+import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_contacts_screen.dart';
+import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_change_password_screen.dart';
+import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
+import 'package:day_i/features/privacy/presentation/screen/privacy_screen.dart';
+import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -73,18 +79,37 @@ class AppRouter {
           ),
         );
 
+      case RouterPath.pricingPlans:
+        return MaterialPageRoute(
+          builder: (context) => const PricingPlansScreen(),
+        );
+
       case RouterPath.navBar:
         return MaterialPageRoute(builder: (context) => const NavBarScreen());
 
       case RouterPath.services:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => ServiceCubit(
-              getServicesUseCase: getIt<GetServicesUseCase>(),
-            )..getServices(Localizations.localeOf(context).languageCode),
+            create: (context) =>
+                ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
+                  ..getServices(Localizations.localeOf(context).languageCode),
             child: const ServicesScreen(),
           ),
         );
+
+      case RouterPath.editProfileContacts:
+        return MaterialPageRoute(
+          builder: (context) => const EditProfileContactsScreen(),
+        );
+      case RouterPath.editProfileChangePassword:
+        return MaterialPageRoute(
+          builder: (context) => const EditProfileChangePasswordScreen(),
+        );
+      case RouterPath.privacy:
+        return MaterialPageRoute(builder: (_) => PrivacyScreen());
+
+      case RouterPath.contacts:
+        return MaterialPageRoute(builder: (_) => const ContactsScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
