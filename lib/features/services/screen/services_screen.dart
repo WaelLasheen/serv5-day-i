@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
-import 'package:day_i/features/services/param/service_model.dart';
 import 'package:day_i/features/services/widgets/pagination_widget.dart';
 import 'package:day_i/features/services/widgets/service_category_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:day_i/features/services/presentation/service_cubit/service_cubit.dart';
+import 'package:day_i/core/utils/extensions/snack_bar_extension.dart';
+import 'package:day_i/features/services/presentation/widget/service_category_shimmer_widget.dart';
+import 'package:day_i/core/widgets/app_button.dart';
 
 class ServicesScreen extends StatelessWidget {
   const ServicesScreen({super.key});
@@ -13,7 +17,6 @@ class ServicesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeColors = Theme.of(context).extension<AppTheme>()!;
-    final services = ServiceModel.getMockServices();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -37,45 +40,74 @@ class ServicesScreen extends StatelessWidget {
           child: Container(color: themeColors.boarderPrimary, height: 1),
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        padding: EdgeInsets.only(top: 24.h, bottom: 100.h),
-        child: Column(
-          children: [
-            ...[
-              {
-                'title': 'إدارة السوشيال ميديا',
-                'description':
-                    'خدمات لإدارة وتطوير حساباتك على منصات التواصل الاجتماعي باحترافية.',
-              },
-              {
-                'title': 'التصميم الجرافيكي',
-                'description':
-                    'تصاميم إبداعية تعكس هوية علامتك التجارية وتجذب الانتباه.',
-              },
-              {
-                'title': 'برمجة المواقع والتطبيقات',
-                'description': 'تطوير مواقع وتطبيقات ذكية تناسب احتياجات عملك.',
-              },
-              {
-                'title': 'التسويق الرقمي',
-                'description':
-                    'خطط تسويقية متكاملة لزيادة مبيعاتك وانتشار علامتك.',
-              },
-            ].map(
-              (cat) => Padding(
-                padding: EdgeInsets.only(bottom: 32.h),
-                child: ServiceCategoryWidget(
-                  themeColors: themeColors,
-                  services: services,
-                  title: cat['title']!,
-                  description: cat['description']!,
+      body: BlocConsumer<ServiceCubit, ServiceState>(
+        listener: (context, state) {
+          if (state is ServiceFailure) {
+            context.showErrorSnackBar(message: state.message);
+          }
+        },
+        builder: (context, state) {
+          if (state is ServiceLoading || state is ServiceInitial) {
+            return const ServicesShimmerLoading();
+          } else if (state is ServiceSuccess) {
+            final services = state.services;
+            if (services.isEmpty) {
+              return Center(
+                child: Text(
+                  S.current.noServicesAvailable,
+                  style: FontStyles.bodyMedium.copyWith(
+                    color: themeColors.textSecondary,
+                    fontSize: 14.sp,
+                  ),
                 ),
+              );
+            }
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: EdgeInsets.only(top: 24.h, bottom: 100.h),
+              child: Column(
+                children: [
+                  ...services.map(
+                    (cat) => Padding(
+                      padding: EdgeInsets.only(bottom: 32.h),
+                      child: ServiceCategoryWidget(mainServiceEntity: cat),
+                    ),
+                  ),
+                  PaginationWidget(themeColors: themeColors),
+                ],
               ),
-            ),
-            PaginationWidget(themeColors: themeColors),
-          ],
-        ),
+            );
+          } else if (state is ServiceFailure) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    S.current.oopsError,
+                    style: FontStyles.bodyMedium.copyWith(
+                      color: themeColors.textSecondary,
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                  SizedBox(height: 16.h),
+                  AppButton(
+                    text: Localizations.localeOf(context).languageCode == 'ar'
+                        ? 'إعادة المحاولة'
+                        : 'Retry',
+                    onPressed: () {
+                      context.read<ServiceCubit>().getServices(
+                        Localizations.localeOf(context).languageCode,
+                      );
+                    },
+                    width: 140.w,
+                    height: 40.h,
+                  ),
+                ],
+              ),
+            );
+          }
+          return const SizedBox.shrink();
+        },
       ),
     );
   }

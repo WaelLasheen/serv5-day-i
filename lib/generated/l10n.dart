@@ -788,6 +788,16 @@ class S {
   String get cancel {
     return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
+
+  /// `No services available`
+  String get noServicesAvailable {
+    return Intl.message(
+      'No services available',
+      name: 'noServicesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

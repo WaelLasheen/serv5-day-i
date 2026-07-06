@@ -86,6 +86,7 @@
     "enterStrongPasswordToProtectYourAccount":"أدخل كلمة مرور قوية لحماية حسابك",
     "logout": "تسجيل الخروج",
     "logoutConfirm":"هل أنت متأكد من تسجيل الخروج؟",
-    "cancel":"إلغاء"
+    "cancel":"إلغاء",
+    "noServicesAvailable": "لا توجد خدمات متاحة"
 
 }
