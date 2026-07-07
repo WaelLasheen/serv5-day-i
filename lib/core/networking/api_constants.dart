@@ -22,6 +22,9 @@ class ApiConstants {
   // FAQs
   static const String faqs = "/faqs";
   
+  // Contacts
+  static const String contactMessages = "https://serve5.cust.iptvdemo.serv5group.com/api/send-message";
+  static const String contactInfo = "https://serv5.cust.iptvdemo.serv5group.com/api/information-contact";
 
   static const String nominatimSearchURL = "https://nominatim.openstreetmap.org/search";
 

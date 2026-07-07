@@ -6,6 +6,8 @@ import 'package:day_i/core/utils/errors/server_failure.dart';
 import '../models/contact_request_model.dart';
 import '../models/faq_model.dart';
 
+import '../models/contact_info_model.dart';
+
 class ContactsRepo {
   final IApiService apiService;
 
@@ -15,15 +17,42 @@ class ContactsRepo {
     ContactRequestModel request,
   ) async {
     try {
-      // محاكاة تأخير الشبكة (Mock network delay)
-      await Future.delayed(const Duration(seconds: 1));
-
-      // يمكنك هنا إضافة كود الاتصال بالـ API الحقيقي
-      // مثال: await apiService.post('/contact', data: request.toJson());
-
-      return const Right(true);
+      final response = await apiService.post(ApiConstants.contactMessages, data: request.toJson());
+      return response.fold((l) => Left(l.message), (r) {
+        final remoteData = r.data as Map<String, dynamic>;
+        if (remoteData['success'] == true) {
+          return const Right(true);
+        } else {
+          return Left(remoteData['message'] ?? 'Unknown Error');
+        }
+      });
     } catch (e) {
       return Left(e.toString());
+    }
+  }
+
+  Future<Either<Failure, ContactInfoModel>> getContactInfo() async {
+    try {
+      // We pass the full URL directly, the apiService should be able to handle it
+      // if it uses Dio, Dio handles full URLs properly even if baseUrl is set.
+      final response = await apiService.get(ApiConstants.contactInfo);
+      return response.fold((l) => Left(l), (r) {
+        final remoteData = r.data as Map<String, dynamic>;
+        if (remoteData['success'] == true) {
+          final data = remoteData['data'];
+          if (data is List && data.isNotEmpty) {
+            return Right(ContactInfoModel.fromJson(data[0] ?? {}));
+          } else if (data is Map<String, dynamic>) {
+            return Right(ContactInfoModel.fromJson(data));
+          } else {
+            return Right(ContactInfoModel(phone: '', email: '', address: ''));
+          }
+        } else {
+          return Left(ServerFailure(remoteData['message'] ?? 'Unknown Error'));
+        }
+      });
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
     }
   }
 

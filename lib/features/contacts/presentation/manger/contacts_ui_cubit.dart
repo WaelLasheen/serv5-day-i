@@ -7,7 +7,25 @@ class ContactsUiCubit extends Cubit<ContactsUiState> {
 
   ContactsUiCubit(this.contactsRepo) : super(const ContactsUiState()) {
     loadFaqs();
+    loadContactInfo();
   }
+
+  Future<void> loadContactInfo() async {
+    emit(state.copyWith(isContactInfoLoading: true));
+    final result = await contactsRepo.getContactInfo();
+    result.fold(
+      (failure) {
+        emit(state.copyWith(isContactInfoLoading: false));
+      },
+      (contactInfo) {
+        emit(state.copyWith(
+          contactInfo: contactInfo,
+          isContactInfoLoading: false,
+        ));
+      },
+    );
+  }
+
 
   Future<void> loadFaqs() async {
     emit(state.copyWith(

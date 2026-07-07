@@ -123,5 +123,20 @@
     "deleteAccountWarning": "تتم مراجعة طلبات حذف الحساب من قبل المسؤول ومعالجتها في غضون 14 يومل . هذا الإجراء نهائي سيؤدي إلي حذف جميع سجلات الخدمة",
     "noFaqsAvailable": "لا توجد أسئلة شائعة حالياً.",
     "notifications": "الإشعارات",
-    "noNotificationsCurrently": "لا توجد إشعارات حالياً"
+    "noNotificationsCurrently": "لا توجد إشعارات حالياً",
+    "addPaymentMethod": "إضافة وسيلة دفع",
+    "cardHolderName": "اسم حامل البطاقة",
+    "cardNumber": "رقم البطاقة",
+    "expiryDate": "تاريخ الإنتهاء",
+    "securityCode": "رمز الأمان",
+    "postalCode": "الرمز البريدي",
+    "setDefaultPayment": "تعيين كبطاقة الدفع الافتراضية",
+    "savePaymentForLater": "حفظ وسيلة الدفع للاستخدام لاحقًا",
+    "savePaymentMethod": "حفظ وسيلة الدفع",
+    "paymentMethods": "وسائل الدفع",
+    "otherPaymentMethods": "وسائل دفع أخري",
+    "addCard": "اضافة بطاقة",
+    "continuePayment": "متابعة الدفع",
+    "cardHolder": "حامل البطاقة",
+    "expiresIn": "تنتهي في"
 }

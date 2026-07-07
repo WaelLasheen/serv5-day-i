@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 
 class CustomSwitch extends StatefulWidget {

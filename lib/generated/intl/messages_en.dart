@@ -28,6 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Account Created Successfully",
     ),
     "actionButton": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "addCard": MessageLookupByLibrary.simpleMessage("Add card"),
+    "addPaymentMethod": MessageLookupByLibrary.simpleMessage(
+      "Add Payment Method",
+    ),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
     "alertNewLogin": MessageLookupByLibrary.simpleMessage("Alert on new login"),
     "alertStatusChange": MessageLookupByLibrary.simpleMessage(
@@ -46,6 +50,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cardHolder": MessageLookupByLibrary.simpleMessage("Card Holder"),
+    "cardHolderName": MessageLookupByLibrary.simpleMessage("Cardholder Name"),
+    "cardNumber": MessageLookupByLibrary.simpleMessage("Card Number"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
     "changePasswordInstruction": MessageLookupByLibrary.simpleMessage(
@@ -73,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contactInfo": MessageLookupByLibrary.simpleMessage("Contact Information"),
     "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+    "continuePayment": MessageLookupByLibrary.simpleMessage("Continue Payment"),
     "createCompany": MessageLookupByLibrary.simpleMessage(
       "Create Your Company",
     ),
@@ -107,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Enter a strong password to protect your account",
         ),
+    "expiresIn": MessageLookupByLibrary.simpleMessage("Expires in"),
+    "expiryDate": MessageLookupByLibrary.simpleMessage("Expiry Date"),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "Flexible packages to suit your business size and marketing goals",
@@ -169,6 +179,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "or": MessageLookupByLibrary.simpleMessage("OR"),
     "orders": MessageLookupByLibrary.simpleMessage("Orders"),
+    "otherPaymentMethods": MessageLookupByLibrary.simpleMessage(
+      "Other payment methods",
+    ),
     "otpEntryInstruction": MessageLookupByLibrary.simpleMessage(
       "We sent a 6-digit code to the email",
     ),
@@ -201,11 +214,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "passwordStrength": MessageLookupByLibrary.simpleMessage("Strong Password"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
+    "paymentMethods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
     "phone": MessageLookupByLibrary.simpleMessage("Phone"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "phoneReq": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),
+    "postalCode": MessageLookupByLibrary.simpleMessage("Postal Code"),
     "prices": MessageLookupByLibrary.simpleMessage("Prices"),
     "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
@@ -219,6 +234,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter a strong password to protect your account.",
     ),
     "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
+    "savePaymentForLater": MessageLookupByLibrary.simpleMessage(
+      "Save payment method for later use",
+    ),
+    "savePaymentMethod": MessageLookupByLibrary.simpleMessage(
+      "Save Payment Method",
+    ),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Looking for a service...",
     ),
@@ -226,11 +247,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Search Location...",
     ),
     "securityAlerts": MessageLookupByLibrary.simpleMessage("Security Alerts"),
+    "securityCode": MessageLookupByLibrary.simpleMessage("Security Code"),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("Selected Plan"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("Send Message"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
+    "setDefaultPayment": MessageLookupByLibrary.simpleMessage(
+      "Set as default payment card",
+    ),
     "shareDataTeamOnly": MessageLookupByLibrary.simpleMessage(
       "Share order data with assigned service team only",
     ),

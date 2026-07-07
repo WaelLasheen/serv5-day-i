@@ -1143,6 +1143,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Add Payment Method`
+  String get addPaymentMethod {
+    return Intl.message(
+      'Add Payment Method',
+      name: 'addPaymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cardholder Name`
+  String get cardHolderName {
+    return Intl.message(
+      'Cardholder Name',
+      name: 'cardHolderName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card Number`
+  String get cardNumber {
+    return Intl.message('Card Number', name: 'cardNumber', desc: '', args: []);
+  }
+
+  /// `Expiry Date`
+  String get expiryDate {
+    return Intl.message('Expiry Date', name: 'expiryDate', desc: '', args: []);
+  }
+
+  /// `Security Code`
+  String get securityCode {
+    return Intl.message(
+      'Security Code',
+      name: 'securityCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Postal Code`
+  String get postalCode {
+    return Intl.message('Postal Code', name: 'postalCode', desc: '', args: []);
+  }
+
+  /// `Set as default payment card`
+  String get setDefaultPayment {
+    return Intl.message(
+      'Set as default payment card',
+      name: 'setDefaultPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save payment method for later use`
+  String get savePaymentForLater {
+    return Intl.message(
+      'Save payment method for later use',
+      name: 'savePaymentForLater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Payment Method`
+  String get savePaymentMethod {
+    return Intl.message(
+      'Save Payment Method',
+      name: 'savePaymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Methods`
+  String get paymentMethods {
+    return Intl.message(
+      'Payment Methods',
+      name: 'paymentMethods',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other payment methods`
+  String get otherPaymentMethods {
+    return Intl.message(
+      'Other payment methods',
+      name: 'otherPaymentMethods',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add card`
+  String get addCard {
+    return Intl.message('Add card', name: 'addCard', desc: '', args: []);
+  }
+
+  /// `Continue Payment`
+  String get continuePayment {
+    return Intl.message(
+      'Continue Payment',
+      name: 'continuePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card Holder`
+  String get cardHolder {
+    return Intl.message('Card Holder', name: 'cardHolder', desc: '', args: []);
+  }
+
+  /// `Expires in`
+  String get expiresIn {
+    return Intl.message('Expires in', name: 'expiresIn', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

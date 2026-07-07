@@ -9,6 +9,7 @@ class ContactsCubit extends Cubit<ContactsState> {
   ContactsCubit(this.contactsRepo) : super(ContactsInitial());
 
   Future<void> sendContactMessage({
+    required String name,
     required String email,
     required String subject,
     required String message,
@@ -16,6 +17,7 @@ class ContactsCubit extends Cubit<ContactsState> {
     emit(ContactsLoading());
 
     final request = ContactRequestModel(
+      name: name,
       email: email,
       subject: subject,
       message: message,
@@ -26,6 +28,15 @@ class ContactsCubit extends Cubit<ContactsState> {
     result.fold(
       (error) => emit(ContactsFailure(error)),
       (_) => emit(ContactsSuccess()),
+    );
+  }
+
+  Future<void> getContactInfo() async {
+    emit(ContactInfoLoading());
+    final result = await contactsRepo.getContactInfo();
+    result.fold(
+      (error) => emit(ContactInfoFailure(error.message)),
+      (info) => emit(ContactInfoSuccess(info)),
     );
   }
 }

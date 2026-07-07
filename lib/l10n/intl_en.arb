@@ -123,5 +123,20 @@
     "deleteAccountWarning": "Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records",
     "noFaqsAvailable": "No FAQs currently available.",
     "notifications": "Notifications",
-    "noNotificationsCurrently": "No notifications currently"
+    "noNotificationsCurrently": "No notifications currently",
+    "addPaymentMethod": "Add Payment Method",
+    "cardHolderName": "Cardholder Name",
+    "cardNumber": "Card Number",
+    "expiryDate": "Expiry Date",
+    "securityCode": "Security Code",
+    "postalCode": "Postal Code",
+    "setDefaultPayment": "Set as default payment card",
+    "savePaymentForLater": "Save payment method for later use",
+    "savePaymentMethod": "Save Payment Method",
+    "paymentMethods": "Payment Methods",
+    "otherPaymentMethods": "Other payment methods",
+    "addCard": "Add card",
+    "continuePayment": "Continue Payment",
+    "cardHolder": "Card Holder",
+    "expiresIn": "Expires in"
 }

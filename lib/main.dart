@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
             key: const ValueKey('locale_builder'),
             builder: (_, state) {
               return MaterialApp(
-                title: 'Day I',
+                title: 'ماركيفا',
                 locale: state.locale,
                 localizationsDelegates: [
                   S.delegate,
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: appThemes.lightTheme,
                 onGenerateRoute: getIt<AppRouter>().onGenerateRoute,
-                initialRoute: RouterPath.login,
+                initialRoute: RouterPath.profile,
               );
             },
           );

@@ -27,6 +27,8 @@ import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
 import 'package:day_i/features/notification/presentation/controller/notification_cubit/notification_cubit.dart';
+import 'package:day_i/features/payment/presentation/screen/add_payment_method_screen.dart';
+import 'package:day_i/features/payment/presentation/screen/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -116,7 +118,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => PrivacyScreen());
 
       case RouterPath.contacts:
-        return MaterialPageRoute(builder: (_) => const ContactsScreen());
+        final initialTabIndex = settings.arguments as int? ?? 0;
+        return MaterialPageRoute(builder: (_) => ContactsScreen(initialTabIndex: initialTabIndex));
 
       case RouterPath.notifications:
         return MaterialPageRoute(
@@ -129,6 +132,14 @@ class AppRouter {
 
       case RouterPath.profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+
+      case RouterPath.addPayment:
+        return MaterialPageRoute(
+          builder: (_) => const AddPaymentMethodScreen(),
+        );
+
+      case RouterPath.payment:
+        return MaterialPageRoute(builder: (_) => const PaymentScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());
