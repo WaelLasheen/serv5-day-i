@@ -25,7 +25,6 @@ import 'package:day_i/features/privacy/presentation/screen/privacy_screen.dart';
 import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
 import 'package:day_i/features/splash/presentation/screens/onboarding_screen.dart';
 import 'package:day_i/features/splash/presentation/screens/splash_screen.dart';
-import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
