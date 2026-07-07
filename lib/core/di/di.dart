@@ -34,6 +34,14 @@ import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:day_i/features/order_history/data/data_sources/order_history_remote_data_source.dart';
+import 'package:day_i/features/order_history/data/data_sources/order_history_remote_data_source_impl.dart';
+import 'package:day_i/features/order_history/data/repositories/order_history_repository_impl.dart';
+import 'package:day_i/features/order_history/domain/repositories/order_history_repository.dart';
+import 'package:day_i/features/order_history/domain/use_cases/get_orders_use_case.dart';
+import 'package:day_i/features/order_history/domain/use_cases/get_order_stats_use_case.dart';
+import 'package:day_i/features/order_history/presentation/order_history_cubit/order_history_cubit.dart';
+
 
 final getIt = GetIt.instance;
 
@@ -109,6 +117,26 @@ Future<void> setUpLocators() async {
   // Contacts
   getIt.registerLazySingleton<ContactsRepo>(
     () => ContactsRepo(apiService: getIt<IApiService>()),
+  );
+
+  // Order History
+  getIt.registerLazySingleton<OrderHistoryRemoteDataSource>(
+    () => OrderHistoryRemoteDataSourceImpl(apiService: getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<OrderHistoryRepository>(
+    () => OrderHistoryRepositoryImpl(remoteDataSource: getIt<OrderHistoryRemoteDataSource>()),
+  );
+  getIt.registerLazySingleton<GetOrdersUseCase>(
+    () => GetOrdersUseCase(getIt<OrderHistoryRepository>()),
+  );
+  getIt.registerLazySingleton<GetOrderStatsUseCase>(
+    () => GetOrderStatsUseCase(getIt<OrderHistoryRepository>()),
+  );
+  getIt.registerFactory<OrderHistoryCubit>(
+    () => OrderHistoryCubit(
+      getOrdersUseCase: getIt<GetOrdersUseCase>(),
+      getOrderStatsUseCase: getIt<GetOrderStatsUseCase>(),
+    ),
   );
 }
 

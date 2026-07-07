@@ -16,13 +16,15 @@ import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
 import 'package:day_i/features/services/presentation/screen/services_screen.dart';
-import 'package:day_i/features/services/presentation/service_cubit/service_cubit.dart';
+import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_contacts_screen.dart';
 import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_change_password_screen.dart';
 import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
 import 'package:day_i/features/privacy/presentation/screen/privacy_screen.dart';
 import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
+import 'package:day_i/features/splash/presentation/screens/onboarding_screen.dart';
+import 'package:day_i/features/splash/presentation/screens/splash_screen.dart';
 import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +47,14 @@ class AppRouter {
 
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RouterPath.splash:
+        return MaterialPageRoute(builder: (context) => const SplashScreen());
+
+      case RouterPath.onboarding:
+        return MaterialPageRoute(
+          builder: (context) => const OnboardingScreen(),
+        );
+
       case RouterPath.login:
         return MaterialPageRoute(
           builder: (context) =>

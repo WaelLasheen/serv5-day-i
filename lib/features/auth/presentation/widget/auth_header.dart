@@ -1,6 +1,6 @@
-import 'package:day_i/core/theme/font_styles.dart';
+import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
-import 'package:day_i/features/auth/presentation/widget/language_switcher_widget.dart';
+import 'package:day_i/core/widgets/language_switcher_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,6 +23,8 @@ class AuthHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = context.textTheme;
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
@@ -42,7 +44,9 @@ class AuthHeader extends StatelessWidget {
           ),
           Text(
             title,
-            style: titleStyle ?? AppTextStyles.text2xlSemiBold.copyWith(color: Colors.white),
+            style:
+                titleStyle ??
+                textTheme.displayMedium?.copyWith(color: Colors.white),
           ),
           SizedBox(height: 8.h),
           Text(
@@ -50,7 +54,7 @@ class AuthHeader extends StatelessWidget {
             textAlign: TextAlign.center,
             style:
                 subtitleStyle ??
-                AppTextStyles.textSmRegular.copyWith(
+                textTheme.headlineSmall?.copyWith(
                   color: Colors.white.withAlpha(200),
                 ),
           ),

@@ -20,6 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(amount) => "Budget: ${amount}";
+
+  static String m1(name) => "Employee: ${name}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("Account"),
@@ -33,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alertStatusChange": MessageLookupByLibrary.simpleMessage(
       "Alert on order status change",
     ),
+    "all": MessageLookupByLibrary.simpleMessage("All"),
     "allowDataImproveService": MessageLookupByLibrary.simpleMessage(
       "Allow using data to improve service",
     ),
@@ -40,11 +45,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already have an account?",
     ),
     "appTitle": MessageLookupByLibrary.simpleMessage("Day I"),
+    "approved": MessageLookupByLibrary.simpleMessage("Approved"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "assignedTeam": MessageLookupByLibrary.simpleMessage(
       "Assigned service team",
     ),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
+    "budget": MessageLookupByLibrary.simpleMessage("Budget"),
+    "budgetLabel": m0,
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -102,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "emailVerified": MessageLookupByLibrary.simpleMessage("Email Verified"),
+    "employeeLabel": m1,
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterStrongPasswordToProtectYourAccount":
         MessageLookupByLibrary.simpleMessage(
@@ -134,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidPassword": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 8 characters",
     ),
+    "late": MessageLookupByLibrary.simpleMessage("Late"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "Login to manage book fairs and cultural events",
@@ -151,12 +161,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mediumPassword": MessageLookupByLibrary.simpleMessage("Medium"),
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+    "next": MessageLookupByLibrary.simpleMessage("next"),
     "noFaqsAvailable": MessageLookupByLibrary.simpleMessage(
       "No FAQs currently available.",
     ),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "No Internet Connection",
     ),
+    "noOrders": MessageLookupByLibrary.simpleMessage("No orders found"),
+    "noServicesAvailable": MessageLookupByLibrary.simpleMessage(
+      "No services available",
+    ),
+    "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "oopsError": MessageLookupByLibrary.simpleMessage(
       "Oops! There was an Error, Please try again",
     ),
@@ -194,6 +210,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "passwordStrength": MessageLookupByLibrary.simpleMessage("Strong Password"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
+    "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "phone": MessageLookupByLibrary.simpleMessage("Phone"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "phoneReq": MessageLookupByLibrary.simpleMessage(
@@ -218,11 +235,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchLocation": MessageLookupByLibrary.simpleMessage(
       "Search Location...",
     ),
+    "searchOrderHint": MessageLookupByLibrary.simpleMessage(
+      "Search by service name or request number...",
+    ),
     "securityAlerts": MessageLookupByLibrary.simpleMessage("Security Alerts"),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("Selected Plan"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("Send Message"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
+    "serviceRegister": MessageLookupByLibrary.simpleMessage("Service Register"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "shareDataTeamOnly": MessageLookupByLibrary.simpleMessage(
       "Share order data with assigned service team only",
@@ -231,6 +252,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "signup": MessageLookupByLibrary.simpleMessage("Create New Account"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "Create your account to manage your marketing campaigns smartly within minutes",
+    ),
+    "skip": MessageLookupByLibrary.simpleMessage("skip"),
+    "splashTagLine": MessageLookupByLibrary.simpleMessage(
+      "A smart platform for managing marketing",
     ),
     "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
     "strongPassword": MessageLookupByLibrary.simpleMessage("Strong"),
@@ -246,6 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userMessage": MessageLookupByLibrary.simpleMessage("User Message"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
+    "viewDetails": MessageLookupByLibrary.simpleMessage("View Details"),
     "visibilityControl": MessageLookupByLibrary.simpleMessage(
       "Visibility Control",
     ),
