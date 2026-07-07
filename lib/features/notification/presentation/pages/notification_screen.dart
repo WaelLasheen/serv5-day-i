@@ -1,7 +1,7 @@
+import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/app_theme.dart';
-import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/features/notification/presentation/widgets/notification_card.dart';
 import 'package:day_i/generated/l10n.dart';
 
@@ -15,6 +15,7 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Theme.of(context).extension<AppTheme>()!;
+    final textTheme = context.textTheme;
 
     return Scaffold(
       backgroundColor: appTheme.surfaceColor, // From Figma: background: #FFFFFF
@@ -24,11 +25,7 @@ class NotificationScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           S.of(context).notifications,
-          style: AppTextStyles.textXlSemiBold.copyWith(
-            color: appTheme.textPrimary,
-            fontFamily: 'Rubik',
-            fontSize: 20.sp,
-          ),
+          style: textTheme.displaySmall?.copyWith(color: appTheme.textPrimary),
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, color: appTheme.primaryColor),
@@ -51,10 +48,7 @@ class NotificationScreen extends StatelessWidget {
                 padding: EdgeInsets.all(16.w),
                 child: Text(
                   state.message,
-                  style: AppTextStyles.textLgBold.copyWith(
-                    color: Colors.red,
-                    fontFamily: 'Rubik',
-                  ),
+                  style: textTheme.bodyLarge?.copyWith(color: Colors.red),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -64,15 +58,15 @@ class NotificationScreen extends StatelessWidget {
               return Center(
                 child: Text(
                   S.of(context).noNotificationsCurrently,
-                  style: AppTextStyles.textMdMedium.copyWith(
+                  style: textTheme.bodyMedium?.copyWith(
                     color: appTheme.textPrimary,
-                    fontFamily: 'Rubik',
                   ),
                 ),
               );
             }
             return RefreshIndicator(
-              onRefresh: () => context.read<NotificationCubit>().fetchNotifications(),
+              onRefresh: () =>
+                  context.read<NotificationCubit>().fetchNotifications(),
               child: ListView.separated(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
                 itemCount: state.notifications.length,
@@ -87,7 +81,7 @@ class NotificationScreen extends StatelessWidget {
               ),
             );
           }
-          
+
           // Initial State - show dummy for now until fetch completes or if not fetched
           return ListView(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
@@ -99,7 +93,8 @@ class NotificationScreen extends StatelessWidget {
               SizedBox(height: 16.h),
               const NotificationCard(
                 title: 'اختيار موفق',
-                subtitle: 'الخدمة دي متوافقة تمامًا مع أهدافك التسويقية الحالية.',
+                subtitle:
+                    'الخدمة دي متوافقة تمامًا مع أهدافك التسويقية الحالية.',
               ),
             ],
           );
