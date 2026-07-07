@@ -1,113 +1,100 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// Type scale pulled directly from the "Marketing SAAS" Figma file's
+/// exported text styles (fontFamily: Rubik, letterSpacing: 0% everywhere).
+///
+/// Figma scale reference (px):
+///   heading3xl 52 | heading2xl 46 | headingXl 41 | headingLg 36
+///   headingMd  32 | headingSm  29 | headingXs   26
+///   text3xl    23 | text2xl    20 | textXl      18
+///   textLg     16 | textMd     14 | textSm      13 | textXs 11
+///
+/// Each of the styles below is mapped to the closest matching Figma
+/// text style (name shown in the comment above each getter).
 abstract class FontStyles {
+  static const String fontFamily = 'Rubik';
+
+  // Figma: heading3xl/Bold (52) -- kept for large hero/display text if needed.
+  static TextStyle get display => TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 52.sp,
+    fontWeight: FontWeight.w700,
+    letterSpacing: 0,
+  );
+
+  // Figma: headingMd/Bold (32) — exact size match.
   static TextStyle get h1 => TextStyle(
+    fontFamily: fontFamily,
     fontSize: 32.sp,
     fontWeight: FontWeight.bold,
-    letterSpacing: -0.5,
+    letterSpacing: 0,
   );
 
-  static TextStyle get h2 =>
-      TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w700);
+  // Figma: text3xl/Bold (23) — closest match to the previous 24sp h2.
+  static TextStyle get h2 => TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w700,
+    letterSpacing: 0,
+  );
 
-  static TextStyle get h3 =>
-      TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600);
+  // Figma: text2xl/Semibold (20) — exact size match.
+  static TextStyle get h3 => TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0,
+  );
 
-  static TextStyle get bodyLarge =>
-      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.normal);
+  // Figma: textLg/Regular (16) — exact size match.
+  static TextStyle get bodyLarge => TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0,
+  );
 
-  static TextStyle get bodyMedium =>
-      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.normal);
+  // Figma: textMd/Regular (14) — exact size match.
+  static TextStyle get bodyMedium => TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0,
+  );
 
-  static TextStyle get bodySmall =>
-      TextStyle(fontSize: 12.sp, fontWeight: FontWeight.normal);
+  // Figma: textSm/Regular (13) — closest match to the previous 12sp bodySmall.
+  static TextStyle get bodySmall => TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 13.sp,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0,
+  );
 
-  static TextStyle get button =>
-      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600);
+  // Figma: textLg/Semibold (16) — exact size match.
+  static TextStyle get button => TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0,
+  );
 
+  // Figma: textMd/Medium (14) — exact size match.
+  // NOTE: color intentionally left out here — set it via textSecondary
+  // from the AppTheme extension where the widget is used, rather than
+  // hardcoding Colors.grey.
   static TextStyle get label => TextStyle(
+    fontFamily: fontFamily,
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
-    color: Colors.grey,
-  );
-}
-
-// ---------- will use this class later ----------
-class AppTextStyles {
-  // 1. Define your centralized Font Family
-  // Change 'Inter' to whatever font you download and register in your pubspec.yaml
-  static const String fontFamily = 'Inter';
-
-  // 2. Base Typography Structure (Private constructor to prevent instantiation)
-  AppTextStyles._();
-
-  // --- 2XL Styles ---
-  static const TextStyle text2xlSemiBold = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 24.0,
-    fontWeight: FontWeight.w600, // SemiBold
-    height: 1.33, // Maps to lineHeight/text2xl
-    letterSpacing: 0.0,
+    letterSpacing: 0,
   );
 
-  // --- XL Styles ---
-  static const TextStyle textXlSemiBold = TextStyle(
+  // Figma: textXs/Regular (11) — useful for captions/helper text.
+  static TextStyle get caption => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 20.0,
-    fontWeight: FontWeight.w600, // SemiBold
-    height: 1.40, // Maps to lineHeight/textXl
-    letterSpacing: 0.0,
-  );
-
-  // --- LG Styles ---
-  static const TextStyle textLgBold = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 18.0,
-    fontWeight: FontWeight.w700, // Bold
-    height: 1.55, // Maps to lineHeight/textLg
-    letterSpacing: 0.0,
-  );
-
-  static const TextStyle textLgMedium = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 18.0,
-    fontWeight: FontWeight.w500, // Medium
-    height: 1.55, 
-    letterSpacing: 0.0,
-  );
-
-  // --- MD Styles ---
-  static const TextStyle textMdMedium = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 16.0,
-    fontWeight: FontWeight.w500, // Medium
-    height: 1.50, // Maps to lineHeight/textMd
-    letterSpacing: 0.0,
-  );
-
-  static const TextStyle textMdRegular = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 16.0,
-    fontWeight: FontWeight.w400, // Regular
-    height: 1.50,
-    letterSpacing: 0.0,
-  );
-
-  // --- SM Styles ---
-  static const TextStyle textSmMedium = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 14.0,
-    fontWeight: FontWeight.w500, // Medium
-    height: 1.43, // Maps to lineHeight/textSm
-    letterSpacing: 0.0,
-  );
-
-  static const TextStyle textSmRegular = TextStyle(
-    fontFamily: fontFamily,
-    fontSize: 14.0,
-    fontWeight: FontWeight.w400, // Regular
-    height: 1.43,
-    letterSpacing: 0.0,
+    fontSize: 11.sp,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0,
   );
 }

@@ -1,5 +1,4 @@
 import 'package:day_i/core/router/router_path.dart';
-import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/core/services/validation_service.dart';
@@ -24,6 +23,8 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
+    final textTheme = context.textTheme;
+    
     return Column(
       spacing: 16.h,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,10 +32,10 @@ class LoginForm extends StatelessWidget {
         CustomFormField(
           controller: emailController,
           label: S.current.email,
-          labelStyle: AppTextStyles.textSmMedium,
-          style: AppTextStyles.textSmRegular,
+          labelStyle: textTheme.titleLarge,
+          style: textTheme.headlineSmall,
           hintText: "rania@gmail.com",
-          hintStyle: AppTextStyles.textSmRegular.copyWith(color: theme.grey500),
+          hintStyle: textTheme.headlineSmall?.copyWith(color: theme.grey500),
           prefixIcon: const Icon(Icons.email_outlined),
           keyboardType: TextInputType.emailAddress,
           validator: ValidationService.validateEmail,
@@ -44,10 +45,10 @@ class LoginForm extends StatelessWidget {
           isPassword: true,
           controller: passwordController,
           label: S.current.password,
-          labelStyle: AppTextStyles.textSmMedium,
-          style: AppTextStyles.textSmRegular,
+          labelStyle: textTheme.titleLarge,
+          style: textTheme.headlineSmall,
           hintText: "********",
-          hintStyle: AppTextStyles.textSmRegular.copyWith(color: theme.grey500),
+          hintStyle: textTheme.headlineSmall?.copyWith(color: theme.grey500),
           validator: ValidationService.validatePassword,
           textInputAction: TextInputAction.done,
         ),
@@ -55,7 +56,7 @@ class LoginForm extends StatelessWidget {
           onPressed: () => context.navigateTo(RouterPath.forgotPassword),
           child: Text(
             S.current.forgotPasswordTitle,
-            style: AppTextStyles.textSmMedium.copyWith(color: theme.errorColor),
+            style: textTheme.titleLarge?.copyWith(color: theme.errorColor),
           ),
         ),
         TermsAndConditions(isTermsAcceptedNotifier: isTermsAcceptedNotifier),

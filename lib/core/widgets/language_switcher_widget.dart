@@ -8,7 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LanguageSwitcher extends StatelessWidget {
-  const LanguageSwitcher({super.key});
+  final Color? color;
+  const LanguageSwitcher({super.key, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +56,15 @@ class LanguageSwitcher extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.language, size: 24.r, color: appTheme.surfaceColor),
+                Icon(
+                  Icons.language,
+                  size: 24.r,
+                  color: color ?? appTheme.surfaceColor,
+                ),
                 Icon(
                   Icons.keyboard_arrow_down,
                   size: 18.r,
-                  color: appTheme.surfaceColor,
+                  color: color ?? appTheme.surfaceColor,
                 ),
               ],
             ),
