@@ -1208,6 +1208,26 @@ class S {
   String get budget {
     return Intl.message('Budget', name: 'budget', desc: '', args: []);
   }
+
+  /// `A smart platform for managing marketing`
+  String get splashTagLine {
+    return Intl.message(
+      'A smart platform for managing marketing',
+      name: 'splashTagLine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `next`
+  String get next {
+    return Intl.message('next', name: 'next', desc: '', args: []);
+  }
+
+  /// `skip`
+  String get skip {
+    return Intl.message('skip', name: 'skip', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

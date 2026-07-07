@@ -132,5 +132,8 @@
     "viewDetails": "View Details",
     "noOrders": "No orders found",
     "employeeLabel": "Employee: {name}",
-    "budget": "Budget"
+    "budget": "Budget",
+    "splashTagLine": "A smart platform for managing marketing",
+    "next":"next",
+    "skip":"skip"
 }

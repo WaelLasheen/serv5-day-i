@@ -1,6 +1,6 @@
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
-import 'package:day_i/features/auth/presentation/widget/language_switcher_widget.dart';
+import 'package:day_i/core/widgets/language_switcher_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

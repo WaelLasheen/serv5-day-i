@@ -23,6 +23,8 @@ import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_pr
 import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
 import 'package:day_i/features/privacy/presentation/screen/privacy_screen.dart';
 import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
+import 'package:day_i/features/splash/presentation/screens/onboarding_screen.dart';
+import 'package:day_i/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,6 +45,14 @@ class AppRouter {
 
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RouterPath.splash:
+        return MaterialPageRoute(builder: (context) => const SplashScreen());
+
+      case RouterPath.onboarding:
+        return MaterialPageRoute(
+          builder: (context) => const OnboardingScreen(),
+        );
+
       case RouterPath.login:
         return MaterialPageRoute(
           builder: (context) =>

@@ -34,7 +34,7 @@ abstract class FontStyles {
   // Figma: text3xl/Bold (23) — closest match to the previous 24sp h2.
   static TextStyle get h2 => TextStyle(
     fontFamily: fontFamily,
-    fontSize: 23.sp,
+    fontSize: 24.sp,
     fontWeight: FontWeight.w700,
     letterSpacing: 0,
   );

@@ -161,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mediumPassword": MessageLookupByLibrary.simpleMessage("متوسط"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noFaqsAvailable": MessageLookupByLibrary.simpleMessage(
       "لا توجد أسئلة شائعة حالياً.",
     ),
@@ -246,6 +247,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "أنشئ حسابك لادارة حملاتك التسويقية بذكاء خلال دقائق",
+    ),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "splashTagLine": MessageLookupByLibrary.simpleMessage(
+      "منصة ذكية لإدارة التسويق",
     ),
     "startNow": MessageLookupByLibrary.simpleMessage("أبدأ الآن"),
     "strongPassword": MessageLookupByLibrary.simpleMessage("قوي"),

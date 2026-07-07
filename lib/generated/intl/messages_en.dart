@@ -161,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mediumPassword": MessageLookupByLibrary.simpleMessage("Medium"),
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+    "next": MessageLookupByLibrary.simpleMessage("next"),
     "noFaqsAvailable": MessageLookupByLibrary.simpleMessage(
       "No FAQs currently available.",
     ),
@@ -250,6 +251,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "signup": MessageLookupByLibrary.simpleMessage("Create New Account"),
     "signupSubtitle": MessageLookupByLibrary.simpleMessage(
       "Create your account to manage your marketing campaigns smartly within minutes",
+    ),
+    "skip": MessageLookupByLibrary.simpleMessage("skip"),
+    "splashTagLine": MessageLookupByLibrary.simpleMessage(
+      "A smart platform for managing marketing",
     ),
     "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
     "strongPassword": MessageLookupByLibrary.simpleMessage("Strong"),

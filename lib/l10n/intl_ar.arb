@@ -132,5 +132,8 @@
     "viewDetails": "عرض التفاصيل",
     "noOrders": "لا توجد طلبات",
     "employeeLabel": "الموظف: {name}",
-    "budget": "الميزانية"
+    "budget": "الميزانية",
+    "splashTagLine": "منصة ذكية لإدارة التسويق",
+    "next":"التالي",
+    "skip":"تخطي"
 }
