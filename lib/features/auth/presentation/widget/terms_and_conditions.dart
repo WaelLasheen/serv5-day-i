@@ -34,7 +34,7 @@ class TermsAndConditions extends StatelessWidget {
         Expanded(
           child: Text(
             S.current.termsAndConditions,
-            style: textTheme.titleLarge?.copyWith(color: theme.primaryColor),
+            style: textTheme.bodySmall?.copyWith(color: theme.primaryColor),
           ),
         ),
       ],

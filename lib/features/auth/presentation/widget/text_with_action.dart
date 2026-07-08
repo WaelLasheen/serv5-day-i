@@ -21,12 +21,12 @@ class TextWithAction extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(normalText, style: textTheme.headlineSmall),
+        Text(normalText, style: textTheme.bodyMedium),
         TextButton(
           onPressed: onActionPressed,
           child: Text(
             actionText,
-            style: textTheme.titleLarge?.copyWith(
+            style: textTheme.bodySmall?.copyWith(
               color: theme.primaryColor,
               fontWeight: FontWeight.bold,
             ),

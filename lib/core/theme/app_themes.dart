@@ -35,14 +35,27 @@ class AppThemes {
       // 1. Core Typography Mapping
       fontFamily: FontStyles.fontFamily,
       textTheme: TextTheme(
-        displayLarge: FontStyles.h1,
-        displayMedium: FontStyles.h2,
-        displaySmall: FontStyles.h3,
-        headlineMedium: FontStyles.bodyLarge,
-        headlineSmall: FontStyles.bodyMedium,
-        titleLarge: FontStyles.bodySmall,
+        // Display - extremely large text
+        displayLarge: FontStyles.display,
+
+        // Headlines - main page headings
+        headlineLarge: FontStyles.h1,
+        headlineMedium: FontStyles.h2,
+        headlineSmall: FontStyles.h3,
+
+        // Titles - secondary headings, app bar titles, form headers
+        titleLarge: FontStyles.h3,
         titleMedium: FontStyles.button,
         titleSmall: FontStyles.label,
+
+        // Body - body paragraphs and details
+        bodyLarge: FontStyles.bodyLarge,
+        bodyMedium: FontStyles.bodyMedium,
+        bodySmall: FontStyles.bodySmall,
+
+        // Labels - captions, buttons, metadata
+        labelLarge: FontStyles.button,
+        labelMedium: FontStyles.label,
         labelSmall: FontStyles.caption,
       ),
 

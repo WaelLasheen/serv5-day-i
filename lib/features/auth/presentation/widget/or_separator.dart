@@ -15,7 +15,7 @@ class OrSeparator extends StatelessWidget {
         Expanded(child: Divider(color: theme.textSecondary.withAlpha(50))),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
-          child: Text(S.current.or, style: textTheme.titleLarge?.copyWith(color: theme.grey500)),
+          child: Text(S.current.or, style: textTheme.bodySmall?.copyWith(color: theme.grey500)),
         ),
         Expanded(child: Divider(color: theme.textSecondary.withAlpha(50))),
       ],

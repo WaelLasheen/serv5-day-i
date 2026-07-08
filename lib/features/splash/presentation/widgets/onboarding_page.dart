@@ -39,7 +39,7 @@ class OnboardingPage extends StatelessWidget {
         RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
-            style: textTheme.displayMedium?.copyWith(
+            style: textTheme.headlineMedium?.copyWith(
               color: appTheme.textPrimary,
               fontWeight: FontWeight.w600,
               fontSize: 26.sp,

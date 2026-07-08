@@ -25,7 +25,7 @@ class NotificationScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           S.of(context).notifications,
-          style: textTheme.displaySmall?.copyWith(color: appTheme.textPrimary),
+          style: textTheme.titleLarge?.copyWith(color: appTheme.textPrimary),
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, color: appTheme.primaryColor),

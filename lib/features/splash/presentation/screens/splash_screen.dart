@@ -126,7 +126,7 @@ class _SplashScreenState extends State<SplashScreen>
                       const SizedBox(height: 8),
                       Text(
                         S.current.splashTagLine,
-                        style: textTheme.headlineSmall?.copyWith(
+                        style: textTheme.bodyMedium?.copyWith(
                           color: appTheme.surfaceColor,
                         ),
                       ),

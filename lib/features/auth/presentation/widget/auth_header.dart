@@ -46,7 +46,7 @@ class AuthHeader extends StatelessWidget {
             title,
             style:
                 titleStyle ??
-                textTheme.displayMedium?.copyWith(color: Colors.white),
+                textTheme.headlineMedium?.copyWith(color: Colors.white),
           ),
           SizedBox(height: 8.h),
           Text(
@@ -54,7 +54,7 @@ class AuthHeader extends StatelessWidget {
             textAlign: TextAlign.center,
             style:
                 subtitleStyle ??
-                textTheme.headlineSmall?.copyWith(
+                textTheme.bodyMedium?.copyWith(
                   color: Colors.white.withAlpha(200),
                 ),
           ),
