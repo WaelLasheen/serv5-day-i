@@ -108,12 +108,15 @@ class AppRouter {
 
       case RouterPath.services:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) =>
-                ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
-                  ..getServices(Localizations.localeOf(context).languageCode),
-            child: const ServicesScreen(),
-          ),
+          builder: (context) {
+            final langCode = Localizations.localeOf(context).languageCode;
+            return BlocProvider(
+              create: (_) =>
+                  ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
+                    ..getServices(langCode),
+              child: const ServicesScreen(),
+            );
+          },
         );
 
       case RouterPath.editProfileContacts:
