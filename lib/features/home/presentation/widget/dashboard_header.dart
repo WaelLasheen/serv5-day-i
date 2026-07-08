@@ -1,4 +1,5 @@
 import 'package:day_i/core/di/di.dart';
+import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/size_extension.dart';
