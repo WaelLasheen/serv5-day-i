@@ -162,6 +162,7 @@ class _PrivacyView extends StatelessWidget {
                     SizedBox(height: 24.h),
 
                     PrivacySection(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
                       title: S.current.accountControl,
                       child: Column(
                         children: [

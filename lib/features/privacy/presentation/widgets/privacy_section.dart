@@ -6,8 +6,14 @@ import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 class PrivacySection extends StatelessWidget {
   final String title;
   final Widget child;
+  final EdgeInsetsGeometry? padding;
 
-  const PrivacySection({super.key, required this.title, required this.child});
+  const PrivacySection({
+    super.key,
+    required this.title,
+    required this.child,
+    this.padding,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class PrivacySection extends StatelessWidget {
         SizedBox(height: 12.h),
         Container(
           width: 343.w,
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+          padding: padding ?? EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
           decoration: BoxDecoration(
             color: theme.surfaceColor,
             border: Border.all(color: theme.boarderPrimary),
