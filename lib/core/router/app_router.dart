@@ -11,7 +11,8 @@ import 'package:day_i/features/auth/presentation/controller/change_password_cubi
 import 'package:day_i/features/auth/presentation/screen/forgot_password_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
-
+import 'package:day_i/features/payment/presentation/screen/add_payment_method_screen.dart';
+import 'package:day_i/features/payment/presentation/screen/payment_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
@@ -29,8 +30,6 @@ import 'package:day_i/features/splash/presentation/screens/splash_screen.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
 import 'package:day_i/features/notification/presentation/controller/notification_cubit/notification_cubit.dart';
-import 'package:day_i/features/payment/presentation/screen/add_payment_method_screen.dart';
-import 'package:day_i/features/payment/presentation/screen/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -108,15 +107,12 @@ class AppRouter {
 
       case RouterPath.services:
         return MaterialPageRoute(
-          builder: (context) {
-            final langCode = Localizations.localeOf(context).languageCode;
-            return BlocProvider(
-              create: (_) =>
-                  ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
-                    ..getServices(langCode),
-              child: const ServicesScreen(),
-            );
-          },
+          builder: (context) => BlocProvider(
+            create: (context) =>
+                ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
+                  ..getServices(Localizations.localeOf(context).languageCode),
+            child: const ServicesScreen(),
+          ),
         );
 
       case RouterPath.editProfileContacts:

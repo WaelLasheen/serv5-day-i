@@ -24,7 +24,7 @@ class CreditCardWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF6E88E6).withOpacity(0.9),
+            const Color(0xFF6E88E6).withValues(alpha: 0.9),
             const Color(0xFFB0C4F4),
           ],
           begin: Alignment.topLeft,
