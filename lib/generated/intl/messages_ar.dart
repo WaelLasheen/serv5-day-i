@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم إنشاء الحساب بنجاح",
     ),
     "actionButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "addCard": MessageLookupByLibrary.simpleMessage("اضافة بطاقة"),
+    "addPaymentMethod": MessageLookupByLibrary.simpleMessage("إضافة وسيلة دفع"),
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "alertNewLogin": MessageLookupByLibrary.simpleMessage(
       "تنبيه عند تسجيل دخول جديد",
@@ -54,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "budget": MessageLookupByLibrary.simpleMessage("الميزانية"),
     "budgetLabel": m0,
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "cardHolder": MessageLookupByLibrary.simpleMessage("حامل البطاقة"),
+    "cardHolderName": MessageLookupByLibrary.simpleMessage("اسم حامل البطاقة"),
+    "cardNumber": MessageLookupByLibrary.simpleMessage("رقم البطاقة"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
     "changePasswordInstruction": MessageLookupByLibrary.simpleMessage(
@@ -81,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contactInfo": MessageLookupByLibrary.simpleMessage("معلومات التواصل"),
     "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+    "continuePayment": MessageLookupByLibrary.simpleMessage("متابعة الدفع"),
     "createCompany": MessageLookupByLibrary.simpleMessage("إنشاء شركتك"),
     "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
       "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها .",
@@ -116,6 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "أدخل كلمة مرور قوية لحماية حسابك",
         ),
+    "expiresIn": MessageLookupByLibrary.simpleMessage("تنتهي في"),
+    "expiryDate": MessageLookupByLibrary.simpleMessage("تاريخ الإنتهاء"),
     "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية",
@@ -168,6 +176,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالإنترنت",
     ),
+    "noNotificationsCurrently": MessageLookupByLibrary.simpleMessage(
+      "لا توجد إشعارات حالياً",
+    ),
     "noOrders": MessageLookupByLibrary.simpleMessage("لا توجد طلبات"),
     "noServicesAvailable": MessageLookupByLibrary.simpleMessage(
       "لا توجد خدمات متاحة",
@@ -178,6 +189,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "or": MessageLookupByLibrary.simpleMessage("أو"),
     "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
+    "otherPaymentMethods": MessageLookupByLibrary.simpleMessage(
+      "وسائل دفع أخري",
+    ),
     "otpEntryInstruction": MessageLookupByLibrary.simpleMessage(
       "أرسلنا رمز مكون من 6أرقام الى البريد الإلكتروني",
     ),
@@ -210,10 +224,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "passwordStrength": MessageLookupByLibrary.simpleMessage("كلمة مرور قوية"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("المسار غير موجود"),
+    "paymentMethods": MessageLookupByLibrary.simpleMessage("وسائل الدفع"),
     "pending": MessageLookupByLibrary.simpleMessage("قيد الإنتظار"),
     "phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "phoneReq": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
+    "postalCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
     "prices": MessageLookupByLibrary.simpleMessage("الاسعار"),
     "privacy": MessageLookupByLibrary.simpleMessage("الخصوصية"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
@@ -229,18 +245,28 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل كلمة مرور قوية لحماية حسابك",
     ),
     "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
+    "savePaymentForLater": MessageLookupByLibrary.simpleMessage(
+      "حفظ وسيلة الدفع للاستخدام لاحقًا",
+    ),
+    "savePaymentMethod": MessageLookupByLibrary.simpleMessage(
+      "حفظ وسيلة الدفع",
+    ),
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن خدمة..."),
     "searchLocation": MessageLookupByLibrary.simpleMessage("ابحث عن موقع..."),
     "searchOrderHint": MessageLookupByLibrary.simpleMessage(
       "ابحث باسم الخدمة أو رقم طلب...",
     ),
     "securityAlerts": MessageLookupByLibrary.simpleMessage("تنبيهات الأمان"),
+    "securityCode": MessageLookupByLibrary.simpleMessage("رمز الأمان"),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("الخطة المختارة"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("إرسال الرسالة"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("انتهى وقت الإرسال"),
     "serviceRegister": MessageLookupByLibrary.simpleMessage("سجل الخدمات"),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
+    "setDefaultPayment": MessageLookupByLibrary.simpleMessage(
+      "تعيين كبطاقة الدفع الافتراضية",
+    ),
     "shareDataTeamOnly": MessageLookupByLibrary.simpleMessage(
       "مشاركة بيانات الطلب مع فريق الخدمة المعين فقط",
     ),

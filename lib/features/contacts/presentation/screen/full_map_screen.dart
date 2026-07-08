@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
+import 'package:day_i/core/utils/extensions/get_app_theme.dart';
+
 class FullMapScreen extends StatelessWidget {
   final LatLng initialCenter;
 
@@ -14,7 +16,7 @@ class FullMapScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF121212)),
+          icon: Icon(Icons.arrow_back_rounded, color: context.appTheme.primaryColor),
           onPressed: () => Navigator.pop(context),
         ),
       ),

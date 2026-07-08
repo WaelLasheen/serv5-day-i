@@ -9,12 +9,14 @@ class InfoModel {
   final String? description;
   final IconData icon;
   final Widget? trailing;
+  final VoidCallback? onTap;
 
   const InfoModel({
     required this.title,
     this.description,
     required this.icon,
     this.trailing,
+    this.onTap,
   });
 }
 
@@ -76,75 +78,79 @@ class CustomInfoSection extends StatelessWidget {
               final item = infoData[index];
               final isLast = index == infoData.length - 1;
 
-              return Container(
-                width: context.width,
-                padding: EdgeInsets.symmetric(vertical: 12.h),
-                decoration: BoxDecoration(
-                  border: isLast
-                      ? null
-                      : Border(
-                          bottom: BorderSide(
-                            color: appTheme.boarderPrimary,
-                            width: 1.r,
-                          ),
-                        ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Label Details + Leading Icon Group
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        // Circle Icon Frame Component
-                        CircleAvatar(
-                          radius: 15.r,
-                          backgroundColor: appTheme.blueLight,
-                          child: Center(
-                            child: Icon(
-                              item.icon,
-                              color: appTheme.primaryColor,
-                              size: 16.r,
+              return GestureDetector(
+                onTap: item.onTap,
+                behavior: HitTestBehavior.opaque,
+                child: Container(
+                  width: context.width,
+                  padding: EdgeInsets.symmetric(vertical: 12.h),
+                  decoration: BoxDecoration(
+                    border: isLast
+                        ? null
+                        : Border(
+                            bottom: BorderSide(
+                              color: appTheme.boarderPrimary,
+                              width: 1.r,
                             ),
                           ),
-                        ),
-                        SizedBox(width: 16.w),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              item.title,
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontFamily: 'Rubik',
-                                fontWeight: FontWeight.w500,
-                                fontSize: 13.sp,
-                                height: 20 / 13,
-                                color: appTheme.textSecondary,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Label Details + Leading Icon Group
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          // Circle Icon Frame Component
+                          CircleAvatar(
+                            radius: 15.r,
+                            backgroundColor: appTheme.blueLight,
+                            child: Center(
+                              child: Icon(
+                                item.icon,
+                                color: appTheme.primaryColor,
+                                size: 16.r,
                               ),
                             ),
-                            if (item.description != null) ...[
-                              SizedBox(height: 8.h),
+                          ),
+                          SizedBox(width: 16.w),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Text(
-                                item.description!,
-                                textAlign: TextAlign.right,
+                                item.title,
+                                textAlign: TextAlign.start,
                                 style: TextStyle(
                                   fontFamily: 'Rubik',
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w500,
                                   fontSize: 13.sp,
                                   height: 20 / 13,
                                   color: appTheme.textSecondary,
                                 ),
                               ),
+                              if (item.description != null) ...[
+                                SizedBox(height: 8.h),
+                                Text(
+                                  item.description!,
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                    fontFamily: 'Rubik',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13.sp,
+                                    height: 20 / 13,
+                                    color: appTheme.textSecondary,
+                                  ),
+                                ),
+                              ],
                             ],
-                          ],
-                        ),
-                      ],
-                    ),
-                    // Trailing Widget Layer
-                    item.trailing ?? const SizedBox.shrink(),
-                  ],
+                          ),
+                        ],
+                      ),
+                      // Trailing Widget Layer
+                      item.trailing ?? const SizedBox.shrink(),
+                    ],
+                  ),
                 ),
               );
             },

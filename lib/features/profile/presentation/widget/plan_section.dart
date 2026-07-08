@@ -1,4 +1,5 @@
 import 'package:day_i/features/profile/presentation/widget/plan_card.dart';
+import 'package:day_i/core/router/router_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,6 +18,12 @@ class PlanSection extends StatelessWidget {
             renewalDate: '2025-12-31',
             buttonText: 'Upgrade',
             isCurrentPlan: index == 0,
+            onTap: () {
+              Navigator.pushNamed(context, RouterPath.pricingPlans);
+            },
+            onBtnPressed: () {
+              Navigator.pushNamed(context, RouterPath.pricingPlans);
+            },
           );
         },
         separatorBuilder: (context, index) {

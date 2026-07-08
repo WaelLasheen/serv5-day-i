@@ -14,13 +14,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:day_i/features/contacts/presentation/manger/contacts_cubit.dart';
+
 class ContactsScreen extends StatelessWidget {
-  const ContactsScreen({super.key});
+  final int initialTabIndex;
+  const ContactsScreen({super.key, this.initialTabIndex = 0});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ContactsUiCubit(getIt<ContactsRepo>()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => ContactsUiCubit(getIt<ContactsRepo>())..changeTab(initialTabIndex)),
+        BlocProvider(create: (context) => ContactsCubit(getIt<ContactsRepo>())),
+      ],
       child: const _ContactsView(),
     );
   }
@@ -74,7 +80,7 @@ class _ContactsViewState extends State<_ContactsView> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: appTheme.textPrimary),
+          icon: Icon(Icons.arrow_back_rounded, color: appTheme.primaryColor),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -84,27 +90,31 @@ class _ContactsViewState extends State<_ContactsView> {
         onRefresh: () async {
           await context.read<ContactsUiCubit>().loadFaqs();
         },
-        child: CustomScrollView(
-          controller: _scrollController,
-          physics: const AlwaysScrollableScrollPhysics(),
-          slivers: [
-            SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              sliver: SliverToBoxAdapter(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    SizedBox(height: 16.h),
-                    const ContactsTabBar(),
-                    SizedBox(height: 24.h),
-                  ],
+        child: BlocBuilder<ContactsUiCubit, ContactsUiState>(
+          buildWhen: (previous, current) => 
+              previous.tabIndex != current.tabIndex ||
+              previous.isContactInfoLoading != current.isContactInfoLoading ||
+              previous.contactInfo != current.contactInfo,
+          builder: (context, state) {
+            return CustomScrollView(
+              controller: _scrollController,
+              physics: const AlwaysScrollableScrollPhysics(),
+              slivers: [
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  sliver: SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        SizedBox(height: 16.h),
+                        const ContactsTabBar(),
+                        SizedBox(height: 24.h),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            BlocBuilder<ContactsUiCubit, ContactsUiState>(
-              builder: (context, state) {
-                if (state.tabIndex == 0) {
-                  return SliverPadding(
+                if (state.tabIndex == 0)
+                  SliverPadding(
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     sliver: SliverToBoxAdapter(
                       child: Column(
@@ -112,20 +122,22 @@ class _ContactsViewState extends State<_ContactsView> {
                         children: [
                           const ContactForm(),
                           SizedBox(height: 32.h),
-                          const ContactInfoCard(),
+                          ContactInfoCard(
+                            contactInfo: state.contactInfo,
+                            isLoading: state.isContactInfoLoading,
+                          ),
                           SizedBox(height: 16.h),
                           const MapPlaceholder(),
                         ],
                       ),
                     ),
-                  );
-                } else {
-                  return const FaqListWidget();
-                }
-              },
-            ),
-            SliverToBoxAdapter(child: SizedBox(height: 120.h)),
-          ],
+                  )
+                else
+                  const FaqListWidget(),
+                SliverToBoxAdapter(child: SizedBox(height: 120.h)),
+              ],
+            );
+          },
         ),
       ),
     );

@@ -2,9 +2,13 @@ import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:day_i/features/contacts/data/models/contact_info_model.dart';
 
 class ContactInfoCard extends StatelessWidget {
-  const ContactInfoCard({super.key});
+  final ContactInfoModel? contactInfo;
+  final bool isLoading;
+
+  const ContactInfoCard({super.key, this.contactInfo, this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {
@@ -30,26 +34,28 @@ class ContactInfoCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
             border: Border.all(color: const Color(0xFFE9E9E9)),
           ),
-          child: Column(
+          child: isLoading 
+              ? const Padding(padding: EdgeInsets.all(20), child: Center(child: CircularProgressIndicator()))
+              : Column(
             children: [
               _buildContactRow(
                 context,
                 title: S.current.phoneNumber,
-                value: '0123456789',
+                value: contactInfo?.phone ?? '0123456789',
                 icon: Icons.phone_outlined,
               ),
               const Divider(color: Color(0xFFE9E9E9), height: 1),
               _buildContactRow(
                 context,
                 title: S.current.email,
-                value: 'info@gmail.com',
+                value: contactInfo?.email ?? 'info@gmail.com',
                 icon: Icons.email_outlined,
               ),
               const Divider(color: Color(0xFFE9E9E9), height: 1),
               _buildContactRow(
                 context,
                 title: S.current.address,
-                value: 'السعودية-الرياض',
+                value: contactInfo?.address ?? 'السعودية-الرياض',
                 icon: Icons.location_on_outlined,
               ),
             ],

@@ -1,7 +1,7 @@
+import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/app_theme.dart';
-import 'package:day_i/core/theme/font_styles.dart';
 
 class NotificationCard extends StatelessWidget {
   final String title;
@@ -53,7 +53,7 @@ class NotificationCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTextStyles.textSmMedium.copyWith(
+                  style: context.textTheme.bodyMedium?.copyWith(
                     color: appTheme.textPrimary,
                     fontFamily: 'Rubik',
                     fontSize: 14.sp,
@@ -64,7 +64,7 @@ class NotificationCard extends StatelessWidget {
                   SizedBox(height: 8.h),
                   Text(
                     subtitle,
-                    style: AppTextStyles.textSmMedium.copyWith(
+                    style: context.textTheme.bodyMedium?.copyWith(
                       color: const Color(0xFF6B7280),
                       fontFamily: 'Rubik',
                       fontSize: 14.sp,

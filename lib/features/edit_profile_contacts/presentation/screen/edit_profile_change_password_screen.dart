@@ -23,7 +23,7 @@ class EditProfileChangePasswordScreen extends StatelessWidget {
           style: FontStyles.h3.copyWith(color: theme.textPrimary),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new, color: theme.textPrimary),
+          icon: Icon(Icons.arrow_back_rounded, color: theme.primaryColor),
           onPressed: () => Navigator.pop(context),
         ),
         bottom: PreferredSize(

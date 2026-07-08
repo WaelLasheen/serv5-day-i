@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
-
+import 'package:day_i/core/widgets/custom_switch.dart';
 class PrivacyToggleRow extends StatelessWidget {
   final String title;
   final bool value;
@@ -51,13 +50,9 @@ class PrivacyToggleRow extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 16.w),
-              Transform.scale(
-                scale: 0.9,
-                child: CupertinoSwitch(
-                  value: value,
-                  onChanged: onChanged,
-                  activeTrackColor: theme.primaryColor,
-                ),
+              CustomSwitch(
+                value: value,
+                onChanged: onChanged,
               ),
             ],
           ),

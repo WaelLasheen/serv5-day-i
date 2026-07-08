@@ -12,6 +12,10 @@ class FaqListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ContactsUiCubit, ContactsUiState>(
+      buildWhen: (previous, current) =>
+          previous.faqs != current.faqs ||
+          previous.isLoading != current.isLoading ||
+          previous.isFetchingMore != current.isFetchingMore,
       builder: (context, state) {
         if (state.isLoading) {
           return const SliverToBoxAdapter(
@@ -47,15 +51,19 @@ class FaqListWidget extends StatelessWidget {
                 );
               }
               final faq = state.faqs[index];
-              final isExpanded = state.expandedFaqIndex == index;
 
-              return FaqItemWidget(
-                index: index,
-                question: faq.question,
-                answer: faq.answer,
-                isExpanded: isExpanded,
-                onTap: () {
-                  context.read<ContactsUiCubit>().toggleFaq(index);
+              return BlocSelector<ContactsUiCubit, ContactsUiState, bool>(
+                selector: (state) => state.expandedFaqIndex == index,
+                builder: (context, isExpanded) {
+                  return FaqItemWidget(
+                    index: index,
+                    question: faq.question,
+                    answer: faq.answer,
+                    isExpanded: isExpanded,
+                    onTap: () {
+                      context.read<ContactsUiCubit>().toggleFaq(index);
+                    },
+                  );
                 },
               );
             },

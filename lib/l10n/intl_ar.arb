@@ -136,5 +136,21 @@
     "next": "التالي",
     "skip": "تخطي",
     "noFaqsAvailable": "لا توجد أسئلة شائعة حالياً.",
-    "notifications": "الإشعارات"
+    "notifications": "الإشعارات",
+    "noNotificationsCurrently": "لا توجد إشعارات حالياً",
+    "addPaymentMethod": "إضافة وسيلة دفع",
+    "cardHolderName": "اسم حامل البطاقة",
+    "cardNumber": "رقم البطاقة",
+    "expiryDate": "تاريخ الإنتهاء",
+    "securityCode": "رمز الأمان",
+    "postalCode": "الرمز البريدي",
+    "setDefaultPayment": "تعيين كبطاقة الدفع الافتراضية",
+    "savePaymentForLater": "حفظ وسيلة الدفع للاستخدام لاحقًا",
+    "savePaymentMethod": "حفظ وسيلة الدفع",
+    "paymentMethods": "وسائل الدفع",
+    "otherPaymentMethods": "وسائل دفع أخري",
+    "addCard": "اضافة بطاقة",
+    "continuePayment": "متابعة الدفع",
+    "cardHolder": "حامل البطاقة",
+    "expiresIn": "تنتهي في"
 }

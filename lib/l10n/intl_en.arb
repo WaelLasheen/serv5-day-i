@@ -136,5 +136,21 @@
     "splashTagLine": "A smart platform for managing marketing",
     "next": "next",
     "skip": "skip",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "noNotificationsCurrently": "No notifications currently",
+    "addPaymentMethod": "Add Payment Method",
+    "cardHolderName": "Cardholder Name",
+    "cardNumber": "Card Number",
+    "expiryDate": "Expiry Date",
+    "securityCode": "Security Code",
+    "postalCode": "Postal Code",
+    "setDefaultPayment": "Set as default payment card",
+    "savePaymentForLater": "Save payment method for later use",
+    "savePaymentMethod": "Save Payment Method",
+    "paymentMethods": "Payment Methods",
+    "otherPaymentMethods": "Other payment methods",
+    "addCard": "Add card",
+    "continuePayment": "Continue Payment",
+    "cardHolder": "Card Holder",
+    "expiresIn": "Expires in"
 }
