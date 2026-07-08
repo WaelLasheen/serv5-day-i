@@ -4,6 +4,7 @@ class ServiceEntity {
   final String shortDescription;
   final String icon;
   final double price;
+  final String priceLabel;
   final String slug;
 
   ServiceEntity({
@@ -12,6 +13,7 @@ class ServiceEntity {
     required this.shortDescription,
     required this.icon,
     required this.price,
+    required this.priceLabel,
     required this.slug,
   });
 }

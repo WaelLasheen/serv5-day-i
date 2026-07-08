@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:day_i/core/database/database_keys.dart';
+import 'package:day_i/core/database/database_service.dart';
 import 'package:day_i/core/di/di.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
@@ -8,6 +10,7 @@ import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'onboarding_screen.dart';
+import 'register_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -44,10 +47,15 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _goToOnboarding() {
     if (!mounted) return;
+    final hasSeenOnboarding =
+        getIt<DatabaseService>().getBool(DatabaseKeys.hasSeenOnboarding) ??
+            false;
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
-        pageBuilder: (_, __, ___) => const OnboardingScreen(),
+        pageBuilder: (_, __, ___) => hasSeenOnboarding
+            ? const RegisterScreen()
+            : const OnboardingScreen(),
         transitionsBuilder: (_, animation, __, child) {
           return FadeTransition(opacity: animation, child: child);
         },

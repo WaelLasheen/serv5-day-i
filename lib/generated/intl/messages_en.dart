@@ -166,6 +166,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Are you sure of logout?",
     ),
     "managerOnly": MessageLookupByLibrary.simpleMessage("Manager only"),
+    "markevaDescription": MessageLookupByLibrary.simpleMessage(
+      "A marketing management platform that combines team collaboration, task tracking, and performance analytics into a single interface.",
+    ),
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "Markiva Contact Information",
     ),
@@ -305,6 +308,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "weekPassword": MessageLookupByLibrary.simpleMessage("Weak"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Day I"),
+    "welcomeTo": MessageLookupByLibrary.simpleMessage("Welcome to"),
     "writeMessageHere": MessageLookupByLibrary.simpleMessage(
       "Write your message here",
     ),

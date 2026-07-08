@@ -152,5 +152,7 @@
     "addCard": "Add card",
     "continuePayment": "Continue Payment",
     "cardHolder": "Card Holder",
-    "expiresIn": "Expires in"
+    "expiresIn": "Expires in",
+    "welcomeTo": "Welcome to",
+    "markevaDescription": "A marketing management platform that combines team collaboration, task tracking, and performance analytics into a single interface."
 }

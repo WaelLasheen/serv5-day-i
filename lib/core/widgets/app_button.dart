@@ -80,7 +80,7 @@ class AppButton extends StatelessWidget {
                 : null,
             textStyle: TextStyle(
               fontFamily: 'Rubik',
-              fontSize: fontSize?.sp,
+              fontSize: fontSize?.sp ?? 16.sp,
               fontWeight: FontWeight.w500,
             ),
             foregroundColor: textColor ?? Colors.white,
@@ -97,7 +97,7 @@ class AppButton extends StatelessWidget {
                 : null,
             textStyle: TextStyle(
               fontFamily: 'Rubik',
-              fontSize: fontSize?.sp,
+              fontSize: fontSize?.sp ?? 16.sp,
               fontWeight: FontWeight.w500,
             ),
             padding: EdgeInsets.zero,
@@ -105,7 +105,7 @@ class AppButton extends StatelessWidget {
 
     return SizedBox(
       width: width ?? context.width,
-      height: height?.h,
+      height: height?.h ?? 48.h,
       child: isPrimary
           ? ElevatedButton(
               onPressed: isLoading ? () {} : onPressed,

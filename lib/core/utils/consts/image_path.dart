@@ -6,4 +6,5 @@ class ImagePath {
   final String atTheOffice = '$_baseUrl/At the office-amico 1.svg';
   final String schedule = '$_baseUrl/Schedule-amico 1.svg';
   final String setupAnalytics = '$_baseUrl/Setup Analytics-pana 1.svg';
+  final String markeva = '$_baseUrl/ماركيفا.svg';
 }

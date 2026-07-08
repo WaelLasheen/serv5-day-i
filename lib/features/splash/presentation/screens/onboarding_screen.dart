@@ -1,3 +1,6 @@
+import 'package:day_i/core/database/database_keys.dart';
+import 'package:day_i/core/database/database_service.dart';
+import 'package:day_i/core/di/di.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
@@ -36,7 +39,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _finishOnboarding() {
-    context.navigateAndReplace(RouterPath.login);
+    getIt<DatabaseService>().setBool(DatabaseKeys.hasSeenOnboarding, true);
+    context.navigateAndReplace(RouterPath.register);
   }
 
   @override
@@ -52,61 +56,65 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       backgroundColor: appTheme.surfaceColor,
       body: SafeArea(
-        child: Column(
-          children: [
-            TopBar(onSkip: _finishOnboarding),
-            Expanded(
-              child: ValueListenableBuilder(
-                valueListenable: _currentPageNotifier,
-                builder: (_, _, _) {
-                  return PageView.builder(
-                    controller: _pageController,
-                    itemCount: onboardingPages.length,
-                    onPageChanged: (index) {
-                      _currentPageNotifier.value = index;
-                    },
-                    itemBuilder: (context, index) {
-                      return OnboardingPage(data: onboardingPages[index]);
-                    },
-                  );
-                },
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
+            children: [
+              TopBar(onSkip: _finishOnboarding),
+              Expanded(
+                child: ValueListenableBuilder(
+                  valueListenable: _currentPageNotifier,
+                  builder: (_, _, _) {
+                    return PageView.builder(
+                      controller: _pageController,
+                      itemCount: onboardingPages.length,
+                      onPageChanged: (index) {
+                        _currentPageNotifier.value = index;
+                      },
+                      itemBuilder: (context, index) {
+                        return OnboardingPage(data: onboardingPages[index]);
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
-              
-            ValueListenableBuilder<int>(
-              valueListenable: _currentPageNotifier,
-              builder: (context, currentIndex, _) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    onboardingPages.length,
-                    (index) {
+
+              ValueListenableBuilder<int>(
+                valueListenable: _currentPageNotifier,
+                builder: (context, currentIndex, _) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(onboardingPages.length, (index) {
                       final bool isActive = index == currentIndex;
                       return AnimatedContainer(
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInOut,
-                        margin: EdgeInsets.symmetric(horizontal: 3.r), // spacing كامل بـ 6.r
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 3.r,
+                        ), 
                         height: 8.r,
-                        width: isActive ? (8.r * 3.2) : 8.r, 
+                        width: isActive ? (8.r * 3.2) : 8.r,
                         decoration: BoxDecoration(
-                          color: isActive ? appTheme.primaryColor : appTheme.grey700,
+                          color: isActive
+                              ? appTheme.primaryColor
+                              : appTheme.grey700,
                           borderRadius: BorderRadius.circular(8.r),
                         ),
                       );
-                    },
-                  ),
-                );
-              },
-            ),
-            SizedBox(height: 24.h),
-            AppButton(
-              height: 56.h,
-              width: context.width,
-              text: S.current.next,
-              onPressed: _onNextPressed,
-            ),
-            const SizedBox(height: 24),
-          ],
+                    }),
+                  );
+                },
+              ),
+              SizedBox(height: 24.h),
+              AppButton(
+                height: 56.h,
+                width: context.width,
+                text: S.current.next,
+                onPressed: _onNextPressed,
+              ),
+              const SizedBox(height: 24),
+            ],
+          ),
         ),
       ),
     );

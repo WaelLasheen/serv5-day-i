@@ -1368,6 +1368,21 @@ class S {
   String get expiresIn {
     return Intl.message('Expires in', name: 'expiresIn', desc: '', args: []);
   }
+
+  /// `Welcome to`
+  String get welcomeTo {
+    return Intl.message('Welcome to', name: 'welcomeTo', desc: '', args: []);
+  }
+
+  /// `A marketing management platform that combines team collaboration, task tracking, and performance analytics into a single interface.`
+  String get markevaDescription {
+    return Intl.message(
+      'A marketing management platform that combines team collaboration, task tracking, and performance analytics into a single interface.',
+      name: 'markevaDescription',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

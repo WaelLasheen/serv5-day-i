@@ -164,6 +164,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل أنت متأكد من تسجيل الخروج؟",
     ),
     "managerOnly": MessageLookupByLibrary.simpleMessage("المدير فقط"),
+    "markevaDescription": MessageLookupByLibrary.simpleMessage(
+      "برنامج لإدارة التسويق يجمع تنظيم الفرق، متابعة المهام، وتحليل الأداء في منصة واحدة.",
+    ),
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "معلومات الاتصال بماركيفا",
     ),
@@ -299,6 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "weekPassword": MessageLookupByLibrary.simpleMessage("ضعيف"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("مرحباً بك في يومي"),
+    "welcomeTo": MessageLookupByLibrary.simpleMessage("أهلاً بك في"),
     "writeMessageHere": MessageLookupByLibrary.simpleMessage("اكتب رسالتك هنا"),
   };
 }

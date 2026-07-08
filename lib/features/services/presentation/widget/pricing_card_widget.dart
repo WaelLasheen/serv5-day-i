@@ -56,7 +56,7 @@ class PricingCardWidget extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               Text(
-                serviceEntity.slug,
+                "${serviceEntity.price}/${serviceEntity.priceLabel}",
                 style: FontStyles.bodyMedium.copyWith(
                   color: appTheme.textPrimary,
                   fontSize: 16.sp,

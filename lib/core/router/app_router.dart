@@ -26,6 +26,7 @@ import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_s
 import 'package:day_i/features/privacy/presentation/screen/privacy_screen.dart';
 import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
 import 'package:day_i/features/splash/presentation/screens/onboarding_screen.dart';
+import 'package:day_i/features/splash/presentation/screens/register_screen.dart';
 import 'package:day_i/features/splash/presentation/screens/splash_screen.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
@@ -56,6 +57,11 @@ class AppRouter {
       case RouterPath.onboarding:
         return MaterialPageRoute(
           builder: (context) => const OnboardingScreen(),
+        );
+
+      case RouterPath.register:
+        return MaterialPageRoute(
+          builder: (context) => const RegisterScreen(),
         );
 
       case RouterPath.login:

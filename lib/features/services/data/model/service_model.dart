@@ -6,6 +6,7 @@ class ServiceModel {
   final String shortDescription;
   final String icon;
   final double price;
+  final String priceLabel;
   final String slug;
 
   ServiceModel({
@@ -14,6 +15,7 @@ class ServiceModel {
     required this.shortDescription,
     required this.icon,
     required this.price,
+    required this.priceLabel,
     required this.slug,
   });
 
@@ -23,6 +25,7 @@ class ServiceModel {
     shortDescription: json['short_description'] ?? "no short description",
     icon: json['icon'] ?? "no icon",
     price: json['price'] != null ? double.parse(json['price']) : 0.0,
+    priceLabel: json['price_label'] ?? "no price label",
     slug: json['slug'] ?? "no slug",
   );
 
@@ -32,6 +35,7 @@ class ServiceModel {
     shortDescription: shortDescription,
     icon: icon,
     price: price,
+    priceLabel: priceLabel,
     slug: slug,
   );
 }
