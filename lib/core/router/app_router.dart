@@ -31,6 +31,11 @@ import 'package:day_i/features/splash/presentation/screens/splash_screen.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
 import 'package:day_i/features/notification/presentation/controller/notification_cubit/notification_cubit.dart';
+import 'package:day_i/features/chatbot/presentation/screen/chatbot_screen.dart';
+import 'package:day_i/features/order_details/presentation/cubit/order_details_cubit.dart';
+import 'package:day_i/features/order_details/presentation/screens/order_details_screen.dart';
+import 'package:day_i/features/order_history/presentation/screens/order_history_screen.dart';
+import 'package:day_i/features/order_history/presentation/order_history_cubit/order_history_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -60,9 +65,7 @@ class AppRouter {
         );
 
       case RouterPath.register:
-        return MaterialPageRoute(
-          builder: (context) => const RegisterScreen(),
-        );
+        return MaterialPageRoute(builder: (context) => const RegisterScreen());
 
       case RouterPath.login:
         return MaterialPageRoute(
@@ -113,12 +116,15 @@ class AppRouter {
 
       case RouterPath.services:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) =>
-                ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
-                  ..getServices(Localizations.localeOf(context).languageCode),
-            child: const ServicesScreen(),
-          ),
+          builder: (context) {
+            final lang = Localizations.localeOf(context).languageCode;
+            return BlocProvider(
+              create: (context) =>
+                  ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
+                    ..getServices(lang),
+              child: const ServicesScreen(),
+            );
+          },
         );
 
       case RouterPath.editProfileContacts:
@@ -157,6 +163,26 @@ class AppRouter {
 
       case RouterPath.payment:
         return MaterialPageRoute(builder: (_) => const PaymentScreen());
+
+      case RouterPath.chatbot:
+        return MaterialPageRoute(builder: (_) => const ChatbotScreen());
+
+      case RouterPath.orderDetails:
+        final orderId = settings.arguments as String? ?? '';
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<OrderDetailsCubit>()..getOrderDetails(orderId),
+            child: const OrderDetailsScreen(),
+          ),
+        );
+
+      case RouterPath.orderHistory:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<OrderHistoryCubit>(),
+            child: const OrderHistoryScreen(),
+          ),
+        );
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());

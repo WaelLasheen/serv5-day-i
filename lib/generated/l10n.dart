@@ -1383,6 +1383,326 @@ class S {
       args: [],
     );
   }
+
+  /// `Packages and Subscriptions`
+  String get packagesAndSubscriptions {
+    return Intl.message(
+      'Packages and Subscriptions',
+      name: 'packagesAndSubscriptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose the appropriate plan to manage your marketing business and benefit from all the advantages.`
+  String get chooseAppropriatePlanToManageMarketing {
+    return Intl.message(
+      'Choose the appropriate plan to manage your marketing business and benefit from all the advantages.',
+      name: 'chooseAppropriatePlanToManageMarketing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscriptions`
+  String get subscriptions {
+    return Intl.message(
+      'Subscriptions',
+      name: 'subscriptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Markeva Smart`
+  String get markevaSmart {
+    return Intl.message(
+      'Markeva Smart',
+      name: 'markevaSmart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Always Active`
+  String get alwaysActive {
+    return Intl.message(
+      'Always Active',
+      name: 'alwaysActive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `👋 Welcome to Markeva\nI am the smart assistant, how can I help you today?`
+  String get chatbotWelcomeMsg {
+    return Intl.message(
+      '👋 Welcome to Markeva\nI am the smart assistant, how can I help you today?',
+      name: 'chatbotWelcomeMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I want to launch a marketing campaign for my e-store`
+  String get chatbotOptionCampaign {
+    return Intl.message(
+      'I want to launch a marketing campaign for my e-store',
+      name: 'chatbotOptionCampaign',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What is the appropriate service?`
+  String get chatbotOptionService {
+    return Intl.message(
+      'What is the appropriate service?',
+      name: 'chatbotOptionService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Great! Based on your activity, I recommend the following services:`
+  String get chatbotSuggesting {
+    return Intl.message(
+      'Great! Based on your activity, I recommend the following services:',
+      name: 'chatbotSuggesting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad Campaigns Management`
+  String get chatbotService1 {
+    return Intl.message(
+      'Ad Campaigns Management',
+      name: 'chatbotService1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social Media Accounts Management`
+  String get chatbotService2 {
+    return Intl.message(
+      'Social Media Accounts Management',
+      name: 'chatbotService2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Marketing Content Writing`
+  String get chatbotService3 {
+    return Intl.message(
+      'Marketing Content Writing',
+      name: 'chatbotService3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Which service would you like to know the details of?`
+  String get chatbotWhichService {
+    return Intl.message(
+      'Which service would you like to know the details of?',
+      name: 'chatbotWhichService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show me other options`
+  String get chatbotShowOtherOptions {
+    return Intl.message(
+      'Show me other options',
+      name: 'chatbotShowOtherOptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type a message`
+  String get typeMessage {
+    return Intl.message(
+      'Type a message',
+      name: 'typeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invoice Details`
+  String get orderDetailsTitle {
+    return Intl.message(
+      'Invoice Details',
+      name: 'orderDetailsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paid`
+  String get paidStatus {
+    return Intl.message('Paid', name: 'paidStatus', desc: '', args: []);
+  }
+
+  /// `Invoice Number`
+  String get invoiceNumberLabel {
+    return Intl.message(
+      'Invoice Number',
+      name: 'invoiceNumberLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Method`
+  String get paymentMethodLabel {
+    return Intl.message(
+      'Payment Method',
+      name: 'paymentMethodLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credit Card`
+  String get creditCard {
+    return Intl.message('Credit Card', name: 'creditCard', desc: '', args: []);
+  }
+
+  /// `Invoice Date`
+  String get invoiceDateLabel {
+    return Intl.message(
+      'Invoice Date',
+      name: 'invoiceDateLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Time`
+  String get paymentTimeLabel {
+    return Intl.message(
+      'Payment Time',
+      name: 'paymentTimeLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Number`
+  String get orderNumberLabel {
+    return Intl.message(
+      'Order Number',
+      name: 'orderNumberLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Information`
+  String get customerInfoLabel {
+    return Intl.message(
+      'Customer Information',
+      name: 'customerInfoLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Details`
+  String get serviceDetailsLabel {
+    return Intl.message(
+      'Service Details',
+      name: 'serviceDetailsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Execution Time`
+  String get executionTimeLabel {
+    return Intl.message(
+      'Execution Time',
+      name: 'executionTimeLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{days} working days`
+  String workingDays(Object days) {
+    return Intl.message(
+      '$days working days',
+      name: 'workingDays',
+      desc: '',
+      args: [days],
+    );
+  }
+
+  /// `Payment Summary`
+  String get paymentSummaryLabel {
+    return Intl.message(
+      'Payment Summary',
+      name: 'paymentSummaryLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Price`
+  String get servicePriceLabel {
+    return Intl.message(
+      'Service Price',
+      name: 'servicePriceLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tax ({percentage}%)`
+  String taxLabel(Object percentage) {
+    return Intl.message(
+      'Tax ($percentage%)',
+      name: 'taxLabel',
+      desc: '',
+      args: [percentage],
+    );
+  }
+
+  /// `Discount (Code: {code})`
+  String discountLabel(Object code) {
+    return Intl.message(
+      'Discount (Code: $code)',
+      name: 'discountLabel',
+      desc: '',
+      args: [code],
+    );
+  }
+
+  /// `Final Total`
+  String get finalTotalLabel {
+    return Intl.message(
+      'Final Total',
+      name: 'finalTotalLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download Invoice PDF`
+  String get downloadPdfLabel {
+    return Intl.message(
+      'Download Invoice PDF',
+      name: 'downloadPdfLabel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

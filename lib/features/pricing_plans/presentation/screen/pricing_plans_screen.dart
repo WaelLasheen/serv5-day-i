@@ -67,7 +67,7 @@ class _PricingPlansView extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      S.of(context).prices,
+                      S.of(context).subscriptions,
                       style: FontStyles.h3.copyWith(
                         color: const Color(0xFF121212),
                         fontWeight: FontWeight.w600,

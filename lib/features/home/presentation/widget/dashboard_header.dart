@@ -15,6 +15,7 @@ class DashboardHeader extends StatelessWidget {
     super.key,
     required this.searchController,
     required this.onSearchChanged,
+    
   });
 
   @override
@@ -53,21 +54,33 @@ class DashboardHeader extends StatelessWidget {
                   Navigator.pushNamed(context, RouterPath.notifications);
                 },
               ),
-              CircleAvatar(
-                radius: 20.r,
-                child: Icon(
-                  Icons.person,
-                  color: appTheme.primaryColor,
-                  size: 40.r,
-                ),
-              ),
-              const Text(
-                'أهلا علي !',
-                style: TextStyle(
-                  fontFamily: 'Rubik',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: Colors.white,
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () {
+                  Navigator.pushNamed(context, RouterPath.profile);
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CircleAvatar(
+                      radius: 20.r,
+                      child: Icon(
+                        Icons.person,
+                        color: appTheme.primaryColor,
+                        size: 40.r,
+                      ),
+                    ),
+                    SizedBox(width: 8.w),
+                    const Text(
+                      'أهلا علي !',
+                      style: TextStyle(
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const Spacer(),

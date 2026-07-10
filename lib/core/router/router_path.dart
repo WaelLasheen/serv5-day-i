@@ -21,4 +21,7 @@ abstract class RouterPath {
   static const String profile = "/profile";
   static const String addPayment = '/addPayment';
   static const String payment = '/payment';
+  static const String chatbot = '/chatbot';
+  static const String orderDetails = '/order-details';
+  static const String orderHistory = '/order-history';
 }

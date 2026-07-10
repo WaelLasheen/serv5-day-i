@@ -48,6 +48,11 @@ import 'package:day_i/features/notification/domain/repositories/notification_rep
 import 'package:day_i/features/notification/domain/use_cases/get_notifications_use_case.dart';
 import 'package:day_i/features/notification/presentation/controller/notification_cubit/notification_cubit.dart';
 
+import 'package:day_i/features/order_details/data/data_sources/order_details_remote_data_source.dart';
+import 'package:day_i/features/order_details/data/repositories/order_details_repository_impl.dart';
+import 'package:day_i/features/order_details/domain/repositories/order_details_repository.dart';
+import 'package:day_i/features/order_details/domain/use_cases/get_order_details_use_case.dart';
+import 'package:day_i/features/order_details/presentation/cubit/order_details_cubit.dart';
 final getIt = GetIt.instance;
 
 Future<void> setUpLocators() async {
@@ -164,6 +169,21 @@ Future<void> setUpLocators() async {
     () => NotificationCubit(
       getNotificationsUseCase: getIt<GetNotificationsUseCase>(),
     ),
+  );
+  // Order Details
+  getIt.registerLazySingleton<OrderDetailsRemoteDataSource>(
+    () => OrderDetailsRemoteDataSourceImpl(),
+  );
+  getIt.registerLazySingleton<OrderDetailsRepository>(
+    () => OrderDetailsRepositoryImpl(
+      getIt<OrderDetailsRemoteDataSource>(),
+    ),
+  );
+  getIt.registerLazySingleton<GetOrderDetailsUseCase>(
+    () => GetOrderDetailsUseCase(getIt<OrderDetailsRepository>()),
+  );
+  getIt.registerFactory<OrderDetailsCubit>(
+    () => OrderDetailsCubit(getIt<GetOrderDetailsUseCase>()),
   );
 }
 

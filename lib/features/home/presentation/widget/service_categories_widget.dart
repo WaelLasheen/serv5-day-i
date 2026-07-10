@@ -11,6 +11,7 @@ class ServiceCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
     final List<CategoryModel> categories = CategoryModel.getMockCategories();
 
     return Padding(
@@ -35,6 +36,7 @@ class ServiceCategoriesWidget extends StatelessWidget {
                   Navigator.pushNamed(context, RouterPath.services);
                 },
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       "عرض المزيد",
@@ -47,7 +49,9 @@ class ServiceCategoriesWidget extends StatelessWidget {
                     ),
                     SizedBox(width: 8.w),
                     Icon(
-                      Icons.arrow_back_ios_new,
+                      isRtl
+                          ? Icons.arrow_forward_ios
+                          : Icons.arrow_back_ios_new,
                       size: 14.r,
                       color: theme.primaryColor,
                     ),

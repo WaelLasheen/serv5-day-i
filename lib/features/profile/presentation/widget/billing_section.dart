@@ -47,6 +47,7 @@ class BillingSection extends StatelessWidget {
         InfoModel(
           title: 'سجل الفواتير',
           icon: Icons.description_outlined,
+          onTap: () => context.navigateTo(RouterPath.orderDetails),
           trailing: const LeftNavigationChevron(),
         ),
       ],

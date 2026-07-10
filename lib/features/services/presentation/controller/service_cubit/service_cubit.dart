@@ -115,6 +115,7 @@ class ServiceCubit extends Cubit<ServiceState> {
     // );
     emit(ServiceLoading());
     final result = await _getServicesUseCase(lang);
+    if (isClosed) return;
     result.fold(
       (failure) => emit(ServiceFailure(message: failure.message)),
       (services) => emit(ServiceSuccess(services: services)),

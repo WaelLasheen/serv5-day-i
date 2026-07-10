@@ -22,7 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(amount) => "Budget: ${amount}";
 
-  static String m1(name) => "Employee: ${name}";
+  static String m1(code) => "Discount (Code: ${code})";
+
+  static String m2(name) => "Employee: ${name}";
+
+  static String m3(percentage) => "Tax (${percentage}%)";
+
+  static String m4(days) => "${days} working days";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -48,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
+    "alwaysActive": MessageLookupByLibrary.simpleMessage("Always Active"),
     "appTitle": MessageLookupByLibrary.simpleMessage("Day I"),
     "approved": MessageLookupByLibrary.simpleMessage("Approved"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
@@ -65,6 +72,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
     "changePasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "Enter a new password for your account.",
+    ),
+    "chatbotOptionCampaign": MessageLookupByLibrary.simpleMessage(
+      "I want to launch a marketing campaign for my e-store",
+    ),
+    "chatbotOptionService": MessageLookupByLibrary.simpleMessage(
+      "What is the appropriate service?",
+    ),
+    "chatbotService1": MessageLookupByLibrary.simpleMessage(
+      "Ad Campaigns Management",
+    ),
+    "chatbotService2": MessageLookupByLibrary.simpleMessage(
+      "Social Media Accounts Management",
+    ),
+    "chatbotService3": MessageLookupByLibrary.simpleMessage(
+      "Marketing Content Writing",
+    ),
+    "chatbotShowOtherOptions": MessageLookupByLibrary.simpleMessage(
+      "Show me other options",
+    ),
+    "chatbotSuggesting": MessageLookupByLibrary.simpleMessage(
+      "Great! Based on your activity, I recommend the following services:",
+    ),
+    "chatbotWelcomeMsg": MessageLookupByLibrary.simpleMessage(
+      "👋 Welcome to Markeva\nI am the smart assistant, how can I help you today?",
+    ),
+    "chatbotWhichService": MessageLookupByLibrary.simpleMessage(
+      "Which service would you like to know the details of?",
+    ),
+    "chooseAppropriatePlanToManageMarketing": MessageLookupByLibrary.simpleMessage(
+      "Choose the appropriate plan to manage your marketing business and benefit from all the advantages.",
     ),
     "choosePackage": MessageLookupByLibrary.simpleMessage(
       "Choose package for your marketing campaign",
@@ -95,7 +132,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "createCompanySubtitle": MessageLookupByLibrary.simpleMessage(
       "Start building your company\'s presence on the platform by entering its data.",
     ),
+    "creditCard": MessageLookupByLibrary.simpleMessage("Credit Card"),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
+    "customerInfoLabel": MessageLookupByLibrary.simpleMessage(
+      "Customer Information",
+    ),
     "dataUsage": MessageLookupByLibrary.simpleMessage("Data Usage"),
     "deactivateAccount": MessageLookupByLibrary.simpleMessage(
       "Deactivate Account",
@@ -104,10 +145,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAccountWarning": MessageLookupByLibrary.simpleMessage(
       "Account deletion requests are reviewed by the admin and processed within 14 days. This action is final and will delete all service records",
     ),
+    "discountLabel": m1,
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
     "downloadData": MessageLookupByLibrary.simpleMessage("Download Data"),
+    "downloadPdfLabel": MessageLookupByLibrary.simpleMessage(
+      "Download Invoice PDF",
+    ),
     "editProfileChangePassword": MessageLookupByLibrary.simpleMessage(
       "Change Password",
     ),
@@ -118,15 +163,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emailReq": MessageLookupByLibrary.simpleMessage("Email is required"),
     "emailVerified": MessageLookupByLibrary.simpleMessage("Email Verified"),
-    "employeeLabel": m1,
+    "employeeLabel": m2,
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterStrongPasswordToProtectYourAccount":
         MessageLookupByLibrary.simpleMessage(
           "Enter a strong password to protect your account",
         ),
+    "executionTimeLabel": MessageLookupByLibrary.simpleMessage(
+      "Execution Time",
+    ),
     "expiresIn": MessageLookupByLibrary.simpleMessage("Expires in"),
     "expiryDate": MessageLookupByLibrary.simpleMessage("Expiry Date"),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
+    "finalTotalLabel": MessageLookupByLibrary.simpleMessage("Final Total"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "Flexible packages to suit your business size and marketing goals",
     ),
@@ -153,6 +202,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidPassword": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 8 characters",
     ),
+    "invoiceDateLabel": MessageLookupByLibrary.simpleMessage("Invoice Date"),
+    "invoiceNumberLabel": MessageLookupByLibrary.simpleMessage(
+      "Invoice Number",
+    ),
     "late": MessageLookupByLibrary.simpleMessage("Late"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -169,6 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "markevaDescription": MessageLookupByLibrary.simpleMessage(
       "A marketing management platform that combines team collaboration, task tracking, and performance analytics into a single interface.",
     ),
+    "markevaSmart": MessageLookupByLibrary.simpleMessage("Markeva Smart"),
     "markivaContactInfo": MessageLookupByLibrary.simpleMessage(
       "Markiva Contact Information",
     ),
@@ -193,6 +247,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Oops! There was an Error, Please try again",
     ),
     "or": MessageLookupByLibrary.simpleMessage("OR"),
+    "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
+      "Invoice Details",
+    ),
+    "orderNumberLabel": MessageLookupByLibrary.simpleMessage("Order Number"),
     "orders": MessageLookupByLibrary.simpleMessage("Orders"),
     "otherPaymentMethods": MessageLookupByLibrary.simpleMessage(
       "Other payment methods",
@@ -207,6 +265,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter the verification code we sent to your email.",
     ),
     "otpTitle": MessageLookupByLibrary.simpleMessage("Enter Verification Code"),
+    "packagesAndSubscriptions": MessageLookupByLibrary.simpleMessage(
+      "Packages and Subscriptions",
+    ),
+    "paidStatus": MessageLookupByLibrary.simpleMessage("Paid"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordCaseAndNumbers": MessageLookupByLibrary.simpleMessage(
       "It is recommended to use uppercase and lowercase letters and numbers.",
@@ -229,7 +291,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "passwordStrength": MessageLookupByLibrary.simpleMessage("Strong Password"),
     "pathNotFound": MessageLookupByLibrary.simpleMessage("Path Not Found"),
+    "paymentMethodLabel": MessageLookupByLibrary.simpleMessage(
+      "Payment Method",
+    ),
     "paymentMethods": MessageLookupByLibrary.simpleMessage("Payment Methods"),
+    "paymentSummaryLabel": MessageLookupByLibrary.simpleMessage(
+      "Payment Summary",
+    ),
+    "paymentTimeLabel": MessageLookupByLibrary.simpleMessage("Payment Time"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "phone": MessageLookupByLibrary.simpleMessage("Phone"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
@@ -271,6 +340,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("Send Message"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
+    "serviceDetailsLabel": MessageLookupByLibrary.simpleMessage(
+      "Service Details",
+    ),
+    "servicePriceLabel": MessageLookupByLibrary.simpleMessage("Service Price"),
     "serviceRegister": MessageLookupByLibrary.simpleMessage("Service Register"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "setDefaultPayment": MessageLookupByLibrary.simpleMessage(
@@ -291,9 +364,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
     "strongPassword": MessageLookupByLibrary.simpleMessage("Strong"),
     "subject": MessageLookupByLibrary.simpleMessage("Subject"),
+    "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),
+    "taxLabel": m3,
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "I agree to the terms and conditions and privacy policy",
     ),
+    "typeMessage": MessageLookupByLibrary.simpleMessage("Type a message"),
     "unauthorizedNotVisible": MessageLookupByLibrary.simpleMessage(
       "Your parameters will not be visible to unauthorized employees.",
     ),
@@ -309,6 +385,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "weekPassword": MessageLookupByLibrary.simpleMessage("Weak"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Day I"),
     "welcomeTo": MessageLookupByLibrary.simpleMessage("Welcome to"),
+    "workingDays": m4,
     "writeMessageHere": MessageLookupByLibrary.simpleMessage(
       "Write your message here",
     ),

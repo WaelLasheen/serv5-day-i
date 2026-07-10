@@ -1,5 +1,7 @@
 import 'package:day_i/core/widgets/custom_search_widget.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
+import 'package:day_i/core/utils/extensions/navigation_extension.dart';
+import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/features/order_history/presentation/order_history_cubit/order_history_cubit.dart';
 import 'package:day_i/features/order_history/presentation/order_history_cubit/order_history_state.dart';
 import 'package:day_i/features/order_history/presentation/widgets/order_card.dart';
@@ -222,7 +224,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                                       return OrderCard(
                                         order: order,
                                         onViewDetails: () {
-                                          // Handle View Details
+                                          context.navigateTo(
+                                            RouterPath.orderDetails,
+                                            arguments: order.id.toString(),
+                                          );
                                         },
                                       );
                                     },

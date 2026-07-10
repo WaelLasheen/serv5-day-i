@@ -10,6 +10,7 @@ class SuggestedServicesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
 
     final List<SuggestedServiceModel> services =
         SuggestedServiceModel.getMockServices();
@@ -46,7 +47,9 @@ class SuggestedServicesWidget extends StatelessWidget {
                     ),
                     SizedBox(width: 8.w),
                     Icon(
-                      Icons.arrow_back_ios_new,
+                      isRtl
+                          ? Icons.arrow_forward_ios
+                          : Icons.arrow_back_ios_new,
                       size: 14.r,
                       color: theme.primaryColor,
                     ),
@@ -76,7 +79,7 @@ class SuggestedServicesWidget extends StatelessWidget {
                     border: Border.all(color: const Color(0xFFC8C6F7)),
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         width: 268.w,
@@ -94,7 +97,7 @@ class SuggestedServicesWidget extends StatelessWidget {
                       SizedBox(height: 10.h),
 
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: List.generate(
                           service.rating,
                           (index) => Icon(
@@ -130,7 +133,6 @@ class SuggestedServicesWidget extends StatelessWidget {
                       Flexible(
                         child: Text(
                           service.title,
-                          textAlign: TextAlign.right,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -146,7 +148,6 @@ class SuggestedServicesWidget extends StatelessWidget {
 
                       Text(
                         "السعر: ${service.price}",
-                        textAlign: TextAlign.right,
                         style: TextStyle(
                           fontFamily: 'Rubik',
                           color: const Color(0xFF121212),
@@ -157,7 +158,6 @@ class SuggestedServicesWidget extends StatelessWidget {
                       SizedBox(height: 4.h),
                       Text(
                         "مدة التنفيذ: ${service.duration}",
-                        textAlign: TextAlign.right,
                         style: TextStyle(
                           fontFamily: 'Rubik',
                           color: const Color(0xFF636262),

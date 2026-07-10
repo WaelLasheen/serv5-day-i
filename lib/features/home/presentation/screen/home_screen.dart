@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:day_i/features/home/presentation/widget/dashboard_header.dart';
+import 'package:day_i/features/home/presentation/widget/pricing_plans_banner_widget.dart';
 import 'package:day_i/features/home/presentation/widget/suggested_services_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 16.h),
               const SuggestedServicesWidget(),
 
-              SizedBox(height: 120.h),
+              SizedBox(height: 16.h),
+              const PricingPlansBannerWidget(),
+
+              SizedBox(height: 180.h),
             ],
           ),
         ),

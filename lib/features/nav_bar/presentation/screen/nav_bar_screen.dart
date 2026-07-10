@@ -1,4 +1,5 @@
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
+import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/param/nav_bar_item_model.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/nav_bar_item.dart';
@@ -36,9 +37,9 @@ class _NavBarScreenState extends State<NavBarScreen> {
       _screens = [
         const HomeScreen(),
         BlocProvider(
-          create: (context) => ServiceCubit(
-            getServicesUseCase: getIt<GetServicesUseCase>(),
-          )..getServices(locale.languageCode),
+          create: (context) =>
+              ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
+                ..getServices(locale.languageCode),
           child: const ServicesScreen(),
         ),
         BlocProvider(
@@ -71,60 +72,57 @@ class _NavBarScreenState extends State<NavBarScreen> {
 
     return Scaffold(
       extendBody: true,
-      body: _screens != null ? _screens![_currentIndex] : const SizedBox.shrink(),
+      body: Stack(
+        children: [
+          _screens != null ? _screens![_currentIndex] : const SizedBox.shrink(),
+          Positioned(
+            right: 34.w,
+            bottom: 94.h + 24.h, // Adjusted for padding of bottomNavigationBar
+            child: FloatingBotButton(
+              onTap: () {
+                Navigator.pushNamed(context, RouterPath.chatbot);
+              },
+            ),
+          ),
+        ],
+      ),
 
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(bottom: 24.h),
-          child: Stack(
-            clipBehavior: Clip.none,
-            alignment: Alignment.bottomCenter,
-            children: [
-              Container(
-                width: 343.w,
-                height: 76.h,
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                decoration: BoxDecoration(
-                  color: appTheme.blueLight,
-                  borderRadius: BorderRadius.circular(999.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.05),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
+          child: Container(
+            width: 343.w,
+            height: 76.h,
+            margin: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+            decoration: BoxDecoration(
+              color: appTheme.blueLight,
+              borderRadius: BorderRadius.circular(999.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ...navBarItems.map((e) {
-                      return NavBarItem(
-                        icon: e.icon,
-                        label: e.label,
-                        onTap: () {
-                          if (_currentIndex != e.index) {
-                            setState(() => _currentIndex = e.index);
-                          }
-                        },
-                        isSelected: e.index == _currentIndex,
-                      );
-                    }),
-                  ],
-                ),
-              ),
-
-              Positioned(
-                right: 34.w,
-                bottom: 94.h,
-                child: FloatingBotButton(
-                  onTap: () {
-                    // الأكشن الخاص بالبوت
-                  },
-                ),
-              ),
-            ],
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ...navBarItems.map((e) {
+                  return NavBarItem(
+                    icon: e.icon,
+                    label: e.label,
+                    onTap: () {
+                      if (_currentIndex != e.index) {
+                        setState(() => _currentIndex = e.index);
+                      }
+                    },
+                    isSelected: e.index == _currentIndex,
+                  );
+                }),
+              ],
+            ),
           ),
         ),
       ),
