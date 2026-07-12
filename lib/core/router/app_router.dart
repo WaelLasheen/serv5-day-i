@@ -13,11 +13,13 @@ import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
 import 'package:day_i/features/payment/presentation/screen/add_payment_method_screen.dart';
 import 'package:day_i/features/payment/presentation/screen/payment_screen.dart';
+import 'package:day_i/features/payment/presentation/screen/success_payment_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/otp_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
 import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/features/services/presentation/screen/services_screen.dart';
+import 'package:day_i/features/services/presentation/screen/service_details_screen.dart';
 import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_contacts_screen.dart';
@@ -56,8 +58,8 @@ class AppRouter {
 
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RouterPath.splash:
-        return MaterialPageRoute(builder: (context) => const SplashScreen());
+      // case RouterPath.splash:
+      //   return MaterialPageRoute(builder: (context) => const SplashScreen());
 
       case RouterPath.onboarding:
         return MaterialPageRoute(
@@ -171,7 +173,8 @@ class AppRouter {
         final orderId = settings.arguments as String? ?? '';
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<OrderDetailsCubit>()..getOrderDetails(orderId),
+            create: (context) =>
+                getIt<OrderDetailsCubit>()..getOrderDetails(orderId),
             child: const OrderDetailsScreen(),
           ),
         );
@@ -183,6 +186,12 @@ class AppRouter {
             child: const OrderHistoryScreen(),
           ),
         );
+
+      case RouterPath.successPayment:
+        return MaterialPageRoute(builder: (_) => const SuccessPaymentScreen());
+
+      case RouterPath.serviceDetails:
+        return MaterialPageRoute(builder: (_) => const ServiceDetailsScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());

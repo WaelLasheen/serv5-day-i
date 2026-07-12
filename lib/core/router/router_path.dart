@@ -24,4 +24,6 @@ abstract class RouterPath {
   static const String chatbot = '/chatbot';
   static const String orderDetails = '/order-details';
   static const String orderHistory = '/order-history';
+  static const String successPayment = '/success-payment';
+  static const String serviceDetails = '/service-details';
 }

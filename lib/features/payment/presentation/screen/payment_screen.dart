@@ -142,13 +142,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ),
             SizedBox(height: 48.h),
-            AppButton(
-              height: 52,
-              text: S.current.continuePayment,
-              onPressed: () {
-                // TODO: Handle continue payment
-              },
-            ),
+              AppButton(
+                height: 52,
+                text: S.current.continuePayment,
+                onPressed: () {
+                  Navigator.pushNamed(context, RouterPath.successPayment);
+                },
+              ),
           ],
         ),
       ),

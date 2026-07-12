@@ -1703,6 +1703,226 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment Successful`
+  String get paymentSuccessTitle {
+    return Intl.message(
+      'Payment Successful',
+      name: 'paymentSuccessTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment received successfully, your order has been created and sent to the team to start immediately.`
+  String get paymentSuccessSubtitle {
+    return Intl.message(
+      'Payment received successfully, your order has been created and sent to the team to start immediately.',
+      name: 'paymentSuccessSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Details`
+  String get orderDetails {
+    return Intl.message(
+      'Order Details',
+      name: 'orderDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Number`
+  String get orderNumber {
+    return Intl.message(
+      'Order Number',
+      name: 'orderNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message('Total', name: 'total', desc: '', args: []);
+  }
+
+  /// `Track Order`
+  String get trackOrder {
+    return Intl.message('Track Order', name: 'trackOrder', desc: '', args: []);
+  }
+
+  /// `Review My Orders`
+  String get reviewOrders {
+    return Intl.message(
+      'Review My Orders',
+      name: 'reviewOrders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertising Campaigns Management`
+  String get campaignManagement {
+    return Intl.message(
+      'Advertising Campaigns Management',
+      name: 'campaignManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Execution Time : {time}`
+  String executionTime(Object time) {
+    return Intl.message(
+      'Execution Time : $time',
+      name: 'executionTime',
+      desc: '',
+      args: [time],
+    );
+  }
+
+  /// `Service Description`
+  String get serviceDescription {
+    return Intl.message(
+      'Service Description',
+      name: 'serviceDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What does the service include?`
+  String get whatServiceIncludes {
+    return Intl.message(
+      'What does the service include?',
+      name: 'whatServiceIncludes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Why choose Markiva`
+  String get whyChooseMarkiva {
+    return Intl.message(
+      'Why choose Markiva',
+      name: 'whyChooseMarkiva',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer Reviews`
+  String get customerReviews {
+    return Intl.message(
+      'Customer Reviews',
+      name: 'customerReviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View All`
+  String get viewAll {
+    return Intl.message('View All', name: 'viewAll', desc: '', args: []);
+  }
+
+  /// `Similar Services`
+  String get similarServices {
+    return Intl.message(
+      'Similar Services',
+      name: 'similarServices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approximate Total`
+  String get approximateTotal {
+    return Intl.message(
+      'Approximate Total',
+      name: 'approximateTotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request Service`
+  String get requestService {
+    return Intl.message(
+      'Request Service',
+      name: 'requestService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Review Your Order`
+  String get reviewYourOrder {
+    return Intl.message(
+      'Review Your Order',
+      name: 'reviewYourOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please verify service details before proceeding`
+  String get pleaseVerifyOrderDetails {
+    return Intl.message(
+      'Please verify service details before proceeding',
+      name: 'pleaseVerifyOrderDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add special notes to your order`
+  String get addNotesToOrder {
+    return Intl.message(
+      'Add special notes to your order',
+      name: 'addNotesToOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `e.g., additional details about the target audience or specific goals...`
+  String get notesHint {
+    return Intl.message(
+      'e.g., additional details about the target audience or specific goals...',
+      name: 'notesHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Price`
+  String get servicePrice {
+    return Intl.message(
+      'Service Price',
+      name: 'servicePrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tax({percentage}%)`
+  String tax(Object percentage) {
+    return Intl.message(
+      'Tax($percentage%)',
+      name: 'tax',
+      desc: '',
+      args: [percentage],
+    );
+  }
+
+  /// `Included`
+  String get included {
+    return Intl.message('Included', name: 'included', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

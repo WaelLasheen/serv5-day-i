@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen>
     if (!mounted) return;
     final hasSeenOnboarding =
         getIt<DatabaseService>().getBool(DatabaseKeys.hasSeenOnboarding) ??
-            false;
+        false;
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
