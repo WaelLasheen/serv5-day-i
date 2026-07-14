@@ -11,8 +11,37 @@ import 'package:day_i/core/utils/extensions/snack_bar_extension.dart';
 import 'package:day_i/features/services/presentation/widget/service_category_shimmer_widget.dart';
 import 'package:day_i/core/widgets/app_button.dart';
 
-class ServicesScreen extends StatelessWidget {
-  const ServicesScreen({super.key});
+class ServicesScreen extends StatefulWidget {
+  /// If provided, the screen will scroll to the category with this id.
+  final int? initialCategoryId;
+
+  const ServicesScreen({super.key, this.initialCategoryId});
+
+  @override
+  State<ServicesScreen> createState() => _ServicesScreenState();
+}
+
+class _ServicesScreenState extends State<ServicesScreen> {
+  final ScrollController _scrollController = ScrollController();
+  final Map<int, GlobalKey> _categoryKeys = {};
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToCategory(int categoryId) {
+    final key = _categoryKeys[categoryId];
+    if (key == null) return;
+    final ctx = key.currentContext;
+    if (ctx == null) return;
+    Scrollable.ensureVisible(
+      ctx,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +61,12 @@ class ServicesScreen extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_rounded, color: themeColors.primaryColor),
+          icon: Icon(
+            Directionality.of(context) == TextDirection.rtl
+                ? Icons.arrow_forward_rounded
+                : Icons.arrow_back_rounded,
+            color: themeColors.primaryColor,
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
         bottom: PreferredSize(
@@ -44,6 +78,12 @@ class ServicesScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is ServiceFailure) {
             context.showErrorSnackBar(message: state.message);
+          }
+          if (state is ServiceSuccess && widget.initialCategoryId != null) {
+            // Scroll after the frame is built
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _scrollToCategory(widget.initialCategoryId!);
+            });
           }
         },
         builder: (context, state) {
@@ -62,13 +102,21 @@ class ServicesScreen extends StatelessWidget {
                 ),
               );
             }
+
+            // Build keys for each category
+            for (final cat in services) {
+              _categoryKeys.putIfAbsent(cat.id, () => GlobalKey());
+            }
+
             return SingleChildScrollView(
+              controller: _scrollController,
               physics: const BouncingScrollPhysics(),
               padding: EdgeInsets.only(top: 24.h, bottom: 100.h),
               child: Column(
                 children: [
                   ...services.map(
                     (cat) => Padding(
+                      key: _categoryKeys[cat.id],
                       padding: EdgeInsets.only(bottom: 32.h),
                       child: ServiceCategoryWidget(mainServiceEntity: cat),
                     ),
@@ -92,7 +140,7 @@ class ServicesScreen extends StatelessWidget {
                   SizedBox(height: 16.h),
                   AppButton(
                     text: Localizations.localeOf(context).languageCode == 'ar'
-                        ? 'إعادة المحاولة'
+                        ? S.of(context).retry
                         : 'Retry',
                     onPressed: () {
                       context.read<ServiceCubit>().getServices(

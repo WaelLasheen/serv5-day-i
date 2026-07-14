@@ -14,6 +14,7 @@ class ApiConstants {
 
   // Services
   static const String services = "/services-page";
+  static const String homeServices = "/home/services";
 
   // Plans
   static const String plans = "/plans";
@@ -21,6 +22,16 @@ class ApiConstants {
 
   // FAQs
   static const String faqs = "/faqs";
+
+  // Notifications
+  static const String notifications = "/notifications";
+  static const String unreadNotifications = "/notifications/unread";
+  static const String unreadNotificationsCount = "/notifications/unread-count";
+
+  // Payments
+  static const String paymentMethods = "/payments/methods";
+  static const String paymentSuccess = "/payments/success";
+  static const String paymentCancel = "/payments/cancel";
 
   // Orders
   static const String orders = "/orders";

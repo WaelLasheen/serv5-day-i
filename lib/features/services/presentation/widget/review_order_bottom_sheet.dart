@@ -99,29 +99,57 @@ class ReviewOrderBottomSheet extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.w500,
                                 ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           SizedBox(height: 8.h),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(Icons.access_time, size: 16.w, color: theme?.textSecondary ?? const Color(0xFF636262)),
-                              SizedBox(width: 4.w),
-                              Text(
-                                l10n.workingDays(executionTime),
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                      color: theme?.textSecondary ?? const Color(0xFF636262),
+                              Flexible(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.access_time,
+                                      size: 16.w,
+                                      color: theme?.textSecondary ??
+                                          const Color(0xFF636262),
                                     ),
+                                    SizedBox(width: 4.w),
+                                    Flexible(
+                                      child: Text(
+                                        l10n.workingDays(executionTime),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium
+                                            ?.copyWith(
+                                              color: theme?.textSecondary ??
+                                                  const Color(0xFF636262),
+                                            ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              const Spacer(),
+                              SizedBox(width: 8.w),
                               Container(
-                                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8.w,
+                                  vertical: 4.h,
+                                ),
                                 decoration: BoxDecoration(
                                   color: const Color(0xFFFEE9DC), // Light orange
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 child: Text(
                                   price,
-                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                        color: const Color(0xFFF56E14), // Orange
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                        color: const Color(0xFFF56E14),
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),

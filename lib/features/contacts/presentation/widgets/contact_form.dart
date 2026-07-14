@@ -49,7 +49,7 @@ class _ContactFormState extends State<ContactForm> {
       listener: (context, state) {
         if (state is ContactsSuccess) {
           context.showSuccessSnackBar(
-            message: 'تم إرسال الرسالة بنجاح',
+            message: S.of(context).messageSentSuccessfully,
           );
           _nameController.clear();
           _emailController.clear();
@@ -68,7 +68,7 @@ class _ContactFormState extends State<ContactForm> {
           children: [
             CustomFormField(
               controller: _nameController,
-              label: 'الاسم',
+              label: S.of(context).fullName,
               hintText: 'John Doe',
               validator: (value) => value == null || value.isEmpty ? 'Required' : null,
               suffixIcon: const Icon(

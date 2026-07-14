@@ -25,7 +25,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final _currentPageNotifier = ValueNotifier(0);
 
   bool get _isLastPage =>
-      _currentPageNotifier.value == onboardingPages.length - 1;
+      _currentPageNotifier.value == getOnboardingPages(context).length - 1;
 
   void _onNextPressed() {
     if (_isLastPage) {
@@ -67,12 +67,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   builder: (_, _, _) {
                     return PageView.builder(
                       controller: _pageController,
-                      itemCount: onboardingPages.length,
+                      itemCount: getOnboardingPages(context).length,
                       onPageChanged: (index) {
                         _currentPageNotifier.value = index;
                       },
                       itemBuilder: (context, index) {
-                        return OnboardingPage(data: onboardingPages[index]);
+                        return OnboardingPage(data: getOnboardingPages(context)[index]);
                       },
                     );
                   },
@@ -84,7 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 builder: (context, currentIndex, _) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(onboardingPages.length, (index) {
+                    children: List.generate(getOnboardingPages(context).length, (index) {
                       final bool isActive = index == currentIndex;
                       return AnimatedContainer(
                         duration: const Duration(milliseconds: 300),

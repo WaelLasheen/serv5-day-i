@@ -42,7 +42,7 @@ class CustomSearchWidget extends StatelessWidget {
         borderSide: BorderSide(color: appTheme.grey800, width: 1.5.w),
       ),
       prefixIcon: Padding(
-        padding: const EdgeInsets.only(right: 12, left: 8),
+        padding: const EdgeInsetsDirectional.only(end: 12, start: 8),
         child: Icon(Icons.search, color: appTheme.grey800, size: 24.r),
       ),
     );

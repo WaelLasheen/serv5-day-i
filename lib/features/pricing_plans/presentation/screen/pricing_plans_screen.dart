@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manger/pricing_palns_cubit.dart';
 import '../manger/pricing_palns_state.dart';
 import 'package:day_i/core/di/di.dart'; // import DI
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' hide TextDirection;
 
 class PricingPlansScreen extends StatelessWidget {
   const PricingPlansScreen({super.key});
@@ -61,7 +61,9 @@ class _PricingPlansView extends StatelessWidget {
                     IconButton(
                       onPressed: () => Navigator.maybePop(context),
                       icon: Icon(
-                        Icons.arrow_back_ios_rounded,
+                        Directionality.of(context) == TextDirection.rtl 
+                            ? Icons.arrow_forward_rounded 
+                            : Icons.arrow_back_rounded,
                         color: theme.primaryColor,
                         size: 20.r,
                       ),
@@ -138,7 +140,7 @@ class _PricingPlansView extends StatelessWidget {
                           padding: EdgeInsets.only(top: 50.h),
                           child: Center(
                             child: Text(
-                              "لا توجد باقات متاحة",
+                              S.of(context).noPackagesAvailable,
                               style: TextStyle(fontSize: 16.sp),
                             ),
                           ),

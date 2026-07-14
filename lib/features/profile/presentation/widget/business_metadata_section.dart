@@ -1,3 +1,4 @@
+import 'package:day_i/generated/l10n.dart';
 import 'package:day_i/features/profile/presentation/widget/custom_info_section.dart';
 import 'package:flutter/material.dart';
 
@@ -7,16 +8,18 @@ class BusinessMetadataSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomInfoSection(
-      sectionTitle: 'معلومات النشاط التجاري',
+      sectionTitle: S.of(context).businessInfo,
       infoData: [
         InfoModel(
-          title: 'نوع النشاط',
-          description: 'تجارة إلكترونية',
+          title: S.of(context).businessType,
+          // description is dynamic data from the backend — placeholder until API is connected
+          description: 'E-commerce',
           icon: Icons.storefront_outlined,
         ),
         InfoModel(
-          title: 'الموقع',
-          description: 'الرياض- المملكة العربية السعودية',
+          title: S.of(context).location,
+          // description is dynamic data from the backend — placeholder until API is connected
+          description: 'Riyadh - Saudi Arabia',
           icon: Icons.location_on_outlined,
         ),
       ],

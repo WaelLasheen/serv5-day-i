@@ -34,7 +34,7 @@ class _EditProfileContactsFormState extends State<EditProfileContactsForm> {
       children: [
         CustomFormField(
           label: S.current.fullName,
-          hintText: 'فؤاد بكر',
+          hintText: S.of(context).hintText,
           controller: _nameController,
           prefixIcon: Icon(
             Icons.person_outline,
@@ -55,7 +55,7 @@ class _EditProfileContactsFormState extends State<EditProfileContactsForm> {
         SizedBox(height: 24.h),
         CustomFormField(
           label: S.current.phoneNumber,
-          hintText: 'نص تلميحي',
+          hintText: S.of(context).hintText,
           controller: _phoneController,
           keyboardType: TextInputType.phone,
           prefixIcon: Icon(

@@ -4,6 +4,7 @@ import 'package:day_i/core/networking/i_api_service.dart';
 import 'package:day_i/core/utils/errors/failure.dart';
 import 'package:day_i/features/order_history/data/data_sources/order_history_remote_data_source.dart';
 import 'package:day_i/features/order_history/data/models/order_model.dart';
+import 'package:day_i/generated/l10n.dart';
 import 'package:day_i/features/order_history/data/models/order_stats_model.dart';
 import 'package:day_i/features/order_history/domain/params/order_params.dart';
 
@@ -52,61 +53,61 @@ class OrderHistoryRemoteDataSourceImpl implements OrderHistoryRemoteDataSource {
   ) {
     // Generate some mock orders for visual correctness
     final allMocks = [
-      const OrderModel(
+      OrderModel(
         id: 1,
         code: "ORD-2451#",
-        title: "إدارة حملة إعلانية - فيسبوك",
-        date: "12 مارس 2026",
+        title: S.current.mockOrderFacebook,
+        date: S.current.mockOrderDate1,
         status: "pending",
         budget: 12000.0,
         platform: "facebook",
         employeeName: "Ahmed",
       ),
-      const OrderModel(
+      OrderModel(
         id: 2,
         code: "ORD-2452#",
-        title: "إدارة حملة إعلانية - انستجرام",
-        date: "12 مارس 2026",
+        title: S.current.mockOrderInstagram,
+        date: S.current.mockOrderDate1,
         status: "approved",
         budget: 12000.0,
         platform: "instagram",
         employeeName: "Mohamed Hassan",
       ),
-      const OrderModel(
+      OrderModel(
         id: 3,
         code: "ORD-2453#",
-        title: "تحسين محركات البحث-SEO",
-        date: "12 مارس 2026",
+        title: S.current.mockOrderSEO,
+        date: S.current.mockOrderDate1,
         status: "pending",
         budget: 12000.0,
         platform: "google",
         employeeName: "Ahmed",
       ),
-      const OrderModel(
+      OrderModel(
         id: 4,
         code: "ORD-2454#",
-        title: "تصميم واجهات المستخدم",
-        date: "13 مارس 2026",
+        title: S.current.mockOrderUIUX,
+        date: S.current.mockOrderDate2,
         status: "late",
         budget: 15000.0,
         platform: "google",
         employeeName: "Mohamed Hassan",
       ),
-      const OrderModel(
+      OrderModel(
         id: 5,
         code: "ORD-2455#",
-        title: "حملة بريد إلكتروني ترويجية",
-        date: "14 مارس 2026",
+        title: S.current.mockOrderEmail,
+        date: S.current.mockOrderDate3,
         status: "approved",
         budget: 8000.0,
         platform: "facebook",
         employeeName: "Ali",
       ),
-      const OrderModel(
+      OrderModel(
         id: 6,
         code: "ORD-2456#",
-        title: "إنتاج محتوى فيديو ترويجي",
-        date: "15 مارس 2026",
+        title: S.current.mockOrderVideo,
+        date: S.current.mockOrderDate4,
         status: "pending",
         budget: 25000.0,
         platform: "instagram",

@@ -17,6 +17,7 @@ class MapsCubit extends Cubit<MapsState> {
 
     final result = await _searchPlacesUseCase(query);
 
+    if (isClosed) return;
     result.fold(
       (failure) => emit(MapsSearchFailure(failure.message)),
       (places) => emit(MapsSearchSuccess(places)),

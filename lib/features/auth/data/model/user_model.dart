@@ -29,19 +29,19 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      id: json['id'] as int,
-      name: json['name'] as String? ?? '',
-      email: json['email'] as String? ?? '',
-      phone: json['phone'] as String? ?? '',
-      createdAt: DateTime.parse(json['created_at']),
-      updatedAt: DateTime.parse(json['updated_at']),
-      tenantId: json['tenant_id'] as int?,
-      googleId: json['google_id'] as String?,
-      avatar: json['avatar'] as String?,
+      id: json['id'] is int ? json['id'] : int.tryParse(json['id']?.toString() ?? '') ?? 0,
+      name: json['name']?.toString() ?? '',
+      email: json['email']?.toString() ?? '',
+      phone: json['phone']?.toString() ?? '',
+      createdAt: DateTime.tryParse(json['created_at']?.toString() ?? '') ?? DateTime.now(),
+      updatedAt: DateTime.tryParse(json['updated_at']?.toString() ?? '') ?? DateTime.now(),
+      tenantId: json['tenant_id'] is int ? json['tenant_id'] : int.tryParse(json['tenant_id']?.toString() ?? ''),
+      googleId: json['google_id']?.toString(),
+      avatar: json['avatar']?.toString(),
       emailVerifiedAt: json['email_verified_at'] != null
-          ? DateTime.parse(json['email_verified_at'])
+          ? DateTime.tryParse(json['email_verified_at']?.toString() ?? '')
           : null,
-      rememberToken: json['remember_token'] as String?,
+      rememberToken: json['remember_token']?.toString(),
     );
   }
   UserEntity toEntity() {

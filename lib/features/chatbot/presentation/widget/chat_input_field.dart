@@ -3,8 +3,31 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/generated/l10n.dart';
 
-class ChatInputField extends StatelessWidget {
-  const ChatInputField({super.key});
+class ChatInputField extends StatefulWidget {
+  final Function(String) onSend;
+
+  const ChatInputField({super.key, required this.onSend});
+
+  @override
+  State<ChatInputField> createState() => _ChatInputFieldState();
+}
+
+class _ChatInputFieldState extends State<ChatInputField> {
+  final TextEditingController _controller = TextEditingController();
+
+  void _handleSend() {
+    final text = _controller.text.trim();
+    if (text.isNotEmpty) {
+      widget.onSend(text);
+      _controller.clear();
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +43,8 @@ class ChatInputField extends StatelessWidget {
           decoration: BoxDecoration(
             color: theme.surfaceColor,
             borderRadius: BorderRadius.only(
-              bottomLeft: isRtl ? Radius.zero : Radius.circular(48.r),
-              bottomRight: isRtl ? Radius.circular(48.r) : Radius.zero,
+              topLeft: Radius.circular(24.r),
+              topRight: Radius.circular(24.r),
             ),
           ),
           child: SafeArea(
@@ -33,23 +56,18 @@ class ChatInputField extends StatelessWidget {
                     height: 44.h,
                     decoration: BoxDecoration(
                       color: theme.surfaceColor,
-                      border: Border.all(
-                        color: theme.grey600,
-                        width: 1.5,
-                      ),
+                      border: Border.all(color: theme.grey600, width: 1.5),
                       borderRadius: BorderRadius.circular(48.r),
                     ),
                     child: Row(
                       children: [
                         SizedBox(width: 16.w),
-                        Icon(
-                          Icons.mic_none,
-                          color: theme.grey600,
-                          size: 20.r,
-                        ),
+                        Icon(Icons.mic_none, color: theme.grey600, size: 20.r),
                         SizedBox(width: 8.w),
                         Expanded(
                           child: TextField(
+                            controller: _controller,
+                            onSubmitted: (_) => _handleSend(),
                             decoration: InputDecoration(
                               hintText: S.of(context).typeMessage,
                               hintStyle: TextStyle(
@@ -67,25 +85,29 @@ class ChatInputField extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SizedBox(width: 16.w),
                       ],
                     ),
                   ),
                 ),
                 SizedBox(width: 16.w),
-                Container(
-                  width: 44.r,
-                  height: 44.r,
-                  decoration: BoxDecoration(
-                    color: theme.primaryColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Transform.flip(
-                      flipX: isRtl,
-                      child: Icon(
-                        Icons.send_outlined,
-                        color: theme.surfaceColor,
-                        size: 20.r,
+                GestureDetector(
+                  onTap: _handleSend,
+                  child: Container(
+                    width: 44.r,
+                    height: 44.r,
+                    decoration: BoxDecoration(
+                      color: theme.primaryColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Transform.flip(
+                        flipX: isRtl, // Flip send icon in RTL
+                        child: Icon(
+                          Icons.send_rounded,
+                          color: theme.surfaceColor,
+                          size: 20.r,
+                        ),
                       ),
                     ),
                   ),

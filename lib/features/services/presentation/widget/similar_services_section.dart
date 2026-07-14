@@ -1,4 +1,5 @@
 import 'package:day_i/core/theme/app_theme.dart';
+import 'package:day_i/core/widgets/custom_network_image.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,7 +45,7 @@ class SimilarServicesSection extends StatelessWidget {
             children: services
                 .map(
                   (service) => Padding(
-                    padding: EdgeInsets.only(left: 16.w),
+                    padding: EdgeInsetsDirectional.only(start: 16.w),
                     child: Container(
                       width: 253.w,
                       decoration: BoxDecoration(
@@ -55,7 +56,7 @@ class SimilarServicesSection extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.r),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                             blurRadius: 2,
                             offset: const Offset(0, 1),
                           ),
@@ -67,14 +68,14 @@ class SimilarServicesSection extends StatelessWidget {
                           // Image
                           Padding(
                             padding: EdgeInsets.all(16.w),
-                            child: Container(
-                              width: double.infinity,
-                              height: 128.h,
-                              decoration: BoxDecoration(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12.r),
+                              child: Container(
+                                width: double.infinity,
+                                height: 128.h,
                                 color: theme?.grey500 ?? Colors.grey[200],
-                                borderRadius: BorderRadius.circular(12.r),
-                                image: DecorationImage(
-                                  image: AssetImage(service.imageUrl),
+                                child: CustomNetworkImage(
+                                  imageUrl: service.imageUrl,
                                   fit: BoxFit.cover,
                                 ),
                               ),

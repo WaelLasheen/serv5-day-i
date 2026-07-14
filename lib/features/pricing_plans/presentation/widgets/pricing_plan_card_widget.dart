@@ -4,6 +4,7 @@ import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
 import 'package:day_i/features/pricing_plans/data/models/pricing_plan_model.dart';
+import 'package:day_i/generated/l10n.dart';
 
 class PricingPlanCardWidget extends StatelessWidget {
   final PricingPlanModel plan;
@@ -113,11 +114,16 @@ class PricingPlanCardWidget extends StatelessWidget {
               .map((feature) => _buildFeatureItem(feature.toString())),
           SizedBox(height: 16.h),
           AppButton(
-            text: plan.button?.text ?? 'أبدأ الآن',
+            text: plan.button?.text ?? S.of(context).startNow,
             onPressed: () {
               // Action logic based on plan.button?.action
             },
-            icon: Icon(Icons.arrow_forward_ios_rounded, size: 16.r),
+            icon: Icon(
+              Directionality.of(context) == TextDirection.rtl
+                  ? Icons.arrow_back_rounded
+                  : Icons.arrow_forward_rounded,
+              size: 16.r,
+            ),
             isIconTrailing: true,
             height: 48,
             fontSize: 16,
@@ -152,7 +158,7 @@ class PricingPlanCardWidget extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              textAlign: TextAlign.right,
+              textAlign: TextAlign.start,
               style: TextStyle(
                 fontFamily: 'Rubik',
                 fontSize: 14.sp,

@@ -28,11 +28,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(time) => "Execution Time : ${time}";
 
-  static String m4(percentage) => "Tax(${percentage}%)";
+  static String m4(name) => "Hello ${name}!";
 
-  static String m5(percentage) => "Tax (${percentage}%)";
+  static String m5(count) => "(${count} reviews)";
 
-  static String m6(days) => "${days} working days";
+  static String m6(percentage) => "Tax(${percentage}%)";
+
+  static String m7(percentage) => "Tax (${percentage}%)";
+
+  static String m8(days) => "${days} working days";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -62,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already have an account?",
     ),
     "alwaysActive": MessageLookupByLibrary.simpleMessage("Always Active"),
+    "appPreferences": MessageLookupByLibrary.simpleMessage("App Preferences"),
     "appTitle": MessageLookupByLibrary.simpleMessage("Day I"),
     "approved": MessageLookupByLibrary.simpleMessage("Approved"),
     "approximateTotal": MessageLookupByLibrary.simpleMessage(
@@ -72,8 +77,19 @@ class MessageLookup extends MessageLookupByLibrary {
       "Assigned service team",
     ),
     "badCertificate": MessageLookupByLibrary.simpleMessage("Bad Certificate"),
+    "billingAndPayment": MessageLookupByLibrary.simpleMessage(
+      "Billing and Payment",
+    ),
+    "billingHistory": MessageLookupByLibrary.simpleMessage("Billing History"),
     "budget": MessageLookupByLibrary.simpleMessage("Budget"),
     "budgetLabel": m0,
+    "businessInfo": MessageLookupByLibrary.simpleMessage(
+      "Business Information",
+    ),
+    "businessMetadata": MessageLookupByLibrary.simpleMessage(
+      "Business Metadata",
+    ),
+    "businessType": MessageLookupByLibrary.simpleMessage("Business Type"),
     "campaignManagement": MessageLookupByLibrary.simpleMessage(
       "Advertising Campaigns Management",
     ),
@@ -122,7 +138,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "chooseSubject": MessageLookupByLibrary.simpleMessage(
       "Choose contact subject",
     ),
+    "communicationInfo": MessageLookupByLibrary.simpleMessage(
+      "Communication Info",
+    ),
     "companyName": MessageLookupByLibrary.simpleMessage("Company Name"),
+    "companyNameHint": MessageLookupByLibrary.simpleMessage(
+      "Enter the official name of your company as it will appear to customers",
+    ),
     "companyNameReq": MessageLookupByLibrary.simpleMessage(
       "Company Name is required",
     ),
@@ -147,10 +169,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "creditCard": MessageLookupByLibrary.simpleMessage("Credit Card"),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
+    "currentPlan": MessageLookupByLibrary.simpleMessage("Current Plan"),
     "customerInfoLabel": MessageLookupByLibrary.simpleMessage(
       "Customer Information",
     ),
     "customerReviews": MessageLookupByLibrary.simpleMessage("Customer Reviews"),
+    "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "dataUsage": MessageLookupByLibrary.simpleMessage("Data Usage"),
     "deactivateAccount": MessageLookupByLibrary.simpleMessage(
       "Deactivate Account",
@@ -190,6 +214,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "expiresIn": MessageLookupByLibrary.simpleMessage("Expires in"),
     "expiryDate": MessageLookupByLibrary.simpleMessage("Expiry Date"),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
+    "featureFasterResults": MessageLookupByLibrary.simpleMessage(
+      "Faster Results",
+    ),
+    "featureFasterResultsDesc": MessageLookupByLibrary.simpleMessage(
+      "An advanced methodology that ensures reaching your goals in record time.",
+    ),
+    "featurePeriodicReports": MessageLookupByLibrary.simpleMessage(
+      "Periodic Reports",
+    ),
+    "featurePeriodicReportsDesc": MessageLookupByLibrary.simpleMessage(
+      "Continuous communication and transparent reports showing every detail of your budget spending.",
+    ),
+    "featurePreciseTargeting": MessageLookupByLibrary.simpleMessage(
+      "Precise Targeting",
+    ),
+    "featurePreciseTargetingDesc": MessageLookupByLibrary.simpleMessage(
+      "We use accurate data to reach your potential customers with high efficiency.",
+    ),
+    "fieldRequired": MessageLookupByLibrary.simpleMessage("Required"),
     "finalTotalLabel": MessageLookupByLibrary.simpleMessage("Final Total"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "Flexible packages to suit your business size and marketing goals",
@@ -205,10 +248,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullNameReq": MessageLookupByLibrary.simpleMessage(
       "Full Name is required",
     ),
+    "growthPlan": MessageLookupByLibrary.simpleMessage("Growth Plan"),
     "hello": MessageLookupByLibrary.simpleMessage("Hello World!"),
+    "helloUser": m4,
+    "helpAndSupport": MessageLookupByLibrary.simpleMessage("Help and Support"),
+    "helpCenter": MessageLookupByLibrary.simpleMessage("Help Center"),
+    "hintText": MessageLookupByLibrary.simpleMessage("Hint text"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "included": MessageLookupByLibrary.simpleMessage("Included"),
     "industry": MessageLookupByLibrary.simpleMessage("Industry"),
+    "industryHint": MessageLookupByLibrary.simpleMessage(
+      "Choose the industry your company operates in",
+    ),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "Internal Server error, Please try later",
     ),
@@ -222,7 +273,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "invoiceNumberLabel": MessageLookupByLibrary.simpleMessage(
       "Invoice Number",
     ),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
     "late": MessageLookupByLibrary.simpleMessage("Late"),
+    "location": MessageLookupByLibrary.simpleMessage("Location"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "Login to manage book fairs and cultural events",
@@ -243,8 +296,80 @@ class MessageLookup extends MessageLookupByLibrary {
       "Markiva Contact Information",
     ),
     "mediumPassword": MessageLookupByLibrary.simpleMessage("Medium"),
+    "messageSentSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Message sent successfully",
+    ),
+    "mockCategoryAds": MessageLookupByLibrary.simpleMessage("Ads"),
+    "mockCategoryContentWriting": MessageLookupByLibrary.simpleMessage(
+      "Content Writing",
+    ),
+    "mockCategoryDesign": MessageLookupByLibrary.simpleMessage("Design"),
+    "mockCategorySocialMedia": MessageLookupByLibrary.simpleMessage(
+      "Social Media",
+    ),
+    "mockCustomerName": MessageLookupByLibrary.simpleMessage(
+      "Ahmed Mahmoud Al-Khalidi",
+    ),
+    "mockDuration12Days": MessageLookupByLibrary.simpleMessage("12 Days"),
+    "mockDuration7Days": MessageLookupByLibrary.simpleMessage("7 Days"),
+    "mockOrderDate1": MessageLookupByLibrary.simpleMessage("12 March 2026"),
+    "mockOrderDate2": MessageLookupByLibrary.simpleMessage("13 March 2026"),
+    "mockOrderDate3": MessageLookupByLibrary.simpleMessage("14 March 2026"),
+    "mockOrderDate4": MessageLookupByLibrary.simpleMessage("15 March 2026"),
+    "mockOrderEmail": MessageLookupByLibrary.simpleMessage(
+      "Promotional Email Campaign",
+    ),
+    "mockOrderFacebook": MessageLookupByLibrary.simpleMessage(
+      "Ad Campaign Management - Facebook",
+    ),
+    "mockOrderInstagram": MessageLookupByLibrary.simpleMessage(
+      "Ad Campaign Management - Instagram",
+    ),
+    "mockOrderSEO": MessageLookupByLibrary.simpleMessage(
+      "Search Engine Optimization (SEO)",
+    ),
+    "mockOrderUIUX": MessageLookupByLibrary.simpleMessage(
+      "User Interface Design",
+    ),
+    "mockOrderVideo": MessageLookupByLibrary.simpleMessage(
+      "Promotional Video Content Production",
+    ),
+    "mockPaymentCreditCard": MessageLookupByLibrary.simpleMessage(
+      "Credit Card",
+    ),
+    "mockReviewAuthor": MessageLookupByLibrary.simpleMessage(
+      "Abdullah Al-Qahtani",
+    ),
+    "mockReviewComment": MessageLookupByLibrary.simpleMessage(
+      "The service is excellent and the team is very professional in dealing and responding. I noticed a difference in results from the first week.",
+    ),
+    "mockReviewDate": MessageLookupByLibrary.simpleMessage("2 days ago"),
+    "mockServiceAdCampaign": MessageLookupByLibrary.simpleMessage(
+      "Ad Campaign Management",
+    ),
+    "mockServiceDigitalMarketing": MessageLookupByLibrary.simpleMessage(
+      "Digital Marketing",
+    ),
+    "mockSimilarServiceTitle": MessageLookupByLibrary.simpleMessage(
+      "Social Media Account Management",
+    ),
+    "mockStatusPaid": MessageLookupByLibrary.simpleMessage("Paid"),
+    "mockSuggestedServiceTag1": MessageLookupByLibrary.simpleMessage("Design"),
+    "mockSuggestedServiceTag2": MessageLookupByLibrary.simpleMessage(
+      "Digital Ads",
+    ),
+    "mockSuggestedServiceTitle1": MessageLookupByLibrary.simpleMessage(
+      "Web & App Design",
+    ),
+    "mockSuggestedServiceTitle2": MessageLookupByLibrary.simpleMessage(
+      "Execute Paid Ad Campaigns",
+    ),
+    "name": MessageLookupByLibrary.simpleMessage("Name"),
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "next": MessageLookupByLibrary.simpleMessage("next"),
+    "nextRenewalDate": MessageLookupByLibrary.simpleMessage(
+      "Next Renewal Date",
+    ),
     "noFaqsAvailable": MessageLookupByLibrary.simpleMessage(
       "No FAQs currently available.",
     ),
@@ -255,13 +380,49 @@ class MessageLookup extends MessageLookupByLibrary {
       "No notifications currently",
     ),
     "noOrders": MessageLookupByLibrary.simpleMessage("No orders found"),
+    "noPackagesAvailable": MessageLookupByLibrary.simpleMessage(
+      "No packages available",
+    ),
     "noServicesAvailable": MessageLookupByLibrary.simpleMessage(
       "No services available",
     ),
     "notesHint": MessageLookupByLibrary.simpleMessage(
       "e.g., additional details about the target audience or specific goals...",
     ),
+    "notificationMockSubtitle1": MessageLookupByLibrary.simpleMessage(
+      "A suitable service suggestion for your business is available now.",
+    ),
+    "notificationMockSubtitle2": MessageLookupByLibrary.simpleMessage(
+      "This service is perfectly aligned with your current marketing goals.",
+    ),
+    "notificationMockTitle1": MessageLookupByLibrary.simpleMessage(
+      "Ready to grow your campaign?",
+    ),
+    "notificationMockTitle2": MessageLookupByLibrary.simpleMessage(
+      "Great Choice",
+    ),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+    "onboarding1Description": MessageLookupByLibrary.simpleMessage(
+      "All the marketing tools you need in one place\nFrom planning to execution and tracking.",
+    ),
+    "onboarding1TitleHighlight": MessageLookupByLibrary.simpleMessage(
+      "Markiva",
+    ),
+    "onboarding1TitleSuffix": MessageLookupByLibrary.simpleMessage(
+      "... Smarter Marketing Management",
+    ),
+    "onboarding2Description": MessageLookupByLibrary.simpleMessage(
+      "Track campaigns, tasks, and performance\nWithout complexity or distraction.",
+    ),
+    "onboarding2Title": MessageLookupByLibrary.simpleMessage(
+      "Plan, Execute, Track Easily",
+    ),
+    "onboarding3Description": MessageLookupByLibrary.simpleMessage(
+      "Clear reports that help you make the right decision\nAt the right time.",
+    ),
+    "onboarding3Title": MessageLookupByLibrary.simpleMessage(
+      "Every Decision Based on Numbers",
+    ),
     "oopsError": MessageLookupByLibrary.simpleMessage(
       "Oops! There was an Error, Please try again",
     ),
@@ -338,6 +499,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "postalCode": MessageLookupByLibrary.simpleMessage("Postal Code"),
     "prices": MessageLookupByLibrary.simpleMessage("Prices"),
     "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
+    "privacyAndSecurity": MessageLookupByLibrary.simpleMessage(
+      "Privacy and Security",
+    ),
+    "privacySettings": MessageLookupByLibrary.simpleMessage("Privacy Settings"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage("Receive timeout"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register Now"),
     "requestCanceled": MessageLookupByLibrary.simpleMessage(
@@ -349,10 +514,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "Enter a strong password to protect your account.",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "reviewOrders": MessageLookupByLibrary.simpleMessage("Review My Orders"),
     "reviewYourOrder": MessageLookupByLibrary.simpleMessage(
       "Review Your Order",
     ),
+    "reviewsCount": m5,
     "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "savePaymentForLater": MessageLookupByLibrary.simpleMessage(
       "Save payment method for later use",
@@ -370,16 +537,41 @@ class MessageLookup extends MessageLookupByLibrary {
       "Search by service name or request number...",
     ),
     "securityAlerts": MessageLookupByLibrary.simpleMessage("Security Alerts"),
+    "securityAndPrivacy": MessageLookupByLibrary.simpleMessage(
+      "Security and Privacy",
+    ),
     "securityCode": MessageLookupByLibrary.simpleMessage("Security Code"),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("Selected Plan"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Verification Code"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("Send Message"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
+    "serviceCategories": MessageLookupByLibrary.simpleMessage(
+      "Service Categories",
+    ),
     "serviceDescription": MessageLookupByLibrary.simpleMessage(
       "Service Description",
     ),
+    "serviceDescriptionText": MessageLookupByLibrary.simpleMessage(
+      "We provide you with a comprehensive and professional service for creating and managing your advertising campaigns across various digital platforms. It focuses on targeting the right audience precisely to ensure the highest levels of reach and conversion. With continuous performance improvement to reduce costs and increase return on investment.",
+    ),
     "serviceDetailsLabel": MessageLookupByLibrary.simpleMessage(
       "Service Details",
+    ),
+    "serviceInclude1": MessageLookupByLibrary.simpleMessage(
+      "Advertising strategy preparation",
+    ),
+    "serviceInclude2": MessageLookupByLibrary.simpleMessage(
+      "Campaign creation on the required platform",
+    ),
+    "serviceInclude3": MessageLookupByLibrary.simpleMessage("Writing ad copy"),
+    "serviceInclude4": MessageLookupByLibrary.simpleMessage(
+      "Designing ad images or videos",
+    ),
+    "serviceInclude5": MessageLookupByLibrary.simpleMessage(
+      "Daily performance monitoring and optimization",
+    ),
+    "serviceInclude6": MessageLookupByLibrary.simpleMessage(
+      "Detailed final results report",
     ),
     "servicePrice": MessageLookupByLibrary.simpleMessage("Service Price"),
     "servicePriceLabel": MessageLookupByLibrary.simpleMessage("Service Price"),
@@ -404,9 +596,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "startNow": MessageLookupByLibrary.simpleMessage("Start Now"),
     "strongPassword": MessageLookupByLibrary.simpleMessage("Strong"),
     "subject": MessageLookupByLibrary.simpleMessage("Subject"),
+    "subscribedPlanHint": MessageLookupByLibrary.simpleMessage(
+      "The plan you subscribed to to activate platform services",
+    ),
     "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),
-    "tax": m4,
-    "taxLabel": m5,
+    "suggestedServicesForYou": MessageLookupByLibrary.simpleMessage(
+      "Suggested Services For You",
+    ),
+    "tax": m6,
+    "taxLabel": m7,
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "I agree to the terms and conditions and privacy policy",
     ),
@@ -419,10 +617,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "Unexpected Error, Please try again!",
     ),
+    "upgradePlan": MessageLookupByLibrary.simpleMessage("Upgrade Plan"),
     "userMessage": MessageLookupByLibrary.simpleMessage("User Message"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
     "viewAll": MessageLookupByLibrary.simpleMessage("View All"),
     "viewDetails": MessageLookupByLibrary.simpleMessage("View Details"),
+    "viewMore": MessageLookupByLibrary.simpleMessage("View More"),
     "visibilityControl": MessageLookupByLibrary.simpleMessage(
       "Visibility Control",
     ),
@@ -435,7 +635,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "whyChooseMarkiva": MessageLookupByLibrary.simpleMessage(
       "Why choose Markiva",
     ),
-    "workingDays": m6,
+    "workingDays": m8,
     "writeMessageHere": MessageLookupByLibrary.simpleMessage(
       "Write your message here",
     ),

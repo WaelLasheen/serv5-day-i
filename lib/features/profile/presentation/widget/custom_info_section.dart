@@ -133,7 +133,7 @@ class CustomInfoSection extends StatelessWidget {
                                 SizedBox(height: 8.h),
                                 Text(
                                   item.description!,
-                                  textAlign: TextAlign.right,
+                                  textAlign: TextAlign.start,
                                   style: TextStyle(
                                     fontFamily: 'Rubik',
                                     fontWeight: FontWeight.w400,

@@ -28,7 +28,12 @@ class NotificationScreen extends StatelessWidget {
           style: textTheme.titleLarge?.copyWith(color: appTheme.textPrimary),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_rounded, color: appTheme.primaryColor),
+          icon: Icon(
+            Directionality.of(context) == TextDirection.rtl
+                ? Icons.arrow_forward_rounded
+                : Icons.arrow_back_rounded,
+            color: appTheme.primaryColor,
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
         bottom: PreferredSize(
@@ -53,8 +58,11 @@ class NotificationScreen extends StatelessWidget {
                 ),
               ),
             );
-          } else if (state is NotificationLoaded) {
-            if (state.notifications.isEmpty) {
+          } else if (state is NotificationLoaded || state is UnreadNotificationsLoaded) {
+            final notifications = state is NotificationLoaded
+                ? state.notifications
+                : (state as UnreadNotificationsLoaded).notifications;
+            if (notifications.isEmpty) {
               return Center(
                 child: Text(
                   S.of(context).noNotificationsCurrently,
@@ -69,10 +77,10 @@ class NotificationScreen extends StatelessWidget {
                   context.read<NotificationCubit>().fetchNotifications(),
               child: ListView.separated(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-                itemCount: state.notifications.length,
+                itemCount: notifications.length,
                 separatorBuilder: (context, index) => SizedBox(height: 16.h),
                 itemBuilder: (context, index) {
-                  final notification = state.notifications[index];
+                  final notification = notifications[index];
                   return NotificationCard(
                     title: notification.title,
                     subtitle: notification.subtitle,
@@ -82,19 +90,18 @@ class NotificationScreen extends StatelessWidget {
             );
           }
 
-          // Initial State - show dummy for now until fetch completes or if not fetched
+          // Initial State — show localized placeholders until fetch completes
           return ListView(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
             children: [
-              const NotificationCard(
-                title: 'جاهز تطوّر حملتك؟',
-                subtitle: 'اقتراح خدمة مناسبة لنشاطك متاح دلوقتي.',
+              NotificationCard(
+                title: S.of(context).notificationMockTitle1,
+                subtitle: S.of(context).notificationMockSubtitle1,
               ),
               SizedBox(height: 16.h),
-              const NotificationCard(
-                title: 'اختيار موفق',
-                subtitle:
-                    'الخدمة دي متوافقة تمامًا مع أهدافك التسويقية الحالية.',
+              NotificationCard(
+                title: S.of(context).notificationMockTitle2,
+                subtitle: S.of(context).notificationMockSubtitle2,
               ),
             ],
           );

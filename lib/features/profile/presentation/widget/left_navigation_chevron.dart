@@ -7,13 +7,11 @@ class LeftNavigationChevron extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Directionality(
-      textDirection: TextDirection.ltr,
-      child: Icon(
-        Icons.arrow_back_ios_new_rounded,
-        size: 16.r,
-        color: context.appTheme.primaryColor,
-      ),
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+    return Icon(
+      isRtl ? Icons.arrow_back_rounded : Icons.arrow_forward_rounded,
+      size: 16.r,
+      color: context.appTheme.primaryColor,
     );
   }
 }

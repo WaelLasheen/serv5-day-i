@@ -13,4 +13,14 @@ class NotificationRepositoryImpl implements NotificationRepository {
   Future<Either<Failure, List<NotificationEntity>>> getNotifications() async {
     return await remoteDataSource.getNotifications();
   }
+
+  @override
+  Future<Either<Failure, List<NotificationEntity>>> getUnreadNotifications() async {
+    return await remoteDataSource.getUnreadNotifications();
+  }
+
+  @override
+  Future<Either<Failure, int>> getUnreadCount({required String lang}) async {
+    return await remoteDataSource.getUnreadCount(lang: lang);
+  }
 }

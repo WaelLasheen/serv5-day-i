@@ -29,18 +29,20 @@ class AuthHeader extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
         children: [
-          Directionality(
-            textDirection: TextDirection.ltr,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () => context.navigateBack(),
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => context.navigateBack(),
+                icon: Icon(
+                  Directionality.of(context) == TextDirection.rtl
+                      ? Icons.arrow_forward_rounded
+                      : Icons.arrow_back_rounded,
+                  color: Colors.white,
                 ),
-                LanguageSwitcher(),
-              ],
-            ),
+              ),
+              LanguageSwitcher(),
+            ],
           ),
           Text(
             title,

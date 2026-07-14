@@ -54,7 +54,12 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_rounded, color: appTheme.primaryColor),
+          icon: Icon(
+            Directionality.of(context) == TextDirection.rtl
+                ? Icons.arrow_forward_rounded
+                : Icons.arrow_back_rounded,
+            color: appTheme.primaryColor,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -70,7 +75,7 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
               CustomFormField(
                 label: S.current.cardHolderName,
                 controller: _cardHolderController,
-                hintText: 'فؤاد بكر',
+                hintText: S.of(context).hintText,
                 suffixIcon: Icon(
                   Icons.person_outline,
                   size: 20.r,

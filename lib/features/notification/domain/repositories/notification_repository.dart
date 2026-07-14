@@ -4,4 +4,6 @@ import 'package:day_i/features/notification/domain/entities/notification_entity.
 
 abstract class NotificationRepository {
   Future<Either<Failure, List<NotificationEntity>>> getNotifications();
+  Future<Either<Failure, List<NotificationEntity>>> getUnreadNotifications();
+  Future<Either<Failure, int>> getUnreadCount({required String lang});
 }

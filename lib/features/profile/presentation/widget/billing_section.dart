@@ -1,3 +1,4 @@
+import 'package:day_i/generated/l10n.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
 import 'package:day_i/features/profile/presentation/widget/custom_info_section.dart';
@@ -11,11 +12,11 @@ class BillingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomInfoSection(
-      sectionTitle: 'الفواتير والدفع',
+      sectionTitle: S.of(context).billingAndPayment,
       infoData: [
         // Payment Methods Row with specialized Visa Info Badge Container
         InfoModel(
-          title: 'طرق الدفع',
+          title: S.of(context).paymentMethods,
           icon: Icons.credit_card_outlined,
           onTap: () => context.navigateTo(RouterPath.payment),
           trailing: Row(
@@ -45,7 +46,7 @@ class BillingSection extends StatelessWidget {
           ),
         ),
         InfoModel(
-          title: 'سجل الفواتير',
+          title: S.of(context).billingHistory,
           icon: Icons.description_outlined,
           onTap: () => context.navigateTo(RouterPath.orderDetails),
           trailing: const LeftNavigationChevron(),

@@ -1,3 +1,4 @@
+import 'package:day_i/generated/l10n.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/features/profile/presentation/widget/custom_info_section.dart';
@@ -11,7 +12,7 @@ class CommunicationInfoSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final appTheme = context.appTheme;
     return CustomInfoSection(
-      sectionTitle: 'بيانات التواصل',
+      sectionTitle: S.of(context).communicationInfo,
       // Action Widget configured exactly as your Edit button parameters
       actionWidget: Container(
         width: 35.w,
@@ -37,20 +38,20 @@ class CommunicationInfoSection extends StatelessWidget {
       infoData: [
         // Row 1: Phone
         InfoModel(
-          title: 'رقم الهاتف',
+          title: S.of(context).phoneNumber,
           description: '0123456789',
           icon: Icons.phone_in_talk_outlined,
         ),
         // Row 2: Email
         InfoModel(
-          title: 'البريد الإلكتروني',
+          title: S.of(context).email,
           description: 'info@gmail.com',
           icon: Icons.mail_outline_rounded,
         ),
         // Row 3: Name
         InfoModel(
-          title: 'الاسم',
-          description: 'فؤاد بكر',
+          title: S.of(context).name,
+          description: 'Fouad Bakr',
           icon: Icons.person_outline_rounded,
         ),
       ],

@@ -40,7 +40,7 @@ class CreateAccountFields extends StatelessWidget {
           children: [
             CustomFormField(
               label: S.current.companyName,
-              hintText: "أدخل الاسم الرسمي لشركتك كما سيظهر للعملاء",
+              hintText: S.of(context).companyNameHint,
               controller: companyNameController,
               prefixIcon: const Icon(
                 Icons.business_outlined,
@@ -93,7 +93,7 @@ class CreateAccountFields extends StatelessWidget {
             SizedBox(height: 16.h),
             CustomFormField(
               label: S.current.industry,
-              hintText: "اختر المجال الذي تعمل فيه شركتك",
+              hintText: S.of(context).industryHint,
               controller: industryController,
               suffixIcon: const Icon(
                 Icons.keyboard_arrow_down,
@@ -101,7 +101,7 @@ class CreateAccountFields extends StatelessWidget {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'مطلوب';
+                  return S.of(context).fieldRequired;
                 }
                 return null;
               },
@@ -109,7 +109,7 @@ class CreateAccountFields extends StatelessWidget {
             SizedBox(height: 16.h),
             CustomFormField(
               label: S.current.selectedPlan,
-              hintText: "الخطة التي اشتركت بها لتفعيل خدمات المنصة",
+              hintText: S.of(context).subscribedPlanHint,
               controller: selectedPlanController,
               prefixIcon: const Icon(
                 Icons.credit_card_outlined,
@@ -117,7 +117,7 @@ class CreateAccountFields extends StatelessWidget {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'مطلوب';
+                  return S.of(context).fieldRequired;
                 }
                 return null;
               },

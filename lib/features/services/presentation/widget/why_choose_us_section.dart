@@ -48,19 +48,19 @@ class WhyChooseUsSection extends StatelessWidget {
           child: Row(
             children: features
                 .map((feature) => Padding(
-                      padding: EdgeInsets.only(left: 16.w),
+                      padding: EdgeInsetsDirectional.only(start: 16.w),
                       child: Container(
                         width: 253.w,
                         padding: EdgeInsets.all(24.w),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.9), // fallback for blur
+                          color: Colors.white.withValues(alpha: 0.9), // fallback for blur
                           border: Border.all(
                             color: theme?.grey500 ?? const Color(0xFFDEDEDE),
                           ),
                           borderRadius: BorderRadius.circular(20.r),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.05),
+                              color: Colors.black.withValues(alpha: 0.05),
                               blurRadius: 6,
                             ),
                           ],

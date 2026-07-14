@@ -32,7 +32,7 @@ class SignupForm extends StatelessWidget {
         CustomFormField(
           controller: nameController,
           label: S.current.fullName,
-          hintText: "رانيا بكر",
+          hintText: S.of(context).hintText,
           prefixIcon: const Icon(Icons.person_outline),
           validator: ValidationService.validateFullName,
           textInputAction: TextInputAction.next,

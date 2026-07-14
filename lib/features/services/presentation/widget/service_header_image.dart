@@ -1,4 +1,5 @@
 import 'package:day_i/core/theme/app_theme.dart';
+import 'package:day_i/core/widgets/custom_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,25 +20,24 @@ class ServiceHeaderImage extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        // Background Image
         Container(
           width: double.infinity,
           height: 180.h,
-          decoration: BoxDecoration(
-            color: theme?.grey200 ?? Colors.grey[200],
-            image: DecorationImage(
-              image: AssetImage(imageUrl), // In real app, might be NetworkImage
-              fit: BoxFit.cover,
-            ),
+          color: theme?.grey200 ?? Colors.grey[200],
+          child: CustomNetworkImage(
+            imageUrl: imageUrl,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: 180.h,
           ),
         ),
         
         // Category Pill
-        Positioned(
-          bottom: -18.h, // overlapping the bottom edge slightly
-          left: 0,
-          right: 0,
-          child: Center(
+        if (categoryName.isNotEmpty)
+          Positioned.directional(
+            textDirection: Directionality.of(context),
+            top: 16.h,
+            end: 16.w,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
               decoration: BoxDecoration(
@@ -53,7 +53,6 @@ class ServiceHeaderImage extends StatelessWidget {
               ),
             ),
           ),
-        ),
       ],
     );
   }

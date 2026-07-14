@@ -27,6 +27,21 @@ class _NavBarScreenState extends State<NavBarScreen> {
   int _currentIndex = 0;
   List<Widget>? _screens;
   Locale? _currentLocale;
+  late final ServiceCubit _serviceCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _serviceCubit = ServiceCubit(
+      getServicesUseCase: getIt<GetServicesUseCase>(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _serviceCubit.close();
+    super.dispose();
+  }
 
   @override
   void didChangeDependencies() {
@@ -34,14 +49,10 @@ class _NavBarScreenState extends State<NavBarScreen> {
     final locale = Localizations.localeOf(context);
     if (_currentLocale != locale) {
       _currentLocale = locale;
+      _serviceCubit.getServices(locale.languageCode);
       _screens = [
         const HomeScreen(),
-        BlocProvider(
-          create: (context) =>
-              ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
-                ..getServices(locale.languageCode),
-          child: const ServicesScreen(),
-        ),
+        const ServicesScreen(),
         BlocProvider(
           create: (context) => getIt<OrderHistoryCubit>(),
           child: const OrderHistoryScreen(),
@@ -51,7 +62,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     }
   }
 
-  final List<NavBarItemModel> navBarItems = [
+  List<NavBarItemModel> get navBarItems => [
     NavBarItemModel(icon: Icons.home_outlined, label: S.current.home, index: 0),
     NavBarItemModel(
       icon: Icons.dashboard_customize_outlined,
@@ -70,58 +81,66 @@ class _NavBarScreenState extends State<NavBarScreen> {
   Widget build(BuildContext context) {
     final appTheme = context.appTheme;
 
-    return Scaffold(
-      extendBody: true,
-      body: Stack(
-        children: [
-          _screens != null ? _screens![_currentIndex] : const SizedBox.shrink(),
-          Positioned(
-            right: 34.w,
-            bottom: 94.h + 24.h, // Adjusted for padding of bottomNavigationBar
-            child: FloatingBotButton(
-              onTap: () {
-                Navigator.pushNamed(context, RouterPath.chatbot);
-              },
+    return BlocProvider.value(
+      value: _serviceCubit,
+      child: Scaffold(
+        extendBody: true,
+        body: Stack(
+          children: [
+            _screens != null
+                ? _screens![_currentIndex]
+                : const SizedBox.shrink(),
+            Positioned(
+              right: 0,
+              bottom:
+                  94.h + 24.h, // Adjusted for padding of bottomNavigationBar
+              child: FloatingBotButton(
+                onTap: () {
+                  Navigator.pushNamed(context, RouterPath.chatbot);
+                },
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
 
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(bottom: 24.h),
-          child: Container(
-            width: 343.w,
-            height: 76.h,
-            margin: EdgeInsets.symmetric(horizontal: 16.w),
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-            decoration: BoxDecoration(
-              color: appTheme.blueLight,
-              borderRadius: BorderRadius.circular(999.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ...navBarItems.map((e) {
-                  return NavBarItem(
-                    icon: e.icon,
-                    label: e.label,
-                    onTap: () {
-                      if (_currentIndex != e.index) {
-                        setState(() => _currentIndex = e.index);
-                      }
-                    },
-                    isSelected: e.index == _currentIndex,
-                  );
-                }),
-              ],
+        bottomNavigationBar: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 24.h),
+            child: Container(
+              width: 343.w,
+              height: 76.h,
+              margin: EdgeInsets.symmetric(horizontal: 16.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+              decoration: BoxDecoration(
+                color: appTheme.blueLight,
+                borderRadius: BorderRadius.circular(999.r),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ...navBarItems.map((e) {
+                    return Expanded(
+                      child: NavBarItem(
+                        icon: e.icon,
+                        label: e.label,
+                        onTap: () {
+                          if (_currentIndex != e.index) {
+                            setState(() => _currentIndex = e.index);
+                          }
+                        },
+                        isSelected: e.index == _currentIndex,
+                      ),
+                    );
+                  }),
+                ],
+              ),
             ),
           ),
         ),

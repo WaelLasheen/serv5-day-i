@@ -1,5 +1,7 @@
 import 'package:day_i/core/di/di.dart';
 import 'package:day_i/core/utils/consts/image_path.dart';
+import 'package:day_i/generated/l10n.dart';
+import 'package:flutter/material.dart';
 
 class OnboardingPageData {
   final String imageAsset;
@@ -17,24 +19,27 @@ class OnboardingPageData {
   });
 }
 
-/// Content for the 3 onboarding slides, matching the provided designs.
-final List<OnboardingPageData> onboardingPages = [
-  OnboardingPageData(
-    imageAsset: getIt<ImagePath>().setupAnalytics,
-    titlePrefix: '',
-    titleHighlight: 'ماركيفا',
-    titleSuffix: '... إدارة تسويق أذكى',
-    description:
-        'كل أدوات التسويق اللي محتاجاها في مكان واحد\nمن التخطيط للتنفيذ والمتابعة.',
-  ),
-  OnboardingPageData(
-    imageAsset: getIt<ImagePath>().schedule,
-    titlePrefix: 'خطّط، نفّذ، تابع بسهولة',
-    description: 'تابعي الحملات، المهام، والأداء\nبدون تعقيد أو تشتيت.',
-  ),
-  OnboardingPageData(
-    imageAsset: getIt<ImagePath>().atTheOffice,
-    titlePrefix: 'كل قراراتك مبنية على أرقام',
-    description: 'تقارير واضحة تساعدك تاخدي القرار الصح\nفي الوقت الصح.',
-  ),
-];
+/// Returns localized onboarding pages. Call inside a build method with a valid context.
+List<OnboardingPageData> getOnboardingPages(BuildContext context) {
+  final l10n = S.of(context);
+  final imagePath = getIt<ImagePath>();
+  return [
+    OnboardingPageData(
+      imageAsset: imagePath.setupAnalytics,
+      titlePrefix: '',
+      titleHighlight: l10n.onboarding1TitleHighlight,
+      titleSuffix: l10n.onboarding1TitleSuffix,
+      description: l10n.onboarding1Description,
+    ),
+    OnboardingPageData(
+      imageAsset: imagePath.schedule,
+      titlePrefix: l10n.onboarding2Title,
+      description: l10n.onboarding2Description,
+    ),
+    OnboardingPageData(
+      imageAsset: imagePath.atTheOffice,
+      titlePrefix: l10n.onboarding3Title,
+      description: l10n.onboarding3Description,
+    ),
+  ];
+}

@@ -11,6 +11,7 @@ import 'package:day_i/features/auth/presentation/controller/change_password_cubi
 import 'package:day_i/features/auth/presentation/screen/forgot_password_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/login_screen.dart';
 import 'package:day_i/features/auth/presentation/screen/signup_screen.dart';
+import 'package:day_i/features/payment/presentation/controller/payment_cubit.dart';
 import 'package:day_i/features/payment/presentation/screen/add_payment_method_screen.dart';
 import 'package:day_i/features/payment/presentation/screen/payment_screen.dart';
 import 'package:day_i/features/payment/presentation/screen/success_payment_screen.dart';
@@ -20,6 +21,7 @@ import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
 import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/features/services/presentation/screen/services_screen.dart';
 import 'package:day_i/features/services/presentation/screen/service_details_screen.dart';
+import 'package:day_i/features/services/presentation/controller/service_details_cubit/service_details_cubit.dart';
 import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_contacts_screen.dart';
@@ -29,7 +31,6 @@ import 'package:day_i/features/privacy/presentation/screen/privacy_screen.dart';
 import 'package:day_i/features/contacts/presentation/screen/contacts_screen.dart';
 import 'package:day_i/features/splash/presentation/screens/onboarding_screen.dart';
 import 'package:day_i/features/splash/presentation/screens/register_screen.dart';
-import 'package:day_i/features/splash/presentation/screens/splash_screen.dart';
 import 'package:day_i/features/home/presentation/screen/home_screen.dart';
 import 'package:day_i/features/notification/presentation/pages/notification_screen.dart';
 import 'package:day_i/features/notification/presentation/controller/notification_cubit/notification_cubit.dart';
@@ -120,11 +121,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             final lang = Localizations.localeOf(context).languageCode;
+            final selectedCategoryId = settings.arguments as int?;
             return BlocProvider(
               create: (context) =>
                   ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
                     ..getServices(lang),
-              child: const ServicesScreen(),
+              child: ServicesScreen(initialCategoryId: selectedCategoryId),
             );
           },
         );
@@ -164,7 +166,12 @@ class AppRouter {
         );
 
       case RouterPath.payment:
-        return MaterialPageRoute(builder: (_) => const PaymentScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<PaymentCubit>()..fetchPaymentMethods(),
+            child: const PaymentScreen(),
+          ),
+        );
 
       case RouterPath.chatbot:
         return MaterialPageRoute(builder: (_) => const ChatbotScreen());
@@ -188,10 +195,24 @@ class AppRouter {
         );
 
       case RouterPath.successPayment:
-        return MaterialPageRoute(builder: (_) => const SuccessPaymentScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<PaymentCubit>(),
+            child: const SuccessPaymentScreen(),
+          ),
+        );
 
       case RouterPath.serviceDetails:
-        return MaterialPageRoute(builder: (_) => const ServiceDetailsScreen());
+        final serviceId = settings.arguments as int? ?? 12; // Fallback to 12 if not provided
+        return MaterialPageRoute(
+          builder: (context) {
+            final lang = Localizations.localeOf(context).languageCode;
+            return BlocProvider(
+              create: (context) => getIt<ServiceDetailsCubit>()..getServiceDetails(serviceId, lang),
+              child: ServiceDetailsScreen(serviceId: serviceId),
+            );
+          },
+        );
 
       default:
         return MaterialPageRoute(builder: (context) => const PathNotFound());

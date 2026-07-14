@@ -1,10 +1,13 @@
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
+import 'package:day_i/features/payment/presentation/controller/payment_cubit.dart';
+import 'package:day_i/features/payment/presentation/controller/payment_state.dart';
 import 'package:day_i/features/payment/presentation/widgets/order_details_card.dart';
 import 'package:day_i/features/payment/presentation/widgets/success_payment_icon.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SuccessPaymentScreen extends StatelessWidget {
@@ -50,11 +53,30 @@ class SuccessPaymentScreen extends StatelessWidget {
               SizedBox(height: 40.h),
               
               // Order Details Card
-              OrderDetailsCard(
-                orderNumber: 'MK-2045#',
-                serviceName: l10n.campaignManagement,
-                totalPrice: '899\$',
-                date: '22 يوليو 2026',
+              BlocBuilder<PaymentCubit, PaymentState>(
+                builder: (context, state) {
+                  String orderNum = 'MK-2045#';
+                  String serviceName = l10n.campaignManagement;
+                  String price = '899\$';
+                  String orderDate = '22 يوليو 2026';
+
+                  if (state is PaymentSuccessVerified && state.details is Map) {
+                    final data = state.details['data'] ?? state.details;
+                    if (data is Map) {
+                      orderNum = data['order_number']?.toString() ?? data['id']?.toString() ?? orderNum;
+                      serviceName = data['service_name']?.toString() ?? data['service']?.toString() ?? serviceName;
+                      price = data['total_price']?.toString() ?? data['amount']?.toString() ?? price;
+                      orderDate = data['date']?.toString() ?? data['created_at']?.toString() ?? orderDate;
+                    }
+                  }
+
+                  return OrderDetailsCard(
+                    orderNumber: orderNum,
+                    serviceName: serviceName,
+                    totalPrice: price,
+                    date: orderDate,
+                  );
+                },
               ),
               
               SizedBox(height: 40.h),

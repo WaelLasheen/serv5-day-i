@@ -6,6 +6,8 @@ class ServiceEntity {
   final double price;
   final String priceLabel;
   final String slug;
+  final String buttonText;
+  final String detailsUrl;
 
   ServiceEntity({
     required this.id,
@@ -15,5 +17,7 @@ class ServiceEntity {
     required this.price,
     required this.priceLabel,
     required this.slug,
+    required this.buttonText,
+    required this.detailsUrl,
   });
 }

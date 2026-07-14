@@ -7,6 +7,7 @@ abstract class IApiService {
   Future<Either<Failure, Response>> post(
     String path, {
     dynamic data,
+    Map<String, dynamic>? queryParameters,
     Options? options,
   });
   Future<Either<Failure, Response>> get(

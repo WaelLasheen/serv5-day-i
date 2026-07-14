@@ -9,15 +9,26 @@ class PaginationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        // Previous double arrow (disabled on page 1)
         _buildPageItem(
-          icon: Icons.keyboard_double_arrow_right,
+          icon: isRtl
+              ? Icons.keyboard_double_arrow_right
+              : Icons.keyboard_double_arrow_left,
           themeColors: themeColors,
+          iconColor: themeColors.grey700,
         ),
         SizedBox(width: 4.w),
-        _buildPageItem(icon: Icons.chevron_right, themeColors: themeColors),
+        // Previous single arrow (disabled on page 1)
+        _buildPageItem(
+          icon: isRtl ? Icons.chevron_right : Icons.chevron_left,
+          themeColors: themeColors,
+          iconColor: themeColors.grey700,
+        ),
         SizedBox(width: 4.w),
         _buildPageItem(text: '1', isActive: true, themeColors: themeColors),
         SizedBox(width: 4.w),
@@ -27,16 +38,18 @@ class PaginationWidget extends StatelessWidget {
         SizedBox(width: 4.w),
         _buildPageItem(text: '4', themeColors: themeColors),
         SizedBox(width: 4.w),
+        // Next single arrow
         _buildPageItem(
-          icon: Icons.chevron_left,
+          icon: isRtl ? Icons.chevron_left : Icons.chevron_right,
           themeColors: themeColors,
-          iconColor: themeColors.grey700,
         ),
         SizedBox(width: 4.w),
+        // Next double arrow
         _buildPageItem(
-          icon: Icons.keyboard_double_arrow_left,
+          icon: isRtl
+              ? Icons.keyboard_double_arrow_left
+              : Icons.keyboard_double_arrow_right,
           themeColors: themeColors,
-          iconColor: themeColors.grey700,
         ),
       ],
     );

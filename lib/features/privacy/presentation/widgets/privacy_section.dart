@@ -29,7 +29,7 @@ class PrivacySection extends StatelessWidget {
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
           ),
-          textAlign: TextAlign.right,
+          textAlign: TextAlign.start,
         ),
         SizedBox(height: 12.h),
         Container(

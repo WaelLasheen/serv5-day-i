@@ -74,7 +74,7 @@ class ServiceCategoryShimmerWidget extends StatelessWidget {
               itemCount: 2, // only 2 cards per section
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.only(left: 16.w),
+                  padding: EdgeInsetsDirectional.only(start: 16.w),
                   child: Container(
                     width: 295.w,
                     height: 260.h,

@@ -23,7 +23,7 @@ class PrivacyInfoBox extends StatelessWidget {
           fontSize: 13.sp,
           color: const Color(0xFFAB1C1E),
         ),
-        textAlign: TextAlign.right,
+        textAlign: TextAlign.start,
       ),
     );
   }

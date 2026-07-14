@@ -36,14 +36,18 @@ class ServiceInfoSection extends StatelessWidget {
         SizedBox(height: 12.h),
 
         // Ratings & Time
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runSpacing: 12.h,
+          spacing: 12.w,
           children: [
             // Ratings
             Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.star, color: const Color(0xFFF56E14), size: 24.w),
-                SizedBox(width: 8.w),
+                Icon(Icons.star, color: const Color(0xFFF56E14), size: 22.w),
+                SizedBox(width: 6.w),
                 Text(
                   rating.toStringAsFixed(1),
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -53,7 +57,7 @@ class ServiceInfoSection extends StatelessWidget {
                 ),
                 SizedBox(width: 8.w),
                 Text(
-                  '($reviewsCount تقييم)', // Will use translation in full implementation or keep static if mixed
+                  S.of(context).reviewsCount(reviewsCount),
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: theme?.textSecondary ?? const Color(0xFF636262),
                       ),
@@ -63,9 +67,9 @@ class ServiceInfoSection extends StatelessWidget {
             
             // Execution Time Badge
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
               decoration: BoxDecoration(
-                color: theme?.blueLight ?? const Color(0xFFC8C6F7), // Fallback to provided light blue active
+                color: theme?.blueLight ?? const Color(0xFFC8C6F7),
                 borderRadius: BorderRadius.circular(999.r),
               ),
               child: Row(
@@ -73,15 +77,18 @@ class ServiceInfoSection extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.access_time,
-                    size: 20.w,
+                    size: 18.w,
                     color: theme?.textPrimary ?? const Color(0xFF121212),
                   ),
-                  SizedBox(width: 8.w),
-                  Text(
-                    l10n.executionTime(executionTime),
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: theme?.textPrimary ?? const Color(0xFF121212),
-                        ),
+                  SizedBox(width: 6.w),
+                  Flexible(
+                    child: Text(
+                      l10n.executionTime(executionTime),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: theme?.textPrimary ?? const Color(0xFF121212),
+                          ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),

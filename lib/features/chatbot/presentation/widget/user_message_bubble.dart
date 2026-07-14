@@ -9,34 +9,42 @@ class UserMessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isRtl = Directionality.of(context) == TextDirection.rtl;
     final theme = context.appTheme;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-          decoration: BoxDecoration(
-            color: theme.primaryColor,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(24.r),
-              bottomRight: Radius.circular(24.r),
-              topLeft: isRtl ? Radius.zero : Radius.circular(24.r),
-              topRight: isRtl ? Radius.circular(24.r) : Radius.zero,
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width * 0.75,
+            ),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            decoration: BoxDecoration(
+              color: theme.primaryColor,
+              borderRadius: BorderRadiusDirectional.only(
+                bottomStart: Radius.circular(24.r),
+                bottomEnd: Radius.circular(24.r),
+                topStart: Radius.circular(24.r),
+                topEnd: Radius.zero,
+              ),
+            ),
+            child: Directionality(
+              textDirection: Directionality.of(context),
+              child: Text(
+                text,
+                style: TextStyle(
+                  fontFamily: 'Rubik',
+                  fontSize: 16.sp,
+                  color: theme.surfaceColor,
+                  height: 1.5,
+                ),
+              ),
             ),
           ),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontFamily: 'Rubik',
-              fontSize: 16.sp,
-              color: theme.surfaceColor,
-              height: 1.5,
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

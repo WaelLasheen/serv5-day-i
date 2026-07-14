@@ -26,7 +26,9 @@ import 'package:day_i/features/services/data/data_source/remote_data_source.dart
 import 'package:day_i/features/services/data/data_source/remote_data_source_impl.dart';
 import 'package:day_i/features/services/data/repository/repository_impl.dart';
 import 'package:day_i/features/services/domain/repository/repository.dart';
+import 'package:day_i/features/services/presentation/controller/service_details_cubit/service_details_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
+import 'package:day_i/features/services/domain/use_case/get_service_details_use_case.dart';
 import 'package:day_i/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:day_i/core/services/notification_service.dart';
@@ -46,6 +48,8 @@ import 'package:day_i/features/notification/data/data_sources/notification_remot
 import 'package:day_i/features/notification/data/repositories/notification_repository_impl.dart';
 import 'package:day_i/features/notification/domain/repositories/notification_repository.dart';
 import 'package:day_i/features/notification/domain/use_cases/get_notifications_use_case.dart';
+import 'package:day_i/features/notification/domain/use_cases/get_unread_notifications_count_use_case.dart';
+import 'package:day_i/features/notification/domain/use_cases/get_unread_notifications_use_case.dart';
 import 'package:day_i/features/notification/presentation/controller/notification_cubit/notification_cubit.dart';
 
 import 'package:day_i/features/order_details/data/data_sources/order_details_remote_data_source.dart';
@@ -53,6 +57,23 @@ import 'package:day_i/features/order_details/data/repositories/order_details_rep
 import 'package:day_i/features/order_details/domain/repositories/order_details_repository.dart';
 import 'package:day_i/features/order_details/domain/use_cases/get_order_details_use_case.dart';
 import 'package:day_i/features/order_details/presentation/cubit/order_details_cubit.dart';
+
+import 'package:day_i/features/chatbot/data/data_source/chatbot_remote_data_source.dart';
+import 'package:day_i/features/chatbot/data/data_source/chatbot_remote_data_source_impl.dart';
+import 'package:day_i/features/chatbot/data/repository/chatbot_repository_impl.dart';
+import 'package:day_i/features/chatbot/domain/repository/chatbot_repository.dart';
+import 'package:day_i/features/chatbot/domain/use_case/send_message_use_case.dart';
+import 'package:day_i/features/chatbot/presentation/controller/chatbot_cubit/chatbot_cubit.dart';
+
+import 'package:day_i/features/payment/data/datasources/payment_remote_data_source.dart';
+import 'package:day_i/features/payment/data/repositories/payment_repository_impl.dart';
+import 'package:day_i/features/payment/domain/repositories/payment_repository.dart';
+import 'package:day_i/features/payment/domain/usecases/cancel_payment_use_case.dart';
+import 'package:day_i/features/payment/domain/usecases/check_payment_success_use_case.dart';
+import 'package:day_i/features/payment/domain/usecases/get_payment_methods_use_case.dart';
+import 'package:day_i/features/payment/domain/usecases/get_payment_success_details_use_case.dart';
+import 'package:day_i/features/payment/presentation/controller/payment_cubit.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> setUpLocators() async {
@@ -116,6 +137,12 @@ Future<void> setUpLocators() async {
   getIt.registerLazySingleton<GetServicesUseCase>(
     () => GetServicesUseCase(repository: getIt<ServiceRepository>()),
   );
+  getIt.registerLazySingleton<GetServiceDetailsUseCase>(
+    () => GetServiceDetailsUseCase(repository: getIt<ServiceRepository>()),
+  );
+  getIt.registerFactory<ServiceDetailsCubit>(
+    () => ServiceDetailsCubit(getIt<GetServiceDetailsUseCase>()),
+  );
 
   // Pricing Plans
   getIt.registerLazySingleton<PricingPlansRepo>(
@@ -165,9 +192,17 @@ Future<void> setUpLocators() async {
   getIt.registerLazySingleton<GetNotificationsUseCase>(
     () => GetNotificationsUseCase(repository: getIt<NotificationRepository>()),
   );
+  getIt.registerLazySingleton<GetUnreadNotificationsUseCase>(
+    () => GetUnreadNotificationsUseCase(repository: getIt<NotificationRepository>()),
+  );
+  getIt.registerLazySingleton<GetUnreadNotificationsCountUseCase>(
+    () => GetUnreadNotificationsCountUseCase(repository: getIt<NotificationRepository>()),
+  );
   getIt.registerFactory<NotificationCubit>(
     () => NotificationCubit(
       getNotificationsUseCase: getIt<GetNotificationsUseCase>(),
+      getUnreadNotificationsUseCase: getIt<GetUnreadNotificationsUseCase>(),
+      getUnreadNotificationsCountUseCase: getIt<GetUnreadNotificationsCountUseCase>(),
     ),
   );
   // Order Details
@@ -184,6 +219,48 @@ Future<void> setUpLocators() async {
   );
   getIt.registerFactory<OrderDetailsCubit>(
     () => OrderDetailsCubit(getIt<GetOrderDetailsUseCase>()),
+  );
+
+  // Chatbot
+  getIt.registerLazySingleton<ChatbotRemoteDataSource>(
+    () => ChatbotRemoteDataSourceImpl(apiService: getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<ChatbotRepository>(
+    () => ChatbotRepositoryImpl(remoteDataSource: getIt<ChatbotRemoteDataSource>()),
+  );
+  getIt.registerLazySingleton<SendMessageUseCase>(
+    () => SendMessageUseCase(repository: getIt<ChatbotRepository>()),
+  );
+  getIt.registerFactory<ChatbotCubit>(
+    () => ChatbotCubit(sendMessageUseCase: getIt<SendMessageUseCase>()),
+  );
+
+  // Payment
+  getIt.registerLazySingleton<PaymentRemoteDataSource>(
+    () => PaymentRemoteDataSourceImpl(apiService: getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<PaymentRepository>(
+    () => PaymentRepositoryImpl(remoteDataSource: getIt<PaymentRemoteDataSource>()),
+  );
+  getIt.registerLazySingleton<GetPaymentMethodsUseCase>(
+    () => GetPaymentMethodsUseCase(repository: getIt<PaymentRepository>()),
+  );
+  getIt.registerLazySingleton<CheckPaymentSuccessUseCase>(
+    () => CheckPaymentSuccessUseCase(repository: getIt<PaymentRepository>()),
+  );
+  getIt.registerLazySingleton<CancelPaymentUseCase>(
+    () => CancelPaymentUseCase(repository: getIt<PaymentRepository>()),
+  );
+  getIt.registerLazySingleton<GetPaymentSuccessDetailsUseCase>(
+    () => GetPaymentSuccessDetailsUseCase(repository: getIt<PaymentRepository>()),
+  );
+  getIt.registerFactory<PaymentCubit>(
+    () => PaymentCubit(
+      getPaymentMethodsUseCase: getIt<GetPaymentMethodsUseCase>(),
+      checkPaymentSuccessUseCase: getIt<CheckPaymentSuccessUseCase>(),
+      cancelPaymentUseCase: getIt<CancelPaymentUseCase>(),
+      getPaymentSuccessDetailsUseCase: getIt<GetPaymentSuccessDetailsUseCase>(),
+    ),
   );
 }
 

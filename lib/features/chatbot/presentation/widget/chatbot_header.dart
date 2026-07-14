@@ -1,3 +1,4 @@
+import 'package:day_i/core/router/router_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
@@ -24,7 +25,9 @@ class ChatbotHeader extends StatelessWidget implements PreferredSizeWidget {
       ),
       decoration: BoxDecoration(
         color: theme.surfaceColor,
-        border: Border(bottom: BorderSide(color: theme.boarderPrimary, width: 1)),
+        border: Border(
+          bottom: BorderSide(color: theme.boarderPrimary, width: 1),
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,12 +35,14 @@ class ChatbotHeader extends StatelessWidget implements PreferredSizeWidget {
           Row(
             children: [
               GestureDetector(
-                onTap: () => Navigator.maybePop(context),
+                onTap: () => Navigator.pushNamed(context, RouterPath.navBar),
                 child: Container(
                   color: Colors.transparent,
                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                   child: Icon(
-                    isRtl ? Icons.arrow_forward_sharp : Icons.arrow_back_sharp,
+                    isRtl
+                        ? Icons.arrow_back_rounded
+                        : Icons.arrow_forward_rounded,
                     color: theme.primaryColor,
                     size: 20.r,
                   ),
@@ -108,9 +113,7 @@ class ChatbotHeader extends StatelessWidget implements PreferredSizeWidget {
               border: Border.all(color: theme.boarderPrimary),
               shape: BoxShape.circle,
             ),
-            child: Center(
-              child: Icon(Icons.more_horiz, color: theme.grey600),
-            ),
+            child: Center(child: Icon(Icons.more_horiz, color: theme.grey600)),
           ),
         ],
       ),

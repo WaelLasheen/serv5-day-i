@@ -43,9 +43,10 @@ class _PrivacyView extends StatelessWidget {
         ),
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_forward,
+            Directionality.of(context) == TextDirection.rtl
+                ? Icons.arrow_forward_rounded
+                : Icons.arrow_back_rounded,
             color: theme.primaryColor,
-            textDirection: TextDirection.ltr,
           ),
           onPressed: () => Navigator.maybePop(context),
         ),

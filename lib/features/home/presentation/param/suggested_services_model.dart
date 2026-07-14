@@ -1,3 +1,5 @@
+import 'package:day_i/generated/l10n.dart';
+
 class SuggestedServiceModel {
   final String imageUrl;
   final String tag;
@@ -16,21 +18,21 @@ class SuggestedServiceModel {
   });
 
   static List<SuggestedServiceModel> getMockServices() {
-    return const [
+    return [
       SuggestedServiceModel(
         imageUrl: '',
-        tag: 'التصميم',
-        title: 'تصميم المواقع والتطبيقات',
-        price: '5000ج',
-        duration: '12 أيام',
+        tag: S.current.mockSuggestedServiceTag1,
+        title: S.current.mockSuggestedServiceTitle1,
+        price: '5000',
+        duration: S.current.mockDuration12Days,
         rating: 5,
       ),
       SuggestedServiceModel(
         imageUrl: "",
-        tag: 'الإعلانات الرقمية',
-        title: 'تنفيذ حملات إعلانية مدفوعة',
-        price: '3000ج',
-        duration: '7 أيام',
+        tag: S.current.mockSuggestedServiceTag2,
+        title: S.current.mockSuggestedServiceTitle2,
+        price: '3000',
+        duration: S.current.mockDuration7Days,
         rating: 5,
       ),
     ];

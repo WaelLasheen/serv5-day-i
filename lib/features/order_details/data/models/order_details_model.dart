@@ -22,22 +22,32 @@ class OrderDetailsModel extends OrderDetailsEntity {
 
   factory OrderDetailsModel.fromJson(Map<String, dynamic> json) {
     return OrderDetailsModel(
-      invoiceNumber: json['invoiceNumber'] ?? '',
-      invoiceDate: json['invoiceDate'] ?? '',
-      paymentTime: json['paymentTime'] ?? '',
-      orderNumber: json['orderNumber'] ?? '',
-      paymentMethod: json['paymentMethod'] ?? '',
-      status: json['status'] ?? '',
-      customerName: json['customerName'] ?? '',
-      customerEmail: json['customerEmail'] ?? '',
-      serviceName: json['serviceName'] ?? '',
-      serviceCategory: json['serviceCategory'] ?? '',
-      executionDays: json['executionDays'] ?? 0,
-      servicePrice: (json['servicePrice'] ?? 0.0).toDouble(),
-      taxAmount: (json['taxAmount'] ?? 0.0).toDouble(),
-      discountAmount: (json['discountAmount'] ?? 0.0).toDouble(),
-      discountCode: json['discountCode'] ?? '',
-      finalTotal: (json['finalTotal'] ?? 0.0).toDouble(),
+      invoiceNumber: json['invoiceNumber']?.toString() ?? '',
+      invoiceDate: json['invoiceDate']?.toString() ?? '',
+      paymentTime: json['paymentTime']?.toString() ?? '',
+      orderNumber: json['orderNumber']?.toString() ?? '',
+      paymentMethod: json['paymentMethod']?.toString() ?? '',
+      status: json['status']?.toString() ?? '',
+      customerName: json['customerName']?.toString() ?? '',
+      customerEmail: json['customerEmail']?.toString() ?? '',
+      serviceName: json['serviceName']?.toString() ?? '',
+      serviceCategory: json['serviceCategory']?.toString() ?? '',
+      executionDays: json['executionDays'] is int
+          ? json['executionDays']
+          : int.tryParse(json['executionDays']?.toString() ?? '0') ?? 0,
+      servicePrice: json['servicePrice'] is num
+          ? (json['servicePrice'] as num).toDouble()
+          : double.tryParse(json['servicePrice']?.toString() ?? '0') ?? 0.0,
+      taxAmount: json['taxAmount'] is num
+          ? (json['taxAmount'] as num).toDouble()
+          : double.tryParse(json['taxAmount']?.toString() ?? '0') ?? 0.0,
+      discountAmount: json['discountAmount'] is num
+          ? (json['discountAmount'] as num).toDouble()
+          : double.tryParse(json['discountAmount']?.toString() ?? '0') ?? 0.0,
+      discountCode: json['discountCode']?.toString() ?? '',
+      finalTotal: json['finalTotal'] is num
+          ? (json['finalTotal'] as num).toDouble()
+          : double.tryParse(json['finalTotal']?.toString() ?? '0') ?? 0.0,
     );
   }
 }

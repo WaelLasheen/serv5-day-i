@@ -16,7 +16,7 @@ class ContactInfoCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Align(
-          alignment: Alignment.centerRight,
+          alignment: AlignmentDirectional.centerEnd,
           child: Text(
             S.current.markivaContactInfo,
             style: FontStyles.bodyMedium.copyWith(
@@ -55,7 +55,7 @@ class ContactInfoCard extends StatelessWidget {
               _buildContactRow(
                 context,
                 title: S.current.address,
-                value: contactInfo?.address ?? 'السعودية-الرياض',
+                value: contactInfo?.address ?? S.of(context).location,
                 icon: Icons.location_on_outlined,
               ),
             ],

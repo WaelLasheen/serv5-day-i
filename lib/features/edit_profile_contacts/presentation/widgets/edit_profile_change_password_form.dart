@@ -87,21 +87,21 @@ class _EditProfileChangePasswordFormState
       children: [
         CustomFormField(
           label: S.current.currentPassword,
-          hintText: 'نص تلميحي',
+          hintText: S.of(context).hintText,
           controller: _currentPasswordController,
           isPassword: true,
         ),
         SizedBox(height: 24.h),
         CustomFormField(
           label: S.current.newPassword,
-          hintText: 'نص تلميحي',
+          hintText: S.of(context).hintText,
           controller: _newPasswordController,
           isPassword: true,
         ),
         SizedBox(height: 24.h),
         CustomFormField(
           label: S.current.confirmPassword,
-          hintText: 'نص تلميحي',
+          hintText: S.of(context).hintText,
           controller: _confirmPasswordController,
           isPassword: true,
         ),
@@ -147,7 +147,7 @@ class _EditProfileChangePasswordFormState
             SizedBox(width: 16.w),
             Expanded(
               child: AppButton(
-                text: 'إلغاء',
+                text: S.of(context).cancel,
                 isPrimary: false,
                 textColor: theme.primaryColor,
                 border: BorderSide(color: theme.primaryColor),

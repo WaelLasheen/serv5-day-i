@@ -2,10 +2,13 @@ import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/widgets/app_button.dart';
+import 'package:day_i/features/payment/presentation/controller/payment_cubit.dart';
+import 'package:day_i/features/payment/presentation/controller/payment_state.dart';
 import 'package:day_i/features/payment/presentation/widgets/credit_card_widget.dart';
 import 'package:day_i/features/payment/presentation/widgets/payment_method_item.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -37,7 +40,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_rounded, color: appTheme.primaryColor),
+          icon: Icon(
+            Directionality.of(context) == TextDirection.rtl
+                ? Icons.arrow_forward_rounded
+                : Icons.arrow_back_rounded,
+            color: appTheme.primaryColor,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -48,8 +56,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const CreditCardWidget(
-              cardHolder: 'فؤاد ممدوح',
+            CreditCardWidget(
+              cardHolder: 'Fouad Mamdouh', // TODO: replace with user profile name from backend
               expiryDate: '12/26',
               lastFourDigits: '4242',
             ),
@@ -86,60 +94,90 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ],
             ),
             SizedBox(height: 16.h),
-            PaymentMethodItem(
-              title: 'Paypal',
-              isSelected: _selectedMethod == 'Paypal',
-              onTap: () {
-                setState(() {
-                  _selectedMethod = 'Paypal';
-                });
-              },
-              customIcon: Text(
-                'RuPay',
-                style: FontStyles.bodyLarge.copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: const Color(0xFF003087),
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            ),
-            PaymentMethodItem(
-              title: 'GooglePay',
-              isSelected: _selectedMethod == 'GooglePay',
-              onTap: () {
-                setState(() {
-                  _selectedMethod = 'GooglePay';
-                });
-              },
-              customIcon: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.g_mobiledata, color: Colors.red, size: 32.r),
-                  Text(
-                    'Pay',
-                    style: FontStyles.bodyMedium.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: appTheme.grey700,
+            BlocBuilder<PaymentCubit, PaymentState>(
+              builder: (context, state) {
+                if (state is PaymentLoading) {
+                  return Center(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24.h),
+                      child: CircularProgressIndicator(color: appTheme.primaryColor),
                     ),
-                  )
-                ],
-              ),
-            ),
-            PaymentMethodItem(
-              title: 'Stripe',
-              isSelected: _selectedMethod == 'Stripe',
-              onTap: () {
-                setState(() {
-                  _selectedMethod = 'Stripe';
-                });
+                  );
+                } else if (state is PaymentMethodsLoaded && state.methods.isNotEmpty) {
+                  return Column(
+                    children: state.methods.map((method) {
+                      return PaymentMethodItem(
+                        title: method.name,
+                        isSelected: _selectedMethod == method.name,
+                        onTap: () {
+                          setState(() {
+                            _selectedMethod = method.name;
+                          });
+                        },
+                      );
+                    }).toList(),
+                  );
+                }
+                return Column(
+                  children: [
+                    PaymentMethodItem(
+                      title: 'Paypal',
+                      isSelected: _selectedMethod == 'Paypal',
+                      onTap: () {
+                        setState(() {
+                          _selectedMethod = 'Paypal';
+                        });
+                      },
+                      customIcon: Text(
+                        'RuPay',
+                        style: FontStyles.bodyLarge.copyWith(
+                          fontWeight: FontWeight.w800,
+                          color: const Color(0xFF003087),
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                    PaymentMethodItem(
+                      title: 'GooglePay',
+                      isSelected: _selectedMethod == 'GooglePay',
+                      onTap: () {
+                        setState(() {
+                          _selectedMethod = 'GooglePay';
+                        });
+                      },
+                      customIcon: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.g_mobiledata, color: Colors.red, size: 32.r),
+                          Text(
+                            'Pay',
+                            style: FontStyles.bodyMedium.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: appTheme.grey700,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    PaymentMethodItem(
+                      title: 'Stripe',
+                      isSelected: _selectedMethod == 'Stripe',
+                      onTap: () {
+                        setState(() {
+                          _selectedMethod = 'Stripe';
+                        });
+                      },
+                      customIcon: Text(
+                        'stripe',
+                        style: FontStyles.bodyLarge.copyWith(
+                          fontWeight: FontWeight.w800,
+                          color: const Color(0xFF6772E5),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
               },
-              customIcon: Text(
-                'stripe',
-                style: FontStyles.bodyLarge.copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: const Color(0xFF6772E5),
-                ),
-              ),
             ),
             SizedBox(height: 48.h),
               AppButton(

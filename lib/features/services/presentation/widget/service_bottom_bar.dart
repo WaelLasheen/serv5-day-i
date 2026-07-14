@@ -30,7 +30,7 @@ class ServiceBottomBar extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 12,
             offset: const Offset(0, -4),
           ),
@@ -40,26 +40,31 @@ class ServiceBottomBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Total Approximate
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                l10n.approximateTotal,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: theme?.textSecondary ?? const Color(0xFF636262),
-                    ),
-              ),
-              SizedBox(height: 4.h),
-              Text(
-                price,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: theme?.primaryColor ?? const Color(0xFF4F46E5),
-                      fontWeight: FontWeight.w500,
-                    ),
-              ),
-            ],
+          Flexible(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.approximateTotal,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: theme?.textSecondary ?? const Color(0xFF636262),
+                      ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(height: 4.h),
+                Text(
+                  price,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: theme?.primaryColor ?? const Color(0xFF4F46E5),
+                        fontWeight: FontWeight.w500,
+                      ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
+          SizedBox(width: 12.w),
           // Request Service Button
           AppButton(
             text: l10n.requestService,

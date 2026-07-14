@@ -25,6 +25,7 @@ class ContactsCubit extends Cubit<ContactsState> {
 
     final result = await contactsRepo.sendContactMessage(request);
 
+    if (isClosed) return;
     result.fold(
       (error) => emit(ContactsFailure(error)),
       (_) => emit(ContactsSuccess()),
@@ -34,6 +35,7 @@ class ContactsCubit extends Cubit<ContactsState> {
   Future<void> getContactInfo() async {
     emit(ContactInfoLoading());
     final result = await contactsRepo.getContactInfo();
+    if (isClosed) return;
     result.fold(
       (error) => emit(ContactInfoFailure(error.message)),
       (info) => emit(ContactInfoSuccess(info)),

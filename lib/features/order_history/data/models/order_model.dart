@@ -23,14 +23,21 @@ class OrderModel  {
 
   factory OrderModel.fromJson(Map<String, dynamic> json) {
     return OrderModel(
-      id: json['id'] as int? ?? 0,
-      code: json['code'] as String? ?? json['order_code'] as String? ?? '',
-      title: json['title'] as String? ?? json['service_name'] as String? ?? '',
-      date: json['date'] as String? ?? json['created_at'] as String? ?? '',
-      status: json['status'] as String? ?? 'pending',
-      budget: (json['budget'] as num?)?.toDouble() ?? (json['price'] as num?)?.toDouble() ?? 0.0,
-      platform: json['platform'] as String? ?? 'facebook',
-      employeeName: json['employee_name'] as String?,
+      id: json['id'] is int
+          ? json['id']
+          : int.tryParse(json['id']?.toString() ?? '0') ?? 0,
+      code: json['code']?.toString() ?? json['order_code']?.toString() ?? '',
+      title: json['title']?.toString() ?? json['service_name']?.toString() ?? '',
+      date: json['date']?.toString() ?? json['created_at']?.toString() ?? '',
+      status: json['status']?.toString() ?? 'pending',
+      budget: json['budget'] is num
+          ? (json['budget'] as num).toDouble()
+          : double.tryParse(json['budget']?.toString() ?? '') ??
+              (json['price'] is num
+                  ? (json['price'] as num).toDouble()
+                  : double.tryParse(json['price']?.toString() ?? '0') ?? 0.0),
+      platform: json['platform']?.toString() ?? 'facebook',
+      employeeName: json['employee_name']?.toString(),
     );
   }
 

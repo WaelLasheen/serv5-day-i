@@ -46,8 +46,24 @@ class ServerFailure extends Failure {
     final data = response?.data;
 
     if (statusCode != null && statusCode.isBetween(400, 499)) {
-      return ServerFailure(data['message']);
+      if (data is Map<String, dynamic>) {
+        final message = data['message'] ?? data['error'] ?? data['errors'];
+        if (message is String && message.isNotEmpty) {
+          return ServerFailure(message);
+        } else if (message != null) {
+          return ServerFailure(message.toString());
+        }
+      } else if (data is String && data.isNotEmpty) {
+        return ServerFailure(data);
+      }
+      return ServerFailure(s.oopsError);
     } else if (statusCode != null && statusCode.isBetween(500, 599)) {
+      if (data is Map<String, dynamic>) {
+        final message = data['message'] ?? data['error'];
+        if (message is String && message.isNotEmpty) {
+          return ServerFailure(message);
+        }
+      }
       return ServerFailure(s.internalServerError);
     } else {
       return ServerFailure(s.oopsError);

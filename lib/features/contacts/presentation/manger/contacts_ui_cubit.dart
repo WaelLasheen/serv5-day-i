@@ -13,6 +13,7 @@ class ContactsUiCubit extends Cubit<ContactsUiState> {
   Future<void> loadContactInfo() async {
     emit(state.copyWith(isContactInfoLoading: true));
     final result = await contactsRepo.getContactInfo();
+    if (isClosed) return;
     result.fold(
       (failure) {
         emit(state.copyWith(isContactInfoLoading: false));
@@ -35,6 +36,7 @@ class ContactsUiCubit extends Cubit<ContactsUiState> {
       isFetchingMore: false,
     ));
     final result = await contactsRepo.getFaqs(page: 1);
+    if (isClosed) return;
     result.fold(
       (failure) {
         emit(state.copyWith(faqs: [], isLoading: false));
@@ -56,6 +58,7 @@ class ContactsUiCubit extends Cubit<ContactsUiState> {
     final nextPage = state.currentPage + 1;
     final result = await contactsRepo.getFaqs(page: nextPage);
     
+    if (isClosed) return;
     result.fold(
       (failure) {
         emit(state.copyWith(isFetchingMore: false));

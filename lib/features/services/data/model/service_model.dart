@@ -8,6 +8,8 @@ class ServiceModel {
   final double price;
   final String priceLabel;
   final String slug;
+  final String buttonText;
+  final String detailsUrl;
 
   ServiceModel({
     required this.id,
@@ -17,6 +19,8 @@ class ServiceModel {
     required this.price,
     required this.priceLabel,
     required this.slug,
+    required this.buttonText,
+    required this.detailsUrl,
   });
 
   factory ServiceModel.fromJson(Map<String, dynamic> json) => ServiceModel(
@@ -24,9 +28,11 @@ class ServiceModel {
     name: json['name'] ?? "no name",
     shortDescription: json['short_description'] ?? "no short description",
     icon: json['icon'] ?? "no icon",
-    price: json['price'] != null ? double.parse(json['price']) : 0.0,
+    price: json['price'] != null ? double.tryParse(json['price'].toString()) ?? 0.0 : 0.0,
     priceLabel: json['price_label'] ?? "no price label",
     slug: json['slug'] ?? "no slug",
+    buttonText: json['button_text'] ?? "",
+    detailsUrl: json['details_url'] ?? "",
   );
 
   ServiceEntity toEntity() => ServiceEntity(
@@ -37,5 +43,7 @@ class ServiceModel {
     price: price,
     priceLabel: priceLabel,
     slug: slug,
+    buttonText: buttonText,
+    detailsUrl: detailsUrl,
   );
 }

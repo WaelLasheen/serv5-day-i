@@ -40,6 +40,7 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
   Future<void> sendOtp(SendOtpParams params) async {
     emit(ChangePasswordLoading());
     final result = await _sendOtpUseCase.call(params);
+    if (isClosed) return;
     result.fold(
       (failure) => emit(ChangePasswordFailure(message: failure.message)),
       (_) => emit(SendOtpSuccess()),
@@ -49,6 +50,7 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
   Future<void> verify(VerifyParams params) async {
     emit(ChangePasswordLoading());
     final result = await _verifyUseCase.call(params);
+    if (isClosed) return;
     result.fold(
       (failure) => emit(ChangePasswordFailure(message: failure.message)),
       (verify) => emit(VerifySuccess(verifyEntity: verify)),
@@ -58,6 +60,7 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
   Future<void> changePassword(ChangePasswordParams params) async {
     emit(ChangePasswordLoading());
     final result = await _changePasswordUseCase.call(params);
+    if (isClosed) return;
     result.fold(
       (failure) => emit(ChangePasswordFailure(message: failure.message)),
       (_) => emit(ChangePasswordSuccess()),

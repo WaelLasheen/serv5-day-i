@@ -45,6 +45,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     final result = await _loginUseCase.call(params);
 
+    if (isClosed) return;
     result.fold(
       (failure) {
         emit(AuthError(message: failure.message));
@@ -59,6 +60,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     final result = await _registerUseCase.call(params);
 
+    if (isClosed) return;
     result.fold(
       (failure) {
         emit(AuthError(message: failure.message));

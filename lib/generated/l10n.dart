@@ -1923,6 +1923,806 @@ class S {
   String get included {
     return Intl.message('Included', name: 'included', desc: '', args: []);
   }
+
+  /// `App Preferences`
+  String get appPreferences {
+    return Intl.message(
+      'App Preferences',
+      name: 'appPreferences',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get darkMode {
+    return Intl.message('Dark Mode', name: 'darkMode', desc: '', args: []);
+  }
+
+  /// `Billing and Payment`
+  String get billingAndPayment {
+    return Intl.message(
+      'Billing and Payment',
+      name: 'billingAndPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Billing History`
+  String get billingHistory {
+    return Intl.message(
+      'Billing History',
+      name: 'billingHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy and Security`
+  String get privacyAndSecurity {
+    return Intl.message(
+      'Privacy and Security',
+      name: 'privacyAndSecurity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Settings`
+  String get privacySettings {
+    return Intl.message(
+      'Privacy Settings',
+      name: 'privacySettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help and Support`
+  String get helpAndSupport {
+    return Intl.message(
+      'Help and Support',
+      name: 'helpAndSupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help Center`
+  String get helpCenter {
+    return Intl.message('Help Center', name: 'helpCenter', desc: '', args: []);
+  }
+
+  /// `Communication Info`
+  String get communicationInfo {
+    return Intl.message(
+      'Communication Info',
+      name: 'communicationInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Business Metadata`
+  String get businessMetadata {
+    return Intl.message(
+      'Business Metadata',
+      name: 'businessMetadata',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Growth Plan`
+  String get growthPlan {
+    return Intl.message('Growth Plan', name: 'growthPlan', desc: '', args: []);
+  }
+
+  /// `Next Renewal Date`
+  String get nextRenewalDate {
+    return Intl.message(
+      'Next Renewal Date',
+      name: 'nextRenewalDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Plan`
+  String get currentPlan {
+    return Intl.message(
+      'Current Plan',
+      name: 'currentPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upgrade Plan`
+  String get upgradePlan {
+    return Intl.message(
+      'Upgrade Plan',
+      name: 'upgradePlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Suggested Services For You`
+  String get suggestedServicesForYou {
+    return Intl.message(
+      'Suggested Services For You',
+      name: 'suggestedServicesForYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View More`
+  String get viewMore {
+    return Intl.message('View More', name: 'viewMore', desc: '', args: []);
+  }
+
+  /// `Service Categories`
+  String get serviceCategories {
+    return Intl.message(
+      'Service Categories',
+      name: 'serviceCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Message sent successfully`
+  String get messageSentSuccessfully {
+    return Intl.message(
+      'Message sent successfully',
+      name: 'messageSentSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hint text`
+  String get hintText {
+    return Intl.message('Hint text', name: 'hintText', desc: '', args: []);
+  }
+
+  /// `Enter the official name of your company as it will appear to customers`
+  String get companyNameHint {
+    return Intl.message(
+      'Enter the official name of your company as it will appear to customers',
+      name: 'companyNameHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose the industry your company operates in`
+  String get industryHint {
+    return Intl.message(
+      'Choose the industry your company operates in',
+      name: 'industryHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Required`
+  String get fieldRequired {
+    return Intl.message('Required', name: 'fieldRequired', desc: '', args: []);
+  }
+
+  /// `The plan you subscribed to to activate platform services`
+  String get subscribedPlanHint {
+    return Intl.message(
+      'The plan you subscribed to to activate platform services',
+      name: 'subscribedPlanHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retry`
+  String get retry {
+    return Intl.message('Retry', name: 'retry', desc: '', args: []);
+  }
+
+  /// `No packages available`
+  String get noPackagesAvailable {
+    return Intl.message(
+      'No packages available',
+      name: 'noPackagesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Hello {name}!`
+  String helloUser(String name) {
+    return Intl.message(
+      'Hello $name!',
+      name: 'helloUser',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Business Information`
+  String get businessInfo {
+    return Intl.message(
+      'Business Information',
+      name: 'businessInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Business Type`
+  String get businessType {
+    return Intl.message(
+      'Business Type',
+      name: 'businessType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get location {
+    return Intl.message('Location', name: 'location', desc: '', args: []);
+  }
+
+  /// `Security and Privacy`
+  String get securityAndPrivacy {
+    return Intl.message(
+      'Security and Privacy',
+      name: 'securityAndPrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
+
+  /// `({count} reviews)`
+  String reviewsCount(int count) {
+    return Intl.message(
+      '($count reviews)',
+      name: 'reviewsCount',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Markiva`
+  String get onboarding1TitleHighlight {
+    return Intl.message(
+      'Markiva',
+      name: 'onboarding1TitleHighlight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `... Smarter Marketing Management`
+  String get onboarding1TitleSuffix {
+    return Intl.message(
+      '... Smarter Marketing Management',
+      name: 'onboarding1TitleSuffix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All the marketing tools you need in one place\nFrom planning to execution and tracking.`
+  String get onboarding1Description {
+    return Intl.message(
+      'All the marketing tools you need in one place\nFrom planning to execution and tracking.',
+      name: 'onboarding1Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan, Execute, Track Easily`
+  String get onboarding2Title {
+    return Intl.message(
+      'Plan, Execute, Track Easily',
+      name: 'onboarding2Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track campaigns, tasks, and performance\nWithout complexity or distraction.`
+  String get onboarding2Description {
+    return Intl.message(
+      'Track campaigns, tasks, and performance\nWithout complexity or distraction.',
+      name: 'onboarding2Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Every Decision Based on Numbers`
+  String get onboarding3Title {
+    return Intl.message(
+      'Every Decision Based on Numbers',
+      name: 'onboarding3Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear reports that help you make the right decision\nAt the right time.`
+  String get onboarding3Description {
+    return Intl.message(
+      'Clear reports that help you make the right decision\nAt the right time.',
+      name: 'onboarding3Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertising strategy preparation`
+  String get serviceInclude1 {
+    return Intl.message(
+      'Advertising strategy preparation',
+      name: 'serviceInclude1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Campaign creation on the required platform`
+  String get serviceInclude2 {
+    return Intl.message(
+      'Campaign creation on the required platform',
+      name: 'serviceInclude2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Writing ad copy`
+  String get serviceInclude3 {
+    return Intl.message(
+      'Writing ad copy',
+      name: 'serviceInclude3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Designing ad images or videos`
+  String get serviceInclude4 {
+    return Intl.message(
+      'Designing ad images or videos',
+      name: 'serviceInclude4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily performance monitoring and optimization`
+  String get serviceInclude5 {
+    return Intl.message(
+      'Daily performance monitoring and optimization',
+      name: 'serviceInclude5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Detailed final results report`
+  String get serviceInclude6 {
+    return Intl.message(
+      'Detailed final results report',
+      name: 'serviceInclude6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Periodic Reports`
+  String get featurePeriodicReports {
+    return Intl.message(
+      'Periodic Reports',
+      name: 'featurePeriodicReports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continuous communication and transparent reports showing every detail of your budget spending.`
+  String get featurePeriodicReportsDesc {
+    return Intl.message(
+      'Continuous communication and transparent reports showing every detail of your budget spending.',
+      name: 'featurePeriodicReportsDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Precise Targeting`
+  String get featurePreciseTargeting {
+    return Intl.message(
+      'Precise Targeting',
+      name: 'featurePreciseTargeting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We use accurate data to reach your potential customers with high efficiency.`
+  String get featurePreciseTargetingDesc {
+    return Intl.message(
+      'We use accurate data to reach your potential customers with high efficiency.',
+      name: 'featurePreciseTargetingDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Faster Results`
+  String get featureFasterResults {
+    return Intl.message(
+      'Faster Results',
+      name: 'featureFasterResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An advanced methodology that ensures reaching your goals in record time.`
+  String get featureFasterResultsDesc {
+    return Intl.message(
+      'An advanced methodology that ensures reaching your goals in record time.',
+      name: 'featureFasterResultsDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ready to grow your campaign?`
+  String get notificationMockTitle1 {
+    return Intl.message(
+      'Ready to grow your campaign?',
+      name: 'notificationMockTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A suitable service suggestion for your business is available now.`
+  String get notificationMockSubtitle1 {
+    return Intl.message(
+      'A suitable service suggestion for your business is available now.',
+      name: 'notificationMockSubtitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Great Choice`
+  String get notificationMockTitle2 {
+    return Intl.message(
+      'Great Choice',
+      name: 'notificationMockTitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This service is perfectly aligned with your current marketing goals.`
+  String get notificationMockSubtitle2 {
+    return Intl.message(
+      'This service is perfectly aligned with your current marketing goals.',
+      name: 'notificationMockSubtitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We provide you with a comprehensive and professional service for creating and managing your advertising campaigns across various digital platforms. It focuses on targeting the right audience precisely to ensure the highest levels of reach and conversion. With continuous performance improvement to reduce costs and increase return on investment.`
+  String get serviceDescriptionText {
+    return Intl.message(
+      'We provide you with a comprehensive and professional service for creating and managing your advertising campaigns across various digital platforms. It focuses on targeting the right audience precisely to ensure the highest levels of reach and conversion. With continuous performance improvement to reduce costs and increase return on investment.',
+      name: 'serviceDescriptionText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Abdullah Al-Qahtani`
+  String get mockReviewAuthor {
+    return Intl.message(
+      'Abdullah Al-Qahtani',
+      name: 'mockReviewAuthor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `2 days ago`
+  String get mockReviewDate {
+    return Intl.message(
+      '2 days ago',
+      name: 'mockReviewDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The service is excellent and the team is very professional in dealing and responding. I noticed a difference in results from the first week.`
+  String get mockReviewComment {
+    return Intl.message(
+      'The service is excellent and the team is very professional in dealing and responding. I noticed a difference in results from the first week.',
+      name: 'mockReviewComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social Media Account Management`
+  String get mockSimilarServiceTitle {
+    return Intl.message(
+      'Social Media Account Management',
+      name: 'mockSimilarServiceTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad Campaign Management - Facebook`
+  String get mockOrderFacebook {
+    return Intl.message(
+      'Ad Campaign Management - Facebook',
+      name: 'mockOrderFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad Campaign Management - Instagram`
+  String get mockOrderInstagram {
+    return Intl.message(
+      'Ad Campaign Management - Instagram',
+      name: 'mockOrderInstagram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search Engine Optimization (SEO)`
+  String get mockOrderSEO {
+    return Intl.message(
+      'Search Engine Optimization (SEO)',
+      name: 'mockOrderSEO',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User Interface Design`
+  String get mockOrderUIUX {
+    return Intl.message(
+      'User Interface Design',
+      name: 'mockOrderUIUX',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Promotional Email Campaign`
+  String get mockOrderEmail {
+    return Intl.message(
+      'Promotional Email Campaign',
+      name: 'mockOrderEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Promotional Video Content Production`
+  String get mockOrderVideo {
+    return Intl.message(
+      'Promotional Video Content Production',
+      name: 'mockOrderVideo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `12 March 2026`
+  String get mockOrderDate1 {
+    return Intl.message(
+      '12 March 2026',
+      name: 'mockOrderDate1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `13 March 2026`
+  String get mockOrderDate2 {
+    return Intl.message(
+      '13 March 2026',
+      name: 'mockOrderDate2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `14 March 2026`
+  String get mockOrderDate3 {
+    return Intl.message(
+      '14 March 2026',
+      name: 'mockOrderDate3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `15 March 2026`
+  String get mockOrderDate4 {
+    return Intl.message(
+      '15 March 2026',
+      name: 'mockOrderDate4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credit Card`
+  String get mockPaymentCreditCard {
+    return Intl.message(
+      'Credit Card',
+      name: 'mockPaymentCreditCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paid`
+  String get mockStatusPaid {
+    return Intl.message('Paid', name: 'mockStatusPaid', desc: '', args: []);
+  }
+
+  /// `Ahmed Mahmoud Al-Khalidi`
+  String get mockCustomerName {
+    return Intl.message(
+      'Ahmed Mahmoud Al-Khalidi',
+      name: 'mockCustomerName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ad Campaign Management`
+  String get mockServiceAdCampaign {
+    return Intl.message(
+      'Ad Campaign Management',
+      name: 'mockServiceAdCampaign',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Digital Marketing`
+  String get mockServiceDigitalMarketing {
+    return Intl.message(
+      'Digital Marketing',
+      name: 'mockServiceDigitalMarketing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Content Writing`
+  String get mockCategoryContentWriting {
+    return Intl.message(
+      'Content Writing',
+      name: 'mockCategoryContentWriting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Design`
+  String get mockCategoryDesign {
+    return Intl.message(
+      'Design',
+      name: 'mockCategoryDesign',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ads`
+  String get mockCategoryAds {
+    return Intl.message('Ads', name: 'mockCategoryAds', desc: '', args: []);
+  }
+
+  /// `Social Media`
+  String get mockCategorySocialMedia {
+    return Intl.message(
+      'Social Media',
+      name: 'mockCategorySocialMedia',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Web & App Design`
+  String get mockSuggestedServiceTitle1 {
+    return Intl.message(
+      'Web & App Design',
+      name: 'mockSuggestedServiceTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Execute Paid Ad Campaigns`
+  String get mockSuggestedServiceTitle2 {
+    return Intl.message(
+      'Execute Paid Ad Campaigns',
+      name: 'mockSuggestedServiceTitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Design`
+  String get mockSuggestedServiceTag1 {
+    return Intl.message(
+      'Design',
+      name: 'mockSuggestedServiceTag1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Digital Ads`
+  String get mockSuggestedServiceTag2 {
+    return Intl.message(
+      'Digital Ads',
+      name: 'mockSuggestedServiceTag2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `12 Days`
+  String get mockDuration12Days {
+    return Intl.message(
+      '12 Days',
+      name: 'mockDuration12Days',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `7 Days`
+  String get mockDuration7Days {
+    return Intl.message(
+      '7 Days',
+      name: 'mockDuration7Days',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

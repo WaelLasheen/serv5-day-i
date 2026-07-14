@@ -1,3 +1,4 @@
+import 'package:day_i/generated/l10n.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,7 @@ class PlanCard extends StatelessWidget {
                               SizedBox(height: 8.h),
                               Text(
                                 renewalDate,
-                                textAlign: TextAlign.right,
+                                textAlign: TextAlign.start,
                                 style: TextStyle(
                                   fontFamily: 'Rubik',
                                   fontWeight: FontWeight.w400,
@@ -131,8 +132,8 @@ class PlanCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.r),
                   ),
                   child: Text(
-                    'الخطة الحالية',
-                    textAlign: TextAlign.right,
+                    S.of(context).currentPlan,
+                    textAlign: TextAlign.start,
                     style: TextStyle(
                       fontFamily: 'Rubik',
                       fontWeight: FontWeight.w500,

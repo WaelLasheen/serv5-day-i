@@ -37,7 +37,7 @@ class OrderDetailsScreen extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back_ios_new,
+            Directionality.of(context) == TextDirection.rtl ? Icons.arrow_forward_rounded : Icons.arrow_back_rounded,
             size: 24.r,
             color: appTheme.textPrimary,
           ),

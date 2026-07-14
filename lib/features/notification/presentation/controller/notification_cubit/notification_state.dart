@@ -29,3 +29,21 @@ class NotificationError extends NotificationState {
   @override
   List<Object?> get props => [message];
 }
+
+class UnreadNotificationsLoaded extends NotificationState {
+  final List<NotificationEntity> notifications;
+
+  const UnreadNotificationsLoaded({required this.notifications});
+
+  @override
+  List<Object?> get props => [notifications];
+}
+
+class UnreadNotificationCountLoaded extends NotificationState {
+  final int count;
+
+  const UnreadNotificationCountLoaded({required this.count});
+
+  @override
+  List<Object?> get props => [count];
+}

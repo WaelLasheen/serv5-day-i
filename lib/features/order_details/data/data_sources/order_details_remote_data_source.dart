@@ -1,3 +1,4 @@
+import 'package:day_i/generated/l10n.dart';
 import '../models/order_details_model.dart';
 
 abstract class OrderDetailsRemoteDataSource {
@@ -13,15 +14,15 @@ class OrderDetailsRemoteDataSourceImpl implements OrderDetailsRemoteDataSource {
     // Returning mock data as requested
     return OrderDetailsModel(
       invoiceNumber: 'INV-2024-089#',
-      invoiceDate: '12 مايو 2026',
-      paymentTime: '2:45 مساءا',
+      invoiceDate: S.current.mockOrderDate1,
+      paymentTime: '2:45 PM',
       orderNumber: 'ORD-99210',
-      paymentMethod: 'بطاقة ائتمان',
-      status: 'مدفوعة',
-      customerName: 'أحمد محمود الخالدي',
-      customerEmail: 'examole@gmail.com',
-      serviceName: 'إدارة حملة إعلانية',
-      serviceCategory: 'التسويق الرقمي',
+      paymentMethod: S.current.mockPaymentCreditCard,
+      status: S.current.mockStatusPaid,
+      customerName: S.current.mockCustomerName,
+      customerEmail: 'example@gmail.com',
+      serviceName: S.current.mockServiceAdCampaign,
+      serviceCategory: S.current.mockServiceDigitalMarketing,
       executionDays: 12,
       servicePrice: 2500.0,
       taxAmount: 375.0,

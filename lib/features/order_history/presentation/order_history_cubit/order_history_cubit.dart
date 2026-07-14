@@ -19,20 +19,26 @@ class OrderHistoryCubit extends Cubit<OrderHistoryState> {
     final statsResult = await getOrderStatsUseCase();
     final ordersResult = await getOrdersUseCase(params);
 
-    statsResult.fold((failure) => emit(OrderHistoryFailure(failure.message)), (
+    statsResult.fold((failure) {
+      if (!isClosed) emit(OrderHistoryFailure(failure.message));
+    }, (
       stats,
     ) {
       ordersResult.fold(
-        (failure) => emit(OrderHistoryFailure(failure.message)),
+        (failure) {
+          if (!isClosed) emit(OrderHistoryFailure(failure.message));
+        },
         (orders) {
-          emit(
-            OrderHistorySuccess(
-              orders: orders,
-              stats: stats,
-              params: params,
-              hasReachedMax: orders.length < params.perPage,
-            ),
-          );
+          if (!isClosed) {
+            emit(
+              OrderHistorySuccess(
+                orders: orders,
+                stats: stats,
+                params: params,
+                hasReachedMax: orders.length < params.perPage,
+              ),
+            );
+          }
         },
       );
     });
@@ -47,16 +53,20 @@ class OrderHistoryCubit extends Cubit<OrderHistoryState> {
     );
     final ordersResult = await getOrdersUseCase(params);
 
-    ordersResult.fold((failure) => emit(OrderHistoryFailure(failure.message)), (
+    ordersResult.fold((failure) {
+      if (!isClosed) emit(OrderHistoryFailure(failure.message));
+    }, (
       orders,
     ) {
-      emit(
-        currentState.copyWith(
-          orders: orders,
-          params: params,
-          hasReachedMax: orders.length < params.perPage,
-        ),
-      );
+      if (!isClosed) {
+        emit(
+          currentState.copyWith(
+            orders: orders,
+            params: params,
+            hasReachedMax: orders.length < params.perPage,
+          ),
+        );
+      }
     });
   }
 
@@ -70,16 +80,20 @@ class OrderHistoryCubit extends Cubit<OrderHistoryState> {
     );
 
     final ordersResult = await getOrdersUseCase(params);
-    ordersResult.fold((failure) => emit(OrderHistoryFailure(failure.message)), (
+    ordersResult.fold((failure) {
+      if (!isClosed) emit(OrderHistoryFailure(failure.message));
+    }, (
       orders,
     ) {
-      emit(
-        currentState.copyWith(
-          orders: orders,
-          params: params,
-          hasReachedMax: orders.length < params.perPage,
-        ),
-      );
+      if (!isClosed) {
+        emit(
+          currentState.copyWith(
+            orders: orders,
+            params: params,
+            hasReachedMax: orders.length < params.perPage,
+          ),
+        );
+      }
     });
   }
 
@@ -96,9 +110,10 @@ class OrderHistoryCubit extends Cubit<OrderHistoryState> {
 
     ordersResult.fold(
       (failure) {
-        emit(currentState.copyWith(isPaginationLoading: false));
+        if (!isClosed) emit(currentState.copyWith(isPaginationLoading: false));
       },
       (newOrders) {
+        if (isClosed) return;
         if (newOrders.isEmpty) {
           emit(
             currentState.copyWith(

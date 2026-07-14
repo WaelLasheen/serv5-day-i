@@ -28,11 +28,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(time) => "مدة التنفيذ : ${time}";
 
-  static String m4(percentage) => "الضريبة(${percentage}%)";
+  static String m4(name) => "أهلاً ${name}!";
 
-  static String m5(percentage) => "الضريبة (${percentage}%)";
+  static String m5(count) => "(${count} تقييم)";
 
-  static String m6(days) => "${days} يوم عمل";
+  static String m6(percentage) => "الضريبة(${percentage}%)";
+
+  static String m7(percentage) => "الضريبة (${percentage}%)";
+
+  static String m8(days) => "${days} يوم عمل";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -62,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "لديك حساب بالفعل؟",
     ),
     "alwaysActive": MessageLookupByLibrary.simpleMessage("نشط دائما"),
+    "appPreferences": MessageLookupByLibrary.simpleMessage("تفضيلات التطبيق"),
     "appTitle": MessageLookupByLibrary.simpleMessage("يومي"),
     "approved": MessageLookupByLibrary.simpleMessage("تمت الموافقة"),
     "approximateTotal": MessageLookupByLibrary.simpleMessage(
@@ -70,8 +75,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "assignedTeam": MessageLookupByLibrary.simpleMessage("فريق الخدمة المعين"),
     "badCertificate": MessageLookupByLibrary.simpleMessage("شهادة غير صالحة"),
+    "billingAndPayment": MessageLookupByLibrary.simpleMessage(
+      "الفواتير والدفع",
+    ),
+    "billingHistory": MessageLookupByLibrary.simpleMessage("سجل الفواتير"),
     "budget": MessageLookupByLibrary.simpleMessage("الميزانية"),
     "budgetLabel": m0,
+    "businessInfo": MessageLookupByLibrary.simpleMessage(
+      "معلومات النشاط التجاري",
+    ),
+    "businessMetadata": MessageLookupByLibrary.simpleMessage("بيانات العمل"),
+    "businessType": MessageLookupByLibrary.simpleMessage("نوع النشاط"),
     "campaignManagement": MessageLookupByLibrary.simpleMessage(
       "إدارة الحملات الإعلانية",
     ),
@@ -120,7 +134,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "chooseSubject": MessageLookupByLibrary.simpleMessage(
       "اختيار موضوع التواصل",
     ),
+    "communicationInfo": MessageLookupByLibrary.simpleMessage("بيانات التواصل"),
     "companyName": MessageLookupByLibrary.simpleMessage("اسم الشركة"),
+    "companyNameHint": MessageLookupByLibrary.simpleMessage(
+      "أدخل الاسم الرسمي لشركتك كما سيظهر للعملاء",
+    ),
     "companyNameReq": MessageLookupByLibrary.simpleMessage("اسم الشركة مطلوب"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
@@ -145,8 +163,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentPassword": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور الحالية",
     ),
+    "currentPlan": MessageLookupByLibrary.simpleMessage("الخطة الحالية"),
     "customerInfoLabel": MessageLookupByLibrary.simpleMessage("معلومات العميل"),
     "customerReviews": MessageLookupByLibrary.simpleMessage("آراء العملاء"),
+    "darkMode": MessageLookupByLibrary.simpleMessage("المظهر الداكن"),
     "dataUsage": MessageLookupByLibrary.simpleMessage("استخدام البيانات"),
     "deactivateAccount": MessageLookupByLibrary.simpleMessage("تعطيل الحساب"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
@@ -184,6 +204,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "expiresIn": MessageLookupByLibrary.simpleMessage("تنتهي في"),
     "expiryDate": MessageLookupByLibrary.simpleMessage("تاريخ الإنتهاء"),
     "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
+    "featureFasterResults": MessageLookupByLibrary.simpleMessage("نتائج أسرع"),
+    "featureFasterResultsDesc": MessageLookupByLibrary.simpleMessage(
+      "منهجية عمل متطورة تضمن الوصول لأهدافك في وقت قياسي.",
+    ),
+    "featurePeriodicReports": MessageLookupByLibrary.simpleMessage(
+      "تقارير دورية",
+    ),
+    "featurePeriodicReportsDesc": MessageLookupByLibrary.simpleMessage(
+      "تواصل مستمر وتقارير شفافة توضح كل تفاصيل صرف ميزانيتك.",
+    ),
+    "featurePreciseTargeting": MessageLookupByLibrary.simpleMessage(
+      "استهداف دقيق",
+    ),
+    "featurePreciseTargetingDesc": MessageLookupByLibrary.simpleMessage(
+      "نستخدم بيانات دقيقة للوصول لعملائك المحتملين بكفاءة عالية.",
+    ),
+    "fieldRequired": MessageLookupByLibrary.simpleMessage("مطلوب"),
     "finalTotalLabel": MessageLookupByLibrary.simpleMessage("الإجمالي النهائي"),
     "flexiblePackages": MessageLookupByLibrary.simpleMessage(
       "باقات مرنة تناسب حجم نشاطك وأهدافك التسويقية",
@@ -199,10 +236,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "fullName": MessageLookupByLibrary.simpleMessage("الأسم كامل"),
     "fullNameReq": MessageLookupByLibrary.simpleMessage("الاسم الكامل مطلوب"),
+    "growthPlan": MessageLookupByLibrary.simpleMessage("باقة النمو"),
     "hello": MessageLookupByLibrary.simpleMessage("مرحباً بالعالم!"),
+    "helloUser": m4,
+    "helpAndSupport": MessageLookupByLibrary.simpleMessage("المساعدة والدعم"),
+    "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
+    "hintText": MessageLookupByLibrary.simpleMessage("نص تلميحي"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "included": MessageLookupByLibrary.simpleMessage("مشمولة"),
     "industry": MessageLookupByLibrary.simpleMessage("مجال العمل"),
+    "industryHint": MessageLookupByLibrary.simpleMessage(
+      "اختر المجال الذي تعمل فيه شركتك",
+    ),
     "internalServerError": MessageLookupByLibrary.simpleMessage(
       "خطأ في الخادم الداخلي، يرجى المحاولة لاحقاً",
     ),
@@ -214,7 +259,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "invoiceDateLabel": MessageLookupByLibrary.simpleMessage("تاريخ الفاتورة"),
     "invoiceNumberLabel": MessageLookupByLibrary.simpleMessage("رقم الفاتورة"),
+    "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "late": MessageLookupByLibrary.simpleMessage("متأخر"),
+    "location": MessageLookupByLibrary.simpleMessage("الموقع"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "سجل الدخول لإدارة معارض الكتب والفعاليات الثقافية",
@@ -235,8 +282,80 @@ class MessageLookup extends MessageLookupByLibrary {
       "معلومات الاتصال بماركيفا",
     ),
     "mediumPassword": MessageLookupByLibrary.simpleMessage("متوسط"),
+    "messageSentSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال الرسالة بنجاح",
+    ),
+    "mockCategoryAds": MessageLookupByLibrary.simpleMessage("إعلانات"),
+    "mockCategoryContentWriting": MessageLookupByLibrary.simpleMessage(
+      "كتابة المحتوي",
+    ),
+    "mockCategoryDesign": MessageLookupByLibrary.simpleMessage("التصميم"),
+    "mockCategorySocialMedia": MessageLookupByLibrary.simpleMessage(
+      "سوشيال ميديا",
+    ),
+    "mockCustomerName": MessageLookupByLibrary.simpleMessage(
+      "أحمد محمود الخالدي",
+    ),
+    "mockDuration12Days": MessageLookupByLibrary.simpleMessage("12 أيام"),
+    "mockDuration7Days": MessageLookupByLibrary.simpleMessage("7 أيام"),
+    "mockOrderDate1": MessageLookupByLibrary.simpleMessage("12 مارس 2026"),
+    "mockOrderDate2": MessageLookupByLibrary.simpleMessage("13 مارس 2026"),
+    "mockOrderDate3": MessageLookupByLibrary.simpleMessage("14 مارس 2026"),
+    "mockOrderDate4": MessageLookupByLibrary.simpleMessage("15 مارس 2026"),
+    "mockOrderEmail": MessageLookupByLibrary.simpleMessage(
+      "حملة بريد إلكتروني ترويجية",
+    ),
+    "mockOrderFacebook": MessageLookupByLibrary.simpleMessage(
+      "إدارة حملة إعلانية - فيسبوك",
+    ),
+    "mockOrderInstagram": MessageLookupByLibrary.simpleMessage(
+      "إدارة حملة إعلانية - انستجرام",
+    ),
+    "mockOrderSEO": MessageLookupByLibrary.simpleMessage(
+      "تحسين محركات البحث-SEO",
+    ),
+    "mockOrderUIUX": MessageLookupByLibrary.simpleMessage(
+      "تصميم واجهات المستخدم",
+    ),
+    "mockOrderVideo": MessageLookupByLibrary.simpleMessage(
+      "إنتاج محتوى فيديو ترويجي",
+    ),
+    "mockPaymentCreditCard": MessageLookupByLibrary.simpleMessage(
+      "بطاقة ائتمان",
+    ),
+    "mockReviewAuthor": MessageLookupByLibrary.simpleMessage(
+      "عبدالله القحطاني",
+    ),
+    "mockReviewComment": MessageLookupByLibrary.simpleMessage(
+      "الخدمة ممتازة جداً وفريق العمل احترافي في التعامل والاستجابة. لاحظت فرق في النتائج من أول أسبوع.",
+    ),
+    "mockReviewDate": MessageLookupByLibrary.simpleMessage("منذ يومين"),
+    "mockServiceAdCampaign": MessageLookupByLibrary.simpleMessage(
+      "إدارة حملة إعلانية",
+    ),
+    "mockServiceDigitalMarketing": MessageLookupByLibrary.simpleMessage(
+      "التسويق الرقمي",
+    ),
+    "mockSimilarServiceTitle": MessageLookupByLibrary.simpleMessage(
+      "إدارة حسابات التواصل",
+    ),
+    "mockStatusPaid": MessageLookupByLibrary.simpleMessage("مدفوعة"),
+    "mockSuggestedServiceTag1": MessageLookupByLibrary.simpleMessage("التصميم"),
+    "mockSuggestedServiceTag2": MessageLookupByLibrary.simpleMessage(
+      "الإعلانات الرقمية",
+    ),
+    "mockSuggestedServiceTitle1": MessageLookupByLibrary.simpleMessage(
+      "تصميم المواقع والتطبيقات",
+    ),
+    "mockSuggestedServiceTitle2": MessageLookupByLibrary.simpleMessage(
+      "تنفيذ حملات إعلانية مدفوعة",
+    ),
+    "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "nextRenewalDate": MessageLookupByLibrary.simpleMessage(
+      "تاريخ التجديد القادم",
+    ),
     "noFaqsAvailable": MessageLookupByLibrary.simpleMessage(
       "لا توجد أسئلة شائعة حالياً.",
     ),
@@ -247,13 +366,49 @@ class MessageLookup extends MessageLookupByLibrary {
       "لا توجد إشعارات حالياً",
     ),
     "noOrders": MessageLookupByLibrary.simpleMessage("لا توجد طلبات"),
+    "noPackagesAvailable": MessageLookupByLibrary.simpleMessage(
+      "لا توجد باقات متاحة",
+    ),
     "noServicesAvailable": MessageLookupByLibrary.simpleMessage(
       "لا توجد خدمات متاحة",
     ),
     "notesHint": MessageLookupByLibrary.simpleMessage(
       "مثلاً: تفاصيل إضافية عن الجمهور المستهدف أو أهداف محددة...",
     ),
+    "notificationMockSubtitle1": MessageLookupByLibrary.simpleMessage(
+      "اقتراح خدمة مناسبة لنشاطك متاح دلوقتي.",
+    ),
+    "notificationMockSubtitle2": MessageLookupByLibrary.simpleMessage(
+      "الخدمة دي متوافقة تمامًا مع أهدافك التسويقية الحالية.",
+    ),
+    "notificationMockTitle1": MessageLookupByLibrary.simpleMessage(
+      "جاهز تطوّر حملتك؟",
+    ),
+    "notificationMockTitle2": MessageLookupByLibrary.simpleMessage(
+      "اختيار موفق",
+    ),
     "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+    "onboarding1Description": MessageLookupByLibrary.simpleMessage(
+      "كل أدوات التسويق اللي محتاجاها في مكان واحد\nمن التخطيط للتنفيذ والمتابعة.",
+    ),
+    "onboarding1TitleHighlight": MessageLookupByLibrary.simpleMessage(
+      "ماركيفا",
+    ),
+    "onboarding1TitleSuffix": MessageLookupByLibrary.simpleMessage(
+      "... إدارة تسويق أذكى",
+    ),
+    "onboarding2Description": MessageLookupByLibrary.simpleMessage(
+      "تابع الحملات، المهام، والأداء\nبدون تعقيد أو تشتيت.",
+    ),
+    "onboarding2Title": MessageLookupByLibrary.simpleMessage(
+      "خطّط، نفّذ، تابع بسهولة",
+    ),
+    "onboarding3Description": MessageLookupByLibrary.simpleMessage(
+      "تقارير واضحة تساعدك تاخد القرار الصح\nفي الوقت الصح.",
+    ),
+    "onboarding3Title": MessageLookupByLibrary.simpleMessage(
+      "كل قراراتك مبنية على أرقام",
+    ),
     "oopsError": MessageLookupByLibrary.simpleMessage(
       "عذراً! حدث خطأ، يرجى المحاولة مرة أخرى",
     ),
@@ -324,6 +479,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "postalCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
     "prices": MessageLookupByLibrary.simpleMessage("الاسعار"),
     "privacy": MessageLookupByLibrary.simpleMessage("الخصوصية"),
+    "privacyAndSecurity": MessageLookupByLibrary.simpleMessage(
+      "الخصوصية والأمان",
+    ),
+    "privacySettings": MessageLookupByLibrary.simpleMessage("إعدادات الخصوصية"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "انتهى وقت الاستقبال",
     ),
@@ -337,8 +496,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة مرور قوية لحماية حسابك",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "reviewOrders": MessageLookupByLibrary.simpleMessage("استعراض طلباتي"),
     "reviewYourOrder": MessageLookupByLibrary.simpleMessage("مراجعة طلبك"),
+    "reviewsCount": m5,
     "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "savePaymentForLater": MessageLookupByLibrary.simpleMessage(
       "حفظ وسيلة الدفع للاستخدام لاحقًا",
@@ -352,14 +513,39 @@ class MessageLookup extends MessageLookupByLibrary {
       "ابحث باسم الخدمة أو رقم طلب...",
     ),
     "securityAlerts": MessageLookupByLibrary.simpleMessage("تنبيهات الأمان"),
+    "securityAndPrivacy": MessageLookupByLibrary.simpleMessage(
+      "الأمان والخصوصية",
+    ),
     "securityCode": MessageLookupByLibrary.simpleMessage("رمز الأمان"),
     "selectedPlan": MessageLookupByLibrary.simpleMessage("الخطة المختارة"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسال رمز للتحقق"),
     "sendMessage": MessageLookupByLibrary.simpleMessage("إرسال الرسالة"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage("انتهى وقت الإرسال"),
+    "serviceCategories": MessageLookupByLibrary.simpleMessage("فئات الخدمات"),
     "serviceDescription": MessageLookupByLibrary.simpleMessage("وصف الخدمة"),
+    "serviceDescriptionText": MessageLookupByLibrary.simpleMessage(
+      "نقدم لك خدمة شاملة واحترافية لإنشاء وإدارة حملاتك الإعلانية عبر مختلف المنصات الرقمية. تركز علي استهداف الجمهور الصحيح بدقة لضمان أعلي مستويات الوصول والتحويل. مع تحسين مستمر للأداء لتقليل التكاليف وزيادة العائد علي الاستثمار.",
+    ),
     "serviceDetailsLabel": MessageLookupByLibrary.simpleMessage(
       "تفاصيل الخدمة",
+    ),
+    "serviceInclude1": MessageLookupByLibrary.simpleMessage(
+      "إعداد الاستراتيجية الإعلانية",
+    ),
+    "serviceInclude2": MessageLookupByLibrary.simpleMessage(
+      "إنشاء الحملة على المنصة المطلوبة",
+    ),
+    "serviceInclude3": MessageLookupByLibrary.simpleMessage(
+      "كتابة النصوص الإعلانية",
+    ),
+    "serviceInclude4": MessageLookupByLibrary.simpleMessage(
+      "تصميم الصور أو الفيديوهات الإعلانية",
+    ),
+    "serviceInclude5": MessageLookupByLibrary.simpleMessage(
+      "مراقبة الأداء اليومي والتحسين",
+    ),
+    "serviceInclude6": MessageLookupByLibrary.simpleMessage(
+      "تقرير نهائي مفصل بالنتائج",
     ),
     "servicePrice": MessageLookupByLibrary.simpleMessage("سعر الخدمة"),
     "servicePriceLabel": MessageLookupByLibrary.simpleMessage("سعر الخدمة"),
@@ -384,9 +570,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "startNow": MessageLookupByLibrary.simpleMessage("أبدأ الآن"),
     "strongPassword": MessageLookupByLibrary.simpleMessage("قوي"),
     "subject": MessageLookupByLibrary.simpleMessage("الموضوع"),
+    "subscribedPlanHint": MessageLookupByLibrary.simpleMessage(
+      "الخطة التي اشتركت بها لتفعيل خدمات المنصة",
+    ),
     "subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
-    "tax": m4,
-    "taxLabel": m5,
+    "suggestedServicesForYou": MessageLookupByLibrary.simpleMessage(
+      "خدمات مقترحة لك",
+    ),
+    "tax": m6,
+    "taxLabel": m7,
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "أوافق على الشروط والاحكام وسياسة الخصوصية",
     ),
@@ -399,10 +591,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "unexpectedError": MessageLookupByLibrary.simpleMessage(
       "خطأ غير متوقع، يرجى المحاولة مرة أخرى!",
     ),
+    "upgradePlan": MessageLookupByLibrary.simpleMessage("ترقية الباقة"),
     "userMessage": MessageLookupByLibrary.simpleMessage("رسالة المستخدم"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("تأكيد رمز التحقق"),
     "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "viewDetails": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
+    "viewMore": MessageLookupByLibrary.simpleMessage("عرض المزيد"),
     "visibilityControl": MessageLookupByLibrary.simpleMessage(
       "التحكم في الظهور",
     ),
@@ -415,7 +609,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "whyChooseMarkiva": MessageLookupByLibrary.simpleMessage(
       "لماذا تختار ماركيفا",
     ),
-    "workingDays": m6,
+    "workingDays": m8,
     "writeMessageHere": MessageLookupByLibrary.simpleMessage("اكتب رسالتك هنا"),
   };
 }
