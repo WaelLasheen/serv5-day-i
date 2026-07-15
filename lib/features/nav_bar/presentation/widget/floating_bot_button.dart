@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 
 class FloatingBotButton extends StatefulWidget {
   final VoidCallback onTap;
@@ -11,60 +13,97 @@ class FloatingBotButton extends StatefulWidget {
 }
 
 class _FloatingBotButtonState extends State<FloatingBotButton> {
-  bool isExpanded = false;
+  bool _isExpanded = false;
+  Timer? _autoHideTimer;
 
   void _handleTap() {
-    if (!isExpanded) {
+    if (!_isExpanded) {
       setState(() {
-        isExpanded = true;
+        _isExpanded = true;
       });
-      // Auto hide after 3 seconds if not tapped again
-      Future.delayed(const Duration(seconds: 3), () {
-        if (mounted && isExpanded) {
-          setState(() {
-            isExpanded = false;
-          });
-        }
-      });
+      _startAutoHideTimer();
     } else {
-      widget.onTap();
+      _autoHideTimer?.cancel();
       setState(() {
-        isExpanded = false;
+        _isExpanded = false;
       });
+      widget.onTap();
     }
+  }
+
+  void _startAutoHideTimer() {
+    _autoHideTimer?.cancel();
+    _autoHideTimer = Timer(const Duration(seconds: 4), () {
+      if (mounted && _isExpanded) {
+        setState(() {
+          _isExpanded = false;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _autoHideTimer?.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _handleTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-        width: 56.w,
-        height: 56.h,
-        transform: Matrix4.translationValues(
-          isExpanded ? -16.w : 28.w, 
-          0,
-          0,
-        ),
-        padding: EdgeInsets.all(4.w),
-        decoration: BoxDecoration(
-          color: const Color(0xFF4F46E5),
-          borderRadius: BorderRadius.circular(28.r),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.15),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            )
-          ],
-        ),
-        child: Center(
-          child: Icon(
-            Icons.smart_toy_outlined,
-            color: Colors.white,
-            size: 32.r,
+    final theme = context.appTheme;
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+
+    return AnimatedPositioned(
+      duration: const Duration(milliseconds: 320),
+      curve: Curves.easeOutCubic,
+      bottom: 120.h,
+      left: isRtl ? (_isExpanded ? 16.w : -38.w) : null,
+      right: !isRtl ? (_isExpanded ? 16.w : -38.w) : null,
+      child: TapRegion(
+        onTapOutside: (_) {
+          if (_isExpanded) {
+            _autoHideTimer?.cancel();
+            setState(() {
+              _isExpanded = false;
+            });
+          }
+        },
+        child: GestureDetector(
+          onTap: _handleTap,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 320),
+            curve: Curves.easeOutCubic,
+            width: 56.r,
+            height: 56.r,
+            decoration: BoxDecoration(
+              color: theme.primaryColor,
+              borderRadius: BorderRadius.circular(28.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.18),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                )
+              ],
+            ),
+            child: AnimatedAlign(
+              duration: const Duration(milliseconds: 320),
+              curve: Curves.easeOutCubic,
+              alignment: _isExpanded
+                  ? Alignment.center
+                  : (isRtl ? Alignment.centerRight : Alignment.centerLeft),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  right: (_isExpanded || !isRtl) ? 0 : 6.w,
+                  left: (_isExpanded || isRtl) ? 0 : 6.w,
+                ),
+                child: Icon(
+                  Icons.smart_toy_outlined,
+                  color: Colors.white,
+                  size: 28.r,
+                ),
+              ),
+            ),
           ),
         ),
       ),

@@ -16,8 +16,10 @@ class OrderHistoryCubit extends Cubit<OrderHistoryState> {
   Future<void> fetchInitialOrders({OrderParams? param}) async {
     emit(OrderHistoryLoading());
     final params = param ?? OrderParams();
-    final statsResult = await getOrderStatsUseCase();
-    final ordersResult = await getOrdersUseCase(params);
+    final statsFuture = getOrderStatsUseCase();
+    final ordersFuture = getOrdersUseCase(params);
+    final statsResult = await statsFuture;
+    final ordersResult = await ordersFuture;
 
     statsResult.fold((failure) {
       if (!isClosed) emit(OrderHistoryFailure(failure.message));

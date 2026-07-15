@@ -2,6 +2,7 @@ import 'package:day_i/generated/l10n.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
+import 'package:day_i/features/order_history/data/data_sources/shared_orders_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,6 +12,8 @@ class ReviewOrderBottomSheet extends StatelessWidget {
   final String executionTime;
   final String tax;
   final String totalPrice;
+  final int? serviceId;
+  final String? category;
 
   const ReviewOrderBottomSheet({
     super.key,
@@ -19,7 +22,10 @@ class ReviewOrderBottomSheet extends StatelessWidget {
     required this.executionTime,
     required this.tax,
     required this.totalPrice,
+    this.serviceId,
+    this.category,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -231,6 +237,13 @@ class ReviewOrderBottomSheet extends StatelessWidget {
               AppButton(
                 text: l10n.requestService,
                 onPressed: () {
+                  SharedOrdersStore.addNewOrder(
+                    serviceName: serviceName,
+                    priceString: price,
+                    executionTime: executionTime,
+                    serviceId: serviceId,
+                    category: category,
+                  );
                   Navigator.pop(context); // Close bottom sheet
                   Navigator.pushNamed(context, RouterPath.payment); // Assuming payment is checkout
                 },

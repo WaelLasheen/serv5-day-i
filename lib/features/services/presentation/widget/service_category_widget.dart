@@ -41,7 +41,7 @@ class ServiceCategoryWidget extends StatelessWidget {
         ),
         SizedBox(height: 16.h),
         SizedBox(
-          height: 280.h,
+          height: 198.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: false,

@@ -26,9 +26,16 @@ import 'package:day_i/features/services/data/data_source/remote_data_source.dart
 import 'package:day_i/features/services/data/data_source/remote_data_source_impl.dart';
 import 'package:day_i/features/services/data/repository/repository_impl.dart';
 import 'package:day_i/features/services/domain/repository/repository.dart';
+import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
 import 'package:day_i/features/services/presentation/controller/service_details_cubit/service_details_cubit.dart';
 import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/features/services/domain/use_case/get_service_details_use_case.dart';
+import 'package:day_i/features/home/data/data_source/home_data_source.dart';
+import 'package:day_i/features/home/data/repository/home_repository_impl.dart';
+import 'package:day_i/features/home/domain/repository/home_repository.dart';
+import 'package:day_i/features/home/domain/use_case/get_home_categories_use_case.dart';
+import 'package:day_i/features/home/domain/use_case/get_home_suggested_services_use_case.dart';
+import 'package:day_i/features/home/presentation/controller/home_cubit/home_cubit.dart';
 import 'package:day_i/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:day_i/core/services/notification_service.dart';
@@ -137,6 +144,9 @@ Future<void> setUpLocators() async {
   getIt.registerLazySingleton<GetServicesUseCase>(
     () => GetServicesUseCase(repository: getIt<ServiceRepository>()),
   );
+  getIt.registerLazySingleton<ServiceCubit>(
+    () => ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>()),
+  );
   getIt.registerLazySingleton<GetServiceDetailsUseCase>(
     () => GetServiceDetailsUseCase(repository: getIt<ServiceRepository>()),
   );
@@ -149,6 +159,26 @@ Future<void> setUpLocators() async {
     () => PricingPlansRepo(getIt<IApiService>()),
   );
   getIt.registerFactory<PricingPlansCubit>(() => PricingPlansCubit(getIt()));
+
+  // Home Feature
+  getIt.registerLazySingleton<HomeDataSource>(
+    () => HomeDataSourceImpl(apiService: getIt<IApiService>()),
+  );
+  getIt.registerLazySingleton<HomeRepository>(
+    () => HomeRepositoryImpl(dataSource: getIt<HomeDataSource>()),
+  );
+  getIt.registerLazySingleton<GetHomeCategoriesUseCase>(
+    () => GetHomeCategoriesUseCase(getIt<HomeRepository>()),
+  );
+  getIt.registerLazySingleton<GetHomeSuggestedServicesUseCase>(
+    () => GetHomeSuggestedServicesUseCase(getIt<HomeRepository>()),
+  );
+  getIt.registerFactory<HomeCubit>(
+    () => HomeCubit(
+      getCategoriesUseCase: getIt<GetHomeCategoriesUseCase>(),
+      getSuggestedServicesUseCase: getIt<GetHomeSuggestedServicesUseCase>(),
+    ),
+  );
 
   // Privacy
   getIt.registerFactory<PrivacyCubit>(() => PrivacyCubit());

@@ -25,9 +25,7 @@ class PricingPlansBannerWidget extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const PricingPlansScreen(),
-            ),
+            MaterialPageRoute(builder: (context) => const PricingPlansScreen()),
           );
         },
         borderRadius: BorderRadius.circular(12.r),
@@ -35,7 +33,7 @@ class PricingPlansBannerWidget extends StatelessWidget {
           width: double.infinity,
           padding: EdgeInsets.all(16.w),
           decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xFFDEDEDE)),
+            border: Border.all(color: const Color(0xFF6C63FF)),
             borderRadius: BorderRadius.circular(12.r),
           ),
           child: Row(

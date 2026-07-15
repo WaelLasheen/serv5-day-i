@@ -18,6 +18,7 @@ class OrderDetailsModel extends OrderDetailsEntity {
     required super.discountAmount,
     required super.discountCode,
     required super.finalTotal,
+    super.serviceId,
   });
 
   factory OrderDetailsModel.fromJson(Map<String, dynamic> json) {
@@ -48,6 +49,10 @@ class OrderDetailsModel extends OrderDetailsEntity {
       finalTotal: json['finalTotal'] is num
           ? (json['finalTotal'] as num).toDouble()
           : double.tryParse(json['finalTotal']?.toString() ?? '0') ?? 0.0,
+      serviceId: json['serviceId'] is int
+          ? json['serviceId']
+          : int.tryParse(json['serviceId']?.toString() ?? json['service_id']?.toString() ?? ''),
     );
   }
 }
+

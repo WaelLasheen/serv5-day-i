@@ -45,33 +45,7 @@ class ProfilePhoto extends StatelessWidget {
               ),
             ),
           ),
-          // Camera Action Button (Frame 2147238259)
-          Positioned(
-            right: 0,
-            bottom: 10,
-            child: Container(
-              width: 35.r,
-              height: 35.r,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: appTheme.surfaceColor,
-                shape: BoxShape.circle,
-                border: Border.all(color: appTheme.surfaceColor, width: 1),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.1),
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Icon(
-                Icons.camera_alt,
-                size: 18.sp,
-                color: appTheme.primaryColor,
-              ),
-            ),
-          ),
+          // Camera Action Button (Frame 2147238259
         ],
       ),
     );

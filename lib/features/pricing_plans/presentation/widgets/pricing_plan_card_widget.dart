@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/font_styles.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/widgets/app_button.dart';
+import 'package:day_i/core/widgets/custom_chevron.dart';
 import 'package:day_i/features/pricing_plans/data/models/pricing_plan_model.dart';
 import 'package:day_i/generated/l10n.dart';
 
@@ -118,10 +119,8 @@ class PricingPlanCardWidget extends StatelessWidget {
             onPressed: () {
               // Action logic based on plan.button?.action
             },
-            icon: Icon(
-              Directionality.of(context) == TextDirection.rtl
-                  ? Icons.arrow_back_rounded
-                  : Icons.arrow_forward_rounded,
+            icon: CustomChevron(
+              color: Colors.white,
               size: 16.r,
             ),
             isIconTrailing: true,

@@ -1,6 +1,5 @@
 import 'package:day_i/generated/l10n.dart';
 import 'package:day_i/features/profile/presentation/widget/custom_info_section.dart';
-import 'package:day_i/features/profile/presentation/widget/left_navigation_chevron.dart';
 import 'package:day_i/core/router/router_path.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,6 @@ class PrivacySecuritySection extends StatelessWidget {
         InfoModel(
           title: S.of(context).changePassword,
           icon: Icons.lock_outline_rounded,
-          trailing: const LeftNavigationChevron(),
           onTap: () {
             Navigator.pushNamed(context, RouterPath.editProfileChangePassword);
           },
@@ -23,7 +21,6 @@ class PrivacySecuritySection extends StatelessWidget {
         InfoModel(
           title: S.of(context).privacySettings,
           icon: Icons.verified_user_outlined,
-          trailing: const LeftNavigationChevron(),
           onTap: () {
             Navigator.pushNamed(context, RouterPath.privacy);
           },

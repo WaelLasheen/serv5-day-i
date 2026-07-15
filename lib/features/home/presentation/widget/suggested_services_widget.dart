@@ -14,8 +14,6 @@ class SuggestedServicesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
-    final isRtl = Directionality.of(context) == TextDirection.rtl;
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(
@@ -48,14 +46,6 @@ class SuggestedServicesWidget extends StatelessWidget {
                         fontSize: 13.sp,
                       ),
                     ),
-                    SizedBox(width: 8.w),
-                    Icon(
-                      isRtl
-                          ? Icons.arrow_back_rounded
-                          : Icons.arrow_forward_rounded,
-                      size: 14.r,
-                      color: theme.primaryColor,
-                    ),
                   ],
                 ),
               ),
@@ -70,26 +60,73 @@ class SuggestedServicesWidget extends StatelessWidget {
               }
 
               if (state is ServiceSuccess && state.services.isNotEmpty) {
-                // Pick the first service from each category as "suggested"
                 final suggestedServices = state.services
                     .where((cat) => cat.services.isNotEmpty)
                     .map((cat) => cat.services.first)
                     .toList();
 
-                if (suggestedServices.isEmpty) return _buildShimmer();
+                if (suggestedServices.isEmpty) {
+                  return Center(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16.h),
+                      child: Text(
+                        S.of(context).noServicesAvailable,
+                        style: TextStyle(
+                          fontFamily: 'Rubik',
+                          color: const Color(0xFF636262),
+                          fontSize: 13.sp,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  );
+                }
 
                 return SizedBox(
-                  height: 360.h,
+                  height: 198.h,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     itemCount: suggestedServices.length,
-                    separatorBuilder: (context, index) =>
-                        SizedBox(width: 16.w),
+                    separatorBuilder: (context, index) => SizedBox(width: 16.w),
                     itemBuilder: (context, index) {
                       final service = suggestedServices[index];
                       return _ServiceCard(service: service);
                     },
+                  ),
+                );
+              }
+
+              if (state is ServiceFailure) {
+                return Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    child: Text(
+                      state.message,
+                      style: TextStyle(
+                        fontFamily: 'Rubik',
+                        color: Colors.red,
+                        fontSize: 13.sp,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                );
+              }
+
+              if (state is ServiceSuccess && state.services.isEmpty) {
+                return Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    child: Text(
+                      S.of(context).noServicesAvailable,
+                      style: TextStyle(
+                        fontFamily: 'Rubik',
+                        color: const Color(0xFF636262),
+                        fontSize: 13.sp,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 );
               }
@@ -104,18 +141,18 @@ class SuggestedServicesWidget extends StatelessWidget {
 
   Widget _buildShimmer() {
     return SizedBox(
-      height: 360.h,
+      height: 198.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 2,
         separatorBuilder: (_, __) => SizedBox(width: 16.w),
         itemBuilder: (_, __) => Container(
-          width: 300.w,
-          height: 355.h,
+          width: 280.w,
+          height: 198.h,
           decoration: BoxDecoration(
             color: const Color(0xFFEEEEEE),
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(16.r),
           ),
         ),
       ),
@@ -129,8 +166,6 @@ class _ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.appTheme;
-
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(
@@ -140,89 +175,95 @@ class _ServiceCard extends StatelessWidget {
         );
       },
       child: Container(
-        width: 300.w,
-        height: 355.h,
+        width: 280.w,
         padding: EdgeInsets.all(16.w),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(color: const Color(0xFFC8C6F7)),
+          color: const Color(0xFFFAF8FF),
+          borderRadius: BorderRadius.circular(16.r),
+          border: Border.all(color: const Color(0xFF6C63FF), width: 1.5),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF6C63FF).withValues(alpha: 0.12),
+              blurRadius: 10,
+              spreadRadius: 1,
+              offset: const Offset(0, 3),
+            ),
+          ],
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 268.w,
-              height: 135.h,
-              decoration: BoxDecoration(
-                color: const Color(0xFFF5F5F5),
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Icon(
-                Icons.image,
-                color: Colors.grey.shade400,
-                size: 40.r,
-              ),
-            ),
-            SizedBox(height: 10.h),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: List.generate(
-                5,
-                (index) => Icon(
-                  Icons.star_rounded,
-                  color: const Color(0xFFFDC776),
-                  size: 16.r,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.h),
-
-            Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.w,
-                vertical: 4.h,
-              ),
-              decoration: BoxDecoration(
-                color: const Color(0xFFEDEDFC),
-                borderRadius: BorderRadius.circular(24.r),
-              ),
-              child: Text(
-                service.name,
-                style: TextStyle(
-                  fontFamily: 'Rubik',
-                  color: const Color(0xFF121212),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12.sp,
-                ),
+            Text(
+              service.name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontFamily: 'Rubik',
+                color: const Color(0xFF121212),
+                fontWeight: FontWeight.bold,
+                fontSize: 16.sp,
               ),
             ),
             SizedBox(height: 8.h),
-
-            Flexible(
-              child: Text(
-                service.shortDescription,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontFamily: 'Rubik',
-                  color: const Color(0xFF121212),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.sp,
-                ),
+            Text(
+              service.shortDescription,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontFamily: 'Rubik',
+                color: const Color(0xFF636262),
+                fontWeight: FontWeight.w400,
+                fontSize: 13.sp,
+                height: 1.4,
               ),
             ),
-
-            SizedBox(height: 12.h),
-
+            const Spacer(),
             Text(
               "${service.price} / ${service.priceLabel}",
               style: TextStyle(
                 fontFamily: 'Rubik',
-                color: theme.primaryColor,
-                fontWeight: FontWeight.w600,
-                fontSize: 14.sp,
+                color: const Color(0xFF6C63FF),
+                fontWeight: FontWeight.bold,
+                fontSize: 15.sp,
+              ),
+            ),
+            SizedBox(height: 10.h),
+            SizedBox(
+              width: double.infinity,
+              height: 40.h,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    RouterPath.serviceDetails,
+                    arguments: service.id,
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF6C63FF),
+                  foregroundColor: Colors.white,
+                  elevation: 0,
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.center,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    service.buttonText.isNotEmpty
+                        ? service.buttonText
+                        : S.of(context).viewDetails,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Rubik',
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13.sp,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

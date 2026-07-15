@@ -27,15 +27,7 @@ class NotificationScreen extends StatelessWidget {
           S.of(context).notifications,
           style: textTheme.titleLarge?.copyWith(color: appTheme.textPrimary),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Directionality.of(context) == TextDirection.rtl
-                ? Icons.arrow_forward_rounded
-                : Icons.arrow_back_rounded,
-            color: appTheme.primaryColor,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        automaticallyImplyLeading: false,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(1.h),
           child: Container(color: appTheme.boarderPrimary, height: 1.h),
@@ -90,20 +82,8 @@ class NotificationScreen extends StatelessWidget {
             );
           }
 
-          // Initial State — show localized placeholders until fetch completes
-          return ListView(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-            children: [
-              NotificationCard(
-                title: S.of(context).notificationMockTitle1,
-                subtitle: S.of(context).notificationMockSubtitle1,
-              ),
-              SizedBox(height: 16.h),
-              NotificationCard(
-                title: S.of(context).notificationMockTitle2,
-                subtitle: S.of(context).notificationMockSubtitle2,
-              ),
-            ],
+          return Center(
+            child: CircularProgressIndicator(color: appTheme.primaryColor),
           );
         },
       ),

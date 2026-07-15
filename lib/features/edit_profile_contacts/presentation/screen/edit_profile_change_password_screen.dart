@@ -22,15 +22,7 @@ class EditProfileChangePasswordScreen extends StatelessWidget {
           S.current.changePassword,
           style: FontStyles.h3.copyWith(color: theme.textPrimary),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Directionality.of(context) == TextDirection.rtl
-                ? Icons.arrow_forward_rounded
-                : Icons.arrow_back_rounded,
-            color: theme.primaryColor,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
+        automaticallyImplyLeading: false,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(1.h),
           child: Container(color: theme.boarderPrimary, height: 1.h),

@@ -7,6 +7,9 @@ class OrderEntity {
   final double budget;
   final String platform; // 'facebook', 'instagram', 'google'
   final String? employeeName;
+  final int? serviceId;
+  final String? category;
+  final int? executionDays;
 
   const OrderEntity({
     required this.id,
@@ -17,5 +20,9 @@ class OrderEntity {
     required this.budget,
     required this.platform,
     this.employeeName,
+    this.serviceId,
+    this.category,
+    this.executionDays,
   });
 }
+

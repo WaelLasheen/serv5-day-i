@@ -8,112 +8,20 @@ part 'service_state.dart';
 
 class ServiceCubit extends Cubit<ServiceState> {
   final GetServicesUseCase _getServicesUseCase;
+  String? _currentLang;
+
   ServiceCubit({required GetServicesUseCase getServicesUseCase})
     : _getServicesUseCase = getServicesUseCase,
       super(ServiceInitial());
 
-  Future<void> getServices(String lang) async {
-    // just to test till error in server solved
-    // emit(
-    //   ServiceSuccess(
-    //     services: [
-    //       MainServiceEntity(
-    //         id: 0,
-    //         title: 'title',
-    //         description: 'description',
-    //         services: [
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //         ],
-    //       ),
-    //       MainServiceEntity(
-    //         id: 0,
-    //         title: 'title',
-    //         description: 'description',
-    //         services: [
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //         ],
-    //       ),
-    //       MainServiceEntity(
-    //         id: 0,
-    //         title: 'title',
-    //         description: 'description',
-    //         services: [
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //           ServiceEntity(
-    //             id: 0,
-    //             name: 'name',
-    //             shortDescription: 'shortDescription',
-    //             icon: 'icon',
-    //             price: 200.00,
-    //             slug: 'slug',
-    //           ),
-    //         ],
-    //       ),
-    //     ],
-    //   ),
-    // );
-    emit(ServiceLoading());
+  Future<void> getServices(String lang, {bool forceRefresh = false}) async {
+    if (!forceRefresh && state is ServiceSuccess && _currentLang == lang) {
+      return;
+    }
+    _currentLang = lang;
+    if (state is! ServiceSuccess) {
+      emit(ServiceLoading());
+    }
     final result = await _getServicesUseCase(lang);
     if (isClosed) return;
     result.fold(

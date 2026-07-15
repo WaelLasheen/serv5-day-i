@@ -7,7 +7,6 @@ import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/features/nav_bar/presentation/widget/floating_bot_button.dart';
 import 'package:day_i/features/services/presentation/screen/services_screen.dart';
 import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
-import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/core/di/di.dart';
 import 'package:day_i/features/order_history/presentation/screens/order_history_screen.dart';
 import 'package:day_i/features/order_history/presentation/order_history_cubit/order_history_cubit.dart';
@@ -32,14 +31,11 @@ class _NavBarScreenState extends State<NavBarScreen> {
   @override
   void initState() {
     super.initState();
-    _serviceCubit = ServiceCubit(
-      getServicesUseCase: getIt<GetServicesUseCase>(),
-    );
+    _serviceCubit = getIt<ServiceCubit>();
   }
 
   @override
   void dispose() {
-    _serviceCubit.close();
     super.dispose();
   }
 
@@ -87,18 +83,14 @@ class _NavBarScreenState extends State<NavBarScreen> {
         extendBody: true,
         body: Stack(
           children: [
-            _screens != null
-                ? _screens![_currentIndex]
-                : const SizedBox.shrink(),
-            Positioned(
-              right: 0,
-              bottom:
-                  94.h + 24.h, // Adjusted for padding of bottomNavigationBar
-              child: FloatingBotButton(
-                onTap: () {
-                  Navigator.pushNamed(context, RouterPath.chatbot);
-                },
-              ),
+            if (_screens != null)
+              _screens![_currentIndex]
+            else
+              const SizedBox.shrink(),
+            FloatingBotButton(
+              onTap: () {
+                Navigator.pushNamed(context, RouterPath.chatbot);
+              },
             ),
           ],
         ),

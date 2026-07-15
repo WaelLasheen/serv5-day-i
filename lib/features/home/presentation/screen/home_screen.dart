@@ -1,9 +1,12 @@
 import 'dart:async';
+import 'package:day_i/core/di/di.dart';
+import 'package:day_i/features/home/presentation/controller/home_cubit/home_cubit.dart';
 import 'package:day_i/features/home/presentation/widget/dashboard_header.dart';
 import 'package:day_i/features/home/presentation/widget/pricing_plans_banner_widget.dart';
 import 'package:day_i/features/home/presentation/widget/suggested_services_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/features/home/presentation/widget/service_categories_widget.dart';
 
@@ -36,7 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider<HomeCubit>(
+      create: (context) => getIt<HomeCubit>()..getHomeData(),
+      child: Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
           await Future.delayed(const Duration(seconds: 1));
@@ -55,13 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 16.h),
               const SuggestedServicesWidget(),
 
-              SizedBox(height: 16.h),
+              SizedBox(height: 32.h),
               const PricingPlansBannerWidget(),
 
               SizedBox(height: 180.h),
             ],
           ),
         ),
+      ),
       ),
     );
   }

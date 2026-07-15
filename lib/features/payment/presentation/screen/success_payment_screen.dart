@@ -5,6 +5,7 @@ import 'package:day_i/features/payment/presentation/controller/payment_cubit.dar
 import 'package:day_i/features/payment/presentation/controller/payment_state.dart';
 import 'package:day_i/features/payment/presentation/widgets/order_details_card.dart';
 import 'package:day_i/features/payment/presentation/widgets/success_payment_icon.dart';
+import 'package:day_i/features/order_history/data/data_sources/shared_orders_store.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -55,10 +56,11 @@ class SuccessPaymentScreen extends StatelessWidget {
               // Order Details Card
               BlocBuilder<PaymentCubit, PaymentState>(
                 builder: (context, state) {
-                  String orderNum = 'MK-2045#';
-                  String serviceName = l10n.campaignManagement;
-                  String price = '899\$';
-                  String orderDate = '22 يوليو 2026';
+                  final latestOrder = SharedOrdersStore.orders.isNotEmpty ? SharedOrdersStore.orders.first : null;
+                  String orderNum = latestOrder?.code ?? 'MK-2045#';
+                  String serviceName = latestOrder?.title ?? l10n.campaignManagement;
+                  String price = latestOrder != null ? '${latestOrder.budget}\$' : '899\$';
+                  String orderDate = latestOrder?.date ?? '22 يوليو 2026';
 
                   if (state is PaymentSuccessVerified && state.details is Map) {
                     final data = state.details['data'] ?? state.details;
@@ -85,10 +87,11 @@ class SuccessPaymentScreen extends StatelessWidget {
               AppButton(
                 text: l10n.trackOrder,
                 onPressed: () {
+                  final latestOrder = SharedOrdersStore.orders.isNotEmpty ? SharedOrdersStore.orders.first : null;
                   Navigator.pushNamed(
                     context,
                     RouterPath.orderDetails,
-                    arguments: 'MK-2045#',
+                    arguments: latestOrder?.id.toString() ?? 'MK-2045#',
                   );
                 },
                 isPrimary: true,

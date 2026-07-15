@@ -71,7 +71,7 @@ class _ContactFormState extends State<ContactForm> {
               label: S.of(context).fullName,
               hintText: 'John Doe',
               validator: (value) => value == null || value.isEmpty ? 'Required' : null,
-              suffixIcon: const Icon(
+              prefixIcon: const Icon(
                 Icons.person_outline,
                 color: Color(0xFF9E9E9E),
               ),
@@ -86,7 +86,7 @@ class _ContactFormState extends State<ContactForm> {
               label: S.current.email,
               hintText: 'info@marketingagency.com',
               validator: (value) => value == null || value.isEmpty ? 'Required' : null,
-              suffixIcon: const Icon(
+              prefixIcon: const Icon(
                 Icons.email_outlined,
                 color: Color(0xFF9E9E9E),
               ),
@@ -101,10 +101,6 @@ class _ContactFormState extends State<ContactForm> {
               label: S.current.subject,
               hintText: S.current.chooseSubject,
               validator: (value) => value == null || value.isEmpty ? 'Required' : null,
-              suffixIcon: const Icon(
-                Icons.keyboard_arrow_down,
-                color: Color(0xFF9E9E9E),
-              ),
               labelStyle: FontStyles.bodyMedium.copyWith(
                 fontWeight: FontWeight.w500,
                 color: const Color(0xFF121212),

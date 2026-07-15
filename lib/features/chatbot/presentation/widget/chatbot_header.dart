@@ -1,4 +1,3 @@
-import 'package:day_i/core/router/router_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
@@ -13,8 +12,6 @@ class ChatbotHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
-    final isRtl = Directionality.of(context) == TextDirection.rtl;
-
     return Container(
       height: preferredSize.height + MediaQuery.of(context).padding.top,
       padding: EdgeInsets.only(
@@ -34,21 +31,6 @@ class ChatbotHeader extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Row(
             children: [
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, RouterPath.navBar),
-                child: Container(
-                  color: Colors.transparent,
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                  child: Icon(
-                    isRtl
-                        ? Icons.arrow_back_rounded
-                        : Icons.arrow_forward_rounded,
-                    color: theme.primaryColor,
-                    size: 20.r,
-                  ),
-                ),
-              ),
-              SizedBox(width: 8.w),
               Container(
                 width: 44.r,
                 height: 44.r,

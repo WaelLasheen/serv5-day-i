@@ -9,6 +9,9 @@ class OrderModel  {
   final double budget;
   final String platform; // 'facebook', 'instagram', 'google'
   final String? employeeName;
+  final int? serviceId;
+  final String? category;
+  final int? executionDays;
 
   const OrderModel({
     required this.id,
@@ -19,6 +22,9 @@ class OrderModel  {
     required this.budget,
     required this.platform,
     this.employeeName,
+    this.serviceId,
+    this.category,
+    this.executionDays,
   });
 
   factory OrderModel.fromJson(Map<String, dynamic> json) {
@@ -38,10 +44,17 @@ class OrderModel  {
                   : double.tryParse(json['price']?.toString() ?? '0') ?? 0.0),
       platform: json['platform']?.toString() ?? 'facebook',
       employeeName: json['employee_name']?.toString(),
+      serviceId: json['service_id'] is int
+          ? json['service_id']
+          : int.tryParse(json['service_id']?.toString() ?? ''),
+      category: json['category']?.toString() ?? json['service_category']?.toString(),
+      executionDays: json['execution_days'] is int
+          ? json['execution_days']
+          : int.tryParse(json['execution_days']?.toString() ?? ''),
     );
   }
 
-  OrderEntity toEntity()=> OrderEntity(
+  OrderEntity toEntity() => OrderEntity(
     id: id,
     code: code,
     title: title,
@@ -50,5 +63,9 @@ class OrderModel  {
     budget: budget,
     platform: platform,
     employeeName: employeeName,
+    serviceId: serviceId,
+    category: category,
+    executionDays: executionDays,
   );
 }
+

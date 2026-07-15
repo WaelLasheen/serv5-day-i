@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:day_i/core/widgets/custom_search_widget.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 import 'package:day_i/core/utils/extensions/navigation_extension.dart';
@@ -23,17 +24,21 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
   final TextEditingController _searchController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   late OrderHistoryCubit _cubit;
+  Timer? _debounce;
 
   @override
   void initState() {
     super.initState();
     _cubit = context.read<OrderHistoryCubit>();
-    _cubit.fetchInitialOrders();
+    if (_cubit.state is! OrderHistorySuccess && _cubit.state is! OrderHistoryLoading) {
+      _cubit.fetchInitialOrders();
+    }
     _scrollController.addListener(_onScroll);
   }
 
   @override
   void dispose() {
+    _debounce?.cancel();
     _searchController.dispose();
     _scrollController.dispose();
     super.dispose();
@@ -53,6 +58,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
     return Scaffold(
       backgroundColor: appTheme.backgroundColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           S.of(context).serviceRegister,
           style: TextStyle(
@@ -79,7 +85,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
               child: CustomSearchWidget(
                 searchController: _searchController,
                 onSearchChanged: (query) {
-                  _cubit.searchOrders(query);
+                  if (_debounce?.isActive ?? false) _debounce!.cancel();
+                  _debounce = Timer(const Duration(milliseconds: 400), () {
+                    _cubit.searchOrders(query);
+                  });
                 },
               ),
             ),

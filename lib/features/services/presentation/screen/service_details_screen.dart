@@ -23,6 +23,10 @@ class ServiceDetailsScreen extends StatelessWidget {
     BuildContext context,
     ServiceDetailsEntity data,
   ) {
+    final priceVal = double.tryParse(data.sectionOne.price.replaceAll(RegExp(r'[^0-9.]'), '')) ?? 0.0;
+    final taxVal = priceVal * 0.15;
+    final totalVal = priceVal + taxVal;
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -33,10 +37,12 @@ class ServiceDetailsScreen extends StatelessWidget {
         ),
         child: ReviewOrderBottomSheet(
           serviceName: data.sectionOne.title,
-          price: '${data.sectionOne.price}\$',
+          price: '${priceVal.toStringAsFixed(2)}\$',
           executionTime: data.sectionOne.duration,
-          tax: '15', // Mock tax
-          totalPrice: '${data.sectionOne.price}\$', // Should calculate tax
+          tax: '${taxVal.toStringAsFixed(2)}\$',
+          totalPrice: '${totalVal.toStringAsFixed(2)}\$',
+          serviceId: serviceId,
+          category: data.sectionOne.category,
         ),
       ),
     );
@@ -47,21 +53,7 @@ class ServiceDetailsScreen extends StatelessWidget {
     final theme = Theme.of(context).extension<AppTheme>();
     final l10n = S.of(context);
 
-    // Mock reviews since API doesn't provide them
-    final reviews = [
-      ReviewItem(
-        authorName: l10n.mockReviewAuthor,
-        dateString: l10n.mockReviewDate,
-        comment: l10n.mockReviewComment,
-        rating: 5,
-      ),
-      ReviewItem(
-        authorName: l10n.mockReviewAuthor,
-        dateString: l10n.mockReviewDate,
-        comment: l10n.mockReviewComment,
-        rating: 5,
-      ),
-    ];
+    final reviews = <ReviewItem>[];
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -74,16 +66,7 @@ class ServiceDetailsScreen extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Directionality.of(context) == TextDirection.rtl
-                ? Icons.arrow_forward_rounded
-                : Icons.arrow_back_rounded,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: BlocBuilder<ServiceDetailsCubit, ServiceDetailsState>(
         builder: (context, state) {

@@ -15,13 +15,26 @@ class NotificationRemoteDataSourceImpl implements NotificationRemoteDataSource {
 
   NotificationRemoteDataSourceImpl({required this.apiService});
 
+  List<dynamic> _extractList(dynamic responseData) {
+    if (responseData is List) {
+      return responseData;
+    }
+    if (responseData is Map) {
+      final data = responseData['data'] ?? responseData['notifications'];
+      if (data is List) {
+        return data;
+      }
+    }
+    return [];
+  }
+
   @override
   Future<Either<Failure, List<NotificationModel>>> getNotifications() async {
     final result = await apiService.get(ApiConstants.notifications);
     return result.fold(
       (failure) => Left(failure),
       (response) {
-        final List data = response.data['data'] ?? [];
+        final List data = _extractList(response.data);
         return Right(data.map((json) => NotificationModel.fromJson(json)).toList());
       },
     );
@@ -33,7 +46,7 @@ class NotificationRemoteDataSourceImpl implements NotificationRemoteDataSource {
     return result.fold(
       (failure) => Left(failure),
       (response) {
-        final List data = response.data['data'] ?? [];
+        final List data = _extractList(response.data);
         return Right(data.map((json) => NotificationModel.fromJson(json)).toList());
       },
     );
@@ -48,7 +61,11 @@ class NotificationRemoteDataSourceImpl implements NotificationRemoteDataSource {
     return result.fold(
       (failure) => Left(failure),
       (response) {
-        dynamic countData = response.data['count'] ?? response.data['data']?['count'] ?? response.data['data'];
+        dynamic countData = response.data;
+        if (response.data is Map) {
+          final map = response.data as Map;
+          countData = map['count'] ?? (map['data'] is Map ? map['data']['count'] : map['data']);
+        }
         int count = 0;
         if (countData is int) {
           count = countData;

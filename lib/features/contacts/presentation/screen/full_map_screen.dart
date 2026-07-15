@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'package:day_i/core/utils/extensions/get_app_theme.dart';
 
 class FullMapScreen extends StatelessWidget {
   final LatLng initialCenter;
@@ -14,16 +13,7 @@ class FullMapScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Directionality.of(context) == TextDirection.rtl
-                ? Icons.arrow_forward_rounded
-                : Icons.arrow_back_rounded,
-            color: context.appTheme.primaryColor,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: FlutterMap(
         options: MapOptions(initialCenter: initialCenter, initialZoom: 14.0),

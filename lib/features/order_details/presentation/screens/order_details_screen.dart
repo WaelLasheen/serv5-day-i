@@ -34,15 +34,7 @@ class OrderDetailsScreen extends StatelessWidget {
             color: appTheme.textPrimary,
           ),
         ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(
-            Directionality.of(context) == TextDirection.rtl ? Icons.arrow_forward_rounded : Icons.arrow_back_rounded,
-            size: 24.r,
-            color: appTheme.textPrimary,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: BlocBuilder<OrderDetailsCubit, OrderDetailsState>(
         builder: (context, state) {

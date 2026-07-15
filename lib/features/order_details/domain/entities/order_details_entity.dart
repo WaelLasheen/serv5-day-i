@@ -15,6 +15,7 @@ class OrderDetailsEntity {
   final double discountAmount;
   final String discountCode;
   final double finalTotal;
+  final int? serviceId;
 
   OrderDetailsEntity({
     required this.invoiceNumber,
@@ -33,5 +34,7 @@ class OrderDetailsEntity {
     required this.discountAmount,
     required this.discountCode,
     required this.finalTotal,
+    this.serviceId,
   });
 }
+

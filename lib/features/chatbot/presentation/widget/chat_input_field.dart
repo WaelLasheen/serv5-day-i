@@ -39,7 +39,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
       children: [
         Container(height: 1, color: theme.boarderPrimary),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           decoration: BoxDecoration(
             color: theme.surfaceColor,
             borderRadius: BorderRadius.only(
@@ -53,26 +53,29 @@ class _ChatInputFieldState extends State<ChatInputField> {
               children: [
                 Expanded(
                   child: Container(
-                    height: 44.h,
+                    height: 48.h,
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
                     decoration: BoxDecoration(
                       color: theme.surfaceColor,
-                      border: Border.all(color: theme.grey600, width: 1.5),
+                      border: Border.all(color: theme.grey600.withValues(alpha: 0.5), width: 1.2),
                       borderRadius: BorderRadius.circular(48.r),
                     ),
                     child: Row(
                       children: [
-                        SizedBox(width: 16.w),
-                        Icon(Icons.mic_none, color: theme.grey600, size: 20.r),
-                        SizedBox(width: 8.w),
                         Expanded(
                           child: TextField(
                             controller: _controller,
                             onSubmitted: (_) => _handleSend(),
+                            style: TextStyle(
+                              fontFamily: 'Rubik',
+                              fontSize: 15.sp,
+                              color: theme.textPrimary,
+                            ),
                             decoration: InputDecoration(
                               hintText: S.of(context).typeMessage,
                               hintStyle: TextStyle(
                                 fontFamily: 'Rubik',
-                                fontSize: 16.sp,
+                                fontSize: 15.sp,
                                 color: theme.grey600,
                               ),
                               border: InputBorder.none,
@@ -85,17 +88,18 @@ class _ChatInputFieldState extends State<ChatInputField> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 16.w),
+                        SizedBox(width: 8.w),
+                        Icon(Icons.mic_none, color: theme.grey600, size: 22.r),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(width: 16.w),
+                SizedBox(width: 12.w),
                 GestureDetector(
                   onTap: _handleSend,
                   child: Container(
-                    width: 44.r,
-                    height: 44.r,
+                    width: 48.r,
+                    height: 48.r,
                     decoration: BoxDecoration(
                       color: theme.primaryColor,
                       shape: BoxShape.circle,
@@ -106,7 +110,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
                         child: Icon(
                           Icons.send_rounded,
                           color: theme.surfaceColor,
-                          size: 20.r,
+                          size: 22.r,
                         ),
                       ),
                     ),

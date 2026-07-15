@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/core/theme/app_theme.dart';
 import 'package:day_i/core/theme/font_styles.dart';
-import 'package:day_i/features/services/presentation/widget/pagination_widget.dart';
 import 'package:day_i/features/services/presentation/widget/service_category_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
@@ -24,6 +23,7 @@ class ServicesScreen extends StatefulWidget {
 class _ServicesScreenState extends State<ServicesScreen> {
   final ScrollController _scrollController = ScrollController();
   final Map<int, GlobalKey> _categoryKeys = {};
+  bool _hasScrolledToInitial = false;
 
   @override
   void dispose() {
@@ -32,15 +32,30 @@ class _ServicesScreenState extends State<ServicesScreen> {
   }
 
   void _scrollToCategory(int categoryId) {
-    final key = _categoryKeys[categoryId];
-    if (key == null) return;
-    final ctx = key.currentContext;
-    if (ctx == null) return;
-    Scrollable.ensureVisible(
-      ctx,
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final key = _categoryKeys[categoryId];
+      if (key == null) return;
+      final ctx = key.currentContext;
+      if (ctx == null) {
+        Future.delayed(const Duration(milliseconds: 150), () {
+          if (!mounted) return;
+          final retryCtx = _categoryKeys[categoryId]?.currentContext;
+          if (retryCtx != null && retryCtx.mounted) {
+            Scrollable.ensureVisible(
+              retryCtx,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeInOut,
+            );
+          }
+        });
+        return;
+      }
+      Scrollable.ensureVisible(
+        ctx,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
+    });
   }
 
   @override
@@ -60,15 +75,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
             fontSize: 20.sp,
           ),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Directionality.of(context) == TextDirection.rtl
-                ? Icons.arrow_forward_rounded
-                : Icons.arrow_back_rounded,
-            color: themeColors.primaryColor,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        automaticallyImplyLeading: false,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
           child: Container(color: themeColors.boarderPrimary, height: 1),
@@ -79,11 +86,11 @@ class _ServicesScreenState extends State<ServicesScreen> {
           if (state is ServiceFailure) {
             context.showErrorSnackBar(message: state.message);
           }
-          if (state is ServiceSuccess && widget.initialCategoryId != null) {
-            // Scroll after the frame is built
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _scrollToCategory(widget.initialCategoryId!);
-            });
+          if (state is ServiceSuccess &&
+              widget.initialCategoryId != null &&
+              !_hasScrolledToInitial) {
+            _hasScrolledToInitial = true;
+            _scrollToCategory(widget.initialCategoryId!);
           }
         },
         builder: (context, state) {
@@ -108,6 +115,11 @@ class _ServicesScreenState extends State<ServicesScreen> {
               _categoryKeys.putIfAbsent(cat.id, () => GlobalKey());
             }
 
+            if (widget.initialCategoryId != null && !_hasScrolledToInitial) {
+              _hasScrolledToInitial = true;
+              _scrollToCategory(widget.initialCategoryId!);
+            }
+
             return SingleChildScrollView(
               controller: _scrollController,
               physics: const BouncingScrollPhysics(),
@@ -121,7 +133,6 @@ class _ServicesScreenState extends State<ServicesScreen> {
                       child: ServiceCategoryWidget(mainServiceEntity: cat),
                     ),
                   ),
-                  PaginationWidget(themeColors: themeColors),
                 ],
               ),
             );

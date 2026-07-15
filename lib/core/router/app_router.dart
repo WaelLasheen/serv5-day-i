@@ -20,10 +20,10 @@ import 'package:day_i/features/auth/presentation/screen/reset_password_screen.da
 import 'package:day_i/features/nav_bar/presentation/screen/nav_bar_screen.dart';
 import 'package:day_i/features/profile/presentation/screen/profile_screen.dart';
 import 'package:day_i/features/services/presentation/screen/services_screen.dart';
+import 'package:day_i/features/services/presentation/screen/service_categories_screen.dart';
 import 'package:day_i/features/services/presentation/screen/service_details_screen.dart';
 import 'package:day_i/features/services/presentation/controller/service_details_cubit/service_details_cubit.dart';
 import 'package:day_i/features/services/presentation/controller/service_cubit/service_cubit.dart';
-import 'package:day_i/features/services/domain/use_case/get_services_use_case.dart';
 import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_contacts_screen.dart';
 import 'package:day_i/features/edit_profile_contacts/presentation/screen/edit_profile_change_password_screen.dart';
 import 'package:day_i/features/pricing_plans/presentation/screen/pricing_plans_screen.dart';
@@ -117,15 +117,24 @@ class AppRouter {
       case RouterPath.navBar:
         return MaterialPageRoute(builder: (context) => const NavBarScreen());
 
+      case RouterPath.serviceCategories:
+        return MaterialPageRoute(
+          builder: (context) {
+            final lang = Localizations.localeOf(context).languageCode;
+            return BlocProvider.value(
+              value: getIt<ServiceCubit>()..getServices(lang),
+              child: const ServiceCategoriesScreen(),
+            );
+          },
+        );
+
       case RouterPath.services:
         return MaterialPageRoute(
           builder: (context) {
             final lang = Localizations.localeOf(context).languageCode;
             final selectedCategoryId = settings.arguments as int?;
-            return BlocProvider(
-              create: (context) =>
-                  ServiceCubit(getServicesUseCase: getIt<GetServicesUseCase>())
-                    ..getServices(lang),
+            return BlocProvider.value(
+              value: getIt<ServiceCubit>()..getServices(lang),
               child: ServicesScreen(initialCategoryId: selectedCategoryId),
             );
           },

@@ -1,4 +1,5 @@
 import 'package:day_i/generated/l10n.dart';
+import 'package:day_i/features/order_history/data/data_sources/shared_orders_store.dart';
 import '../models/order_details_model.dart';
 
 abstract class OrderDetailsRemoteDataSource {
@@ -8,27 +9,41 @@ abstract class OrderDetailsRemoteDataSource {
 class OrderDetailsRemoteDataSourceImpl implements OrderDetailsRemoteDataSource {
   @override
   Future<OrderDetailsModel> getOrderDetails(String orderId) async {
-    // Mocking a network delay
-    await Future.delayed(const Duration(seconds: 1));
+    final order = SharedOrdersStore.getOrderById(orderId);
+    if (order == null) {
+      throw Exception(S.current.noServicesAvailable);
+    }
 
-    // Returning mock data as requested
+    final String code = order.code;
+    final String title = order.title;
+    final String category = order.category ?? '';
+    final double price = order.budget;
+    final String dateStr = order.date;
+    final String statusStr = order.status;
+    final int execDays = order.executionDays ?? 0;
+    final int serviceId = order.serviceId ?? order.id;
+
+    final double tax = price * 0.15;
+    final double total = price + tax;
+
     return OrderDetailsModel(
-      invoiceNumber: 'INV-2024-089#',
-      invoiceDate: S.current.mockOrderDate1,
-      paymentTime: '2:45 PM',
-      orderNumber: 'ORD-99210',
-      paymentMethod: S.current.mockPaymentCreditCard,
-      status: S.current.mockStatusPaid,
-      customerName: S.current.mockCustomerName,
-      customerEmail: 'example@gmail.com',
-      serviceName: S.current.mockServiceAdCampaign,
-      serviceCategory: S.current.mockServiceDigitalMarketing,
-      executionDays: 12,
-      servicePrice: 2500.0,
-      taxAmount: 375.0,
-      discountAmount: 250.0,
-      discountCode: 'HUB20',
-      finalTotal: 2625.0,
+      invoiceNumber: 'INV-$code',
+      invoiceDate: dateStr,
+      paymentTime: '',
+      orderNumber: code,
+      paymentMethod: '',
+      status: statusStr,
+      customerName: '',
+      customerEmail: '',
+      serviceName: title,
+      serviceCategory: category,
+      executionDays: execDays,
+      servicePrice: price,
+      taxAmount: tax,
+      discountAmount: 0.0,
+      discountCode: '',
+      finalTotal: total,
+      serviceId: serviceId,
     );
   }
 }

@@ -11,7 +11,8 @@ import 'package:day_i/features/chatbot/presentation/widget/user_message_bubble.d
 import 'package:day_i/features/chatbot/presentation/widget/chat_input_field.dart';
 import 'package:day_i/features/chatbot/presentation/widget/service_suggestion_chip.dart';
 import 'package:day_i/core/utils/extensions/get_app_theme.dart';
-import 'package:intl/intl.dart';
+import 'package:day_i/core/utils/extensions/snack_bar_extension.dart';
+import 'package:intl/intl.dart' hide TextDirection;
 
 class ChatbotScreen extends StatelessWidget {
   const ChatbotScreen({super.key});
@@ -20,20 +21,21 @@ class ChatbotScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<ChatbotCubit>(),
-      child: const _ChatbotScreenContent(),
+      child: const _ChatbotScreenBody(),
     );
   }
 }
 
-class _ChatbotScreenContent extends StatefulWidget {
-  const _ChatbotScreenContent();
+class _ChatbotScreenBody extends StatefulWidget {
+  const _ChatbotScreenBody();
 
   @override
-  State<_ChatbotScreenContent> createState() => _ChatbotScreenContentState();
+  State<_ChatbotScreenBody> createState() => _ChatbotScreenBodyState();
 }
 
-class _ChatbotScreenContentState extends State<_ChatbotScreenContent> {
+class _ChatbotScreenBodyState extends State<_ChatbotScreenBody> {
   final ScrollController _scrollController = ScrollController();
+  final TextEditingController _textController = TextEditingController();
   bool _isInitialized = false;
 
   @override
@@ -48,16 +50,23 @@ class _ChatbotScreenContentState extends State<_ChatbotScreenContent> {
     }
   }
 
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _textController.dispose();
+    super.dispose();
+  }
+
   void _scrollToBottom() {
-    if (_scrollController.hasClients) {
-      Future.delayed(const Duration(milliseconds: 100), () {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
-      });
-    }
+      }
+    });
   }
 
   @override
@@ -74,8 +83,9 @@ class _ChatbotScreenContentState extends State<_ChatbotScreenContent> {
               listener: (context, state) {
                 _scrollToBottom();
                 if (state is ChatbotFailure) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(state.error)),
+                  context.showErrorSnackBar(
+                    message: state.error,
+                    avoidBotButton: false,
                   );
                 }
               },
@@ -88,15 +98,17 @@ class _ChatbotScreenContentState extends State<_ChatbotScreenContent> {
                             ? state.messages
                             : [];
 
+                final isLoading = state is ChatbotLoading;
+
                 return ListView.builder(
                   controller: _scrollController,
                   padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-                  itemCount: messages.length + 1, // +1 for date header or loading
+                  itemCount: messages.length + 1 + (isLoading ? 1 : 0),
                   itemBuilder: (context, index) {
                     if (index == 0) {
                       return Center(
                         child: Padding(
-                          padding: EdgeInsets.only(bottom: 16.h),
+                          padding: EdgeInsets.only(bottom: 20.h),
                           child: Text(
                             DateFormat('EEE h:mm a').format(DateTime.now()),
                             style: TextStyle(
@@ -109,16 +121,20 @@ class _ChatbotScreenContentState extends State<_ChatbotScreenContent> {
                       );
                     }
 
+                    if (isLoading && index == messages.length + 1) {
+                      return const _BotTypingBubble();
+                    }
+
                     final msg = messages[index - 1];
 
                     if (msg.isUser) {
                       return Padding(
-                        padding: EdgeInsets.only(bottom: 24.h),
+                        padding: EdgeInsets.only(bottom: 20.h),
                         child: UserMessageBubble(text: msg.text),
                       );
                     } else {
                       return Padding(
-                        padding: EdgeInsets.only(bottom: 24.h),
+                        padding: EdgeInsets.only(bottom: 20.h),
                         child: BotMessageBubble(
                           text: msg.text,
                           content: msg.suggestedServices.isNotEmpty
@@ -126,7 +142,9 @@ class _ChatbotScreenContentState extends State<_ChatbotScreenContent> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: msg.suggestedServices
                                       .map<Widget>((e) {
-                                        final text = (e is Map) ? e['name']?.toString() ?? e.toString() : e.toString();
+                                        final text = (e is Map)
+                                            ? e['name']?.toString() ?? e.toString()
+                                            : e.toString();
                                         return ServiceSuggestionChip(text: text);
                                       })
                                       .toList(),
@@ -140,22 +158,80 @@ class _ChatbotScreenContentState extends State<_ChatbotScreenContent> {
               },
             ),
           ),
-          BlocBuilder<ChatbotCubit, ChatbotState>(
-            builder: (context, state) {
-              if (state is ChatbotLoading) {
-                return Padding(
-                  padding: EdgeInsets.all(8.r),
-                  child: const CircularProgressIndicator(),
-                );
-              }
-              return const SizedBox.shrink();
-            },
-          ),
           ChatInputField(
             onSend: (text) {
               final lang = Localizations.localeOf(context).languageCode;
               context.read<ChatbotCubit>().sendMessage(text, lang);
             },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _BotTypingBubble extends StatelessWidget {
+  const _BotTypingBubble();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = context.appTheme;
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: 20.h),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 36.r,
+            height: 36.r,
+            decoration: const BoxDecoration(
+              color: Color(0xFFEDEDFC),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Icon(
+                Icons.smart_toy_outlined,
+                color: theme.primaryColor,
+                size: 20.r,
+              ),
+            ),
+          ),
+          SizedBox(width: 10.w),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 14.h),
+            decoration: BoxDecoration(
+              color: theme.grey200,
+              borderRadius: BorderRadiusDirectional.only(
+                topStart: Radius.zero,
+                topEnd: Radius.circular(24.r),
+                bottomStart: Radius.circular(24.r),
+                bottomEnd: Radius.circular(24.r),
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 18.r,
+                  height: 18.r,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.2,
+                    color: theme.primaryColor,
+                  ),
+                ),
+                SizedBox(width: 10.w),
+                Text(
+                  isRtl ? 'جاري التحضير...' : 'Typing...',
+                  style: TextStyle(
+                    fontFamily: 'Rubik',
+                    fontSize: 14.sp,
+                    color: theme.grey600,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

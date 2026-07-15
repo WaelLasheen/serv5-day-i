@@ -34,17 +34,31 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     return result.fold((failure) => Left(failure), (response) => Right(null));
   }
 
+  List<dynamic> _extractList(dynamic responseData) {
+    if (responseData is List) {
+      return responseData;
+    }
+    if (responseData is Map) {
+      final data = responseData['data'] ?? responseData['companies'];
+      if (data is List) {
+        return data;
+      }
+    }
+    return [];
+  }
+
   @override
   Future<Either<Failure, List<CompanyModel>>> getCompanies() async {
     final result = await _apiService.get(ApiConstants.companies);
 
     return result.fold(
       (failure) => Left(failure),
-      (response) => Right(
-        (response.data['data'] as List)
-            .map((e) => CompanyModel.fromJson(e))
-            .toList(),
-      ),
+      (response) {
+        final list = _extractList(response.data);
+        return Right(
+          list.map((e) => CompanyModel.fromJson(e)).toList(),
+        );
+      },
     );
   }
 

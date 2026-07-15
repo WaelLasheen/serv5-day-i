@@ -24,8 +24,6 @@ class ServiceCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
-    final isRtl = Directionality.of(context) == TextDirection.rtl;
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -45,7 +43,7 @@ class ServiceCategoriesWidget extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, RouterPath.services);
+                  Navigator.pushNamed(context, RouterPath.serviceCategories);
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -58,14 +56,6 @@ class ServiceCategoriesWidget extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         fontSize: 13.sp,
                       ),
-                    ),
-                    SizedBox(width: 8.w),
-                    Icon(
-                      isRtl
-                          ? Icons.arrow_back_rounded
-                          : Icons.arrow_forward_rounded,
-                      size: 14.r,
-                      color: theme.primaryColor,
                     ),
                   ],
                 ),
@@ -82,14 +72,14 @@ class ServiceCategoriesWidget extends StatelessWidget {
 
               if (state is ServiceSuccess && state.services.isNotEmpty) {
                 final categories = state.services;
+
                 return SizedBox(
-                  height: 90.h,
+                  height: 92.h,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     itemCount: categories.length,
-                    separatorBuilder: (context, index) =>
-                        SizedBox(width: 16.w),
+                    separatorBuilder: (context, index) => SizedBox(width: 14.w),
                     itemBuilder: (context, index) {
                       final category = categories[index];
                       final icon =
@@ -103,35 +93,48 @@ class ServiceCategoriesWidget extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          width: 90.w,
-                          height: 90.h,
-                          padding: EdgeInsets.all(10.w),
+                          width: 102.w,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 6.w,
+                            vertical: 8.h,
+                          ),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF5F5F5),
-                            borderRadius: BorderRadius.circular(8.r),
-                            border: Border.all(color: const Color(0xFFDEDEDE)),
+                            color: const Color(0xFFFAF8FF),
+                            borderRadius: BorderRadius.circular(12.r),
+                            border: Border.all(
+                              color: const Color(
+                                0xFF6C63FF,
+                              ).withValues(alpha: 0.5),
+                              width: 1.2,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(
+                                  0xFF6C63FF,
+                                ).withValues(alpha: 0.08),
+                                blurRadius: 6,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                icon,
-                                color: theme.primaryColor,
-                                size: 24.r,
-                              ),
-                              SizedBox(height: 8.h),
+                              Icon(icon, color: theme.primaryColor, size: 22.r),
+                              SizedBox(height: 6.h),
                               Flexible(
                                 child: Text(
                                   category.title,
                                   textAlign: TextAlign.center,
-                                  maxLines: 1,
+                                  maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     fontFamily: 'Rubik',
-                                    color: const Color(0xFF636262),
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 12.sp,
+                                    color: const Color(0xFF121212),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 11.5.sp,
+                                    height: 1.2,
                                   ),
                                 ),
                               ),
@@ -144,7 +147,40 @@ class ServiceCategoriesWidget extends StatelessWidget {
                 );
               }
 
-              // Fallback: show shimmer on failure or empty
+              if (state is ServiceFailure) {
+                return Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    child: Text(
+                      state.message,
+                      style: TextStyle(
+                        fontFamily: 'Rubik',
+                        color: Colors.red,
+                        fontSize: 13.sp,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                );
+              }
+
+              if (state is ServiceSuccess && state.services.isEmpty) {
+                return Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    child: Text(
+                      S.of(context).noServicesAvailable,
+                      style: TextStyle(
+                        fontFamily: 'Rubik',
+                        color: const Color(0xFF636262),
+                        fontSize: 13.sp,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                );
+              }
+
               return _buildShimmer();
             },
           ),
@@ -155,18 +191,18 @@ class ServiceCategoriesWidget extends StatelessWidget {
 
   Widget _buildShimmer() {
     return SizedBox(
-      height: 90.h,
+      height: 92.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 4,
-        separatorBuilder: (_, __) => SizedBox(width: 16.w),
+        separatorBuilder: (_, __) => SizedBox(width: 14.w),
         itemBuilder: (_, __) => Container(
-          width: 90.w,
-          height: 90.h,
+          width: 102.w,
+          height: 92.h,
           decoration: BoxDecoration(
             color: const Color(0xFFEEEEEE),
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(12.r),
           ),
         ),
       ),

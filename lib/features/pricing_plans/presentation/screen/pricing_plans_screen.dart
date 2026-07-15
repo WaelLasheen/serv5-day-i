@@ -56,18 +56,8 @@ class _PricingPlansView extends StatelessWidget {
                 SizedBox(height: 20.h),
 
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      onPressed: () => Navigator.maybePop(context),
-                      icon: Icon(
-                        Directionality.of(context) == TextDirection.rtl 
-                            ? Icons.arrow_forward_rounded 
-                            : Icons.arrow_back_rounded,
-                        color: theme.primaryColor,
-                        size: 20.r,
-                      ),
-                    ),
                     Text(
                       S.of(context).subscriptions,
                       style: FontStyles.h3.copyWith(
@@ -76,7 +66,6 @@ class _PricingPlansView extends StatelessWidget {
                         fontSize: 20.sp,
                       ),
                     ),
-                    const SizedBox(width: 48),
                   ],
                 ),
                 SizedBox(height: 24.h),

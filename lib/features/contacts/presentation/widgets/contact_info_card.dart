@@ -1,6 +1,8 @@
 import 'package:day_i/core/theme/font_styles.dart';
+import 'package:day_i/core/utils/extensions/snack_bar_extension.dart';
 import 'package:day_i/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:day_i/features/contacts/data/models/contact_info_model.dart';
 
@@ -118,7 +120,15 @@ class ContactInfoCard extends StatelessWidget {
                     color: Color(0xFF4F46E5),
                     size: 20,
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await Clipboard.setData(ClipboardData(text: value));
+                    if (context.mounted) {
+                      final isRtl = Directionality.of(context) == TextDirection.rtl;
+                      context.showSuccessSnackBar(
+                        message: isRtl ? 'تم النسخ بنجاح: $value' : 'Copied successfully: $value',
+                      );
+                    }
+                  },
                 ),
               ),
             ],

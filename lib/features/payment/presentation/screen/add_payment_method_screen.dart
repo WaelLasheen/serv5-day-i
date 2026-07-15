@@ -53,17 +53,7 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
             color: appTheme.textPrimary,
           ),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Directionality.of(context) == TextDirection.rtl
-                ? Icons.arrow_forward_rounded
-                : Icons.arrow_back_rounded,
-            color: appTheme.primaryColor,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
